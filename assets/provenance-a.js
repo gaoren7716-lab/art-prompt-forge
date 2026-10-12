@@ -1,0 +1,137 @@
+/* ============================================================
+ * provenance-a.js —— 来源与许可（一）：外部标准与词表
+ *
+ * 这一层的作用是「不重复发明分类法」。
+ * 我们自己的 medium / brush / space 分类是给提示词用的，
+ * 艺术史界的既有标准是给检索与互操作用的，两套要能对齐，
+ * 所以这里登记外部标准的实际接口现状（很多老文档已经过期）。
+ *
+ * 关键事实（2026-10 核对）：Getty Vocabularies 已全面转向 LOD，
+ * XML 与关系表格式停止发布，旧的 XML web services 与 CONA/IA web
+ * services 已废弃。做 Getty 对齐只能走 SPARQL。
+ * ============================================================ */
+if (typeof module !== "undefined" && module.exports) var PROVENANCE = require("./data-core.js").PROVENANCE;
+
+PROVENANCE.push(
+{ id:"PV-01", cat:"standard", zh:"盖蒂艺术与建筑词典", en:"Getty AAT",
+  org:"Getty Research Institute",
+  uri:"http://vocab.getty.edu/aat/",
+  query:"SPARQL endpoint vocab.getty.edu",
+  license:"ODC-By 1.0",
+  commercial:true, attribution:true,
+  scale:"约5 万条术语",
+  align:["MEDIUMS","OPTICS.肌理与呈现","SUBJECTS"],
+  status:"reviewed",
+  fact:"AAT 收录艺术、建筑、博物馆、考古相关术语约五万条，覆盖材料、技法、风格、类型与职业。",
+  seen:"按概念而非按词语组织，同一概念下挂多种同义词与窄义词，这是它比自由关键词表强的地方。",
+  read:"本库用它校核 MEDIUMS 的材料与技术名词是否用对了层级，避免把「丙烯」和「水溶性丙烯」并列成同义词。",
+  note:"接口现状：只提供 LOD 与 SPARQL，XML web services 与 CONA/IA web services 已废弃。写爬虫前先看 http://vocab.getty.edu/ 的最新说明。",
+  src:"Getty Vocabularies 官方发布说明", retrieved:"2026-10" },
+
+{ id:"PV-02", cat:"standard", zh:"盖蒂艺术家联合名录", en:"Getty ULAN",
+  org:"Getty Research Institute",
+  uri:"http://vocab.getty.edu/ulan/",
+  query:"SPARQL endpoint vocab.getty.edu",
+  license:"ODC-By 1.0",
+  commercial:true, attribution:true,
+  scale:"约22.5 万条姓名记录",
+  align:["PAINTERS"],
+  status:"reviewed",
+  fact:"ULAN 收录约二十二万五千条艺术家姓名记录，含本名、变体名、伪名、身份与国别。",
+  seen:"一个人会有多条记录，用 400 身份字段合并；姓名变体（ Isabella Stewart Gardner 这类本名与通行名分离）是它最有价值的地方。",
+  read:"PAINTERS 的 en 字段目前写通行名，与 ULAN 主记录未必一致；要严格互操作时应额外存一条 ULAN 标引符。",
+  note:"同样已废弃 XML 接口，只走 SPARQL。画家的作品归属关系可用 ULAN 关联到 TGN 的地点与 TGN 的时间段。",
+  src:"Getty Vocabularies 官方发布说明", retrieved:"2026-10" },
+
+{ id:"PV-03", cat:"standard", zh:"盖蒂地名词典", en:"Getty TGN",
+  org:"Getty Research Institute",
+  uri:"http://vocab.getty.edu/tgn/",
+  query:"SPARQL endpoint vocab.getty.edu",
+  license:"ODC-By 1.0",
+  commercial:true, attribution:true,
+  scale:"约130 万条地名",
+  align:["PAINTERS.region","MOVEMENTS"],
+  status:"reviewed",
+  fact:"TGN 收录约一百三十万条地名与行政区划记录，含历史名称与坐标。",
+  seen:"历史地名是它的强项：某个画家所在的小镇在不同年代有不同名字与所属国。",
+  read:"PAINTERS.region 目前写「中国」这类粗粒度值，若要与 TGN 对齐需要拆成城市 / 省份 / 国家三级。",
+  note:"与 ULAN 之间有「活动于」关系，可用于校验画家的地域标签是否离谱。",
+  src:"Getty Vocabularies 官方发布说明", retrieved:"2026-10" },
+
+{ id:"PV-04", cat:"standard", zh:"图标分类法", en:"Iconclass",
+  org:"RKD / Iconclass",
+  uri:"https://iconclass.org/",
+  query:"本体下载（JSON / RDF），或 iconclass.org 的检索接口",
+  license:"CC-BY-SA 4.0（分类法本体）",
+  commercial:true, attribution:true,
+  scale:"约1.5 万个主题类目，含约8 万条图像类目",
+  align:["SUBJECTS","WORKS.motif"],
+  status:"reviewed",
+  fact:"Iconclass 是为图像内容设计的层级分类法，码位分段编码，例如「山水」下再分「水面」「雨」等可独立标注的细节。",
+  seen:"它标的是「画里有什么」，不标「画得怎么样」，因此不能替代本库的七面，只能补 motif 那一面。",
+  read:"WORKS.motif 目前是自由词，若要跨机构检索，用 Iconclass 码位对齐会比英文词可靠。",
+  note:"注意许可：本体是 CC-BY-SA，属于 copyleft 类，商用没问题，但派生分类法需要同样以相同方式共享。",
+  src:"iconclass.org 官方说明", retrieved:"2026-10" },
+
+{ id:"PV-05", cat:"standard", zh:"维基数据", en:"Wikidata",
+  org:"Wikimedia Foundation",
+  uri:"https://www.wikidata.org/",
+  query:"https://query.wikidata.org/sparql",
+  license:"CC0 1.0",
+  commercial:true, attribution:false,
+  scale:"超过1 亿个条目",
+  align:["PAINTERS","WORKS","MOVEMENTS"],
+  status:"reviewed",
+  fact:"Wikidata 的 QID 是最方便的通用实体标识，画家、作品、收藏机构、创作地都有对应条目，许可为 CC0。",
+  seen:"QID 一旦确定就不会变，比字符串名字稳定得多；缺点是模型训练集里太热门的人物条目往往被社区写得过度编辑。",
+  read:"PAINTERS 与 WORKS 的 src 字段里应存 QID，这样外部工具能直接接上，而不必做名称模糊匹配。",
+  note:"许可最友好的一档，CC0 无需署名，可直接进商业流程。",
+  src:"wikidata.org 许可页", retrieved:"2026-10" },
+
+{ id:"PV-06", cat:"standard", zh:"链接艺术格式", en:"Linked Art",
+  org:"Linked Art Editorial Board",
+  uri:"https://linked.art/",
+  query:"各机构自建的 /api endpoint，路径通常是 /api/v1/ 或由根 context 声明",
+  license:"各机构自定（数据内容随本体许可）",
+  commercial:true, attribution:true,
+  scale:"跨机构统一的文化遗产描述格式",
+  align:["WORKS.collection","WORKS.src"],
+  status:"reviewed",
+  fact:"Linked Art 规定了各博物馆 API 的统一外形：所有记录都是带类型标记的文档，顶层 context 声明模型，节点之间用 节点 ID 串起来。",
+  seen:"实际价值在于「三跳」：从作品记录出发，经由 拥有者 跳到 数字对象 才能拿到图片 URL，中间不能省。",
+  read:"WORKS.src 里存机构 endpoint 与 accession number，即可按这套约定定位到具体记录，不用为每家写适配器。",
+  note:"踩过的坑：Rijksmuseum 的图片要从 access_point 里取 id 再拼 IIIF 地址，直接看 thumbnail 常拿到低分辨率或占位图。",
+  src:"Linked Art 规范与各馆 API 文档", retrieved:"2026-10" },
+
+{ id:"PV-07", cat:"standard", zh:"文化遗产官方元数据标准", en:"CIDOC CRM",
+  org:"ICOM",
+  uri:"https://www.cidoc-crm.org/",
+  query:"SPARQL（各机构自建端点，Getty 公共端点可直接查）",
+  license:"参考实现开放，实体许可各异",
+  commercial:true, attribution:true,
+  scale:"ISO 标准的关系模型，覆盖 130 余类事件与实体",
+  align:["RELATIONS"],
+  status:"reviewed",
+  fact:"CIDOC CRM 是国际博物馆协会的标准关系模型，把「谁在何时何地做了什么」表达成事件（E12 之类）而不是标签。",
+  seen:"它能表达本库关系表表达不出的东西：某幅画在某次展览被展出、某件材料在某工场被制作。",
+  read:"RELATIONS 的类型词表按 CRM 的思路设计：谁、做了什么、对象是谁、时间地点分别是独立字段，而不是一句话。",
+  note:"学习成本高，本库只用它的思路不做完整对齐；需要跨机构分析时再上 SPARQL。",
+  src:"ICOM CIDOC CRM 官方文档", retrieved:"2026-10" },
+
+{ id:"PV-08", cat:"standard", zh:"欧洲文化遗产聚合门户", en:"Europeana Data Model",
+  org:"Europeana Foundation",
+  uri:"https://pro.europeana.eu/",
+  query:"Europeana Search API（需注册取 apiKey，日配额按账号发放）",
+  license:"元数据 CC0，图片权利各异",
+  commercial:true, attribution:true,
+  scale:"数千万件文化遗产记录聚合",
+  align:["WORKS.collection"],
+  status:"reviewed",
+  fact:"Europeana 聚合欧洲各馆记录，提供统一检索接口；元数据多为 CC0，但图片权利按馆而异。",
+  seen:"它的 edm:rights 字段是判断能不能商用的直接依据，比猜靠谱。",
+  read:"WORKS.src 存 Europeana 记录 id 时必须同时存权利字段，否则容易把禁止商用的图当成可用素材。",
+  note:"需要 apiKey，免费注册；配额按账号发放，批量任务要注意限流。",
+  src:"Europeana Data Space 官方文档", retrieved:"2026-10" }
+);
+
+if (typeof module !== "undefined" && module.exports) module.exports = { PROVENANCE };

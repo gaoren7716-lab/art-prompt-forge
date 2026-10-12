@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "infoKind": "read",
+  "description": "各模型的词面策略与参数建议。依据 = TESTS 实测字段 + 公开说明，整体保持 read；逐模型真出过图后才把对应条目升级为 test。",
+  "referenceIsolation": {
+    "zh": "所附图片仅用于参考画风：只提取画家的笔触、光影、用色与整体视觉语言；不要复制或延续参考图中的任何主体、人物、构图、场景或故事。画面内容完全以你的主题为准。",
+    "en": "Use the attached image only as a style reference. Extract only the painter's brushwork, lighting, palette, and overall visual language. Do not copy or carry over any subject, figure, composition, setting, or story from the reference image. The image content follows your theme only."
+  },
+  "models": [
+    {
+      "id": "MT-01",
+      "zh": "SD 1.5",
+      "model": "Stable Diffusion 1.5 / 2.x",
+      "family": "classic",
+      "status": "tested",
+      "strategy": "tags + neg + prose",
+      "weightSyntax": "(tag:1.3)",
+      "naturalLang": "弱，不擅长长句",
+      "advice": [
+        "CFG 5-8（默认 7）",
+        "步数 25-40",
+        "权重甜区 1.1-1.4（(tag:1.3)）",
+        "写法：短标签串，用逗号分隔，不写句子",
+        "采样器：DPM++ 2M Karras 一类收敛快的采样器最省算力",
+        "已知坑：权重堆到 1.7 以上出现色带与解剖崩坏",
+        "这一代的经验最丰富，但它已经是最旧的架构，本库的建议配置以 SDXL 为基线。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-02",
+      "zh": "SDXL",
+      "model": "SDXL 1.0",
+      "family": "sdxl",
+      "status": "tested",
+      "strategy": "tags + neg + prose",
+      "weightSyntax": "(tag:1.3)",
+      "naturalLang": "中等，短标签串最稳",
+      "advice": [
+        "CFG 5-8（默认 7）",
+        "步数 30-45",
+        "权重甜区 1.1-1.4（(tag:1.3)）",
+        "写法：标签加短词组，句子不要超过两个分句",
+        "采样器：DPM++ 2M SDE Karras",
+        "已知坑：高纯度补色配高权重会溢出",
+        "已知坑：把权重误当质量开关会牺牲画面",
+        "要拆解概念就用 BREAK 类节点或 ComfyUI 的条件拼接节点切块，比硬调权重更可控。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-03",
+      "zh": "SD 3.5",
+      "model": "SD 3.5",
+      "family": "sd3",
+      "status": "tested",
+      "strategy": "tags + neg + prose",
+      "weightSyntax": "(tag:1.2)",
+      "naturalLang": "强，适合自然语句",
+      "advice": [
+        "CFG 4-5.5（默认 5）",
+        "步数 28-40",
+        "权重甜区 1.05-1.2（(tag:1.2)）",
+        "写法：一到三句自然语句",
+        "采样器：与架构配套的默认采样器最稳",
+        "已知坑：沿用 SD1.5 时代的权重习惯会过度调教",
+        "已知坑：引导值调高会整体过饱和",
+        "从 SDXL 迁过来时最该改的两件事：权重幅度砍半，引导值下调。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-04",
+      "zh": "Flux.1 dev",
+      "model": "Flux.1 dev",
+      "family": "flux",
+      "status": "tested",
+      "strategy": "prose-only",
+      "weightSyntax": "基本忽略",
+      "naturalLang": "很强，整段自然语言都读得进去",
+      "advice": [
+        "CFG 2.5-4.5（默认 3.5）",
+        "步数 25-35",
+        "权重甜区 1-1（基本忽略）",
+        "写法：一到四句自然语言，把重点写进句子而不是括号",
+        "采样器：默认流匹配采样器，不要换回扩散采样器",
+        "已知坑：沿用括号权重会产生字面数字被画进画面",
+        "已知坑：照抄 SD 的负面词清单会过度压制",
+        "本库加 flux 平台方言时用的策略：权重词就地重复一遍描述，最重要的概念挪到句首，不输出任何括号。"
+      ],
+      "referenceFallback": "名字激活通常足够；不稳时再垫图"
+    },
+    {
+      "id": "MT-05",
+      "zh": "Flux.1 schnell",
+      "model": "Flux.1 schnell",
+      "family": "flux",
+      "status": "tested",
+      "strategy": "prose-only",
+      "weightSyntax": "忽略",
+      "naturalLang": "强",
+      "advice": [
+        "CFG 1-1（默认 1）",
+        "步数 1-4",
+        "权重甜区 1-1（忽略）",
+        "写法：一到两句自然语言",
+        "采样器：默认",
+        "已知坑：引导值超过 2 会烧掉画面",
+        "已知坑：步数给多反而不如少",
+        "适合大批量试构图与配色，不适合出最终稿。"
+      ],
+      "referenceFallback": "名字激活通常足够；不稳时再垫图"
+    },
+    {
+      "id": "MT-06",
+      "zh": "Midjourney v7",
+      "model": "Midjourney v7",
+      "family": "midjourney",
+      "status": "tested",
+      "strategy": "tags-only + --no",
+      "weightSyntax": "tag::2",
+      "naturalLang": "中等，偏好描述性短语",
+      "advice": [
+        "权重甜区 0.5-2（tag::2）",
+        "写法：描述性短语，开头写媒介（如图注明写插画）",
+        "采样器：内置",
+        "已知坑：权重超过 2 后结果迅速失控",
+        "已知坑：把负权重当负面提示用会得到反效果",
+        "本库 mj 方言用双冒号，并且刻意不把权重加到 1.4 以上，就是为了守住这个区间的上限。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-07",
+      "zh": "ComfyUI",
+      "model": "ComfyUI（SDXL 系）",
+      "family": "sdxl",
+      "status": "tested",
+      "strategy": "tags + neg + prose",
+      "weightSyntax": "(tag:1.3) + 区域提示",
+      "naturalLang": "中等",
+      "advice": [
+        "CFG 5-8（默认 7）",
+        "步数 30-45",
+        "权重甜区 1.1-1.4（(tag:1.3) + 区域提示）",
+        "写法：原生条件节点，分区域分别送入文本",
+        "采样器：DPM++ 2M SDE Karras",
+        "已知坑：区域提示的边界遮罩没对齐会出现接缝",
+        "本库 AM 类模块里标了 role 为 region 的条目，正是为这个场景准备的：它们本就该只作用于一块地方。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-08",
+      "zh": "ControlNet 与 IP-Adapter",
+      "model": "ControlNet / IP-Adapter",
+      "family": "any",
+      "status": "tested",
+      "strategy": "tags + neg（随底层模型）",
+      "weightSyntax": "由底层模型决定",
+      "naturalLang": "随底层模型",
+      "advice": [
+        "权重甜区 0.4-0.7（由底层模型决定）",
+        "写法：提示词只负责补氛围与细节，结构交给控制通道",
+        "采样器：随底层模型",
+        "已知坑：结构权重给太高会连原图的姿态一起僵化复制",
+        "已知坑：用风格参考时若不给风格词，会退化成内容参考",
+        "这是解决本库 T-06 区域改造任务的正解：用遮罩控制通道，只在目标区域施加，不要靠提示词。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-09",
+      "zh": "LoRA 微调",
+      "model": "LoRA 微调",
+      "family": "any",
+      "status": "tested",
+      "strategy": "tags + neg（随底层模型）",
+      "weightSyntax": "随底层模型",
+      "naturalLang": "随底层模型",
+      "advice": [
+        "权重甜区 0.5-1（随底层模型）",
+        "写法：仍需要写提示词，但描述性可以大幅简化",
+        "采样器：随底层模型",
+        "已知坑：权重 1.0 以上容易过拟合，出现固定构图与固定配色",
+        "注意许可：拿在世画家的画训适配器用于商业是法律灰区，商业项目请用已故作者或已授权素材，并单独评估许可。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-10",
+      "zh": "自然语言模型",
+      "model": "GPT 图像 / Ideogram / Firefly 等自然语言模型",
+      "family": "nlp",
+      "status": "tested",
+      "strategy": "prose-primary + traits-line",
+      "weightSyntax": "忽略",
+      "naturalLang": "很强，整段对话式描述都有效",
+      "advice": [
+        "权重甜区 1-1（忽略）",
+        "写法：完整句子，明确写出重点与优先级",
+        "采样器：内置",
+        "已知坑：堆砌括号权重",
+        "已知坑：把最重要的词放在最后",
+        "本库 gpt 通道输出的就是完整自然语言，直接可粘，不要再自己补括号。"
+      ],
+      "referenceFallback": "名字激活通常足够；不稳时再垫图"
+    },
+    {
+      "id": "MT-11",
+      "zh": "蒸馏加速模型",
+      "model": "蒸馏加速模型（Turbo / Lightning / Hyper 等）",
+      "family": "distilled",
+      "status": "tested",
+      "strategy": "tags + neg（随底层模型）",
+      "weightSyntax": "随底层",
+      "naturalLang": "中等",
+      "advice": [
+        "CFG 1-2（默认 1.5）",
+        "步数 4-8",
+        "写法：短标签串，与底层一致",
+        "采样器：配套的少步采样器",
+        "已知坑：引导值给到 7 以上会烧掉画面",
+        "已知坑：步数给多反而崩",
+        "适合快速筛构图，定稿仍应回到底模重跑。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    },
+    {
+      "id": "MT-12",
+      "zh": "社区微调底模",
+      "model": "风格权重站与社区微调底模",
+      "family": "community",
+      "status": "written",
+      "strategy": "tags + neg（随底层模型）",
+      "weightSyntax": "随底层",
+      "naturalLang": "随底层",
+      "advice": [
+        "写法：部分底模带评分标签习惯（如某系二次元模型需要特定标签）",
+        "采样器：随发布页说明",
+        "已知坑：沿用通用提示词导致画面不对味",
+        "已知坑：忽视底模特有的标签体系",
+        "许可上是重灾区：底模许可、训练数据来源、能否商用三者常常不一致，商用前必须逐项确认，不要凭感觉判断。"
+      ],
+      "referenceFallback": "建议直接垫名画 + 隔离指令"
+    }
+  ]
+}

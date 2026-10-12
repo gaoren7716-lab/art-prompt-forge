@@ -1,0 +1,138 @@
+/* ============================================================
+ * optics.js —— 横切词条：镜头、光、色、肌理、密度
+ * 与画家不同，这一层是「谁都能用」的通用零件，按 slot 投放到对应的面。
+ *
+ * 每个词条都有独立编码，第二版补的。补之前这里只有 10 个组有 ID、
+ * 70 个词条只能靠英文裸词引用 —— 中文名根本没法用，
+ * 等于「想要哪一块」这个问题无法直接回答。
+ * zh 是人工定稿的短名，不是从 c 字段自动截的
+ * （「夜」「主体居中」这类截断结果不能当检索键）。
+ *
+ * ★ 词条上的 code 字段是**旧 ID**（O-01-001 这样），不是规范编码：
+ *   它是词条的主键，registry 拿它当 oldId 去 codes.js 派生规范码
+ *   （OP-001 这样）。规范编码是派生的、不写在这里 ——
+ *   写进来就变成两处维护，改一处必然与另一处漂移。
+ *   读 code 时必须过 REGISTRY 拿规范码：
+ *     var reg = REGISTRY.byCode(item.code);   // → OP-001
+ *   直接把 item.code 当规范码用，工作台会按新码查不到旧码的条目，
+ *   症状是「配方盘里有光学词条，但点「词」打不开提示词」。
+ * ============================================================ */
+if (typeof module !== "undefined" && module.exports) var OPTICS = require("./data-core.js").OPTICS;
+
+OPTICS.push(
+{ id:"O-01", zh:"光影", slot:"light", items:[
+  { code:"O-01-001", zh:"明暗对照", t:"chiaroscuro", c:"强侧光塑造体积，暗部吃掉一半画面" },
+  { code:"O-01-002", zh:"极端明暗", t:"tenebrism", c:"极端明暗，光束像刀一样劈下来" },
+  { code:"O-01-003", zh:"轮廓逆光", t:"rim light", c:"轮廓被背后的光勾出一道边" },
+  { code:"O-01-004", zh:"单侧窗光", t:"single window light", c:"单侧窗光，另一侧交给反射" },
+  { code:"O-01-005", zh:"天顶柔光", t:"diffused skylight", c:"天顶柔和罩下来的光，几乎无影" },
+  { code:"O-01-006", zh:"烛火光", t:"candlelight", c:"近距离火光，衰减极快，暖到发橙" },
+  { code:"O-01-007", zh:"逆光光晕", t:"backlight halo", c:"逆光勾边，主体压暗成剪影" },
+  { code:"O-01-008", zh:"反射补光", t:"reflected bounce light", c:"地面或墙反上来的二次光托住暗部" },
+  { code:"O-01-009", zh:"取消投影", t:"no cast shadow", c:"完全取消投影，画面转向平面" },
+  { code:"O-01-010", zh:"可见光柱", t:"dust beam volume", c:"可见的光柱与悬浮尘埃" }
+]},
+
+{ id:"O-02", zh:"时间与天候", slot:"light", items:[
+  { code:"O-02-001", zh:"黄金时刻", t:"golden hour", c:"日出日落，低角度暖长影" },
+  { code:"O-02-002", zh:"蓝调时刻", t:"blue hour", c:"日落后冷调，天空比地面亮" },
+  { code:"O-02-003", zh:"正午顶光", t:"high noon", c:"顶光，最短最硬的影子" },
+  { code:"O-02-004", zh:"阴天散射", t:"overcast grey day", c:"阴天柔光，色彩发闷" },
+  { code:"O-02-005", zh:"雨隙冷光", t:"storm breaking light", c:"暴雨间隙透出的一线冷光" },
+  { code:"O-02-006", zh:"深夜微光", t:"deep night noir", c:"夜，只有零星几点硬光" },
+  { code:"O-02-007", zh:"雾中散射", t:"fog diffused light", c:"雾中散射，对比被压到最低" },
+  { code:"O-02-008", zh:"雪地反光", t:"seasonal snow light", c:"雪地反射把暗部抬起来" }
+]},
+
+{ id:"O-03", zh:"空间透视", slot:"space", items:[
+  { code:"O-03-001", zh:"单点透视", t:"strict linear perspective", c:"严谨透视线收于单一灭点" },
+  { code:"O-03-002", zh:"空气透视", t:"atmospheric perspective", c:"越远越灰越冷越淡" },
+  { code:"O-03-003", zh:"平铺无纵深", t:"flattened stacked planes", c:"层层平铺，取消纵深" },
+  { code:"O-03-004", zh:"散点透视", t:"scattered perspective", c:"视点移动的多重视野" },
+  { code:"O-03-005", zh:"三段式纵深", t:"three distance depth", c:"高远平远深远三段式" },
+  { code:"O-03-006", zh:"夸张近大远小", t:"forced foreshortening", c:"夸张近大远小，把观者逼进去" },
+  { code:"O-03-007", zh:"浅浮雕厚度", t:"shallow relief depth", c:"只留一点点浅浮雕的厚度" },
+  { code:"O-03-008", zh:"轴测空间", t:"isometric space", c:"平行轴测，不走灭点" }
+]},
+
+{ id:"O-04", zh:"构图取景", slot:"space", items:[
+  { code:"O-04-001", zh:"三角构图", t:"pyramidal composition", c:"稳定的三角结构体" },
+  { code:"O-04-002", zh:"对角线推动", t:"diagonal thrust", c:"对角线推动，画面带方向感" },
+  { code:"O-04-003", zh:"主体居中留白", t:"center subject with void", c:"主体居中，四周大片空" },
+  { code:"O-04-004", zh:"失衡构图", t:"off-center imbalance", c:"故意失衡，制造心理不安" },
+  { code:"O-04-005", zh:"一角构图", t:"one corner composition", c:"只占一角，余下全留白" },
+  { code:"O-04-006", zh:"满框塞满", t:"crowded full frame", c:"塞满画框，没有喘息空间" },
+  { code:"O-04-007", zh:"高地平线", t:"high horizon line", c:"地平线抬到高处，强调地面" },
+  { code:"O-04-008", zh:"贴地仰视", t:"extreme low viewpoint", c:"贴地仰视，物体压向观者" },
+  { code:"O-04-009", zh:"高处俯视", t:"bird's eye view", c:"高处俯视，人物变成图案" },
+  { code:"O-04-010", zh:"截断式裁切", t:"cropped mid-action", c:"截断式裁切，动作溢出画外" }
+]},
+
+{ id:"O-05", zh:"色彩关系", slot:"color", items:[
+  { code:"O-05-001", zh:"补色并置", t:"complementary contrast", c:"补色并置，各自更凶" },
+  { code:"O-05-002", zh:"邻近色过渡", t:"analogous harmony", c:"邻近色缓慢过渡" },
+  { code:"O-05-003", zh:"限色三四色", t:"limited four colour scheme", c:"只用三四色，其余靠明度" },
+  { code:"O-05-004", zh:"灰调降纯度", t:"muted grey tonality", c:"纯度集体下调，靠明度说话" },
+  { code:"O-05-005", zh:"暗部用紫", t:"shadow rendered in violet", c:"暗部不用黑，改用紫" },
+  { code:"O-05-006", zh:"暖土色系", t:"earthy earth palette", c:"土红赭石橄榄的暖土系" },
+  { code:"O-05-007", zh:"单点纯色", t:"single accent colour", c:"全灰的局面里跳一点纯色" },
+  { code:"O-05-008", zh:"单色调铺满", t:"tonal monochrome", c:"单一色相铺满，只走浓淡" },
+  { code:"O-05-009", zh:"高调提亮", t:"high key", c:"整体提亮，以白与浅灰为底" },
+  { code:"O-05-010", zh:"低调压暗", t:"low key", c:"整体压暗，亮部极小极金贵" }
+]},
+
+{ id:"O-06", zh:"笔触控制", slot:"brush", items:[
+  { code:"O-06-001", zh:"笔触可见", t:"visible confident brushstroke", c:"笔触清晰可见，落笔不犹豫" },
+  { code:"O-06-002", zh:"笔触消失", t:"invisible blended surface", c:"笔触完全消失，表面像搪瓷" },
+  { code:"O-06-003", zh:"并置色块笔", t:"broken colour touch", c:"小笔道分开并置，不调和" },
+  { code:"O-06-004", zh:"干笔擦过", t:"dry brush scrape", c:"干笔拖过，留下纸底颗粒" },
+  { code:"O-06-005", zh:"方向长笔道", t:"loaded directional stroke", c:"方向一致的长笔道" },
+  { code:"O-06-006", zh:"挥扫大笔势", t:"gestural sweeping mark", c:"抡开手臂的一次性笔势" },
+  { code:"O-06-007", zh:"点状肌理", t:"stippled dot texture", c:"点状堆积代替平涂" },
+  { code:"O-06-008", zh:"排线换明度", t:"cross-hatch density", c:"排线密度换算成明度" }
+]},
+
+{ id:"O-07", zh:"肌理与呈现", slot:"medium", items:[
+  { code:"O-07-001", zh:"可见布纹", t:"canvas weave visible", c:"布纹透过颜料显示出来" },
+  { code:"O-07-002", zh:"龟裂网络", t:"craquelure network", c:"清漆龟裂细网" },
+  { code:"O-07-003", zh:"泛黄清漆", t:"yellowed varnish patina", c:"泛黄清漆罩出年代感" },
+  { code:"O-07-004", zh:"和纸纤维", t:"washi fibre texture", c:"和纸纤维与帘纹" },
+  { code:"O-07-005", zh:"灰泥剥落", t:"plaster loss and salt bloom", c:"灰泥剥落与盐霜" },
+  { code:"O-07-006", zh:"斜光扫厚涂", t:"raking light on impasto", c:"斜光扫过凸起的颜料" },
+  { code:"O-07-007", zh:"毛边洇开", t:"deckle edge and bleed", c:"毛边与颜料洇出去的边界" },
+  { code:"O-07-008", zh:"扫描布光", t:"museum scanner glow", c:"扫描式的均匀布光，带一点冷" }
+]},
+
+{ id:"O-08", zh:"气氛情绪", slot:"spirit", items:[
+  { code:"O-08-001", zh:"安静的哀伤", t:"quiet melancholy", c:"安静的哀伤，不诉苦" },
+  { code:"O-08-002", zh:"仪式庄重", t:"ceremonial solemnity", c:"仪式的庄重与距离感" },
+  { code:"O-08-003", zh:"崇高恐惧", t:"sublime terror", c:"巨大的恐惧混合着敬意" },
+  { code:"O-08-004", zh:"私人松弛", t:"intimate domesticity", c:"私人空间的松弛" },
+  { code:"O-08-005", zh:"病态倦怠", t:"decadent languor", c:"倦怠、华丽而病态" },
+  { code:"O-08-006", zh:"隐忍重量", t:"stoic endurance", c:"隐忍、不抱怨的重量" },
+  { code:"O-08-007", zh:"嘉年华讽刺", t:"carnival irony", c:"热闹底下的刺" },
+  { code:"O-08-008", zh:"冥想空境", t:"meditative emptiness", c:"空到可以作为的时刻" }
+]},
+
+{ id:"O-09", zh:"镜头与视角", slot:"space", items:[
+  { code:"O-09-001", zh:"极近特写", t:"extreme close-up detail", c:"贴到表面，只看细节" },
+  { code:"O-09-002", zh:"中景半身", t:"medium shot", c:"半身到腰，标准叙事距离" },
+  { code:"O-09-003", zh:"全身站姿", t:"full figure standing", c:"全身站立，包含环境" },
+  { code:"O-09-004", zh:"大远景", t:"wide establishing shot", c:"交待全景，人物极小" },
+  { code:"O-09-005", zh:"浅景深", t:"shallow depth of field", c:"背景虚化，主体分离" },
+  { code:"O-09-006", zh:"倾斜地平线", t:"tilted Dutch angle", c:"地平线故意不平" },
+  { code:"O-09-007", zh:"镜面转视", t:"mirror reflection view", c:"借镜面转视角" },
+  { code:"O-09-008", zh:"反射第二画面", t:"reflection in water or glass", c:"以反射作为第二画面" }
+]},
+
+{ id:"O-10", zh:"画面密度", slot:"space", items:[
+  { code:"O-10-001", zh:"大片留白", t:"vast white void", c:"大面留白，实物极少" },
+  { code:"O-10-002", zh:"三元素克制", t:"sparse three elements", c:"只留三样东西互相搀扶" },
+  { code:"O-10-003", zh:"疏密均衡", t:"medium density balance", c:"疏密交替，节奏均匀" },
+  { code:"O-10-004", zh:"满铺怕空", t:"horror vacui", c:"怕空，密密麻麻铺满" },
+  { code:"O-10-005", zh:"三层拥挤", t:"layered depth crowd", c:"远景中景近景各有一层" },
+  { code:"O-10-006", zh:"重复阵列", t:"serial repetition grid", c:"重复排列，取消个体" }
+]}
+);
+
+if (typeof module !== "undefined" && module.exports) module.exports = { OPTICS };

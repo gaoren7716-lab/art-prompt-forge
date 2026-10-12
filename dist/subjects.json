@@ -1,0 +1,548 @@
+[
+  {
+    "id": "S-01",
+    "status": "written",
+    "zh": "单人肖像",
+    "en": "single portrait",
+    "cat": "人物",
+    "kw": [
+      "single portrait",
+      "head and shoulders",
+      "direct gaze"
+    ],
+    "F": {
+      "space": [
+        "centered head and shoulders",
+        "neutral unpainted backdrop"
+      ]
+    },
+    "desc": "最直接也最容易露短的题材：五官、手的失败率最高，背景必须让位。",
+    "note": "背景一定要给“空”，这是肖像能站住的前提。",
+    "code": "SJ-001"
+  },
+  {
+    "id": "S-02",
+    "status": "written",
+    "zh": "群像",
+    "en": "group portrait",
+    "cat": "人物",
+    "kw": [
+      "group of figures",
+      "arranged formation",
+      "shared commission"
+    ],
+    "F": {
+      "space": [
+        "rhythmic repetition of heads",
+        "shallow stage-like depth"
+      ]
+    },
+    "desc": "多人排布是节奏学：头、手、道具重复成拍子，而不是各自为政。",
+    "note": "注意力全给一个人，群像立刻散。",
+    "code": "SJ-002"
+  },
+  {
+    "id": "S-03",
+    "status": "written",
+    "zh": "自画像",
+    "en": "self portrait",
+    "cat": "人物",
+    "kw": [
+      "self portrait",
+      "artist facing mirror",
+      "painting tools visible"
+    ],
+    "F": {
+      "space": [
+        "mirror perspective",
+        "studio object at the edge"
+      ]
+    },
+    "desc": "对着镜子看自己：视线是反的，手是难画的，道具往往就在画框边上。",
+    "note": "可以给一点疲惫或审视感，过度美化会失去自画像的分量。",
+    "code": "SJ-003"
+  },
+  {
+    "id": "S-04",
+    "status": "written",
+    "zh": "裸体人物",
+    "en": "nude figure",
+    "cat": "人物",
+    "kw": [
+      "reclining nude",
+      "figure study",
+      "drapery contrast"
+    ],
+    "F": {
+      "space": [
+        "elongated reclining axis",
+        "drapery as dark foil"
+      ]
+    },
+    "desc": "皮肤是最难的物质：要有温度又不能像蜡，布料常常用来反衬它。",
+    "note": "别加“完美无瑕”，皮肤的价值在于它的脆弱感。",
+    "code": "SJ-004"
+  },
+  {
+    "id": "S-05",
+    "status": "written",
+    "zh": "神话场面",
+    "en": "mythological scene",
+    "cat": "叙事",
+    "kw": [
+      "classical mythology",
+      "gods and mortals",
+      "symbolic attribute"
+    ],
+    "F": {
+      "space": [
+        "stage-like clearing",
+        "narrative gesture"
+      ]
+    },
+    "desc": "用象征道具识别身份，动作是示意性的，剧情停在最关键的那一瞬。",
+    "note": "道具必须准确，少了象征物，神就认不出来。",
+    "code": "SJ-005"
+  },
+  {
+    "id": "S-06",
+    "status": "written",
+    "zh": "宗教祭祀",
+    "en": "religious scene",
+    "cat": "叙事",
+    "kw": [
+      "devotional scene",
+      "saint and donor",
+      "altarpiece panel"
+    ],
+    "F": {
+      "space": [
+        "hierarchical scale",
+        "architectural niche"
+      ]
+    },
+    "desc": "人物按神圣程度放大，手势是规定的，观看者默认是跪着的。",
+    "note": "这一层要的是秩序，不是自然。",
+    "code": "SJ-006"
+  },
+  {
+    "id": "S-07",
+    "status": "written",
+    "zh": "战争与历史",
+    "en": "history and battle",
+    "cat": "叙事",
+    "kw": [
+      "battle scene",
+      "historical event",
+      "crowd and banner"
+    ],
+    "F": {
+      "space": [
+        "sweeping diagonal charge",
+        "dust cloud horizontal band"
+      ]
+    },
+    "desc": "暴力被组织成构图：对角线冲锋、旗帜、烟尘，英雄与受害者各占一端。",
+    "note": "尸体堆得太平均会变成布景，要有主次。",
+    "code": "SJ-007"
+  },
+  {
+    "id": "S-08",
+    "status": "written",
+    "zh": "静物",
+    "en": "still life",
+    "cat": "静物",
+    "kw": [
+      "arranged still life",
+      "draped table",
+      "glass and fruit"
+    ],
+    "F": {
+      "space": [
+        "close tabletop edge",
+        "objects at varied height"
+      ]
+    },
+    "desc": "最考验材质的题材：玻璃、金属、布、果皮各有各的反光逻辑。",
+    "note": "三到五件最好看，堆满就失去针锋相对的趣味。",
+    "code": "SJ-008"
+  },
+  {
+    "id": "S-09",
+    "status": "written",
+    "zh": "花卉与鸟兽",
+    "en": "flower and bird",
+    "cat": "静物",
+    "kw": [
+      "flower study",
+      "bird on branch",
+      "insect detail"
+    ],
+    "F": {
+      "space": [
+        "spray crossing the frame",
+        "asymmetric balance"
+      ]
+    },
+    "desc": "一枝斜出画外，留白负责呼吸，昆虫可以极小却精准。",
+    "note": "昆虫和露珠要精，花反而可以松。",
+    "code": "SJ-009"
+  },
+  {
+    "id": "S-10",
+    "status": "written",
+    "zh": "宫廷宴集",
+    "en": "court ceremony",
+    "cat": "叙事",
+    "kw": [
+      "royal banquet",
+      "ceremonial gathering",
+      "lavish costume"
+    ],
+    "F": {
+      "space": [
+        "long horizontal hall",
+        "figure scale by rank"
+      ]
+    },
+    "desc": "长卷或大幅横构图，人物按身份排位，织物与器物承担全部的富丽。",
+    "note": "服装纹样是重点，简化它等于砍掉一半信息。",
+    "code": "SJ-010"
+  },
+  {
+    "id": "S-11",
+    "status": "written",
+    "zh": "家居室内",
+    "en": "domestic interior",
+    "cat": "日常",
+    "kw": [
+      "quiet interior room",
+      "domestic objects",
+      "open doorway"
+    ],
+    "F": {
+      "space": [
+        "box-like room depth",
+        "window on one side"
+      ]
+    },
+    "desc": "一间屋子、一扇窗、一个正在做事的人：安静本身就成了主题。",
+    "note": "光源只留一个，多了就没有那种克制的秩序。",
+    "code": "SJ-011"
+  },
+  {
+    "id": "S-12",
+    "status": "written",
+    "zh": "田园牧歌",
+    "en": "pastoral landscape",
+    "cat": "风景",
+    "kw": [
+      "pastoral countryside",
+      "herders and flock",
+      "quiet afternoon"
+    ],
+    "F": {
+      "space": [
+        "low horizon line",
+        "rolling middle ground"
+      ]
+    },
+    "desc": "人与土地达成和解的风景：地平线压低，时间停在一个不烫的下午。",
+    "note": "别加剧烈天气，这里的关键词是“宜人”。",
+    "code": "SJ-012"
+  },
+  {
+    "id": "S-13",
+    "status": "written",
+    "zh": "崇高荒野",
+    "en": "sublime wilderness",
+    "cat": "风景",
+    "kw": [
+      "towering mountains",
+      "tiny wanderer",
+      "overwhelming scale"
+    ],
+    "F": {
+      "space": [
+        "tiny figure against vast mass",
+        "vertical cliff at frame edge"
+      ]
+    },
+    "desc": "巨岩与深渊压倒人，体量差制造恐惧与敬意。",
+    "note": "小人越小越震撼，画大了就回到普通风景。",
+    "code": "SJ-013"
+  },
+  {
+    "id": "S-14",
+    "status": "written",
+    "zh": "海景",
+    "en": "seascape",
+    "cat": "风景",
+    "kw": [
+      "open sea",
+      "breaking waves",
+      "distant sail"
+    ],
+    "F": {
+      "space": [
+        "horizon at third line",
+        "sky dominates two thirds"
+      ]
+    },
+    "desc": "天空占大头，海面负责反光与节奏，船只是唯一的尺度参照。",
+    "note": "浪的形态要具体，模糊的一片白会显得廉价。",
+    "code": "SJ-014"
+  },
+  {
+    "id": "S-15",
+    "status": "written",
+    "zh": "城市街道",
+    "en": "city street",
+    "cat": "风景",
+    "kw": [
+      "boulevard street",
+      "pedestrians in motion",
+      "shop front"
+    ],
+    "F": {
+      "space": [
+        "deep street perspective",
+        "multi-level facade"
+      ]
+    },
+    "desc": "街道是流动的：人群、广告、树影、反射一起在说城市的速度。",
+    "note": "人群要有疏密，平均分布会像贴纸。",
+    "code": "SJ-015"
+  },
+  {
+    "id": "S-16",
+    "status": "written",
+    "zh": "夜市与霓虹",
+    "en": "neon night market",
+    "cat": "风景",
+    "kw": [
+      "night market stalls",
+      "neon signage",
+      "wet reflective ground"
+    ],
+    "F": {
+      "space": [
+        "crowded low awnings",
+        "reflective puddle foreground"
+      ]
+    },
+    "desc": "多光源加湿地面：霓虹打乱颜色逻辑，地上的反射承担一半画面。",
+    "note": "光源太多时，方向性描述要克制，容易互相打架。",
+    "code": "SJ-016"
+  },
+  {
+    "id": "S-17",
+    "status": "written",
+    "zh": "工业劳动",
+    "en": "industry and labour",
+    "cat": "日常",
+    "kw": [
+      "factory floor",
+      "labouring workers",
+      "machine and steam"
+    ],
+    "F": {
+      "space": [
+        "heavy structural diagonal",
+        "figures dwarfed by machine"
+      ]
+    },
+    "desc": "机器比人大：钢铁结构、蒸汽、汗与油污，劳动被画成一种重量。",
+    "note": "机器不要画得太漂亮，粗糙和功能性才对。",
+    "code": "SJ-017"
+  },
+  {
+    "id": "S-18",
+    "status": "written",
+    "zh": "山水意境",
+    "en": "classical landscape",
+    "cat": "东方",
+    "kw": [
+      "mountain and water landscape",
+      "mist between ranges",
+      "rustic hut on slope"
+    ],
+    "F": {
+      "space": [
+        "three-distance depth",
+        "vast unpainted void"
+      ]
+    },
+    "desc": "可行、可望、可游、可居：山中有路，路尽头有屋，屋不一定看得见。",
+    "note": "留白是水也是云，别急着填满。",
+    "code": "SJ-018"
+  },
+  {
+    "id": "S-19",
+    "status": "written",
+    "zh": "文人渔隐",
+    "en": "literati retreat",
+    "cat": "东方",
+    "kw": [
+      "scholar retreat",
+      "fishing in solitude",
+      "thatched studio"
+    ],
+    "F": {
+      "space": [
+        "reduced sparse elements",
+        "one brushstroke economy"
+      ]
+    },
+    "desc": "几个支点撑起全部意境：一间草堂、一枝枯松、一叶扁舟，越少越贵。",
+    "note": "这是减法艺术，元素一多就俗。",
+    "code": "SJ-019"
+  },
+  {
+    "id": "S-20",
+    "status": "written",
+    "zh": "市井风俗",
+    "en": "street genre",
+    "cat": "日常",
+    "kw": [
+      "busy market crowd",
+      "vendors and porters",
+      "seasonal festival"
+    ],
+    "F": {
+      "space": [
+        "packed narrative strip",
+        "overlapping activity clusters"
+      ]
+    },
+    "desc": "长卷里的社会：叫卖、搬运、杂耍、吵架，每一段都可以读很久。",
+    "note": "分组处理，一组一幕，别摊成均匀的粥。",
+    "code": "SJ-020"
+  },
+  {
+    "id": "S-21",
+    "status": "written",
+    "zh": "妖怪志怪",
+    "en": "supernatural folklore",
+    "cat": "东方",
+    "kw": [
+      "yokai procession",
+      "ghostly apparition",
+      "night festival of spirits"
+    ],
+    "F": {
+      "space": [
+        "cropped impossible crowd",
+        "floating figures with no ground"
+      ]
+    },
+    "desc": "百鬼夜行的逻辑：不必有地面，不必有主光源，荒诞在于它一本正经。",
+    "note": "画得太写实会失去荒诞感，保留一点木刻的平面味。",
+    "code": "SJ-021"
+  },
+  {
+    "id": "S-22",
+    "status": "written",
+    "zh": "天体与太空",
+    "en": "cosmic space",
+    "cat": "幻想",
+    "kw": [
+      "planetary bodies",
+      "nebula field",
+      "floating monolith"
+    ],
+    "F": {
+      "space": [
+        "specks in black void",
+        "no atmospheric falloff"
+      ]
+    },
+    "desc": "没有地面透视也没有空气透视，只剩悬浮物的大小对比。",
+    "note": "保留地平线会立刻把宇宙降格成夜景。",
+    "code": "SJ-022"
+  },
+  {
+    "id": "S-23",
+    "status": "written",
+    "zh": "科幻机械",
+    "en": "sci-fi machine",
+    "cat": "幻想",
+    "kw": [
+      "gigantic machine structure",
+      "futuristic vehicle",
+      "industrial future"
+    ],
+    "F": {
+      "space": [
+        "heroic low viewpoint",
+        "scale by tiny human"
+      ]
+    },
+    "desc": "巨大人造物的浪漫：结构对功能诚实，人类只是旁边的一枚刻度。",
+    "note": "装饰服从结构，别把机械画成首饰。",
+    "code": "SJ-023"
+  },
+  {
+    "id": "S-24",
+    "status": "written",
+    "zh": "封面构图",
+    "en": "cover composition",
+    "cat": "设计",
+    "kw": [
+      "poster composition",
+      "strong central silhouette",
+      "area for typography"
+    ],
+    "F": {
+      "space": [
+        "readable at thumbnail size",
+        "reserved empty title band"
+      ]
+    },
+    "desc": "缩小到指甲盖还能读出来才算过关，取舍比细节重要。",
+    "note": "背景一乱，缩略图就糊成一团灰。",
+    "code": "SJ-024"
+  },
+  {
+    "id": "S-25",
+    "status": "written",
+    "zh": "动物写生",
+    "en": "animal study",
+    "cat": "生物",
+    "kw": [
+      "animal study",
+      "fur and feather detail",
+      "alert posture"
+    ],
+    "F": {
+      "space": [
+        "close observational framing",
+        "neutral ground"
+      ]
+    },
+    "desc": "皮毛、羽毛、瞳孔的材质各不相同，动物不能像毛绒玩具。",
+    "note": "眼神决定成败，别把动物画成人的表情。",
+    "code": "SJ-025"
+  },
+  {
+    "id": "S-26",
+    "status": "written",
+    "zh": "食物与厨事",
+    "en": "kitchen and food",
+    "cat": "静物",
+    "kw": [
+      "kitchen table spread",
+      "prepared ingredients",
+      "cooking implements"
+    ],
+    "F": {
+      "space": [
+        "slightly high viewpoint",
+        "clustered objects"
+      ]
+    },
+    "desc": "食材的新鲜度是一种临时状态：切面、汁水、金属器皿的反光都要快。",
+    "note": "食物最怕画得太久摆太久的样子，要留一点“刚準備好”的潮湿。",
+    "code": "SJ-026"
+  }
+]

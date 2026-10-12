@@ -1,0 +1,17 @@
+# 画廊配图的中间产物：母版体积大（单张 2.6MB，40 张 100MB+），
+# 重切尺寸时从它来，但仓库只留入库用的图 —— 母版不进版本库。
+gallery/_master_*.png
+gallery/_raw/
+gallery/_*.png
+gallery/_*.jpg
+gallery/_*.jpeg
+gallery/_*.webp
+# 核对配图时的临时预览
+gallery/_p*.png
+# 配图转 JPEG 前的 PNG 原图备份（tools/gallery_compress.js --restore 可还原）。
+# 上面几条 _*.png 里的 * 不跨目录，匹配不到子目录里的文件，所以要单独写这一行，
+# 否则 108MB 原图会被当成普通配图一起推上去 —— 转码省下的体积就白省了。
+gallery/_png_backup/
+# 守夜人的心跳文件：只对本机这一秒有意义，不进版本库
+.gallery-watch.log
+__pycache__/

@@ -1,0 +1,3191 @@
+[
+  {
+    "id": "M-01",
+    "status": "written",
+    "zh": "早期文艺复兴",
+    "en": "Early Renaissance",
+    "era": "1420-1495",
+    "region": "意大利",
+    "F": {
+      "medium": [
+        "egg tempera on gessoed panel"
+      ],
+      "brush": [
+        "fine cross-hatching",
+        "thin translucent glazes",
+        "crisp contour"
+      ],
+      "color": [
+        "clear local colour",
+        "lapis and vermilion accents"
+      ],
+      "light": [
+        "even daylight",
+        "gentle modelling"
+      ],
+      "space": [
+        "strict linear perspective",
+        "architectural depth"
+      ],
+      "motif": [
+        "annunciation",
+        "donor portrait",
+        "frescoed chapel wall"
+      ],
+      "spirit": [
+        "measured piety",
+        "humanist order"
+      ]
+    },
+    "sty": [
+      "early renaissance painting",
+      "quattrocento"
+    ],
+    "tags": [
+      "line-primary",
+      "perspective-linear",
+      "panel",
+      "natural-daylight",
+      "polychrome-full"
+    ],
+    "desc": "透视法刚被发明出来的兴奋期：一切都可测量、稳定，人物像建筑一样立在光线里。",
+    "note": "这层的透视比体积更重要，画面中出现压得很暗的明暗对比会立刻跑偏到巴洛克。",
+    "code": "MV-001"
+  },
+  {
+    "id": "M-02",
+    "status": "written",
+    "zh": "盛期文艺复兴",
+    "en": "High Renaissance",
+    "era": "1495-1520",
+    "region": "意大利",
+    "F": {
+      "medium": [
+        "oil on panel and canvas"
+      ],
+      "brush": [
+        "sfumato blending",
+        "imperceptible transitions"
+      ],
+      "color": [
+        "harmonised primaries",
+        "cool-warm balance"
+      ],
+      "light": [
+        "soft unified daylight"
+      ],
+      "space": [
+        "pyramidal figure grouping",
+        "centralised symmetry"
+      ],
+      "motif": [
+        "madonna enthroned",
+        " idealized nude",
+        "philosopher gathering"
+      ],
+      "spirit": [
+        "ideal proportion",
+        "calm authority"
+      ]
+    },
+    "sty": [
+      "high renaissance",
+      "leonardo sfumato"
+    ],
+    "tags": [
+      "wet-blending",
+      "no-outline",
+      "perspective-linear",
+      "fine-art-depth",
+      "polychrome-full"
+    ],
+    "desc": "把一切矛盾调停到看不见：轮廓融进空气，构图收成稳定的金字塔，理想比例压倒个性。",
+    "note": "这一层的笔触必须消失，一旦笔触变得看得见，画面立刻掉到样式主义。",
+    "code": "MV-002"
+  },
+  {
+    "id": "M-03",
+    "status": "written",
+    "zh": "威尼斯画派",
+    "en": "Venetian School",
+    "era": "1500-1600",
+    "region": "意大利",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "coloured Venetian ground"
+      ],
+      "brush": [
+        "loose loaded brush",
+        "scumbled highlights"
+      ],
+      "color": [
+        "colourito dominance",
+        "saturated drapery hues",
+        "golden ambient"
+      ],
+      "light": [
+        "warm reflected light",
+        "open air glow"
+      ],
+      "space": [
+        "architectural stage depth",
+        "raised viewpoint"
+      ],
+      "motif": [
+        "doge ceremony",
+        "mythological feast",
+        "lagoon light"
+      ],
+      "spirit": [
+        "sensual opulence",
+        "civic pomp"
+      ]
+    },
+    "sty": [
+      "venetian school",
+      "colourito"
+    ],
+    "tags": [
+      "painterly-stroke",
+      "saturated-clash",
+      "fine-art-depth",
+      "oil-impasto"
+    ],
+    "desc": "威尼斯人先有颜色再有形：笔是带着颜料直接在布上调出来的，远看比近看更像真的。",
+    "note": "画面必须留一笔“没画完”的松动感，补得太干净反而失去那种色彩本位的润。",
+    "code": "MV-003"
+  },
+  {
+    "id": "M-04",
+    "status": "written",
+    "zh": "样式主义",
+    "en": "Mannerism",
+    "era": "1520-1600",
+    "region": "意大利",
+    "F": {
+      "medium": [
+        "oil on panel",
+        "acidic prepared ground"
+      ],
+      "brush": [
+        "elongated contour",
+        "polished enamel surface"
+      ],
+      "color": [
+        "acid off-key hues",
+        "iridescent drapery"
+      ],
+      "light": [
+        "arbitrary multiple lights"
+      ],
+      "space": [
+        "crowded tilted space",
+        "figure serpentinata"
+      ],
+      "motif": [
+        "allegorical conceit",
+        "multi figure compression"
+      ],
+      "spirit": [
+        "artificial elegance",
+        "intellectual strain"
+      ]
+    },
+    "sty": [
+      "mannerism",
+      "figura serpentinata"
+    ],
+    "tags": [
+      "line-primary",
+      "saturated-clash",
+      "fine-art-depth",
+      "polychrome-full"
+    ],
+    "desc": "故意把文艺复兴那套完美的平衡拧歪：人体被拉长扭成蛇形，颜色故意唱反调，空间挤得不舒服。",
+    "note": "“不舒服”是刻意的高级，别手贱去修正它的人体比例。",
+    "code": "MV-004"
+  },
+  {
+    "id": "M-05",
+    "status": "written",
+    "zh": "巴洛克",
+    "en": "Baroque",
+    "era": "1600-1750",
+    "region": "欧洲",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "dark bituminous ground"
+      ],
+      "brush": [
+        "thick impasto highlight",
+        "energetic diagonal stroke"
+      ],
+      "color": [
+        "deep earth ground",
+        "single hot accent"
+      ],
+      "light": [
+        "raking spotlight",
+        "deep tenebrism"
+      ],
+      "space": [
+        "diagonal thrust",
+        "figures bursting the frame"
+      ],
+      "motif": [
+        "martyrdom",
+        "supper scene",
+        "still moment of revelation"
+      ],
+      "spirit": [
+        "theatrical urgency",
+        "physical weight"
+      ]
+    },
+    "sty": [
+      "baroque painting",
+      "tenebrism",
+      "chiaroscuro"
+    ],
+    "tags": [
+      "chiaroscuro-volume",
+      "oil-impasto",
+      "fine-art-depth",
+      "broad-gesture"
+    ],
+    "desc": "一束光从斜上方劈下来，人物被推到画面边缘就要冲出去，所有情绪都停在最高潮的那一秒。",
+    "note": "暗部要暗到几乎没有细节，但结构转折必须清晰；中间灰太多就会变成普通学院派。",
+    "code": "MV-005"
+  },
+  {
+    "id": "M-06",
+    "status": "written",
+    "zh": "荷兰黄金时代",
+    "en": "Dutch Golden Age",
+    "era": "1600-1700",
+    "region": "尼德兰",
+    "F": {
+      "medium": [
+        "oil on panel and canvas",
+        "thin grey ground"
+      ],
+      "brush": [
+        "invisible finish",
+        "tiny reflective highlights"
+      ],
+      "color": [
+        "restrained browns and greys",
+        "single lemon accent"
+      ],
+      "light": [
+        "window light from the left",
+        "soft interior falloff"
+      ],
+      "space": [
+        "domestic box interior",
+        "open doorway depth"
+      ],
+      "motif": [
+        "domestic task",
+        "group portrait guild",
+        "breakfast table"
+      ],
+      "spirit": [
+        "bourgeois calm",
+        "quiet self-possession"
+      ]
+    },
+    "sty": [
+      "dutch golden age painting",
+      "fijnschilder"
+    ],
+    "tags": [
+      "tiny-detail",
+      "line-primary",
+      "fine-art-depth",
+      "perspective-linear",
+      "muted-grey"
+    ],
+    "desc": "中产阶级的屋子里，左边来一扇窗的光：一切安静、干净、体面，细节经得起拿放大镜看。",
+    "note": "题材可以极平凡，但质感必须极讲究；道具一敷衍整套就塌了。",
+    "code": "MV-006"
+  },
+  {
+    "id": "M-07",
+    "status": "written",
+    "zh": "洛可可",
+    "en": "Rococo",
+    "era": "1715-1780",
+    "region": "法国",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "pale prepared ground"
+      ],
+      "brush": [
+        "feathery flick of the brush",
+        "thin scumbled layer"
+      ],
+      "color": [
+        "pastel pink and sky blue",
+        "powdered silver green"
+      ],
+      "light": [
+        "diffused silvery light",
+        "no deep shadow"
+      ],
+      "space": [
+        "asymmetrical S curve",
+        "garden theatre setting"
+      ],
+      "motif": [
+        "fete galante",
+        "shepherdess play",
+        "ornamental shellwork"
+      ],
+      "spirit": [
+        "playful escapism",
+        "courtly flirtation"
+      ]
+    },
+    "sty": [
+      "rococo painting",
+      "fete galante"
+    ],
+    "tags": [
+      "wet-blending",
+      "muted-grey",
+      "no-outline",
+      "fine-art-depth"
+    ],
+    "desc": "粉蓝银灰的游乐场：笔触轻得像羽毛扫过，人物永远在恋爱、化妆或假装当牧羊人。",
+    "note": "这层怕重、怕脏、怕强烈对比，画面里出现深色重暗就完全不是洛可可了。",
+    "code": "MV-007"
+  },
+  {
+    "id": "M-08",
+    "status": "written",
+    "zh": "新古典主义",
+    "en": "Neoclassicism",
+    "era": "1780-1840",
+    "region": "法国·意大利",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "very smooth prepared surface"
+      ],
+      "brush": [
+        "suppressed brushwork",
+        "enamel finish"
+      ],
+      "color": [
+        "cool limited palette",
+        "local colour priority"
+      ],
+      "light": [
+        "clear stage light",
+        "sculptural modelling"
+      ],
+      "space": [
+        "frieze-like relief space",
+        "strict frontal geometry"
+      ],
+      "motif": [
+        "oath scene",
+        "ancient history",
+        "stoic sacrifice"
+      ],
+      "spirit": [
+        "civic virtue",
+        "moral clarity"
+      ]
+    },
+    "sty": [
+      "neoclassicism",
+      "davidian"
+    ],
+    "tags": [
+      "no-outline",
+      "line-primary",
+      "hard-edge",
+      "fine-art-depth",
+      "muted-grey"
+    ],
+    "desc": "像浅浮雕一样把人物排成一列：颜色让位于线条，笔触彻底藏起来，大义凛然。",
+    "note": "素描准确性决定成败，形体一软整套的道德感就没了。",
+    "code": "MV-008"
+  },
+  {
+    "id": "M-09",
+    "status": "written",
+    "zh": "浪漫主义",
+    "en": "Romanticism",
+    "era": "1800-1850",
+    "region": "欧洲",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "dark energetic ground"
+      ],
+      "brush": [
+        "sweeping gusto stroke",
+        "visible emotional gesture"
+      ],
+      "color": [
+        "stormy warm-cool clash",
+        "deep crimson note"
+      ],
+      "light": [
+        "dramatic backlight",
+        "turbulent sky fire"
+      ],
+      "space": [
+        "diagonal vortex",
+        "overwhelming scale"
+      ],
+      "motif": [
+        "shipwreck",
+        "wild horse",
+        "ruined castle"
+      ],
+      "spirit": [
+        "sublime terror",
+        "individual defiance"
+      ]
+    },
+    "sty": [
+      "romanticism painting",
+      "sublime"
+    ],
+    "tags": [
+      "broad-gesture",
+      "saturated-clash",
+      "chiaroscuro-volume",
+      "fine-art-depth"
+    ],
+    "desc": "自然不是背景而是敌人：笔要甩出来，天空要烧起来，人在里面显得既渺小又倔强。",
+    "note": "保留笔触的情绪价值，把边缘修干净就只剩下漂亮海报了。",
+    "code": "MV-009"
+  },
+  {
+    "id": "M-10",
+    "status": "written",
+    "zh": "巴比松与写实主义",
+    "en": "Barbizon & Realism",
+    "era": "1830-1880",
+    "region": "法国",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "primed earth tone ground"
+      ],
+      "brush": [
+        "square brush block-in",
+        "honest plain handling"
+      ],
+      "color": [
+        "earthbound honest colour",
+        "no idealisation"
+      ],
+      "light": [
+        "outdoor north light",
+        "true grey shadow"
+      ],
+      "space": [
+        "ordinary horizon",
+        "unheroic framing"
+      ],
+      "motif": [
+        "peasant labor",
+        "forest edge",
+        "gleaning field"
+      ],
+      "spirit": [
+        "social dignity",
+        "disenchanted truth"
+      ]
+    },
+    "sty": [
+      "realism painting",
+      "barbizon school"
+    ],
+    "tags": [
+      "broad-gesture",
+      "muted-grey",
+      "fine-art-depth",
+      "natural-daylight"
+    ],
+    "desc": "拒绝美化的一代：把农民和树林按原有的体面画出来，不用神话给穷苦镀金。",
+    "note": "不要加理想化的美化词，这一层的力量来自“照实写”。",
+    "code": "MV-010"
+  },
+  {
+    "id": "M-11",
+    "status": "written",
+    "zh": "印象派",
+    "en": "Impressionism",
+    "era": "1860-1890",
+    "region": "法国",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "light toned ground"
+      ],
+      "brush": [
+        "broken colour stroke",
+        " commas of paint"
+      ],
+      "color": [
+        "complementary shadow",
+        "no black",
+        "violet in shadow"
+      ],
+      "light": [
+        "open air sunlight",
+        "fleeting moment"
+      ],
+      "space": [
+        "high horizon crop",
+        "casual snapshot angle"
+      ],
+      "motif": [
+        "river terrace",
+        "haystack series",
+        "suburban leisure"
+      ],
+      "spirit": [
+        "optical immediacy",
+        "modern leisure"
+      ]
+    },
+    "sty": [
+      "impressionism",
+      "plein air painting"
+    ],
+    "tags": [
+      "painterly-stroke",
+      "saturated-clash",
+      "flat-decoration",
+      "natural-daylight"
+    ],
+    "desc": "阴影不是黑的是紫的，笔触是分开的小笔道；画的是视网膜那一瞬间受到的刺激。",
+    "note": "场景里出现油污般的黑影或过分光滑的过渡，印象派的户外通透感立刻失效。",
+    "code": "MV-011"
+  },
+  {
+    "id": "M-12",
+    "status": "written",
+    "zh": "新印象派点彩",
+    "en": "Neo-Impressionism",
+    "era": "1884-1910",
+    "region": "法国·比利时",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "dry divided touch"
+      ],
+      "brush": [
+        "systematic dot",
+        "optical mixture"
+      ],
+      "color": [
+        "scientific complementary grid",
+        "pure unmixed pigment"
+      ],
+      "light": [
+        "radiating luminance",
+        "no arbitrary shadow"
+      ],
+      "space": [
+        "ordered theoretic space",
+        "measured intervals"
+      ],
+      "motif": [
+        "sunday riverside",
+        "circus parade",
+        "coastal harbor"
+      ],
+      "spirit": [
+        "methodical utopia",
+        "detached serenity"
+      ]
+    },
+    "sty": [
+      "pointillism",
+      "divisionism"
+    ],
+    "tags": [
+      "tiny-detail",
+      "hard-edge",
+      "natural-daylight",
+      "saturated-clash"
+    ],
+    "desc": "把颜色混的任务交给眼睛：密集的小点在视网膜上重新合成，一切都预先算过。",
+    "note": "点要服从密度节奏，不能随机撒；散乱的点只会糊成噪点。",
+    "code": "MV-012"
+  },
+  {
+    "id": "M-13",
+    "status": "written",
+    "zh": "后印象派",
+    "en": "Post-Impressionism",
+    "era": "1885-1905",
+    "region": "法国",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "varied personal ground"
+      ],
+      "brush": [
+        "directional personal stroke",
+        "structural swirl"
+      ],
+      "color": [
+        "arbitrary emotional colour",
+        "local hue intensified"
+      ],
+      "light": [
+        "colour carries light",
+        "optional shadow"
+      ],
+      "space": [
+        "flattened deliberate distortion"
+      ],
+      "motif": [
+        "peasant portrait",
+        "provencal landscape",
+        "exotic refuge"
+      ],
+      "spirit": [
+        "subjective structure",
+        "expressive solitude"
+      ]
+    },
+    "sty": [
+      "post-impressionism",
+      "expressionist colour"
+    ],
+    "tags": [
+      "painterly-stroke",
+      "oil-impasto",
+      "perspective-flat",
+      "saturated-clash"
+    ],
+    "desc": "印象派解决了光，这批人要解决结构：颜色可以不再是眼睛看到的，笔触开始宣告自己的存在。",
+    "note": "主观变形是刻意的，画面出现写实比例反而说明没到火候。",
+    "code": "MV-013"
+  },
+  {
+    "id": "M-14",
+    "status": "written",
+    "zh": "象征主义",
+    "en": "Symbolism",
+    "era": "1885-1910",
+    "region": "法国·比利时·挪威",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "dark symbolist ground"
+      ],
+      "brush": [
+        "dream flat rendering",
+        "ambiguous edge"
+      ],
+      "color": [
+        "nocturnal palette",
+        "metallic sickly tint"
+      ],
+      "light": [
+        "moonlit ambiguity",
+        "inner glow"
+      ],
+      "space": [
+        "unlocated dream space",
+        "no ground line"
+      ],
+      "motif": [
+        "masked figure",
+        "femme fatale",
+        "death allegory"
+      ],
+      "spirit": [
+        "interior dread",
+        "erotic melancholy"
+      ]
+    },
+    "sty": [
+      "symbolist painting",
+      "fin de siecle"
+    ],
+    "tags": [
+      "flat-decoration",
+      "no-outline",
+      "muted-grey",
+      "gold-ground"
+    ],
+    "desc": "画的是念头而不是场景：悬浮的人影、摸不清光源的夜色、说不清寓意的道具。",
+    "note": "一旦把场景具体交代清楚（时间、地点、光源），象征的张力就泄了。",
+    "code": "MV-014"
+  },
+  {
+    "id": "M-15",
+    "status": "written",
+    "zh": "新艺术运动",
+    "en": "Art Nouveau",
+    "era": "1890-1910",
+    "region": "欧洲",
+    "F": {
+      "medium": [
+        "poster lithograph",
+        "stained glass design"
+      ],
+      "brush": [
+        "whip lash contour",
+        "flowing arabesque"
+      ],
+      "color": [
+        "soft natural palette",
+        "gold and olive"
+      ],
+      "light": [
+        "even decorative illumination"
+      ],
+      "space": [
+        "flat ornamental field",
+        "frame-integrated rhythm"
+      ],
+      "motif": [
+        "flower-hair woman",
+        "insect wing motif",
+        "organic ironwork"
+      ],
+      "spirit": [
+        "decorative total work",
+        "nature as ornament"
+      ]
+    },
+    "sty": [
+      "art nouveau",
+      "mucha poster"
+    ],
+    "tags": [
+      "line-primary",
+      "flat-decoration",
+      "hyper-ornament",
+      "flat-print",
+      "perspective-flat"
+    ],
+    "desc": "线条先被用来装饰而不是造型：鞭形的曲线带着植物一起长满整幅画面。",
+    "note": "制造视错觉的纵深感要克制，一旦加出体积，整套装饰就塌了。",
+    "code": "MV-015"
+  },
+  {
+    "id": "M-16",
+    "status": "written",
+    "zh": "纳比派",
+    "en": "Les Nabis",
+    "era": "1888-1900",
+    "region": "法国",
+    "F": {
+      "medium": [
+        "oil on cardboard",
+        "matte distemper finish"
+      ],
+      "brush": [
+        "flat pattern block",
+        "unprimed absorbent drag"
+      ],
+      "color": [
+        "arbitrary decorative scheme",
+        "violet and jade"
+      ],
+      "light": [
+        "no modelled shadow",
+        "colour-shape logic"
+      ],
+      "space": [
+        "tilted domestic pattern",
+        "Japanese print crop"
+      ],
+      "motif": [
+        "interior ritual",
+        "garden screen",
+        "reading woman"
+      ],
+      "spirit": [
+        "intimate domesticity",
+        "quiet formalism"
+      ]
+    },
+    "sty": [
+      "nabis painting",
+      "intimisme"
+    ],
+    "tags": [
+      "flat-decoration",
+      "line-primary",
+      "hyper-ornament",
+      "perspective-flat"
+    ],
+    "desc": "一群把画布当壁纸画的年轻人：图案、布料、室内角落，一切扁平而亲密。",
+    "note": "这是图案先行的画，一旦出现喷笔涂匀式的体积感就算失败。",
+    "code": "MV-016"
+  },
+  {
+    "id": "M-17",
+    "status": "written",
+    "zh": "表现主义",
+    "en": "Expressionism",
+    "era": "1905-1930",
+    "region": "德国·北欧",
+    "F": {
+      "medium": [
+        "oil on rough canvas",
+        "absorbent unprimed ground"
+      ],
+      "brush": [
+        "gouged sweepingstroke",
+        "violent simplification"
+      ],
+      "color": [
+        "non-local arbitrary hue",
+        "acid green and blood red"
+      ],
+      "light": [
+        "psychological not optical"
+      ],
+      "space": [
+        "tilted claustrophobic angle"
+      ],
+      "motif": [
+        "masked face",
+        "urban crowd",
+        "screaming sky"
+      ],
+      "spirit": [
+        "existential anxiety",
+        "raw confession"
+      ]
+    },
+    "sty": [
+      "expressionism",
+      "die brucke",
+      "blauer reiter"
+    ],
+    "tags": [
+      "broad-gesture",
+      "saturated-clash",
+      "perspective-flat",
+      "oil-impasto"
+    ],
+    "desc": "颜色不从对象来，从恐惧里来：粗野的笔触与变了调的脸，是内在状态的直接导出。",
+    "note": "“难看”是它的语法，不要用娇柔的画质词去美化。",
+    "code": "MV-017"
+  },
+  {
+    "id": "M-18",
+    "status": "written",
+    "zh": "立体主义",
+    "en": "Cubism",
+    "era": "1907-1920",
+    "region": "法国·西班牙",
+    "F": {
+      "medium": [
+        "oil with sand admixture",
+        "collaged newspaper"
+      ],
+      "brush": [
+        "faceted plane shift",
+        "analytical grey modelling"
+      ],
+      "color": [
+        "ochre grey and olive",
+        "later brighter planes"
+      ],
+      "light": [
+        "multiple simultaneous viewpoints"
+      ],
+      "space": [
+        "shattered object facets",
+        "shallow relief depth"
+      ],
+      "motif": [
+        "tabletop guitar",
+        "still life vessel",
+        "fragmented portrait"
+      ],
+      "spirit": [
+        "intellectual analysis",
+        "multiple truth"
+      ]
+    },
+    "sty": [
+      "cubism",
+      "analytic cubism"
+    ],
+    "tags": [
+      "hard-edge",
+      "perspective-flat",
+      "muted-grey",
+      "flat-print"
+    ],
+    "desc": "一件东西同时从六个角度看：表面被切成互相错位的小面，深度只剩一点点浅浮雕。",
+    "note": "后期可以回到亮色，但“多视点同时存在”这条不能破。",
+    "code": "MV-018"
+  },
+  {
+    "id": "M-19",
+    "status": "written",
+    "zh": "未来主义",
+    "en": "Futurism",
+    "era": "1909-1918",
+    "region": "意大利",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "dynamic divisionist inheritance"
+      ],
+      "brush": [
+        "repetition trail line",
+        "force line radiation"
+      ],
+      "color": [
+        "violent red and electric blue"
+      ],
+      "light": [
+        "simultaneity of flickering sources"
+      ],
+      "space": [
+        "no fixed standpoint",
+        "motion-induced collapse"
+      ],
+      "motif": [
+        "racing machine",
+        "urban construction",
+        "crowd in motion"
+      ],
+      "spirit": [
+        "machine worship",
+        "aggressive modernity"
+      ]
+    },
+    "sty": [
+      "futurism",
+      "force lines"
+    ],
+    "tags": [
+      "broad-gesture",
+      "hard-edge",
+      "saturated-clash",
+      "perspective-flat"
+    ],
+    "desc": "用重复的残影把运动塞进静止的画面：一个物体要画出它经过的全部位置。",
+    "note": "静止的、居中的构图会把未来主义画死；给足方向感。",
+    "code": "MV-019"
+  },
+  {
+    "id": "M-20",
+    "status": "written",
+    "zh": "至上主义与构成主义",
+    "en": "Suprematism & Constructivism",
+    "era": "1915-1930",
+    "region": "俄国",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "agitational design board"
+      ],
+      "brush": [
+        "absolute flat Precision",
+        "machine straight edge"
+      ],
+      "color": [
+        "red black white doctrine",
+        "constructivist ochre"
+      ],
+      "light": [
+        "no modelled light"
+      ],
+      "space": [
+        "floating levitating geometry",
+        "tilted non-object field"
+      ],
+      "motif": [
+        "floating rectangle",
+        "diagonal Red Wedge",
+        "typographic agitprop"
+      ],
+      "spirit": [
+        "utopian abstraction",
+        "revolutionary clarity"
+      ]
+    },
+    "sty": [
+      "suprematism",
+      "constructivism"
+    ],
+    "tags": [
+      "minimal-empty",
+      "flat-decoration",
+      "hard-edge",
+      "perspective-flat",
+      "commercial-poster"
+    ],
+    "desc": "把绘画减到最后的几何：一块红方块飘在白底上，宣布对象彻底退场。",
+    "note": "不要把几何体画出阴影或厚度，那会把它拖回错觉主义。",
+    "code": "MV-020"
+  },
+  {
+    "id": "M-21",
+    "status": "written",
+    "zh": "达达与拼贴",
+    "en": "Dada & Collage",
+    "era": "1916-1924",
+    "region": "瑞士·法国·德国",
+    "F": {
+      "medium": [
+        "cut paper assemblage",
+        "found object inclusion"
+      ],
+      "brush": [
+        "torn random paper edge",
+        "deliberate anti-craft"
+      ],
+      "color": [
+        "newsprint grey and accident"
+      ],
+      "light": [
+        "no modelled light"
+      ],
+      "space": [
+        "chance meeting of fragments"
+      ],
+      "motif": [
+        "newspaper scrap",
+        "machine part",
+        "readymade label"
+      ],
+      "spirit": [
+        "ironic sabotage",
+        "anti-art refusal"
+      ]
+    },
+    "sty": [
+      "dada collage",
+      "anti-art"
+    ],
+    "tags": [
+      "flat-print",
+      "hard-edge",
+      "muted-grey",
+      "minimal-empty"
+    ],
+    "desc": "故意把艺术当作玩笑：碎片按偶然相遇并置，材质互不相让，意义留给观众赌一把。",
+    "note": "别把它收拾得整洁漂亮，凌乱与错位是它的立场。",
+    "code": "MV-021"
+  },
+  {
+    "id": "M-22",
+    "status": "written",
+    "zh": "形而上画派",
+    "en": "Pittura Metafisica",
+    "era": "1910-1920",
+    "region": "意大利",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "hard enamel finish"
+      ],
+      "brush": [
+        "flat squared rendering",
+        "mannequin simplification"
+      ],
+      "color": [
+        "harsh Mediterranean light colours",
+        "acid shadow green"
+      ],
+      "light": [
+        "low raking unnatural sun",
+        "multiple conflicting shadows"
+      ],
+      "space": [
+        "infinite empty square",
+        "mannequin distances"
+      ],
+      "motif": [
+        "empty arcade",
+        "tailor dummy",
+        "lonely tower"
+      ],
+      "spirit": [
+        "uncanny stillness",
+        "foreboding nostalgia"
+      ]
+    },
+    "sty": [
+      "metaphysical painting",
+      "de chirico"
+    ],
+    "tags": [
+      "hard-edge",
+      "chiaroscuro-volume",
+      "minimal-empty",
+      "perspective-linear"
+    ],
+    "desc": "没有人的意大利广场，斜光拉出长影子，物件被放在不该放的位置，安静得让人发慌。",
+    "note": "“不合常理的并置”是核心，画面一旦讲通逻辑就没有那种悬停感了。",
+    "code": "MV-022"
+  },
+  {
+    "id": "M-23",
+    "status": "written",
+    "zh": "超现实主义",
+    "en": "Surrealism",
+    "era": "1924-1960",
+    "region": "法国·比利时·西班牙",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "grattage and frottage"
+      ],
+      "brush": [
+        "illusionistic rendered surface",
+        "impossible combination"
+      ],
+      "color": [
+        "dream saturated or monochrome"
+      ],
+      "light": [
+        "impossible double sky light"
+      ],
+      "space": [
+        "melted logic space",
+        "wrong scale relation"
+      ],
+      "motif": [
+        "melting object",
+        "levitating stone",
+        "desert furniture"
+      ],
+      "spirit": [
+        "subconscious release",
+        "erotic dread"
+      ]
+    },
+    "sty": [
+      "surrealism",
+      "dreamscape"
+    ],
+    "tags": [
+      "tiny-detail",
+      "fine-art-depth",
+      "saturated-clash",
+      "perspective-linear"
+    ],
+    "desc": "一切都画得极像真的，只是绝不可能发生：物性与手段彻底分家，梦自己会推理。",
+    "note": "这一层必须画得比写实更写实，粗糙的笔触会把梦境降格成涂鸦。",
+    "code": "MV-023"
+  },
+  {
+    "id": "M-24",
+    "status": "written",
+    "zh": "抽象表现主义",
+    "en": "Abstract Expressionism",
+    "era": "1943-1965",
+    "region": "美国",
+    "F": {
+      "medium": [
+        "oil on raw canvas",
+        "household enamel paint"
+      ],
+      "brush": [
+        "flung and dripped paint",
+        "all-over gesture field"
+      ],
+      "color": [
+        "scale-matched emotion",
+        "raw cadmium notes"
+      ],
+      "light": [
+        "no depicted light"
+      ],
+      "space": [
+        "all-over field without centre"
+      ],
+      "motif": [
+        "nocturnal totem",
+        "enormous gestural field"
+      ],
+      "spirit": [
+        "heroic subjectivity",
+        "scale as confrontation"
+      ]
+    },
+    "sty": [
+      "abstract expressionism",
+      "action painting"
+    ],
+    "tags": [
+      "broad-gesture",
+      "oil-impasto",
+      "minimal-empty",
+      "flat-decoration"
+    ],
+    "desc": "画布变成战场：泼洒、滴沥、巨大的尺度，笔触本身就是作者的情绪记录仪。",
+    "note": "这类画面不需要中心构图，一旦出现视觉焦点反而变小。",
+    "code": "MV-024"
+  },
+  {
+    "id": "M-25",
+    "status": "written",
+    "zh": "色域绘画",
+    "en": "Colour Field",
+    "era": "1950-1975",
+    "region": "美国",
+    "F": {
+      "medium": [
+        "stained raw canvas",
+        "thinned acrylic soak"
+      ],
+      "brush": [
+        "no brush evidence",
+        "stain and pour"
+      ],
+      "color": [
+        "two or three embracing hues"
+      ],
+      "light": [
+        "luminous internally"
+      ],
+      "space": [
+        "edge-to-edge soak haze"
+      ],
+      "motif": [
+        "banded stripe",
+        "soft mist rectangle"
+      ],
+      "spirit": [
+        "contemplative silence",
+        "dissolved self"
+      ]
+    },
+    "sty": [
+      "colour field painting",
+      "stain painting"
+    ],
+    "tags": [
+      "minimal-empty",
+      "flat-decoration",
+      "no-outline",
+      "wet-blending"
+    ],
+    "desc": "颜料直接渗进没有涂底的布里，笔痕消失，剩下大块互相吞吐的颜色。",
+    "note": "任何笔触、任何焦点都会破坏这种“沉进去”的状态。",
+    "code": "MV-025"
+  },
+  {
+    "id": "M-26",
+    "status": "written",
+    "zh": "波普艺术",
+    "en": "Pop Art",
+    "era": "1956-1975",
+    "region": "英国·美国",
+    "F": {
+      "medium": [
+        "acrylic and screenprint on canvas"
+      ],
+      "brush": [
+        "squeegee hard edge",
+        "printed dot pattern"
+      ],
+      "color": [
+        "commercial flat colour",
+        "day-glo clash"
+      ],
+      "light": [
+        "no shadow whatsoever"
+      ],
+      "space": [
+        "billboard frontal flattening"
+      ],
+      "motif": [
+        "celebrity close-up",
+        "soup can",
+        "comic panel blowup"
+      ],
+      "spirit": [
+        "ironic consumer critique",
+        "deadpan cool"
+      ]
+    },
+    "sty": [
+      "pop art",
+      "ben-day dots"
+    ],
+    "tags": [
+      "flat-print",
+      "hard-edge",
+      "saturated-clash",
+      "commercial-poster",
+      "flat-decoration"
+    ],
+    "desc": "把消费社会的图像再放大成更大的消费图像：专色、网点、硬边，一切都平得理直气壮。",
+    "note": "画面里出现绘画性的笔触或柔和过渡就丢了那股冷冽劲。",
+    "code": "MV-026"
+  },
+  {
+    "id": "M-27",
+    "status": "written",
+    "zh": "照相写实主义",
+    "en": "Photorealism",
+    "era": "1968-1985",
+    "region": "美国",
+    "F": {
+      "medium": [
+        "acrylic airbrush on canvas",
+        "projected grid transfer"
+      ],
+      "brush": [
+        "zero visible stroke",
+        "flawless glide"
+      ],
+      "color": [
+        "unbiased recorded colour"
+      ],
+      "light": [
+        "harsh flash-like light",
+        "chrome reflection"
+      ],
+      "space": [
+        "camera crop perspective"
+      ],
+      "motif": [
+        "storefront window",
+        "chrome diner",
+        "urban reflection"
+      ],
+      "spirit": [
+        "cool detachment",
+        "mechanical patience"
+      ]
+    },
+    "sty": [
+      "photorealism",
+      "hyperreal painting"
+    ],
+    "tags": [
+      "photographic",
+      "no-outline",
+      "hard-edge",
+      "perspective-linear"
+    ],
+    "desc": "比照片更像照片：所有笔触被抹掉，反光、镀铬与玻璃承担全部画面趣味。",
+    "note": "保留任何一点笔触，都会卡在“手绘假装照片”的尴尬位置。",
+    "code": "MV-027"
+  },
+  {
+    "id": "M-28",
+    "status": "written",
+    "zh": "新表现主义",
+    "en": "Neo-Expressionism",
+    "era": "1978-1995",
+    "region": "德国·意大利·美国",
+    "F": {
+      "medium": [
+        "oil on very coarse canvas",
+        "scratched and scraped surface"
+      ],
+      "brush": [
+        "violent scumbled drag",
+        "scraped into the ground"
+      ],
+      "color": [
+        "acidic dirty clash",
+        "provincial heavy earth"
+      ],
+      "light": [
+        "arbitrary red-hot accent"
+      ],
+      "space": [
+        "deliberately crude perspective"
+      ],
+      "motif": [
+        "primitive mask figure",
+        "national memory",
+        "rawness of myth"
+      ],
+      "spirit": [
+        "deliberate bad taste",
+        "confrontational guilt"
+      ]
+    },
+    "sty": [
+      "neo-expressionism",
+      "bad painting"
+    ],
+    "tags": [
+      "broad-gesture",
+      "oil-impasto",
+      "saturated-clash",
+      "perspective-flat"
+    ],
+    "desc": "故意粗糙、故意难看、故意用力：把表现主义的焦虑重新装上七十年代的肌肉。",
+    "note": "精致顺滑的收尾词是这一层的毒药，画面需要脏。",
+    "code": "MV-028"
+  },
+  {
+    "id": "M-29",
+    "status": "written",
+    "zh": "街头涂鸦",
+    "en": "Street & Urban Art",
+    "era": "1975-至今",
+    "region": "全球",
+    "F": {
+      "medium": [
+        "spray paint on concrete",
+        "urban hard surface"
+      ],
+      "brush": [
+        "aerosol overspray",
+        "sharp wildcard cap line"
+      ],
+      "color": [
+        "graffiti chrome and neon"
+      ],
+      "light": [
+        "daylight over rough wall"
+      ],
+      "space": [
+        "scale of the whole train car"
+      ],
+      "motif": [
+        "tag lettering",
+        "character throw-up",
+        "cracked wall ground"
+      ],
+      "spirit": [
+        "rebellious velocity",
+        "territorial claim"
+      ]
+    },
+    "sty": [
+      "graffiti art",
+      "street art mural"
+    ],
+    "tags": [
+      "hard-edge",
+      "saturated-clash",
+      "aged-decay",
+      "flat-print"
+    ],
+    "desc": "喷罐在粗粝墙面上留下的速度感：垂流、雾化的边缘、超出人身幅度的巨大字母。",
+    "note": "墙面颗粒与漆的边缘是灵魂，换成画布立刻变成胸针设计。",
+    "code": "MV-029"
+  },
+  {
+    "id": "M-30",
+    "status": "written",
+    "zh": "极少主义",
+    "en": "Minimalism",
+    "era": "1960-1975",
+    "region": "美国",
+    "F": {
+      "medium": [
+        "industrial fabrication",
+        "imperial surface finish"
+      ],
+      "brush": [
+        "no authorship trace"
+      ],
+      "color": [
+        "single industrial hue"
+      ],
+      "light": [
+        "gallery neutral raking"
+      ],
+      "space": [
+        "literal single unit"
+      ],
+      "motif": [
+        "serial repetition",
+        "gleaming monolith"
+      ],
+      "spirit": [
+        "anti-composition",
+        "one thing at a time"
+      ]
+    },
+    "sty": [
+      "minimalism",
+      "monochrome object"
+    ],
+    "tags": [
+      "minimal-empty",
+      "hard-edge",
+      "flat-decoration",
+      "perspective-flat"
+    ],
+    "desc": "一个东西就是全部：没有起承转合，没有起伏，观众的注意力不允许被分走。",
+    "note": "任何装饰、任何渐变都会把它拖回 构图经营的旧世界。",
+    "code": "MV-030"
+  },
+  {
+    "id": "M-31",
+    "status": "written",
+    "zh": "新客观主义",
+    "en": "Neue Sachlichkeit",
+    "era": "1920-1933",
+    "region": "德国",
+    "F": {
+      "medium": [
+        "tempera over oil on panel",
+        "glassy thin layer"
+      ],
+      "brush": [
+        "chilled smooth detail",
+        "razor-sharp edge"
+      ],
+      "color": [
+        "cold sober palette",
+        "bilious tint"
+      ],
+      "light": [
+        "harsh frontal clinic light"
+      ],
+      "space": [
+        "tight merciless framing"
+      ],
+      "motif": [
+        "portrait with dead eyes",
+        "office machine",
+        "empty street"
+      ],
+      "spirit": [
+        "social cynicism",
+        "postwar numbness"
+      ]
+    },
+    "sty": [
+      "new objectivity",
+      "verism"
+    ],
+    "tags": [
+      "tiny-detail",
+      "hard-edge",
+      "no-outline",
+      "muted-grey"
+    ],
+    "desc": "用最冷静的手法画最刺骨的现实：边缘像刀锋一样利落，人的内在却是空的。",
+    "note": "情感要藏在西班牙语式的冷处理后面，一旦煽情就破功。",
+    "code": "MV-031"
+  },
+  {
+    "id": "M-32",
+    "status": "written",
+    "zh": "维也纳分离派",
+    "en": "Vienna Secession",
+    "era": "1897-1918",
+    "region": "奥地利",
+    "F": {
+      "medium": [
+        "oil with gold leaf",
+        "casein tempera"
+      ],
+      "brush": [
+        "ornamental flat pattern",
+        "gold-dust contour"
+      ],
+      "color": [
+        "black gold and ochre",
+        "symbolist pale rose"
+      ],
+      "light": [
+        "no atmospheric depth"
+      ],
+      "space": [
+        "square format mosaic field"
+      ],
+      "motif": [
+        "kiss embrace",
+        "life and death frieze",
+        "geometric nimbus"
+      ],
+      "spirit": [
+        "decorative symbolism",
+        "fin-de-siecle eroticism"
+      ]
+    },
+    "sty": [
+      "vienna secession",
+      "klimt gold phase"
+    ],
+    "tags": [
+      "gold-ground",
+      "hyper-ornament",
+      "flat-decoration",
+      "line-primary",
+      "perspective-flat"
+    ],
+    "desc": "写实的人脸嵌在满铺的金箔图案里，精神的那部分靠金子的奢华说出来。",
+    "note": "金不靠渐变来表现，靠的是块的对比与刮痕，“闪”不等于金。",
+    "code": "MV-032"
+  },
+  {
+    "id": "M-33",
+    "status": "written",
+    "zh": "哈德逊河画派",
+    "en": "Hudson River School",
+    "era": "1825-1875",
+    "region": "美国",
+    "F": {
+      "medium": [
+        "oil on canvas",
+        "luminist thin layering"
+      ],
+      "brush": [
+        "minute leaf detail",
+        "invisible luminous blend"
+      ],
+      "color": [
+        "pantheistic golden light"
+      ],
+      "light": [
+        "luminist interior glow",
+        "vast calm sky"
+      ],
+      "space": [
+        "deep receding valley panorama"
+      ],
+      "motif": [
+        "cathedral rock",
+        "unspoiled wilderness",
+        "settler scale figure"
+      ],
+      "spirit": [
+        "manifest destiny awe",
+        "pantheist reverence"
+      ]
+    },
+    "sty": [
+      "hudson river school",
+      "luminism"
+    ],
+    "tags": [
+      "tiny-detail",
+      "fine-art-depth",
+      "natural-daylight",
+      "line-primary"
+    ],
+    "desc": "把新大陆画成伊甸园：巨大的全景构图，光是从画面内部自己亮起来的。",
+    "note": "人是点缀，不是主体；一旦人物抢戏，那种宗教感的辽阔就没了。",
+    "code": "MV-033"
+  },
+  {
+    "id": "M-34",
+    "status": "written",
+    "zh": "墨西哥壁画运动",
+    "en": "Mexican Muralism",
+    "era": "1920-1960",
+    "region": "墨西哥",
+    "F": {
+      "medium": [
+        "fresco on monumental wall"
+      ],
+      "brush": [
+        "heavy social contour",
+        "flat communal colour"
+      ],
+      "color": [
+        "earth red and pulque blue",
+        "pre-hispanic local hue"
+      ],
+      "light": [
+        "no single light source"
+      ],
+      "space": [
+        "narrative stacked wall choreography"
+      ],
+      "motif": [
+        "revolution masses",
+        "corn and industry",
+        "indigenous face"
+      ],
+      "spirit": [
+        "public pedagogy",
+        "revolutionary epic"
+      ]
+    },
+    "sty": [
+      "mexican muralism",
+      "socialist realism"
+    ],
+    "tags": [
+      "line-primary",
+      "flat-decoration",
+      "hyper-ornament",
+      "perspective-flat"
+    ],
+    "desc": "墙上的人民史：没有哪一个人能独自当主角，一切都服从集体的叙事节奏。",
+    "note": " “群”的结构先于个人，画面中心构图会毁掉那种壁画书写。",
+    "code": "MV-034"
+  },
+  {
+    "id": "M-35",
+    "status": "written",
+    "zh": "拉美魔幻现实主义",
+    "en": "Latin American Magical Realism",
+    "era": "1940-1980",
+    "region": "拉美",
+    "F": {
+      "medium": [
+        "oil and tempera on board",
+        "dream inflected realism"
+      ],
+      "brush": [
+        "meticulous small rendering"
+      ],
+      "color": [
+        "tropical saturated local",
+        "hot arid ochre"
+      ],
+      "light": [
+        "unexplained additionallight"
+      ],
+      "space": [
+        "domestic scene with impossible intrusion"
+      ],
+      "motif": [
+        "floating object in courtyard",
+        "hybrid creature",
+        "longest rainy season"
+      ],
+      "spirit": [
+        "myth and quotidien cohabit",
+        "latin american fatalism"
+      ]
+    },
+    "sty": [
+      "magical realism painting",
+      "surreal latin american"
+    ],
+    "tags": [
+      "tiny-detail",
+      "fine-art-depth",
+      "saturated-clash",
+      "flat-decoration"
+    ],
+    "desc": "最寻常的庭院日常里混进最不寻常的事：一切都画得很实，只是那件事不可能发生。",
+    "note": "越平静越好，一激动，奇迹就退化成视觉特效。",
+    "code": "MV-035"
+  },
+  {
+    "id": "M-36",
+    "status": "written",
+    "zh": "科幻插画黄金时代",
+    "en": "Golden Age Sci-Fi Illustration",
+    "era": "1930-1970",
+    "region": "美国",
+    "F": {
+      "medium": [
+        "gouache on illustration board"
+      ],
+      "brush": [
+        "designed value block",
+        "dry edge modelling"
+      ],
+      "color": [
+        "pulp cover primaries",
+        "glowing atmospheresphere"
+      ],
+      "light": [
+        "single dramatic key light"
+      ],
+      "space": [
+        "heroic foreshortening",
+        "scale by tiny figure"
+      ],
+      "motif": [
+        "rocket ascending from a strange planet",
+        "retro robot",
+        "alien cityscape"
+      ],
+      "spirit": [
+        "techno optimism",
+        "adventure pulp"
+      ]
+    },
+    "sty": [
+      "retro sci-fi illustration",
+      "pulp cover art"
+    ],
+    "tags": [
+      "commercial-poster",
+      "aged-decay",
+      "saturated-clash",
+      "hard-edge"
+    ],
+    "desc": "杂志封面的英雄构图：巨大的机械、微小的身影、单一强光，乐观到了天真的地步。",
+    "note": "现代材质光泽会破坏这种居中构图，务必保住硬边。",
+    "code": "MV-036"
+  },
+  {
+    "id": "M-37",
+    "status": "written",
+    "zh": "奇幻插画",
+    "en": "Fantasy Illustration",
+    "era": "1970-至今",
+    "region": "全球",
+    "F": {
+      "medium": [
+        "oil or acrylic on board",
+        "layered glaze fantasy"
+      ],
+      "brush": [
+        "rendered digital realist stroke",
+        "luminous edge"
+      ],
+      "color": [
+        "jewel tone scheme",
+        "torch warm with cold complement"
+      ],
+      "light": [
+        "multiple magical light sources"
+      ],
+      "space": [
+        "heroic low angle"
+      ],
+      "motif": [
+        "dragon rider",
+        "ruined citadel",
+        "hooded sorcerer"
+      ],
+      "spirit": [
+        "escapist wonder",
+        "heroic romance"
+      ]
+    },
+    "sty": [
+      "fantasy illustration",
+      "sword and sorcery art"
+    ],
+    "tags": [
+      "tiny-detail",
+      "fine-art-depth",
+      "saturated-clash",
+      "chiaroscuro-volume"
+    ],
+    "desc": "把不可能的世界画到可信为止：材质要经得起近看，光要多点且有色。",
+    "note": "这一层需要有“贵”的完成度，笔触要收得住，边缘要交代清楚。",
+    "code": "MV-037"
+  },
+  {
+    "id": "M-38",
+    "status": "written",
+    "zh": "概念设计与数字绘景",
+    "en": "Concept Art & Matte Painting",
+    "era": "1990-至今",
+    "region": "全球",
+    "F": {
+      "medium": [
+        "digital painting matte",
+        "photobash texture layer"
+      ],
+      "brush": [
+        "soft round digital",
+        "photographic texture brush"
+      ],
+      "color": [
+        "limited value-first scheme",
+        "atmospheric haze"
+      ],
+      "light": [
+        "volumetric god ray",
+        "depth-sorted haze"
+      ],
+      "space": [
+        "ramped depth corridor"
+      ],
+      "motif": [
+        "establishing shot",
+        "unused architecture",
+        "vehicle silhouette"
+      ],
+      "spirit": [
+        "story before beauty",
+        "production readiness"
+      ]
+    },
+    "sty": [
+      "concept art",
+      "matte painting"
+    ],
+    "tags": [
+      "digital-clean",
+      "fine-art-depth",
+      "natural-daylight"
+    ],
+    "desc": "为叙事服务的制图学：大气透视分层清楚，边缘半实半虚，一切都说得清为什么在这儿。",
+    "note": "这是设计图不是作品：过度装饰会影响可读性。",
+    "code": "MV-038"
+  },
+  {
+    "id": "M-39",
+    "status": "written",
+    "zh": "像素与低保真",
+    "en": "Pixel & Lo-Fi Digital",
+    "era": "1980-至今",
+    "region": "全球",
+    "F": {
+      "medium": [
+        "indexed pixel grid",
+        "dithered low bit depth"
+      ],
+      "brush": [
+        "visible single pixel tile",
+        "dither gradient"
+      ],
+      "color": [
+        "limited eighties palette"
+      ],
+      "light": [
+        "no gradient allowed"
+      ],
+      "space": [
+        "tile-based repeating logic"
+      ],
+      "motif": [
+        "sprite character",
+        "chunky ui frame"
+      ],
+      "spirit": [
+        "retro game nostalgia",
+        "machine constraint pride"
+      ]
+    },
+    "sty": [
+      "pixel art",
+      "dithered retro game"
+    ],
+    "tags": [
+      "flat-print",
+      "hard-edge",
+      "saturated-clash",
+      "digital-clean"
+    ],
+    "desc": "受限制而产生美感：色盘固定、过渡只能靠抖动、所有细节算得清清楚楚。",
+    "note": "任何抗锯齿式的柔和边缘都会立刻毁掉整套语言。",
+    "code": "MV-039"
+  },
+  {
+    "id": "M-40",
+    "status": "written",
+    "zh": "当代超大尺幅写实",
+    "en": "Contemporary Large-Scale Realism",
+    "era": "1990-至今",
+    "region": "全球",
+    "F": {
+      "medium": [
+        "oil on huge linen",
+        "smooth refined blend"
+      ],
+      "brush": [
+        "almost invisible stroke",
+        "careful edge hierarchy"
+      ],
+      "color": [
+        "photographically sourced local"
+      ],
+      "light": [
+        "single strong studio raking"
+      ],
+      "space": [
+        "extreme close or wide group"
+      ],
+      "motif": [
+        "enormous single portrait",
+        "crowd of strangers"
+      ],
+      "spirit": [
+        "monumental ordinary",
+        "cold intimacy"
+      ]
+    },
+    "sty": [
+      "large scale realism",
+      "hyperreal portrait"
+    ],
+    "tags": [
+      "photographic",
+      "tiny-detail",
+      "fine-art-depth",
+      "hard-edge"
+    ],
+    "desc": "把一个普通人放大到纪念碑的尺度：细节纤毫毕现，情绪反而被推得更远。",
+    "note": "尺度要让人感到压迫，画小了就只是一张数码砂糖。",
+    "code": "MV-040"
+  },
+  {
+    "id": "M-41",
+    "status": "written",
+    "zh": "六朝隋唐人物",
+    "en": "Early Figure Painting",
+    "era": "四至九世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink and mineral colour on silk"
+      ],
+      "brush": [
+        "even continuous thread line",
+        "archaic flat wash"
+      ],
+      "color": [
+        "flat cinnabar and azurite"
+      ],
+      "light": [
+        "no shadow whatsoever"
+      ],
+      "space": [
+        "rank-based scale",
+        "processional arrangement"
+      ],
+      "motif": [
+        "court lady",
+        "lofty scholar",
+        "river deity"
+      ],
+      "spirit": [
+        "archaic restraint",
+        "narrative didacticism"
+      ]
+    },
+    "sty": [
+      "classical chinese figure painting"
+    ],
+    "tags": [
+      "line-primary",
+      "flat-decoration",
+      "perspective-flat",
+      "polychrome-full"
+    ],
+    "desc": "线是一条匀到极致的游丝，人物按身份的大小排列，教化与鉴戒是它的任务。",
+    "note": "这一层没有投影、没有透视，加进去就等于把时代的语言抹掉。",
+    "code": "MV-041"
+  },
+  {
+    "id": "M-42",
+    "status": "written",
+    "zh": "五代北宋全景山水",
+    "en": "Northern Song Monumental Landscape",
+    "era": "十至十二世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink on silk with light wash"
+      ],
+      "brush": [
+        "axe-cut texture stroke",
+        "rain-drop texture stroke"
+      ],
+      "color": [
+        "ink monochrome with light ochre"
+      ],
+      "light": [
+        "mist separates distance"
+      ],
+      "space": [
+        "towering central peak",
+        "three-distance depth"
+      ],
+      "motif": [
+        "traveler on mountain path",
+        "hermit in cliff valley"
+      ],
+      "spirit": [
+        "cosmic order",
+        "monumental awe"
+      ]
+    },
+    "sty": [
+      "northern song landscape",
+      "monumental landscape"
+    ],
+    "tags": [
+      "line-primary",
+      "monochrome-ink",
+      "minimal-empty",
+      "perspective-flat"
+    ],
+    "desc": "一座大山压在正中，皴法像雨点像斧劈，人在山里只是一枚刻度。",
+    "note": "注意皴法必须是山自己的结构，不是明暗交代；出现焦点透视就散了。",
+    "code": "MV-042"
+  },
+  {
+    "id": "M-43",
+    "status": "written",
+    "zh": "南宋院体",
+    "en": "Southern Song Academy",
+    "era": "十二至十三世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink on silk album leaf"
+      ],
+      "brush": [
+        "sweeping axe-cut",
+        "wet atmospheric wash"
+      ],
+      "color": [
+        "restrained ink tone"
+      ],
+      "light": [
+        "soft diffused mist"
+      ],
+      "space": [
+        "one-corner and one-side layout"
+      ],
+      "motif": [
+        "river bend at dusk",
+        "pine and moon"
+      ],
+      "spirit": [
+        "poetic ellipsis",
+        "deliberate brevity"
+      ]
+    },
+    "sty": [
+      "ma-xia school",
+      "academy landscape"
+    ],
+    "tags": [
+      "line-primary",
+      "minimal-empty",
+      "wet-blending",
+      "perspective-flat"
+    ],
+    "desc": "画面只占一角，剩下的留给水和雾：越少说，诗意越多。",
+    "note": "留白要敢留，画满了就等于没懂这家语言的重点。",
+    "code": "MV-043"
+  },
+  {
+    "id": "M-44",
+    "status": "written",
+    "zh": "元代文人画",
+    "en": "Yuan Literati Painting",
+    "era": "十三至十四世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink on paper",
+        "dry corda-less handling"
+      ],
+      "brush": [
+        "calligraphic writing brush",
+        "dry restrained stroke"
+      ],
+      "color": [
+        "ink only or light ochre"
+      ],
+      "light": [
+        "no atmospheric drama"
+      ],
+      "space": [
+        "reduced sparse motif",
+        "scholarly abstraction"
+      ],
+      "motif": [
+        "bamboo and rock",
+        "empty pavilion",
+        "autumn tree"
+      ],
+      "spirit": [
+        "lofty retirement",
+        "self-cultivation"
+      ]
+    },
+    "sty": [
+      "literati painting",
+      "wenren hua"
+    ],
+    "tags": [
+      "monochrome-ink",
+      "line-primary",
+      "minimal-empty",
+      "perspective-flat"
+    ],
+    "desc": "书法性的用笔取代了描绘性的用笔：画的是心绪，不是景色。",
+    "note": "必须有书写感，笔一“描”就掉到画匠那一头去了。",
+    "code": "MV-044"
+  },
+  {
+    "id": "M-45",
+    "status": "written",
+    "zh": "青绿重彩与没骨",
+    "en": "Blue-and-Green & Boneless",
+    "era": "八至十八世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "mineral azurite and malachite on silk"
+      ],
+      "brush": [
+        "outline-and-fill or boneless wash"
+      ],
+      "color": [
+        "saturated blue-green mineral",
+        "cinnabar counterpoint"
+      ],
+      "light": [
+        "no modelled light"
+      ],
+      "space": [
+        "layered fantastic ranges"
+      ],
+      "motif": [
+        "immortal mountain",
+        "imperial procession"
+      ],
+      "spirit": [
+        "precious rarity",
+        "archaic revival"
+      ]
+    },
+    "sty": [
+      "blue and green landscape",
+      "mogu painting"
+    ],
+    "tags": [
+      "polychrome-full",
+      "flat-decoration",
+      "line-primary",
+      "perspective-flat"
+    ],
+    "desc": "蓝铜矿与孔雀石磨出来的贵气：要么先勾线再填色，要么干脆无线，全靠块面。",
+    "note": "矿物色的厚重感是关键，画成透明水彩就废了。",
+    "code": "MV-045"
+  },
+  {
+    "id": "M-46",
+    "status": "written",
+    "zh": "明代写意花鸟",
+    "en": "Ming Expressive Flower-and-Bird",
+    "era": "十五至十七世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink on absorbent paper"
+      ],
+      "brush": [
+        "splash ink abandon",
+        "single sweeping stroke"
+      ],
+      "color": [
+        "monochrome with occasional red"
+      ],
+      "light": [
+        "none required"
+      ],
+      "space": [
+        "asymmetric spray across the frame"
+      ],
+      "motif": [
+        "wild grape vine",
+        "lotus after rain",
+        "crab and reed"
+      ],
+      "spirit": [
+        "unrestrained release",
+        "martyr-like candour"
+      ]
+    },
+    "sty": [
+      "xieyi painting",
+      "splash ink"
+    ],
+    "tags": [
+      "broad-gesture",
+      "ink-aqueous",
+      "monochrome-ink",
+      "minimal-empty"
+    ],
+    "desc": "墨泼出去就收不回来：一笔是一笔，中间不许改，情绪比形状重要。",
+    "note": "这是控制下的放纵，乱涂不等于写意。",
+    "code": "MV-046"
+  },
+  {
+    "id": "M-47",
+    "status": "written",
+    "zh": "清初遗民",
+    "en": "Loyalist Masters of the Early Qing",
+    "era": "十七至十八世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink on paper",
+        "dry abbreviated handling"
+      ],
+      "brush": [
+        "terse withheld stroke",
+        "withered broken stroke"
+      ],
+      "color": [
+        "ink only",
+        "pale desolated wash"
+      ],
+      "light": [
+        "shadow ignored entirely"
+      ],
+      "space": [
+        "tilted precarious mass",
+        "lonely single element"
+      ],
+      "motif": [
+        "single bird with one eye open",
+        "withered lotus",
+        "jagged cliff"
+      ],
+      "spirit": [
+        "grief and refusal",
+        "alienation as form"
+      ]
+    },
+    "sty": [
+      "individualist painting",
+      "loyalist ink"
+    ],
+    "tags": [
+      "monochrome-ink",
+      "minimal-empty",
+      "ink-aqueous",
+      "perspective-flat"
+    ],
+    "desc": "亡国之痛变成了形式：物体被砍到最短简，构图歪着，留白像被剥夺的空间。",
+    "note": "“少”是被迫也是决心，画面太完整反而失去了那种冒犯感。",
+    "code": "MV-047"
+  },
+  {
+    "id": "M-48",
+    "status": "written",
+    "zh": "扬州八怪",
+    "en": "Yangzhou Eccentrics",
+    "era": "十八世纪",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink and light colour on paper"
+      ],
+      "brush": [
+        "deliberately crude line",
+        "awkward calligraphic scrawl"
+      ],
+      "color": [
+        "sparse muted colour"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "compact scroll vertical"
+      ],
+      "motif": [
+        "orchid and bamboo",
+        "beggar and immortal"
+      ],
+      "spirit": [
+        "professional iconoclasm",
+        "deliberate vulgarity"
+      ]
+    },
+    "sty": [
+      "yangzhou eccentric",
+      "eight eccentrics"
+    ],
+    "tags": [
+      "line-primary",
+      "broad-gesture",
+      "minimal-empty",
+      "aged-decay"
+    ],
+    "desc": "靠卖画为生的一群“怪”：故意拙、故意俗、故意用俗物写清高。",
+    "note": "拙是策略不是毛病，笔一圆滑就变成普通行画。",
+    "code": "MV-048"
+  },
+  {
+    "id": "M-49",
+    "status": "written",
+    "zh": "海上画派",
+    "en": "Shanghai School",
+    "era": "十九世纪末至二十世纪初",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink and colour on paper",
+        "absorbent raw paper"
+      ],
+      "brush": [
+        "robust loaded stroke",
+        "rapid abbreviated form"
+      ],
+      "color": [
+        "bright commercial colour",
+        "vivid red and malachite"
+      ],
+      "light": [
+        "flat studio light"
+      ],
+      "space": [
+        "accessible popular framing"
+      ],
+      "motif": [
+        "peony and crane",
+        "auspicious symbol"
+      ],
+      "spirit": [
+        "urban patronage",
+        "blunt vitality"
+      ]
+    },
+    "sty": [
+      "shanghai school",
+      "haipai"
+    ],
+    "tags": [
+      "broad-gesture",
+      "polychrome-full",
+      "line-primary",
+      "flat-decoration"
+    ],
+    "desc": "口岸商业起来的画风：颜色要亮、笔要快、寓意要吉利，画家第一次有了市场。",
+    "note": "雅俗之间的张力是它的看点，太雅或太俗都不成立。",
+    "code": "MV-049"
+  },
+  {
+    "id": "M-50",
+    "status": "written",
+    "zh": "岭南画派",
+    "en": "Lingnan School",
+    "era": "二十世纪初",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink and colour with Japanese influence"
+      ],
+      "brush": [
+        "precise feather rendering of wing and petal",
+        "misty western wash"
+      ],
+      "color": [
+        "softened wash palette"
+      ],
+      "light": [
+        "atmospheric western recession"
+      ],
+      "space": [
+        "partial western perspective"
+      ],
+      "motif": [
+        "bird in rain",
+        "lion in storm"
+      ],
+      "spirit": [
+        "national reform",
+        "modern awakening"
+      ]
+    },
+    "sty": [
+      "lingnan school",
+      "eclectic synthesis"
+    ],
+    "tags": [
+      "tiny-detail",
+      "wet-blending",
+      "fine-art-depth",
+      "polychrome-full"
+    ],
+    "desc": "用日本画的渲染加上一点点西画透视，让国画第一次学会湿答答的空气感。",
+    "note": "渲染要湿但清，脏了就失去那层通透。",
+    "code": "MV-050"
+  },
+  {
+    "id": "M-51",
+    "status": "written",
+    "zh": "中国现代水墨",
+    "en": "Modern Chinese Ink",
+    "era": "二十世纪中后期至今",
+    "region": "中国",
+    "F": {
+      "medium": [
+        "ink and acrylic on paper",
+        "large scale wall work"
+      ],
+      "brush": [
+        "structural ink gesture",
+        "western abstract field"
+      ],
+      "color": [
+        "monochrome plus industrial accent"
+      ],
+      "light": [
+        "no described light source"
+      ],
+      "space": [
+        "all-over abstraction with ink logic"
+      ],
+      "motif": [
+        "mountain reduced to mass",
+        "symbolic red sun"
+      ],
+      "spirit": [
+        "national reinvention",
+        "scale as statement"
+      ]
+    },
+    "sty": [
+      "modern chinese ink",
+      "experimental ink"
+    ],
+    "tags": [
+      "broad-gesture",
+      "minimal-empty",
+      "monochrome-ink",
+      "ink-aqueous"
+    ],
+    "desc": "把水墨从册页上解放到墙上：大笔、大结构、大留白，跟国家叙事绑在一起。",
+    "note": "笔要有骨，光有大面积淡墨会化成雾。",
+    "code": "MV-051"
+  },
+  {
+    "id": "M-52",
+    "status": "written",
+    "zh": "浮世绘",
+    "en": "Ukiyo-e",
+    "era": "十七至十九世纪",
+    "region": "日本",
+    "F": {
+      "medium": [
+        "woodblock print on washi"
+      ],
+      "brush": [
+        "keyblock outline",
+        "flat colour planes",
+        "bokashi wipe gradient"
+      ],
+      "color": [
+        "prussian blue and vermilion"
+      ],
+      "light": [
+        "no cast shadow"
+      ],
+      "space": [
+        "bold cropping and diagonal sweep"
+      ],
+      "motif": [
+        "actor portrait",
+        "travel station",
+        "wave and wind"
+      ],
+      "spirit": [
+        "floating world pleasure",
+        "commercial wit"
+      ]
+    },
+    "sty": [
+      "ukiyo-e",
+      "japanese woodblock print"
+    ],
+    "tags": [
+      "flat-print",
+      "line-primary",
+      "flat-decoration",
+      "hard-edge",
+      "perspective-flat"
+    ],
+    "desc": "娱乐业的图像工业：明星、旅行、名所，平面之下藏着极精的经营。",
+    "note": "不要投影、不要空气透视，这一层靠的是平面与裁切。",
+    "code": "MV-052"
+  },
+  {
+    "id": "M-53",
+    "status": "written",
+    "zh": "狩野派",
+    "en": "Kano School",
+    "era": "十五至十九世纪",
+    "region": "日本",
+    "F": {
+      "medium": [
+        "ink and gold on sliding door panels"
+      ],
+      "brush": [
+        "bold structural contour",
+        "large scale ink wash"
+      ],
+      "color": [
+        "gold ground and mineral green"
+      ],
+      "light": [
+        "no single source"
+      ],
+      "space": [
+        "wall-filling gorgeous depth"
+      ],
+      "motif": [
+        "pine and crane screen",
+        "tiger in landscape"
+      ],
+      "spirit": [
+        "feudal authority",
+        "decorative monumentality"
+      ]
+    },
+    "sty": [
+      "kano school",
+      "shohekiga"
+    ],
+    "tags": [
+      "gold-ground",
+      "line-primary",
+      "hyper-ornament",
+      "perspective-flat"
+    ],
+    "desc": "画在城郭与寺院的大屏风上：金云浮起空间，松鹤占满整面墙。",
+    "note": "这是建筑的一部分，裁成方形小图就失去它的野心。",
+    "code": "MV-053"
+  },
+  {
+    "id": "M-54",
+    "status": "written",
+    "zh": "琳派",
+    "en": "Rimpa School",
+    "era": "十七至十九世纪",
+    "region": "日本",
+    "F": {
+      "medium": [
+        "ink and mineral colour on gold paper"
+      ],
+      "brush": [
+        "flat boneless silhouette",
+        "tarashikomi pooling"
+      ],
+      "color": [
+        "indigo against gold ground"
+      ],
+      "light": [
+        "no shadow"
+      ],
+      "space": [
+        "flat repeated pattern field"
+      ],
+      "motif": [
+        "iris screen",
+        "red and white plum",
+        "flowing water curve"
+      ],
+      "spirit": [
+        "decorative intelligence",
+        "elegant understatement"
+      ]
+    },
+    "sty": [
+      "rimpa",
+      "ogata korin style"
+    ],
+    "tags": [
+      "flat-decoration",
+      "gold-ground",
+      "minimal-empty",
+      "perspective-flat"
+    ],
+    "desc": "设计感最强的日本传统：形体被压成剪影，曲线反复复沓，形成节拍般的装饰。",
+    "note": "绝对平面是铁律：一加体积和投影就完全不是琳派了。",
+    "code": "MV-054"
+  },
+  {
+    "id": "M-55",
+    "status": "written",
+    "zh": "日本南画",
+    "en": "Nanga & Bunjinga",
+    "era": "十八至十九世纪",
+    "region": "日本",
+    "F": {
+      "medium": [
+        "ink and light colour on paper"
+      ],
+      "brush": [
+        "calligraphic literati stroke",
+        "individualist shorthand"
+      ],
+      "color": [
+        "ink monochrome with restrained tint"
+      ],
+      "light": [
+        "shadow ignored entirely"
+      ],
+      "space": [
+        "sparse scholarly void"
+      ],
+      "motif": [
+        "mountain retreat",
+        "chrysanthemum fence"
+      ],
+      "spirit": [
+        "amateur ideal",
+        "recluse bravado"
+      ]
+    },
+    "sty": [
+      "nanga",
+      "bunjinga"
+    ],
+    "tags": [
+      "monochrome-ink",
+      "line-primary",
+      "minimal-empty",
+      "perspective-flat"
+    ],
+    "desc": "日本人对中国文人画的追慕：用笔必须有书法味，题材必须是隐逸。",
+    "note": "“业余”是刻意的姿态，过于专业就会失去那份松弛。",
+    "code": "MV-055"
+  },
+  {
+    "id": "M-56",
+    "status": "written",
+    "zh": "写生折衷派",
+    "en": "Maruyama-Shijo School",
+    "era": "十八至十九世纪",
+    "region": "日本",
+    "F": {
+      "medium": [
+        "ink and light colour on silk"
+      ],
+      "brush": [
+        "observed sketch line",
+        "minimal calligraphic economy"
+      ],
+      "color": [
+        "restrained naturalistic hue"
+      ],
+      "light": [
+        "soft directional observation"
+      ],
+      "space": [
+        "partial western recession"
+      ],
+      "motif": [
+        "fish and shell study",
+        "seasonal plant sketch"
+      ],
+      "spirit": [
+        "empirical curiosity",
+        "quiet accuracy"
+      ]
+    },
+    "sty": [
+      "maruyama shijo school",
+      "shasei"
+    ],
+    "tags": [
+      "line-primary",
+      "fine-art-depth",
+      "tiny-detail",
+      "wet-blending"
+    ],
+    "desc": "把写生引进日本绘画：先对实物画稿，再把它变成画面。",
+    "note": "准确度是它的美学，太夸张的变形会偏离这条线。",
+    "code": "MV-056"
+  },
+  {
+    "id": "M-57",
+    "status": "written",
+    "zh": "日本画",
+    "en": "Nihonga",
+    "era": "十九世纪末至今",
+    "region": "日本",
+    "F": {
+      "medium": [
+        "mineral pigment and glue on silk"
+      ],
+      "brush": [
+        "no visible brushstroke",
+        "layered tablet ground"
+      ],
+      "color": [
+        "soft luminous mineral tone",
+        "silver and gold accent"
+      ],
+      "light": [
+        "almost no cast shadow"
+      ],
+      "space": [
+        "flattened atmospheric depth"
+      ],
+      "motif": [
+        "seasonal flower",
+        "veiled female figure"
+      ],
+      "spirit": [
+        "modern national style",
+        "quiet refinement"
+      ]
+    },
+    "sty": [
+      "nihonga"
+    ],
+    "tags": [
+      "polychrome-full",
+      "flat-decoration",
+      "fine-art-depth",
+      "gold-ground"
+    ],
+    "desc": "国民国家时代的日本绘画：矿物颜料加一点点西方空气感，笔痕被彻底抹掉。",
+    "note": "表面不能有笔触，任何看得见的笔触都违反这条规矩。",
+    "code": "MV-057"
+  },
+  {
+    "id": "M-58",
+    "status": "written",
+    "zh": "朝鲜真景与民画",
+    "en": "Korean True-View & Folk Painting",
+    "era": "十七至十九世纪",
+    "region": "朝鲜",
+    "F": {
+      "medium": [
+        "ink and light colour on paper"
+      ],
+      "brush": [
+        "texture-rich rock strokes",
+        "folk flat naivety"
+      ],
+      "color": [
+        "ochre and muted mineral"
+      ],
+      "light": [
+        "even unmodelled light"
+      ],
+      "space": [
+        "actual place viewpoint",
+        "folk symmetry"
+      ],
+      "motif": [
+        "diamond mountains",
+        "tiger and magpie"
+      ],
+      "spirit": [
+        "love of specific place",
+        "commoner humour"
+      ]
+    },
+    "sty": [
+      "jingyeong sansu",
+      "minhwa"
+    ],
+    "tags": [
+      "line-primary",
+      "flat-decoration",
+      "polychrome-full",
+      "perspective-flat"
+    ],
+    "desc": "一边是实地画下来的真山真水，一边是画在纸门上的老虎与喜鹊。",
+    "note": "民画的幽默来自夸张比例，不要修正它。",
+    "code": "MV-058"
+  },
+  {
+    "id": "M-59",
+    "status": "written",
+    "zh": "波斯细密画",
+    "en": "Persian Miniature",
+    "era": "十三至十七世纪",
+    "region": "波斯",
+    "F": {
+      "medium": [
+        "opaque watercolour and gold on paper",
+        "burnished surface"
+      ],
+      "brush": [
+        "hair-fine detail",
+        "flat unmodelled colour"
+      ],
+      "color": [
+        "lapis and gold dominance",
+        "rose and verdigris"
+      ],
+      "light": [
+        "no shadow at all"
+      ],
+      "space": [
+        "multiple viewpoint stacking",
+        "simultaneous interior-exterior"
+      ],
+      "motif": [
+        "garden carpet scene",
+        "legendary hunt",
+        "calligraphy frame"
+      ],
+      "spirit": [
+        "poetic idealisation",
+        "court refinement"
+      ]
+    },
+    "sty": [
+      "persian miniature",
+      "safavid painting"
+    ],
+    "tags": [
+      "tiny-detail",
+      "gold-ground",
+      "flat-decoration",
+      "perspective-flat",
+      "hyper-ornament"
+    ],
+    "desc": "在一张手掌大的纸上同时看见花园、宫殿与打猎：鸟儿视角惯性与现实并存。",
+    "note": "这套语言拒绝投影与透视，加上去就是失败。",
+    "code": "MV-059"
+  },
+  {
+    "id": "M-60",
+    "status": "written",
+    "zh": "莫卧儿细密画",
+    "en": "Mughal Miniature",
+    "era": "十六至十八世纪",
+    "region": "印度",
+    "F": {
+      "medium": [
+        "opaque watercolour with gold on paper"
+      ],
+      "brush": [
+        "observed portrait naturalism",
+        "minute textile rendering"
+      ],
+      "color": [
+        "warm indian palette",
+        "lapis and gold"
+      ],
+      "light": [
+        "subtle modelling rare"
+      ],
+      "space": [
+        "deep receding court perspective"
+      ],
+      "motif": [
+        "emperor portrait",
+        "dynastic court scene",
+        "animal study"
+      ],
+      "spirit": [
+        "dynastic self-documentation",
+        "cosmopolitan empire"
+      ]
+    },
+    "sty": [
+      "mughal painting",
+      "mughal miniature"
+    ],
+    "tags": [
+      "tiny-detail",
+      "fine-art-depth",
+      "gold-ground",
+      "polychrome-full"
+    ],
+    "desc": "比波斯多了一点欧洲的体积与心理：皇帝要能被认出来，织锦要能数出线。",
+    "note": "肖像的个性是这一层的核心，别画成通用面孔。",
+    "code": "MV-060"
+  },
+  {
+    "id": "M-61",
+    "status": "written",
+    "zh": "奥斯曼插图",
+    "en": "Ottoman & Islamic Manuscript Art",
+    "era": "十四至十八世纪",
+    "region": "土耳其·阿拉伯",
+    "F": {
+      "medium": [
+        "opaque watercolour and gold on polished paper"
+      ],
+      "brush": [
+        "flat precise contour",
+        "pattern billowing"
+      ],
+      "color": [
+        "deep red and lapis",
+        "gold illumination"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "stacked narrative registers"
+      ],
+      "motif": [
+        "sultan procession",
+        "calligraphy panel",
+        "city plan"
+      ],
+      "spirit": [
+        "imperial recording",
+        "geometric devotion"
+      ]
+    },
+    "sty": [
+      "ottoman miniature",
+      "islamic manuscript"
+    ],
+    "tags": [
+      "flat-decoration",
+      "hyper-ornament",
+      "gold-ground",
+      "perspective-flat"
+    ],
+    "desc": "书法、几何纹与叙事插图共处：尺度可以很小，工具要极讲究。",
+    "note": "几何的准确性是信仰的一部分，图案不能随手变形。",
+    "code": "MV-061"
+  },
+  {
+    "id": "M-62",
+    "status": "written",
+    "zh": "孟加拉复兴",
+    "en": "Bengal Renaissance Painting",
+    "era": "二十世纪初",
+    "region": "印度",
+    "F": {
+      "medium": [
+        "watercolour on paper",
+        "Japanese wash influence"
+      ],
+      "brush": [
+        "sweeping linear grace",
+        "airy thin wash"
+      ],
+      "color": [
+        "earth ochre and muted rose"
+      ],
+      "light": [
+        "soft symbolic glow"
+      ],
+      "space": [
+        "flattened stage-like space"
+      ],
+      "motif": [
+        "woman with lamp",
+        "mythic female figure"
+      ],
+      "spirit": [
+        "national revival",
+        "anti-colonial swadeshi"
+      ]
+    },
+    "sty": [
+      "bengal school of art"
+    ],
+    "tags": [
+      "line-primary",
+      "wet-blending",
+      "muted-grey",
+      "flat-decoration"
+    ],
+    "desc": "用日本画的洗练与美国式的柔焦，画出印度自己的现代想象。",
+    "note": "线的柔美与薄洗掏出来的气氛是它的标志，松弛不等于软弱。",
+    "code": "MV-062"
+  },
+  {
+    "id": "M-63",
+    "status": "written",
+    "zh": "东南亚传统壁画",
+    "en": "Southeast Asian Traditional Painting",
+    "era": "十四至二十世纪",
+    "region": "泰国·爪哇·巴厘",
+    "F": {
+      "medium": [
+        "tempera on wall",
+        "palm leaf manuscript"
+      ],
+      "brush": [
+        "strong outline and flat local colour",
+        "gold stencil"
+      ],
+      "color": [
+        "primary red gold and jade"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "stacked narrative bands"
+      ],
+      "motif": [
+        "jataka tale",
+        "wayang puppet figure",
+        "temple guardian"
+      ],
+      "spirit": [
+        "communal teaching",
+        "craft lineage"
+      ]
+    },
+    "sty": [
+      "thai mural painting",
+      "balinese painting",
+      "wayang style"
+    ],
+    "tags": [
+      "flat-decoration",
+      "line-primary",
+      "hyper-ornament",
+      "gold-ground",
+      "perspective-flat"
+    ],
+    "desc": "故事是一层层横带读过去的：护法像与皮影人物的侧影来自同一个形体库。",
+    "note": "叙事连续性与道具的准确性优先，不要引入单点透视。",
+    "code": "MV-063"
+  },
+  {
+    "id": "M-64",
+    "status": "written",
+    "zh": "藏传唐卡",
+    "en": "Tibetan Thangka",
+    "era": "十一世纪至今",
+    "region": "西藏",
+    "F": {
+      "medium": [
+        "mineral pigment on cotton with silk mount"
+      ],
+      "brush": [
+        "measured iconometric grid",
+        "outlined flat colour"
+      ],
+      "color": [
+        "deep lapis and cinnabar",
+        "gold thread"
+      ],
+      "light": [
+        "radiating halo not cast shadow"
+      ],
+      "space": [
+        "symmetrical mandala order"
+      ],
+      "motif": [
+        "wrathful protector",
+        "mandala palace",
+        "lineage tree"
+      ],
+      "spirit": [
+        "iconographic precision",
+        "devotional clarity"
+      ]
+    },
+    "sty": [
+      "thangka painting",
+      "tibetan buddhist art"
+    ],
+    "tags": [
+      "flat-decoration",
+      "gold-ground",
+      "hyper-ornament",
+      "polychrome-full",
+      "perspective-flat"
+    ],
+    "desc": "比例必须合造像度量经：神的位置、手势、持物都有规矩，绘画是修的一部分。",
+    "note": "构图对称而严谨，随意发挥会让它失去宗教效力。",
+    "code": "MV-064"
+  }
+]

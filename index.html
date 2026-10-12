@@ -1,0 +1,3153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>画作 提示词库 · art-prompt-forge</title>
+<style>
+:root{
+  --bg:#f5f4f0; --panel:#ffffff; --panel2:#faf9f6; --ink:#211f1c; --ink2:#5f5a52;
+  --line:#e3dfd7; --accent:#9a5b2c; --accent-ink:#ffffff; --soft:#efeae1;
+  --accent-bg:#f3e7d9;
+  --warn:#8a4a12; --warn-bg:#fdf1e3; --hard:#8f2b2b; --hard-bg:#fbeaea;
+  --ok:#2f6b45; --ok-bg:#e8f3ea;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Cascadia Mono",monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16171a; --panel:#1d1f23; --panel2:#23262b; --ink:#e9e6e0; --ink2:#9d978d;
+    --line:#31353c; --accent:#d09157; --accent-ink:#1a1a1a; --soft:#2a2e34;
+    --accent-bg:#2a2118;
+    --warn:#e5b071; --warn-bg:#33291c; --hard:#ef9b9b; --hard-bg:#3a2424;
+    --ok:#8fd0a5; --ok-bg:#1f3327;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font:14px/1.6 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent)}
+
+/* ---------- header ---------- */
+header{
+  border-bottom:1px solid var(--line); background:var(--panel);
+  padding:14px 18px; position:sticky; top:0; z-index:20;
+}
+.hd{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.hd h1{font-size:17px;margin:0;letter-spacing:.3px;display:flex;align-items:baseline;gap:8px}
+.hd h1 .tag{
+  font:10px/1.6 var(--mono);letter-spacing:1.6px;color:var(--accent);
+  background:var(--accent-bg);border:1px solid var(--line2);border-radius:4px;padding:1px 7px;
+}
+.hd .sub{color:var(--ink2);font-size:12px}
+.hd .spacer{flex:1}
+.stamp{font:11px var(--mono);color:var(--ink2);white-space:nowrap}
+.stamp b{color:var(--accent)}
+/* 姓名策略横幅：读任何一条词面之前就该知道的事，常驻顶栏不折叠 */
+.policy{
+  margin:10px 0 0;padding:9px 12px;border-radius:var(--r);
+  background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--accent);
+  display:flex;gap:10px;align-items:flex-start;
+}
+.policy .ptag{
+  flex:0 0 auto;font:10px/1.6 var(--mono);letter-spacing:1px;
+  color:var(--accent);background:var(--accent-bg);border:1px solid var(--line2);
+  border-radius:4px;padding:2px 7px;
+}
+.policy .tx{flex:1;min-width:0;font-size:12.5px;line-height:1.66}
+.policy .tx b{color:var(--ink)}
+.policy .tx .sub2{display:block;margin-top:2px;font-size:11.5px;color:var(--ink2)}
+/* 库存条：全部现算，一个数字都不写死 */
+.inv{display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;margin:10px 0 0;padding-bottom:10px;font-size:12px;color:var(--ink2)}
+.inv b{font-family:var(--mono);color:var(--ink)}
+
+/* ---------- 模式页签 ---------- */
+.mode-tabs{display:flex;gap:2px;background:var(--soft);border:1px solid var(--line);
+  border-radius:8px;padding:2px}
+.mode-tab{border:0;background:transparent;color:var(--ink2);font-size:12.5px;
+  padding:5px 13px;border-radius:6px;cursor:pointer;font-family:inherit}
+.mode-tab:hover{color:var(--ink)}
+.mode-tab.on{background:var(--panel);color:var(--accent);font-weight:600;
+  box-shadow:0 1px 3px rgba(0,0,0,.08)}
+
+/* ---------- 简单模式 ---------- */
+.easy-wrap{max-width:1060px;margin:0 auto;padding:18px 18px 48px}
+.easy-stats{font:12px/1.6 var(--mono);color:var(--ink2);margin-bottom:14px;
+  display:flex;gap:16px;flex-wrap:wrap}
+.easy-grid{display:grid;gap:16px;grid-template-columns:minmax(300px,1fr) minmax(340px,1.15fr);
+  align-items:start}
+@media (max-width:820px){.easy-grid{grid-template-columns:1fr}}
+.easy-left h2,.easy-right h2{font-size:15px;margin:0 0 4px;display:flex;align-items:baseline;gap:8px}
+.easy-left h2 em,.easy-right h2 em{font-style:normal;color:var(--accent);font-size:13px}
+.easy-live{font-size:11px;color:var(--ok,#2e7d32);border:1px solid currentColor;
+  border-radius:10px;padding:0 8px;font-weight:400}
+.easy-tip{font-size:12px;color:var(--ink2);margin:0 0 12px}
+.easy-card{display:block;width:100%;text-align:left;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;padding:15px 18px;margin-bottom:10px;
+  cursor:pointer;font-family:inherit;color:var(--ink);transition:border-color .12s}
+.easy-card:hover{border-color:var(--accent)}
+.easy-card.on{border-color:var(--accent);background:var(--soft)}
+.easy-card b{display:block;font-size:15.5px;font-weight:650;margin-bottom:4px}
+.easy-card .d{display:block;font-size:12.5px;color:var(--ink2);margin-bottom:5px}
+.easy-card .c{display:block;font:11.5px/1.6 var(--mono);color:var(--dim2,#8a857c)}
+.easy-random{width:100%;border:1px dashed var(--line);background:transparent;
+  border-radius:10px;padding:13px;font-size:13.5px;color:var(--ink2);cursor:pointer;
+  font-family:inherit;margin-top:2px}
+.easy-random:hover{border-color:var(--accent);color:var(--accent)}
+.easy-plat{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.easy-plat button{border:1px solid var(--line);background:var(--panel);color:var(--ink2);
+  font-size:12.5px;padding:6px 14px;border-radius:16px;cursor:pointer;font-family:inherit}
+.easy-plat button.on{border-color:var(--accent);color:var(--accent);font-weight:600}
+.easy-out{background:var(--panel2);border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px;font:12.5px/1.75 var(--mono);white-space:pre-wrap;word-break:break-word;
+  max-height:380px;overflow:auto;margin:0 0 12px;color:var(--ink)}
+.easy-copy{display:block;width:100%;border:0;border-radius:9px;padding:12px;
+  font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:8px;
+  background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.easy-copy.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);
+  font-size:15px;padding:13px}
+.easy-copy.pri:hover{filter:brightness(1.06)}
+.easy-copy.ghost{font-weight:400;font-size:12.5px;color:var(--ink2)}
+.easy-copy:hover{border-color:var(--accent)}
+.easy-note{font-size:11.5px;color:var(--ink2);line-height:1.7;margin:6px 0 0}
+.easy-note b{color:var(--accent)}
+/* 自己调区块：自定义出图的②区 */
+.ec-row{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.ec-row > label{flex:0 0 62px;font-size:12.5px;color:var(--ink2)}
+.ec-row input[type=text]{flex:1}
+.ec-row .filters{flex:1}
+.easy-why{margin-top:12px}
+.easy-why summary{cursor:pointer;font-size:12px;color:var(--ink2);user-select:none}
+.easy-why div{font-size:12px;color:var(--ink2);line-height:1.9;padding:8px 2px}
+
+/* ---------- layout ----------
+   合成器页签只留两栏：配方盘 + 成品。「模块库」独立成「全部词条」
+   页签 —— 学 xhs 库的八页结构：一页只回答一件事，别把三件事挤一屏。 */
+.wrap{
+  display:grid; gap:14px; padding:14px 18px 40px;
+  grid-template-columns: minmax(300px,0.95fr) minmax(340px,1.25fr);
+  align-items:start;
+}
+@media (max-width:980px){ .wrap{grid-template-columns:1fr} }
+.col{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+.col > h2{
+  margin:0; padding:10px 12px; font-size:13px; letter-spacing:.4px;
+  border-bottom:1px solid var(--line); color:var(--ink);
+  display:flex;align-items:center;gap:8px;background:var(--panel2);
+  border-radius:var(--r) var(--r) 0 0;
+}
+.col > h2 .hint{font-weight:400;font-size:11px;color:var(--ink2);margin-left:auto}
+.body{padding:10px 12px}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:8px 10px 0}
+.tab{
+  border:1px solid var(--line);background:var(--panel2);color:var(--ink2);
+  border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;
+}
+.tab:hover{border-color:var(--accent);color:var(--ink)}
+.tab.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+/* ---------- controls ----------
+   选取控件全线放大：字号 15px、内边距 11×14。瞄准面积是第一交互成本，
+   全站 input / select / textarea 走这一条声明，别处不再写小尺寸覆盖 */
+input[type=search],input[type=text],select,textarea{
+  width:100%;background:var(--panel2);color:var(--ink);
+  border:1px solid var(--line);border-radius:9px;padding:11px 14px;font-size:15px;
+  font-family:inherit;
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+textarea{resize:vertical;line-height:1.55}
+.row{display:flex;gap:8px;align-items:center}
+.row + .row{margin-top:8px}
+label.lbl{font-size:13px;color:var(--ink2);min-width:64px}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 6px;max-height:170px;overflow:auto;align-items:center}
+/* chips 是全站点选主力：字号与内边距给足，别让用户瞄准一个小点 */
+.fchip{
+  border:1px solid var(--line);background:var(--panel2);color:var(--ink2);
+  border-radius:9px;padding:8px 16px;font-size:14px;cursor:pointer;white-space:nowrap;
+}
+.fchip small{font-size:11px;color:var(--ink3);margin-left:4px}
+/* 筛选行内的组名标签（题材 / 媒介 / 视图） */
+.filters .flab{font-size:12.5px;color:var(--ink3);font-weight:600;margin-right:2px;flex:none}
+.fchip.on{background:var(--soft);color:var(--ink);border-color:var(--accent);font-weight:600}
+
+/* ---------- item list ---------- */
+.list{margin-top:6px;max-height:46vh;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.item{
+  display:flex;gap:10px;align-items:center;padding:11px 13px;
+  border-bottom:1px solid var(--line);cursor:pointer;
+}
+.item .add{cursor:pointer}
+.item:last-child{border-bottom:0}
+.item:hover{background:var(--soft)}
+.item .nm{flex:1;min-width:0}
+.item .nm b{font-weight:600;font-size:13.5px}
+.item .nm em{font-style:normal;color:var(--ink2);font-size:12px}
+.item .nm p{margin:2px 0 0;color:var(--ink2);font-size:12px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .add{
+  border:1px solid var(--line);background:var(--panel2);color:var(--ink2);
+  border-radius:8px;font-size:13.5px;padding:8px 15px;flex:none;
+}
+.item:hover .add{border-color:var(--accent);color:var(--accent)}
+.empty{padding:16px;text-align:center;color:var(--ink2);font-size:12px}
+
+/* ---------- tray ---------- */
+.tray-group{margin-bottom:10px}
+.tray-group > h3{
+  margin:0 0 6px;font-size:11px;color:var(--ink2);font-weight:600;letter-spacing:.5px;
+  display:flex;align-items:center;gap:6px;
+}
+.tray-group > h3 span{font-family:var(--mono);font-weight:400}
+.tr{
+  border:1px solid var(--line);border-radius:8px;padding:7px 9px;margin-bottom:6px;
+  background:var(--panel2);
+}
+.tr .top{display:flex;align-items:center;gap:6px}
+.tr .top b{font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tr .top .w{font:11px var(--mono);color:var(--accent);min-width:30px;text-align:right}
+.tr .top .x{border:0;background:transparent;color:var(--ink2);cursor:pointer;font-size:15px;line-height:1;padding:0 2px}
+.tr .top .x:hover{color:var(--hard)}
+.tr .top .pv{border:1px solid var(--line);background:transparent;color:var(--ink2);
+  cursor:pointer;font:10px/1 var(--mono);padding:2px 5px;border-radius:5px}
+.tr .top .pv:hover{border-color:var(--accent);color:var(--accent)}
+.tr input[type=range]{width:100%;margin:4px 0 0}
+.tr.muted{opacity:.55}
+.tr.muted .top b::after{content:" · 让位";font-size:10px;color:var(--hard)}
+
+/* ---------- output ---------- */
+.out-tabs{display:flex;gap:5px;padding:8px 10px 0}
+pre.out{
+  margin:8px 0 0;padding:10px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:8px;font:12px/1.65 var(--mono);white-space:pre-wrap;word-break:break-word;
+  max-height:38vh;overflow:auto;min-height:80px;
+}
+.metaline{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:8px;font-size:11px;color:var(--ink2)}
+.pill{
+  border:1px solid var(--line);background:var(--panel2);color:var(--ink);
+  border-radius:999px;padding:2px 9px;font:11px var(--mono);
+}
+.warn{border-radius:8px;padding:7px 9px;margin-top:6px;font-size:12px}
+.warn.hard{background:var(--hard-bg);color:var(--hard);border:1px solid currentColor}
+.warn.regional{background:var(--warn-bg);color:var(--warn);border:1px solid currentColor}
+.warn.soft{background:var(--panel2);color:var(--ink2);border:1px solid var(--line)}
+.warn.experimental{background:var(--warn-bg);color:var(--warn);border:1px dashed currentColor}
+.warn b{font-weight:600}
+
+/* 状态徽章：一眼看出这条信息可不可信 */
+.badge{
+  display:inline-block;font:10px/1 var(--mono);border-radius:4px;
+  padding:2px 5px;margin-left:4px;vertical-align:1px;
+  border:1px solid var(--line);background:var(--panel2);color:var(--ink2);
+}
+.badge.stested{border-color:var(--ok);color:var(--ok);background:var(--ok-bg)}
+/* reviewed 比 tested 更高一级，用实心底区分开：
+   两级同色的话，界面上就分不出「跑过」和「核对过」，那状态机就没白做。 */
+.badge.sreviewed{border-color:var(--ok);color:var(--panel);background:var(--ok);font-weight:700}
+.badge.scollected{border-color:var(--warn);color:var(--warn);background:var(--warn-bg)}
+
+/* 关系边里的连接词：视觉上比两端的名字弱，让一眼能看出「这是条边不是两个条目」 */
+.item .arrow{
+  display:inline-block;margin:0 4px;padding:1px 6px;border-radius:10px;
+  font:10px/1.6 var(--mono);color:var(--ink2);
+  background:var(--soft);border:1px solid var(--line);vertical-align:1px;
+}
+
+.tasknote{
+  margin-top:10px;padding:8px 10px;border-radius:8px;font-size:12px;
+  background:var(--soft);border:1px solid var(--line);line-height:1.6;
+}
+
+button.btn{
+  border:1px solid var(--line);background:var(--panel2);color:var(--ink);
+  border-radius:9px;padding:9px 14px;font-size:13.5px;cursor:pointer;font-family:inherit;
+}
+button.btn:hover{border-color:var(--accent);color:var(--accent)}
+button.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.btn.pri:hover{filter:brightness(1.1)}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+details{margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+summary{font-size:12px;color:var(--ink2);cursor:pointer}
+.hintline{font-size:11px;color:var(--ink2);margin-top:6px}
+
+/* ============================================================
+   八页签布局（学 xhs-prompt-library 的页面结构）
+   顶部一条主导航，每个页签一个 .view，一页只回答一件事：
+   画廊看成品、自定义出词、合成器细调、抽卡找灵感、
+   案例查实测、词条全浏览、搭配找参考、框架看家底。
+   ============================================================ */
+
+/* ---------- 主导航：beauty-album 同款文件夹式页签 ----------
+   sticky 吸顶：页签横排在顶栏下方、内容之上，滚到哪里入口都在。
+   八个入口必须同时可见，藏在侧栏里的入口等于不存在。 */
+.main-nav{
+  display:flex;gap:6px;padding:8px 18px 0;background:var(--panel);
+  border-bottom:1px solid var(--line);overflow-x:auto;
+  position:sticky;top:0;z-index:20;
+}
+.main-nav button{
+  flex:0 0 auto;border:1px solid var(--line);border-bottom:none;background:var(--panel2);
+  color:var(--ink2);border-radius:8px 8px 0 0;padding:6px 13px 7px;cursor:pointer;
+  font:12.5px/1.5 inherit;display:flex;align-items:baseline;gap:6px;white-space:nowrap;
+  font-family:inherit;
+}
+.main-nav button:hover{color:var(--ink);border-color:var(--line2);background:var(--panel3,#2a2e35)}
+.main-nav button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.main-nav .n{font:10px var(--mono);opacity:.72}
+/* 视图显隐只走 class 一条路：.view 隐藏、.view.on 显示。
+   不要再引入内联 style.display —— 两套机制并存时，
+   JS 清掉内联样式会落回 .view{display:none}，真浏览器里全页黑屏
+   （2026-10-12 事故：jsdom 只查内联值所以测试全绿，浏览器里什么都看不到）。
+   合成器是 grid 布局，单开一条高优先级规则，别让 display:block 盖掉它。 */
+.view{display:none}
+.view.on{display:block}
+main.wrap.view.on{display:grid}
+
+/* ---------- 通用面板：标题 + 一句 hint ---------- */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px 18px;margin-bottom:16px}
+.panel h2{font-size:15px;font-weight:600;margin:0 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.panel .hint{color:var(--ink2);font-size:12px;margin-bottom:12px}
+.gbadge{display:inline-block;background:var(--ok-bg);border:1px solid var(--ok);color:var(--ok);
+  font-size:10px;padding:1.5px 6px;border-radius:4px;font-weight:400}
+
+/* ---------- 示例画廊：卡片网格，点开看完整提示词 ---------- */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:14px}
+.gcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 15px;cursor:pointer;transition:border-color .12s, transform .12s;text-align:left;
+  font-family:inherit;color:var(--ink)}
+.gcard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.gcard.on{border-color:var(--accent);background:var(--soft)}
+.gcard .gt{font-size:14px;font-weight:650;margin-bottom:3px}
+.gcard .gs{font-size:11px;color:var(--ink2);margin-bottom:7px}
+.gcard .gc{font:10.5px/1.6 var(--mono);color:var(--accent)}
+.gcard .gp{font-size:11px;color:var(--ink2);margin-top:6px;opacity:.85;line-height:1.55}
+.gcard .gt i{font-style:normal;font-size:10.5px;color:var(--ink2);font-weight:400;margin-left:6px}
+
+/* 签名卡（学 beauty-album 的画廊卡片）：色卡头 + 编号浮层 + 关键词 chips
+   + 独立一行的醒目复制按钮。色卡是从配方里的流派色彩词面与光线词推出来的
+   示意色，不是成品图 —— 词面改了色卡跟着变，不给 25 张各硬编一组颜色
+   （硬编 = 永远不会被校验的数据）。 */
+.gcard.sig{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.gsw{position:relative;height:112px;overflow:hidden;flex:0 0 auto}
+.gsw::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.28),transparent 46%,rgba(0,0,0,.42))}
+/* 卡面编号就是这张卡配图该用的文件名，所以让它可点：点一下复制「VAR-01.png」。
+   配图放不进去，十次有九次是名字打错或记错（当年卡面显示序号、编码却是另一套）——
+   与其让人手抄，不如把正确的名字交到剪贴板。 */
+.gsw .gid{position:absolute;left:10px;top:8px;z-index:3;
+  display:inline-flex;align-items:baseline;gap:1px;
+  font:700 12.5px/1 var(--mono);letter-spacing:1px;color:#fff;
+  background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.32);border-radius:999px;
+  padding:5px 10px;cursor:pointer;text-shadow:0 1px 6px rgba(0,0,0,.6);
+  transition:background .15s,border-color .15s}
+.gsw .gid:hover{background:rgba(0,0,0,.74);border-color:#fff}
+.gsw .gid em{font-style:normal;font-size:9.5px;opacity:.66;letter-spacing:.4px;font-weight:400}
+.gsw .gstat{position:absolute;right:8px;top:8px;z-index:2}
+.gstat.un{background:var(--warn-bg);border-color:var(--warn);color:var(--warn)}
+/* 图≠配方徽章在状态徽章左侧排队，别叠在一起 */
+.gsw .gmis{position:absolute;right:62px;top:8px;z-index:2;
+  background:var(--warn-bg);border-color:var(--warn);color:var(--warn);cursor:help}
+.gstrips{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;height:8px}
+.gstrips i{flex:1;display:block}
+.gbody{padding:10px 12px 8px;flex:1;display:flex;flex-direction:column;min-width:0}
+.gname{font-size:14px;font-weight:650;line-height:1.3}
+.gname em{font-style:normal;font:400 10px var(--mono);color:var(--ink3);margin-left:5px}
+.gkw{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px;min-height:42px}
+.gkw span{font:10px/1.6 var(--mono);padding:1px 6px;border-radius:4px;
+  background:var(--panel2);border:1px solid var(--line);color:var(--ink2);
+  max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gkw span.pp{color:#8fc4d4;border-color:#3a5a68;background:#15242b}
+.gkw span.mv{color:#d9b988;border-color:#5c4a2a;background:#2a2318}
+.gfoot{display:flex;align-items:center;gap:6px;margin-top:7px;font-size:10.5px;color:var(--ink3)}
+.gfoot .sp{flex:1}
+/* 复制行独立成行：跟 gfoot 挤一行时窄卡会被压扁 —— beauty-album 的教训 */
+.gact{display:flex;gap:6px;padding:8px 12px 10px}
+.gact .mini{flex:1;border-radius:7px;padding:9px 10px;font-size:13.5px;font-weight:600;
+  cursor:pointer;font-family:inherit;text-align:center;white-space:nowrap}
+.gact .mini.p{background:var(--accent);border:1px solid var(--accent);color:var(--accent-ink)}
+.gact .mini.p:hover{filter:brightness(1.12)}
+/* 负面词按钮用另一族颜色：一行两个按钮只靠文案区分时很容易点反。
+   第二行整行宽；「合成器改用」是描边款，和实心的复制按钮分清主次 */
+.gact .mini.neg{background:#2a1a1c;border:1px solid #5f3236;color:#eebcc0;flex:1}
+.gact .mini.neg:hover{color:#fff;border-color:#7a4046}
+.gact .mini.use{background:var(--panel2);border:1px solid var(--accent);color:var(--accent)}
+.gact .mini.use:hover{background:var(--accent-bg)}
+.gwhat{padding:0 12px 10px;font-size:11px;color:var(--ink2);line-height:1.6;opacity:.9}
+
+/* 画廊顶上的「有文件没进画廊」提示条：把构建期的未认领清单摆到页面上，
+   不然用户只能从「页面没变化」推出「没同步」，方向一开始就错了 */
+.warnline{margin:8px 0 10px;padding:10px 12px;border:1px solid var(--warn);border-radius:10px;
+  background:var(--warn-bg);color:var(--warn);font-size:11.5px;line-height:1.75}
+.warnline b{word-break:break-all}
+
+/* 画廊两种密度（学 beauty-album）：看图档用来看调子与画面，扫编号档一屏扫完 */
+.gal.big{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.gal.big .gsw{height:190px}
+.gal.dense{grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:10px}
+.gal.dense .gsw{height:84px}
+.gal.dense .gid{font-size:10.5px;padding:3px 7px;letter-spacing:.6px}
+.gal.dense .gkw{min-height:0}
+.gal.dense .gs{display:none}   /* 扫编号档只认编号与名字，一句话画面收起来 */
+.gal.dense .gwhat{display:none}
+/* 卡片配了实图时：图铺满色卡区，色带让位；编号与状态徽章浮在图上 */
+.gsw img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gsw.hasimg .gstrips{display:none}
+/* 详情浮层里的整幅大图 */
+.galhero{width:100%;border-radius:8px;border:1px solid var(--line);display:block;margin-bottom:10px}
+
+/* 图例与节头（学 beauty-album 的 legend / secthead） */
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:10.5px;color:var(--ink2);margin:8px 0}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:12px;height:7px;border-radius:2px;display:inline-block}
+.secthead{display:flex;align-items:baseline;gap:8px;margin:14px 0 10px;
+  padding-bottom:6px;border-bottom:1px solid var(--line)}
+.secthead h3{font-size:13px;margin:0}
+.secthead .n{font:11px var(--mono);color:var(--ink2)}
+.secthead .why{font-size:10.5px;color:var(--ink3);margin-left:auto}
+.phead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+.phead h2{font-size:15px;margin:0}
+.phead .hint{font-size:11.5px;color:var(--ink2);margin-left:auto;text-align:right}
+.cfgbar{margin:2px 0 8px}
+
+/* 编号详情浮层（学 beauty-album 的 mask + sheet）：
+   详情是要细读的，给它整块宽度的居中浮层，不再内联挤在卡片后面 */
+.mask{position:fixed;inset:0;background:rgba(6,8,11,.68);z-index:80;display:none;
+  align-items:flex-start;justify-content:center;padding:38px 16px;overflow:auto}
+.mask.on{display:flex}
+.sheet{width:100%;max-width:840px;background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;box-shadow:0 18px 50px rgba(0,0,0,.52);
+  max-height:88vh;display:flex;flex-direction:column}
+.sheet .sh{display:flex;align-items:center;gap:8px;padding:9px 12px;
+  border-bottom:1px solid var(--line);background:var(--panel2);border-radius:10px 10px 0 0;
+  position:sticky;top:0;z-index:2}
+.sheet .sh b{font-size:13px}
+.sheet .sh .hint{font:11px var(--mono);color:var(--ink2)}
+.sheet .sh .sp{flex:1}
+.sheet .sbody{padding:11px 12px 14px;overflow:auto}
+
+/* ---------- 验证案例 ---------- */
+.case{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:16px 18px;margin-bottom:14px}
+.case .hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.case .hd h3{font-size:15px;margin:0}
+.case .hd .m{font:11.5px var(--mono);color:var(--ink2)}
+.case .scenes{color:var(--ink2);font-size:12px;margin-bottom:12px}
+.kv{font-size:12.5px;margin-bottom:12px}
+.kv div{padding:4px 0;border-bottom:1px dashed var(--line)}
+.kv div:last-child{border:none}
+.kv b{color:var(--ink2);font-weight:500;margin-right:7px;flex:0 0 auto}
+.kv .kvr{display:flex;gap:7px;flex-wrap:wrap}
+.vp{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:11px 13px;
+  font-size:12px;line-height:1.75;word-break:break-word;margin-bottom:10px}
+.vp b{display:block;font-size:11.5px;margin-bottom:3px}
+.vp-note{font-size:12px;color:var(--warn);background:var(--warn-bg);
+  border-left:2px solid var(--warn);padding:9px 12px;border-radius:0 6px 6px 0;margin-bottom:10px}
+.failbox{background:var(--hard-bg);color:var(--hard);border:1px solid currentColor;
+  border-radius:7px;padding:9px 12px;font-size:12px;margin-bottom:10px}
+/* 配图与配方不一致：比普通 vp-note 更醒目 —— 这是要人做判断的提示，不是复现要点 */
+.vp-mismatch{font-size:12.5px;color:var(--warn);background:var(--warn-bg);
+  border:2px solid var(--warn);padding:11px 13px;border-radius:0 7px 7px 0;
+  margin-bottom:10px;line-height:1.55}
+
+/* ---------- 风格配色搭配 ---------- */
+.pair-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:13px}
+.pair{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 15px}
+.pair h3{font-size:13.5px;margin:0 0 2px}
+.pair .pen{font-size:11px;color:var(--ink2);font-style:italic;margin-bottom:8px}
+.pair .prow{display:flex;gap:6px;align-items:baseline;flex-wrap:wrap;margin:5px 0;font-size:11px}
+.pair .pk{flex:0 0 44px;color:var(--ink2)}
+.pair .ptags{display:flex;gap:4px;flex-wrap:wrap}
+.ptag{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);
+  font-size:10.5px;padding:1.5px 7px;border-radius:12px}
+
+/* ---------- 框架与体检 ---------- */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink2);font-weight:500;font-size:11.5px}
+td.c{font:11.5px var(--mono);color:var(--accent)}
+.bar{height:5px;background:var(--panel2);border-radius:3px;overflow:hidden;margin-top:5px;min-width:80px}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.note{background:var(--warn-bg);border-left:2px solid var(--warn);padding:11px 14px;
+  border-radius:0 7px 7px 0;font-size:12.5px;color:var(--ink2);margin-top:14px;line-height:1.7}
+.note b{color:var(--warn)}
+.lvl{display:inline-block;font:10px/1.6 var(--mono);border-radius:4px;padding:0 6px;
+  border:1px solid var(--line);background:var(--panel2);color:var(--ink2)}
+.lvl.hard{border-color:var(--hard);color:var(--hard);background:var(--hard-bg)}
+.lvl.regional{border-color:var(--warn);color:var(--warn);background:var(--warn-bg)}
+.lvl.experimental{border-style:dashed}
+
+/* ---------- 已选汇总条（全部词条页） ---------- */
+.pickbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:10px 0 2px;padding:9px 13px;border:1px solid var(--accent);
+  border-radius:9px;background:var(--accent-bg)}
+.pickbar b{font-size:14px}
+.pickbar .sum{font:13px var(--mono);color:var(--ink2)}
+.pickbar .ph{font-size:12.5px;color:var(--ink3)}
+.pickbar .btn{margin-left:auto}
+
+/* ---------- 轻提示 toast ----------
+   加模块 / 铺预设发生在 A 页签，成品在 B 页签 —— 只把反馈写在
+   按钮文字上，用户根本看不见。toast 全局悬浮，跨页签可见。 */
+#toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:90;
+  background:var(--ink);color:var(--bg);font-size:13px;padding:11px 18px;border-radius:22px;
+  opacity:0;pointer-events:none;transition:opacity .18s;max-width:86vw;
+  display:flex;gap:12px;align-items:center}
+#toast.on{opacity:.95;pointer-events:auto}
+/* toast 里的「下一步」按钮：加入了词条之后去哪，一条龙给完 */
+#toast .t-act{border:0;background:var(--accent);color:var(--accent-ink);
+  font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:14px;cursor:pointer;
+  font-family:inherit;flex:none}
+#toast .t-act:hover{filter:brightness(1.08)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <h1>画作 提示词库<span class="tag">ART PROMPT FORGE</span></h1>
+    <span class="sub">画家 · 流派 · 名画 · 光学 —— 每条配方可复现 · 离线双击即用</span>
+    <span class="spacer"></span>
+    <span class="stamp" id="stamp"></span>
+  </div>
+  <!-- 姓名策略横幅：引擎在 styleWordsOf 里剔除在世艺术家姓名，界面声明同一件事。
+       「声明」与「实际行为」不一致是最坏的不一致，所以这里写的就是引擎做的事。 -->
+  <div class="policy">
+    <span class="ptag">姓名策略</span>
+    <span class="tx"><b>在世艺术家的姓名不进词面</b>
+      <span class="sub2">引擎在 styleWordsOf 一层剔除（sty 首项与英文名归一化相同才算姓名，不猜测）；信息四类分开：fact 历史事实 / seen 视觉观察 / read 创作解释 / test 模型实测 —— 「实测有效」不是「艺术史事实」，换模型就不成立。</span>
+    </span>
+  </div>
+  <!-- 库存条：全部现算，一个数字都不写死（写死的数字在改库那天就开始骗人） -->
+  <div class="inv" id="inv"></div>
+</header>
+
+<!-- 页签横排放在顶栏下方、内容之上（sticky 吸顶，独立于 header 才吸得住） -->
+<nav class="main-nav" id="modeTabs">
+  <button class="mode-tab on" data-mode="gallery">★ 示例画廊<span class="n" id="nGallery"></span></button>
+  <button class="mode-tab" data-mode="custom">自定义出图</button>
+  <button class="mode-tab" data-mode="synth">提示词合成器</button>
+  <button class="mode-tab" data-mode="gacha">抽卡</button>
+  <button class="mode-tab" data-mode="entries">全部词条<span class="n" id="nEntries"></span></button>
+  <button class="mode-tab" data-mode="pairs">风格配色搭配<span class="n" id="nPairs"></span></button>
+  <button class="mode-tab" data-mode="framework">框架与体检</button>
+  <button class="mode-tab" data-mode="desk">编码工作台</button>
+</nav>
+<div id="toast"></div>
+
+<!-- ============ 编码工作台（普通页签） ============
+     独立成页而不是覆盖层：用户原话「不用再点击进入下一层」——
+     覆盖层自带的「返回工坊」按钮和 Esc 关闭都是多余的层级，
+     吸顶导航本来就在，点页签就能走。 -->
+<main id="v-desk" class="view">
+  <div class="cd-inner">
+    <div class="cd-hd">
+      <h2>编码工作台</h2>
+      <span class="hint" id="cdHint"></span>
+    </div>
+    <div class="cd-body" id="cdBody"></div>
+  </div>
+</main>
+
+<!-- ============ 条目详情抽屉 ============
+     点列表项的名字那一行打开；点「加入/套用」按钮不打开（那是加入操作）。
+     两件事必须分开：用户点按钮的意图是「加进配方」，
+     点名字的意图是「先看看」，混在一起会让误点也改了配方。 -->
+<div id="dtMask" style="display:none"></div>
+<aside id="dtPanel" style="display:none"></aside>
+<style>
+#dtMask{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.32)}
+#dtPanel{
+  position:fixed;top:0;right:0;bottom:0;width:min(460px,94vw);z-index:71;
+  background:var(--panel);border-left:1px solid var(--line);
+  display:flex;flex-direction:column;box-shadow:-8px 0 28px rgba(0,0,0,.22)}
+.dt-hd{display:flex;align-items:center;gap:10px;padding:11px 14px;
+  border-bottom:1px solid var(--line);flex:0 0 auto}
+.dt-hd h3{margin:0;font-size:13.5px;font-weight:600;flex:1}
+.dt-body{flex:1;overflow:auto;padding:12px 14px 32px}
+.dt-h{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:2px}
+.dt-h b{font-size:16px;font-weight:650}
+.dt-en{font-size:11.5px;color:var(--ink2)}
+.dt-arrow{color:var(--dim2);font-size:11.5px}
+.dt-sub2{font-size:11.5px;color:var(--ink2);margin-bottom:9px}
+.dt-code{font-family:ui-monospace,Consolas,monospace;cursor:pointer;
+  border-bottom:1px dashed var(--dim2)}
+.dt-code:hover{color:var(--accent)}
+.dt-kv{margin:0 0 11px}
+.dt-kv-r{display:flex;gap:9px;padding:3px 0;border-bottom:1px solid var(--line);font-size:12px}
+.dt-kv-r:last-child{border-bottom:0}
+.dt-kv-k{flex:0 0 62px;color:var(--dim2)}
+.dt-kv-v{flex:1;min-width:0;word-break:break-word}
+.dt-sub{font-size:11.5px;color:var(--ink2);margin:12px 0 6px;
+  display:flex;align-items:center;gap:6px}
+.dt-sub em{font-style:normal;font-size:10.5px;color:var(--dim2)}
+.dt-fs{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.dt-f{display:flex;gap:9px;padding:5px 9px;font-size:12px;border-bottom:1px solid var(--line)}
+.dt-f:last-child{border-bottom:0}
+.dt-fk{flex:0 0 62px;color:var(--dim2)}
+.dt-fv{flex:1;min-width:0;word-break:break-word}
+.dt-rels{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.dt-rel{display:flex;align-items:center;gap:7px;padding:5px 9px;font-size:12px;
+  border-bottom:1px solid var(--line);flex-wrap:wrap}
+.dt-rel:last-child{border-bottom:0}
+.dt-rk{flex:0 0 auto;font-size:10.5px;color:var(--ink2);
+  border:1px solid var(--line);border-radius:3px;padding:0 4px}
+.dt-rd{color:var(--dim2)}
+.dt-rel b{font-weight:600;cursor:pointer}
+.dt-rel b:hover{color:var(--accent)}
+.dt-ro{font-weight:600;color:var(--ink2);cursor:default}
+.dt-ends{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:2px 0 10px;
+  font-size:12px}
+.dt-ends-l{color:var(--dim2);font-size:11px}
+.dt-ends b{font-weight:600;cursor:pointer;border-bottom:1px dashed var(--dim2)}
+.dt-ends b:hover{color:var(--accent)}
+.dt-rn{flex:1 0 100%;font-size:10.5px;color:var(--dim2)}
+.dt-alts{display:flex;gap:6px;flex-wrap:wrap}
+.dt-alts code{font-family:ui-monospace,Consolas,monospace;font-size:11px;
+  border:1px solid var(--line);border-radius:4px;padding:1px 5px;cursor:pointer}
+.dt-alts code:hover{border-color:var(--accent);color:var(--accent)}
+.dt-note,.dt-why,.dt-none{font-size:11.5px;color:var(--ink2);line-height:1.75;
+  background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+.dt-why{margin-top:8px}
+.dt-none{color:var(--hard)}
+#dtPv .cw-pv{margin-top:0}
+</style>
+<style>
+/* 编码工作台是普通页签视图（.view.on 控制显隐），不再是覆盖层 */
+#v-desk .cd-inner{max-width:1180px;margin:0 auto}
+.cd-inner{max-width:1080px;margin:0 auto;padding:20px 22px 40px}
+.cd-hd{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
+  padding-bottom:12px;border-bottom:1px solid var(--line)}
+.cd-hd h2{font-size:16px;margin:0}
+.cd-hd .hint{font-size:11.5px;color:var(--ink2)}
+.cd-body{font-size:13px}
+</style>
+
+<!-- ============ 自定义出图（原「一键出词」，默认推荐路径） ============
+     学的是「点卡片 → 出词 → 一键复制」的极简心智模型：
+     左边选场景，右边成品自动更新。合成器的全部能力都还在，
+     但不摆在第一屏 —— 这一页只回答一个问题：想要什么画面，点它。 -->
+<main id="v-custom" class="view easy-wrap">
+  <div class="easy-stats" id="easyStats"></div>
+  <div class="easy-grid">
+    <section class="easy-left">
+      <h2><em>①</em> 快速选题</h2>
+      <p class="easy-tip">选一个场景，右边自动出好提示词。想换就再点一张。</p>
+      <div id="easyCards"></div>
+      <button class="easy-random" id="easyRandom">🎲 随机来一张</button>
+
+      <!-- 「自定义」得名副其实：场景只是起点，这三个控制才是本页
+           与抽卡的区别 —— 抽卡把组合交给运气，这里每一项你自己定。 -->
+      <h2 style="margin-top:18px"><em>②</em> 自己调 <span class="easy-live">选填</span></h2>
+      <div class="ec-row">
+        <label>画面主角</label>
+        <input type="text" id="easySubject" placeholder="如：a lone figure by the window（留空用场景默认）">
+      </div>
+      <div class="ec-row">
+        <label>光线氛围</label>
+        <div class="filters" id="easyLight" style="margin:0"></div>
+      </div>
+      <div class="ec-row">
+        <label>风格强度</label>
+        <input type="range" id="easyStrength" min="0.2" max="1.6" step="0.05" value="1" style="flex:1">
+        <span class="pill" id="easyStrengthV">1.00</span>
+      </div>
+      <p class="easy-tip" style="margin-top:8px">改任何一项，右边的成品立刻重算。想再细调权重与配比，去「提示词合成器」。</p>
+    </section>
+    <section class="easy-right">
+      <h2><em>③</em> 你的成品提示词 <span class="easy-live">自动更新</span></h2>
+      <div class="easy-plat" id="easyPlat"></div>
+      <pre class="easy-out" id="easyOut"></pre>
+      <button class="easy-copy pri" id="easyCopy">复制提示词</button>
+      <button class="easy-copy" id="easyCopyAsk">复制成一句话指令</button>
+      <button class="easy-copy ghost" id="easyCopyRun">复制出图版（带参数建议）</button>
+      <p class="easy-note">把提示词粘到任意文生图工具即可出图。想细调强度、权重、画家配比，切上面的「提示词合成器」。</p>
+      <details class="easy-why">
+        <summary>这段词每一段在干什么</summary>
+        <div id="easyWhyBody"></div>
+      </details>
+    </section>
+  </div>
+</main>
+
+<!-- ============ 提示词合成器（原「高级配方」） ============
+     两栏：配方盘 + 成品。挑模块的「全部词条」独立成页签 ——
+     挑选是浏览心智，合成是调校心智，分开了两边都清爽。
+     共享同一份 SPEC：在词条页点「加入」，回到这里就看得见。 -->
+<main class="wrap view" id="v-synth">
+
+  <!-- ============ 左：配方盘 ============ -->
+  <section class="col">
+    <h2>配方盘 <span class="hint" id="trayHint"></span></h2>
+    <div class="body">
+      <div class="row" style="flex-wrap:wrap;gap:5px">
+        <label class="lbl">快速开始</label>
+        <span id="presets" style="display:flex;flex-wrap:wrap;gap:4px"></span>
+      </div>
+      <div class="row">
+        <label class="lbl">强度</label>
+        <input type="range" id="strength" min="0.2" max="1.6" step="0.05" value="1">
+        <span class="pill" id="strengthV">1.00</span>
+      </div>
+      <div class="row">
+        <label class="lbl">平台</label>
+        <!-- 平台用 chips 不用下拉：四个选项一屏全可见，点一下就切，
+             不用「点开 → 扫一遍 → 点中 → 收起」四步。 -->
+        <div class="filters" id="platChips" style="gap:5px;flex-wrap:wrap"></div>
+      </div>
+      <div class="row">
+        <label class="lbl">题材</label>
+        <input type="text" id="subjectFree" placeholder="留空则用所选题材，或直接写英文题目">
+      </div>
+      <div class="row">
+        <label class="lbl" title="你自己的句子。原样追加在词面末尾，不占任何面的位置、不参与冲突裁决 —— 「我要清晨薄雾的孤独感」不该去改画家的任何一面。">原话</label>
+        <input type="text" id="freeText" placeholder="如：清晨薄雾、孤独感（追加在末尾，不参与裁决）">
+      </div>
+      <div class="btns">
+        <button class="btn" id="btnClear">清空</button>
+        <button class="btn" id="btnDemo">随机灵感</button>
+      </div>
+      <div id="taskNote" class="tasknote" style="display:none"></div>
+      <div id="tray" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <!-- ============ 右：输出 ============ -->
+  <section class="col">
+    <h2>成品 <span class="hint">复制即用</span></h2>
+    <div class="out-tabs" id="outTabs">
+      <button class="tab on" data-out="tags">段落式</button>
+      <button class="tab" data-out="neg">负面词</button>
+      <button class="tab" data-out="gpt">自然语言</button>
+      <button class="tab" data-out="changes">变更清单</button>
+      <button class="tab" data-out="spec">配方 JSON</button>
+    </div>
+    <div class="body">
+      <div id="warnBox"></div>
+      <pre class="out" id="out"></pre>
+      <div class="metaline" id="meta"></div>
+      <details id="recipeWhy" style="margin-top:8px">
+        <summary style="cursor:pointer;font-size:12px;color:var(--ink2);user-select:none">这段词在干什么（点开看逐段说明）</summary>
+        <div id="recipeWhyBody" style="font-size:12px;color:var(--ink2);line-height:1.8;padding:8px 2px 2px"></div>
+      </details>
+      <div class="btns">
+        <button class="btn pri" id="btnCopy">复制当前</button>
+        <button class="btn" id="btnCopyBoth">复制提示词+负面词</button>
+        <button class="btn" id="btnCopyRun" title="词面 + 按当前平台给出的参数建议，粘贴到工具就能直接出图">复制出图版（带参数）</button>
+        <button class="btn" id="btnCopyAsk" title="转成对话式指令，粘给豆包 / ChatGPT 这类聊天模型">复制为一句话指令</button>
+        <button class="btn" id="btnSnap">生成分享码</button>
+        <button class="btn" id="btnLoad">载入分享码</button>
+        <button class="btn" id="btnMd">下载 .md</button>
+      </div>
+      <p class="hintline">分享码以 <code>AFX1.</code> 开头，含全部权重与算子，粘回「载入」即可还原。</p>
+      <details>
+        <summary>黄金词序、四级冲突与状态徽章是怎么定的</summary>
+        <p class="hintline">
+          词序 = 权重：题材 → 空间 → 光 → 媒介 → 笔法 → 色彩 → 气质 → 署名 → 算子散词 → 画质。<br>
+          画质档自动判定：<b>canvas</b> 油画 / <b>trad</b> 矿物绢帛 / <b>retro</b> 做旧 / <b>photo</b> 摄影 / <b>digital</b> 数字。
+          retro 档刻意不加 high resolution，否则会把龟裂与泛黄一起「修」掉。<br>
+          冲突分四级：<b>明确矛盾</b>自动让位 · <b>局部并存</b>给分区建议 · <b>可共存</b>仅提示 ·
+          <b>实验性混合</b>允许但标注未验证。<br>
+          每条实体都带状态徽章：<b>已收录</b>只建了档 · <b>已编写</b>能出词但没跑过模型 ·
+          <b>已测试</b>跑过并留记录 · <b>已复核</b>有外部来源交叉核对。
+        </p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 全部词条 ============
+     从合成器拆出来的浏览页：全宽网格 + 搜索 + 筛选。
+     点「加入」改的是同一份 SPEC —— 回合成器页就看得见；
+     点条目名字开详情抽屉，两件事分开。 -->
+<main id="v-entries" class="view">
+  <div class="panel" style="max-width:1180px;margin:0 auto 16px">
+    <h2>全部词条 <span class="hint" id="pickHint"></span></h2>
+    <div class="hint">点「加入」把词条放进配方（去「提示词合成器」看成品）；点条目名字看详情与单条提示词。模型与来源是知识库，只可查不可加入。</div>
+    <!-- 已选汇总条：配方盘在另一个页签里，这里连续点「加入」必须看得见进度。
+         格式 1+1+2：各面计数现算自 SPEC，一个数字都不写死。 -->
+    <div class="pickbar" id="pickBar"></div>
+    <div class="tabs" id="tabs" style="padding:0 0 8px"></div>
+    <input type="search" id="q" placeholder="搜索：名字、风格、关键词…" autocomplete="off">
+    <div class="filters" id="filters"></div>
+    <div class="list" id="list" style="max-height:60vh"></div>
+  </div>
+</main>
+
+<!-- ============ 抽卡 ============
+     每个槽各随机抽一条，抽出来的是「没见过的组合」。
+     锁槽重抽在编码工作台里 —— 那里是细调心智，这里是广撒网。 -->
+<main id="v-gacha" class="view">
+  <div class="panel" style="max-width:1180px;margin:0 auto 16px">
+    <h2>智能抽卡</h2>
+    <div class="hint">画家、题材、光、模块各抽一条，凑出你没见过的组合。不是同一提示词换 seed —— 那是同一张图看六遍。</div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px;align-items:center">
+      <button class="btn pri" id="gaRoll1" style="padding:9px 22px">抽 1 组</button>
+      <button class="btn" id="gaRoll4" style="padding:9px 18px">抽 4 组</button>
+      <button class="btn" id="gaRoll8" style="padding:9px 18px">抽 8 组铺开</button>
+      <button class="btn" id="gaRandom" style="padding:9px 18px" title="从画廊 40 张成品配方里随机取一张，词面是调好的完整配方">🎲 随机来一张</button>
+      <button class="btn" id="gaClear">收起</button>
+      <span style="color:var(--ink2);font-size:12px" id="gaPool"></span>
+    </div>
+    <div id="gaOut"></div>
+  </div>
+</main>
+
+<!-- ============ 示例画廊（默认首页） ============
+     照 beauty-album 的画廊页结构：搜索 → 分类/题材/色调筛选 chips →
+     看图密度 → 图例 → 色卡诚实注记 → 命中节头 → 卡片网格。
+     场景起手不在这里（PRESETS 常驻于自定义出图与合成器），
+     画廊只干画廊的事：看卡选配方。
+     详情改居中浮层（mask + sheet），不再内联挤在卡片后面。
+     色卡是按配方词面现推的示意色 —— 库里没有的东西不装。 -->
+<main id="v-gallery" class="view">
+  <div class="phead" style="max-width:1180px;margin:0 auto">
+    <h2>示例画廊</h2>
+    <span class="hint">看卡选配方 · 点击了解 · 卡上一键复制</span>
+  </div>
+  <div id="galWrap" style="max-width:1180px;margin:0 auto"></div>
+  <div class="mask" id="galMask" role="dialog" aria-modal="true">
+    <div class="sheet" id="galSheet"></div>
+  </div>
+</main>
+
+<!-- 验证案例独立页签已删：12 份模型实测记录并入「框架与体检」的
+     折叠区（renderFramework 里）。独立成页给不了比画廊卡上
+     「已实测」徽章 + 框架页状态分布更多的信息，用户判定价值不大。 -->
+
+<!-- ============ 风格配色搭配 ============
+     流派自带的色彩 / 光线 / 媒介 / 空间七面词面，按流派摊开成参考卡。
+     是参考不是字典 —— 换主题时理由必须紧扣视觉隐喻。 -->
+<main id="v-pairs" class="view">
+  <div class="panel" style="max-width:1180px;margin:0 auto 16px">
+    <h2>风格 × 配色 搭配参考</h2>
+    <div class="hint">每个流派的色彩、光线与媒介倾向，来自七面词面的登记数据。想定「什么时代感配什么色」，从这里找起点。</div>
+    <input type="search" id="pairQ" placeholder="筛选：流派名、地区、年代…" autocomplete="off" style="max-width:320px;margin-bottom:12px">
+    <div class="pair-grid" id="pairGrid"></div>
+  </div>
+</main>
+
+<!-- ============ 框架与体检 ============
+     库的家底如实摊开：六层结构、状态分布、覆盖缺口、
+     冲突裁决规则、来源许可。首页不宣称收齐，缺口列在这里。 -->
+<main id="v-framework" class="view">
+  <div style="max-width:1180px;margin:0 auto" id="fwBody"></div>
+</main>
+
+<script src="assets/data-core.js"></script>
+<script src="assets/operators.js"></script>
+<script src="assets/operators-meta.js"></script>
+<script src="assets/movements.js"></script>
+<script src="assets/movements-modern.js"></script>
+<script src="assets/movements-east.js"></script>
+<script src="assets/movements-asia.js"></script>
+<script src="assets/mediums.js"></script>
+<script src="assets/subjects.js"></script>
+<script src="assets/optics.js"></script>
+<script src="assets/modules-a.js"></script>
+<script src="assets/modules-b.js"></script>
+<script src="assets/modules-c.js"></script>
+<script src="assets/modules-d.js"></script>
+<script src="assets/painters-cn1.js"></script>
+<script src="assets/painters-cn2.js"></script>
+<script src="assets/painters-cn3.js"></script>
+<script src="assets/painters-cn4.js"></script>
+<script src="assets/painters-jp.js"></script>
+<script src="assets/painters-italy.js"></script>
+<script src="assets/painters-ne.js"></script>
+<script src="assets/painters-north.js"></script>
+<script src="assets/painters-fr1.js"></script>
+<script src="assets/painters-fr2.js"></script>
+<script src="assets/painters-world.js"></script>
+<script src="assets/painters-new.js"></script>
+<script src="assets/painters-asia.js"></script>
+<script src="assets/painters-modern.js"></script>
+<script src="assets/painters-extra.js"></script>
+<script src="assets/works.js"></script>
+<script src="assets/signatures.js"></script>
+<script src="assets/provenance-a.js"></script>
+<script src="assets/provenance-b.js"></script>
+<script src="assets/tasks.js"></script>
+<script src="assets/models.js"></script>
+<script src="assets/relations.js"></script>
+<script src="assets/codes.js"></script>
+<script src="assets/resolver.js"></script>
+<script src="assets/forge-kit.js"></script>
+<!-- registry 必须最后：它要读全部数据表来建码表与索引 -->
+<script src="assets/registry.js"></script>
+<!-- prompts 依赖 registry 查条目、依赖 forge-kit 出词，都已就绪 -->
+<script src="assets/prompts.js"></script>
+<!-- 模型适配与抽卡：依赖 registry / forge-kit，只懒加载不立即执行 -->
+<script src="assets/model-prompts.js"></script>
+<script src="assets/gacha.js"></script>
+<script src="assets/code-ui.js"></script>
+<!-- 画廊配图清单：纯 UI 数据，与词条数据无关，有图登记进来即生效 -->
+<script src="assets/gallery-imgs.js"></script>
+<!-- detail.js 必须在 code-ui.js 之后：它复用 cwPromptPanel 取词，
+     顺序反了会拿到 undefined。 -->
+<script src="assets/detail.js"></script>
+<script>
+/* ============================================================
+ * 配方工坊界面
+ *
+ * 状态只有一份：SPEC。任何操作都是改 SPEC 再 render()，
+ * 所以「撤销」天然可行，分享码也只是 SPEC 的一个序列化。
+ * ============================================================ */
+(function () {
+  "use strict";
+
+  /* 资产加载守门：数据脚本（assets/*.js）没跟上时，页面只剩空壳、
+     点页签全无反应，用户无从知道原因。与其静默挂掉，不如把话说清楚。 */
+  if (typeof FORGE === "undefined" || typeof PAINTERS === "undefined") {
+    document.body.insertAdjacentHTML(
+      "afterbegin",
+      '<div id="apfGuard" style="max-width:640px;margin:24px auto;padding:16px 20px;' +
+      'border:2px solid #c0392b;border-radius:10px;font:14px/1.7 sans-serif;color:#c0392b">' +
+      "<b>数据文件没有加载到。</b>这个页面需要同目录下的 <code>assets/</code> 文件夹里的数据脚本才能工作。" +
+      "如果你是单独拷走了 index.html，或在只加载单个文件的预览器里打开，就会看到这个提示。" +
+      "两个办法：① 把整个项目文件夹一起拷走，双击 index.html；" +
+      "② 直接用项目根目录的单文件版 <code>standalone.html</code>（不依赖任何外部文件）。</div>"
+    );
+    return;
+  }
+
+  var $ = function (s) { return document.querySelector(s); };
+
+  var MODULES = [
+    { key: "tasks",      zh: "任务",   arr: TASKS,      fac: "cat" },
+    { key: "painters",   zh: "画家",   arr: PAINTERS,   fac: "region" },
+    { key: "movements",  zh: "流派",   arr: MOVEMENTS,  fac: null },
+    { key: "works",      zh: "名画",   arr: WORKS,      fac: "mvId" },
+    { key: "atoms",      zh: "原子模块", arr: ATOMS,    fac: "cat" },
+    { key: "mediums",    zh: "媒介",   arr: MEDIUMS,    fac: null },
+    { key: "subjects",   zh: "题材",   arr: SUBJECTS,   fac: "cat" },
+    { key: "operators",  zh: "算子",   arr: OPERATORS,  fac: "kind" },
+    { key: "optics",     zh: "光学",   arr: OPTICS,     fac: null },
+    { key: "signatures", zh: "签名卡", arr: SIGNATURES, fac: "cat" },
+    { key: "models",     zh: "模型",   arr: TESTS,      fac: "family" },
+    { key: "provenance", zh: "来源",   arr: PROVENANCE, fac: "cat" },
+    { key: "relations",  zh: "关系",   arr: RELATIONS,  fac: "kind" }
+  ];
+
+  /* 关系边的中文名与方向说明。边的两端一个是实体 id、一个可能是自由文本
+     （如机构名），所以不能像别的表那样直接靠 id 查名字。 */
+  var REL_META = {
+    held_by:      { zh: "收藏机构", dir: "作品 → 机构", tip: "决定这张图的图像能不能商用" },
+    uses:         { zh: "承载材料", dir: "作品 → 材料", tip: "决定它占哪个媒介面" },
+    student_of:   { zh: "师承",     dir: "画家 → 画家", tip: "强关系，可以照搬" },
+    influenced:   { zh: "影响",     dir: "画家 → 画家", tip: "弱关系，只能借鉴" },
+    derived_from: { zh: "派生自",   dir: "签名卡 → 母版", tip: "改坏了能找回原始配方" },
+    serves:       { zh: "服务任务", dir: "卡片 → 任务", tip: "这张卡是为哪类诉求做的" },
+    realizes:     { zh: "用到模块", dir: "签名卡 → 模块", tip: "这张卡真正起作用的是哪些零件" },
+    aligned_with: { zh: "对齐标准", dir: "实体 → 外部标准", tip: "跨库检索与批量扩表的挂钩点" }
+  };
+
+  /* id → 中文名，供关系边解析两端 */
+  var REL_NAME = {};
+  MODULES.forEach(function (m) {
+    m.arr.forEach(function (e) { if (e.id) REL_NAME[e.id] = e.zh || e.id; });
+  });
+
+  /* 关系边没有 id，搜索索引按 kind + 两端单独建一份 */
+  function relSearch(e) {
+    var mt = REL_META[e.kind] || {};
+    return [e.kind, mt.zh, mt.dir, e.from, e.to,
+            REL_NAME[e.from] || "", REL_NAME[e.to] || "", e.note || ""]
+      .join(" ").toLowerCase();
+  }
+
+  var MODULE_CATS = window.MODULE_CATS || [];
+  var TASK_CATS = window.TASK_CATS || [];
+  var CAT_ZH = {};
+  MODULE_CATS.forEach(function (c) { CAT_ZH["am" + c.n] = c.zh; });
+
+  /* 状态徽章：让使用者一眼看出这条信息可不可信 */
+  var STATUS_META = {};
+  (STATUS || []).forEach(function (s) { STATUS_META[s.k] = s; });
+  function badge(st) {
+    var m = STATUS_META[st];
+    if (!m) return "";
+    return '<span class="badge s' + st + '" title="' + esc(m.desc) + '">' + esc(m.zh) + "</span>";
+  }
+
+  /* 单个 Item 的可搜索文本：中英文、风格词、标签、说明都进去 */
+  var SEARCH = {};
+  (function buildSearch() {
+    MODULES.forEach(function (m) {
+      m.arr.forEach(function (e) {
+        var s = [e.id, e.zh, e.en, e.desc, e.note, e.life, e.mv, e.pid,
+                 e.ask, e.goal, e.why, e.how, e.model, e.org, e.t, e.c,
+                 e.model, e.fact, e.seen, e.read, e.test].filter(Boolean).join(" ");
+        (e.sty || []).forEach(function (x) { s += " " + x; });
+        (e.tags || []).forEach(function (x) { s += " " + x; });
+        (e.alt || []).forEach(function (x) { s += " " + x; });
+        (e.forbid || []).forEach(function (x) { s += " " + x; });
+        (e.preserve || []).forEach(function (x) { s += " " + x; });
+        (e.change || []).forEach(function (x) { s += " " + x; });
+        if (e.F) Object.keys(e.F).forEach(function (k) { s += " " + (e.F[k] || []).join(" "); });
+        (e.kw || []).forEach(function (x) { s += " " + x; });
+        (e.check || []).forEach(function (x) { s += " " + x; });
+        (e.slots || []).forEach(function (x) { s += " " + x; });
+        /* scale 在库里是字符串（规模描述），不是数组 */
+        if (e.scale) s += " " + e.scale;
+        SEARCH[e.id] = s.toLowerCase();
+      });
+    });
+    /* 光学在库里按「组」存，但 spec.optics 要的是具体词条，
+       所以这里把每个词条摊平成一条可选行，id 前缀 opt: 以便区分来源 */
+    OPTICS.forEach(function (g) {
+      (g.items || []).forEach(function (t) {
+        SEARCH["opt:" + t.t] = (g.zh + " " + t.t + " " + t.c).toLowerCase();
+      });
+    });
+  })();
+
+  var PID_NAME = {};
+  PAINTERS.forEach(function (p) { PID_NAME[p.id] = p.zh; });
+
+  var cur = { tab: "painters", q: "", facet: null };
+  var lastResult = null;
+
+  /* ---------------- 状态 ---------------- */
+  function blank() {
+    return { subjects: [], works: [], movements: [], painters: [], mediums: [],
+             operators: [], atoms: [], optics: [], strength: 1.0, platform: "gpt" };
+  }
+  var SPEC = blank();
+
+  function groupOf(key) {
+    return { painters: SPEC.painters, movements: SPEC.movements, works: SPEC.works,
+             mediums: SPEC.mediums, subjects: SPEC.subjects,
+             operators: SPEC.operators, atoms: SPEC.atoms }[key];
+  }
+
+  function add(key, id) {
+    if (key === "optics") {
+      var t = String(id).replace(/^opt:/, "");
+      if (SPEC.optics.indexOf(t) < 0) SPEC.optics.push(t);
+      return;
+    }
+    if (key === "signatures") return loadSig(id);
+    if (key === "tasks") return loadTask(id);
+    /* 模型与来源是知识库，不进配方盘 */
+    if (key === "models" || key === "provenance") return;
+    var g = groupOf(key);
+    if (!g) return;
+    for (var i = 0; i < g.length; i++) {
+      if ((typeof g[i] === "string" ? g[i] : g[i].id) === id) return;   // 已存在
+    }
+    g.push({ id: id, w: 1 });
+  }
+
+  function loadSig(id) {
+    var g = null;
+    SIGNATURES.forEach(function (s) { if (s.id === id) g = s; });
+    if (!g) return;
+    SPEC = JSON.parse(JSON.stringify(g.spec));
+    SPEC.strength = SPEC.strength || 1.0;
+    SPEC.platform = SPEC.platform || "gpt";
+    normalizeSpec();
+    syncInputs();
+    render();
+  }
+
+  /* 载入任务模板：把它的 default 配方铺进配方盘 */
+  function loadTask(id) {
+    var t = null;
+    TASKS.forEach(function (x) { if (x.id === id) t = x; });
+    if (!t || !t.default) return;
+    SPEC = JSON.parse(JSON.stringify(t.default));
+    normalizeSpec();
+    syncInputs();
+    render();
+    flashTask(t);
+  }
+
+  function normalizeSpec() {
+    ["subjects", "works", "movements", "painters", "mediums", "operators", "atoms"].forEach(function (k) {
+      SPEC[k] = SPEC[k] || [];
+      SPEC[k] = SPEC[k].map(function (x) {
+        return typeof x === "string" ? { id: x, w: 1 } : { id: x.id, w: x.w != null ? x.w : 1 };
+      });
+    });
+    SPEC.optics = SPEC.optics || [];
+  }
+
+  var taskNote = null;
+  function flashTask(t) {
+    var cat = TASK_CATS.filter(function (c) { return c.n === t.cat; })[0];
+    taskNote = t;
+    var box = document.getElementById("taskNote");
+    if (!box) return;
+    box.style.display = "block";
+    box.innerHTML = '<b>' + esc(t.zh) + '</b>（' + esc(cat ? cat.zh : "") + '）· 目标：' + esc(t.goal) +
+      (t.check && t.check.length ? '<br>出图后请看：' + t.check.map(function (c) { return esc(c); }).join("；") : "") +
+      '<br><span style="color:var(--ink2)">' + esc(t.how || "") + "</span>";
+  }
+
+  /* ---------------- 左侧：模块列表 ---------------- */
+  function renderTabs() {
+    $("#tabs").innerHTML = MODULES.map(function (m) {
+      return '<button class="tab' + (cur.tab === m.key ? " on" : "") + '" data-tab="' + m.key + '">' +
+             m.zh + '<span style="opacity:.6"> ' + m.arr.length + '</span></button>';
+    }).join("");
+  }
+
+  function renderFilters() {
+    var m = MODULES.filter(function (x) { return x.key === cur.tab; })[0];
+    var box = $("#filters");
+    if (!m.fac) { box.innerHTML = ""; return; }
+    var seen = {}, opts = [];
+    m.arr.forEach(function (e) {
+      var v = e[m.fac];
+      if (v === undefined || v === null) return;
+      if (m.fac === "mvId") v = PID_NAME[v] || v;
+      if (m.fac === "cat" && m.key === "atoms") v = "am" + v;
+      if (m.fac === "cat" && m.key === "tasks") v = "task" + v;
+      if (!seen[v]) { seen[v] = 1; opts.push(v); }
+    });
+    /* 关系边的 kind 是英文词，按语义分组排序比按数字排序好读 */
+    var ordered = m.key === "relations"
+      ? ["held_by", "uses", "student_of", "influenced", "derived_from", "serves", "realizes", "aligned_with"]
+          .filter(function (k) { return opts.indexOf(k) >= 0; })
+      : opts.sort(function (a, b) {
+          return parseInt(String(a).replace(/\D/g, ""), 10) - parseInt(String(b).replace(/\D/g, ""), 10);
+        });
+    box.innerHTML = ordered.map(function (v) {
+      var label = v;
+      if (m.key === "atoms") label = CAT_ZH[v] || v;
+      if (m.key === "tasks") { var c = TASK_CATS.filter(function (x) { return "task" + x.n === v; })[0]; label = c ? c.zh : v; }
+      if (m.key === "relations") label = REL_META[v] ? REL_META[v].zh + " " + v : v;
+      return '<button class="fchip' + (cur.facet === v ? " on" : "") + '" data-f="' + esc(v) + '">' + esc(label) + '</button>';
+    }).join("");
+  }
+
+  /* ---------------- 已选汇总条（全部词条页） ----------------
+     点「加入」改的是 SPEC，但配方盘在另一个页签里 ——
+     连续挑选时「一共选了几个、都是哪几面」必须就地看得见。
+     计数全部现算自 SPEC，格式 1+1+2；空盘时说清怎么开始。 */
+  function pickCounts() {
+    var parts = [], n = 0;
+    GROUP_META.forEach(function (g) {
+      var c = (SPEC[g.key] || []).length;
+      if (c) { parts.push(g.zh + c); n += c; }
+    });
+    if ((SPEC.optics || []).length) { parts.push("光学" + SPEC.optics.length); n += SPEC.optics.length; }
+    return { n: n, parts: parts };
+  }
+  function renderPickBar() {
+    var bar = $("#pickBar");
+    if (!bar) return; /* jsdom 或裁剪版下没有这个容器就安静返回 */
+    var pc = pickCounts();
+    if (!pc.n) {
+      bar.innerHTML = '<span class="ph">还没选词条 —— 点下面列表里的「加入」开始，选好去合成器出词</span>';
+      return;
+    }
+    bar.innerHTML = "<b>已选 " + pc.n + " 项</b>"
+      + '<span class="sum">' + esc(pc.parts.join(" + ")) + "</span>"
+      + '<button class="btn pri" id="pickGo" title="带着这套配方跳到提示词合成器">去合成器出词 →</button>';
+    bar.querySelector("#pickGo").addEventListener("click", function () { setMode("synth"); });
+  }
+
+  function renderList() {
+    var m = MODULES.filter(function (x) { return x.key === cur.tab; })[0];
+    var q = cur.q.trim().toLowerCase();
+
+    if (cur.tab === "optics") {
+      /* 摊平成词条行 */
+      var flat = [];
+      OPTICS.forEach(function (g) {
+        (g.items || []).forEach(function (t) {
+          var hay = (g.zh + " " + t.t + " " + t.c).toLowerCase();
+          if (q && hay.indexOf(q) < 0) return;
+          flat.push({ id: "opt:" + t.t, zh: t.t, en: g.zh, desc: t.c });
+        });
+      });
+      $("#pickHint").textContent = flat.length + " 词条";
+      $("#list").innerHTML = flat.length
+        ? flat.map(function (e) {
+            return '<div class="item" data-id="' + esc(e.id) + '">' +
+                   '<div class="nm"><b>' + esc(e.zh) + '</b> <em>' + esc(e.en) + '</em>' +
+                   '<p>' + esc(e.desc) + '</p></div><button class="add">加入</button></div>';
+          }).join("")
+        : '<div class="empty">没有匹配项</div>';
+      return;
+    }
+
+    var rows = m.arr.filter(function (e) {
+      if (cur.facet && m.fac) {
+        var v = e[m.fac];
+        if (m.fac === "mvId") v = PID_NAME[v] || v;
+        if (m.fac === "cat" && m.key === "atoms") v = "am" + v;
+        if (v !== cur.facet) return false;
+      }
+      if (!q) return true;
+      if (m.key === "relations") return relSearch(e).indexOf(q) >= 0;
+      return (SEARCH[e.id] || "").indexOf(q) >= 0;
+    });
+
+    /* 关系边没有 id 也没有 zh：它的语义全在「谁 → 谁」上，
+       所以单独渲染，并把两端解析成中文名。放在通用分支之前。 */
+    if (cur.tab === "relations") {
+      var meta = REL_META;
+      $("#pickHint").textContent = rows.length + " / " + m.arr.length;
+      if (!rows.length) { $("#list").innerHTML = '<div class="empty">没有匹配项</div>'; return; }
+      var rcap = 300;
+      var rhtml = rows.slice(0, rcap).map(function (e, i) {
+        var mt = meta[e.kind] || { zh: e.kind, dir: "" };
+        var a = REL_NAME[e.from] || e.from;
+        var b = REL_NAME[e.to] || e.to;
+        var key = "rel:" + i;
+        return '<div class="item" data-id="' + esc(key) + '" data-from="' + esc(e.from) + '">' +
+                 '<div class="nm"><b>' + esc(a) + '</b> <span class="arrow">' +
+                   esc(mt.zh) + '</span> <b>' + esc(b) + '</b> ' + badge(e.status) +
+                   '<em>' + esc(mt.dir) + '</em>' +
+                 '<p>' + esc(e.note || mt.tip) + '</p></div></div>';
+      }).join("");
+      if (rows.length > rcap) rhtml += '<div class="empty">另有 ' + (rows.length - rcap) + ' 条，请用搜索缩小范围</div>';
+      $("#list").innerHTML = rhtml;
+      return;
+    }
+
+    $("#pickHint").textContent = rows.length + " / " + m.arr.length;
+    if (!rows.length) { $("#list").innerHTML = '<div class="empty">没有匹配项</div>'; return; }
+
+    var cap = 150;
+    var html = rows.slice(0, cap).map(function (e) {
+      var sub = [];
+      if (m.key === "atoms") {
+        if (CAT_ZH["am" + e.cat]) sub.push(CAT_ZH["am" + e.cat]);
+        sub.push(ROLE_ZH[e.role] || e.role);
+        if (e.guard) sub.push("硬约束");
+      } else if (m.key === "tasks") {
+        var c = TASK_CATS.filter(function (x) { return x.n === e.cat; })[0];
+        sub.push(c ? c.zh : "");
+      } else if (m.key === "models") {
+        sub.push(e.family, e.gen);
+      } else if (m.key === "provenance") {
+        sub.push(e.org, e.license);
+      } else {
+        if (e.en) sub.push(e.en);
+        if (e.life) sub.push(e.life);
+        if (e.mv) sub.push(e.mv);
+        if (e.year) sub.push(e.year);
+        if (e.region) sub.push(e.region);
+      }
+      sub = sub.filter(Boolean);
+
+      /* 每类实体显示不同的主描述 */
+      var d = "";
+      if (m.key === "tasks") d = "「" + (e.ask || "") + "」→ " + (e.goal || "");
+      else if (m.key === "models") d = e.weightSyntax === "忽略" || e.weightSyntax === "基本忽略"
+        ? "权重语法被忽略，强调靠位置与重复 · 引导值 " + fmtRange(e.cfg)
+        : "权重 " + (e.weightSyntax || "—") + " · 引导值 " + fmtRange(e.cfg);
+      else if (m.key === "provenance") d = e.scale ? e.scope : (e.fact || e.note || "");
+      else if (m.key === "atoms") d = e.c || "";
+      else d = e.desc || "";
+
+      var btn = (m.key === "models" || m.key === "provenance")
+        ? '<span class="pill">知识</span>'
+        : (m.key === "tasks" ? '<button class="add">套用</button>' : '<button class="add">加入</button>');
+
+      return '<div class="item" data-id="' + esc(e.id) + '">' +
+               '<div class="nm"><b>' + esc(e.zh || e.model || e.t || e.id) + '</b> ' + badge(e.status) +
+                 '<em>' + esc(sub.join(" · ")) + '</em>' +
+                 '<p>' + esc(d) + '</p></div>' + btn + "</div>";
+    }).join("");
+    if (rows.length > cap) html += '<div class="empty">另有 ' + (rows.length - cap) + ' 条，请用搜索缩小范围</div>';
+    $("#list").innerHTML = html;
+  }
+
+  var ROLE_ZH = { lead: "主导", support: "辅助", region: "局部", guard: "约束" };
+
+  function fmtRange(r) {
+    if (!r) return "—";
+    if (r.length === 2 && r[0] === r[1]) return String(r[0]);
+    return r[0] + "–" + r[1];
+  }
+
+  /* ---------------- 中部：配方盘 ---------------- */
+  var GROUP_META = [
+    { key: "subjects",  zh: "题材", cls: "subj" },
+    { key: "works",     zh: "名画", cls: "work" },
+    { key: "movements", zh: "流派", cls: "movement" },
+    { key: "painters",  zh: "画家", cls: "painter" },
+    { key: "mediums",   zh: "媒介", cls: "medium" },
+    { key: "operators", zh: "算子", cls: "op" },
+    { key: "atoms",     zh: "原子模块", cls: "atom" }
+  ];
+
+  function nameOf(id) {
+    var r = FORGE.find(id);
+    return r ? (r.e.zh || r.e.en || id) : id;
+  }
+  /* 旧 ID → 规范 code：托盘上的「词」按钮要知道去查哪一条。
+     查不到就返回空串，按钮就不渲染 —— 显示一个点了没反应的按钮更糟。 */
+  function codeOfId(id) {
+    if (id == null) return "";
+    var c = REGISTRY.codes.OLD_OF[id] || (REGISTRY.byCode(id) || {}).code || "";
+    return c || "";
+  }
+  /* 光学词条反查：SPEC.optics 里存的是裸词或「组号.裸词」（引擎 findOptic 两种都认），
+     托盘要显示 code 就得从这里反推。找不到就是没有 code，不硬凑。
+     注意不带组号时不能拿组号去比对 —— 那是整串都比不上，
+     结果是「有光学词条却永远不给看提示词」。 */
+  function opticCode(t) {
+    var s = String(t || "");
+    var dot = s.indexOf(".");
+    var gid = dot >= 0 ? s.slice(0, dot) : "";
+    var term = dot >= 0 ? s.slice(dot + 1) : s;
+    var found = null;
+    OPTICS.forEach(function (g) {
+      if (gid && g.id !== gid) return;
+      (g.items || []).forEach(function (i) {
+        if (i.t === term) found = i;
+      });
+    });
+    if (!found) return "";
+    /* 数据源里光学词条的 code 字段仍是旧 ID（O-01-001），
+       规范编码是编码层派生的（OP-001）。直接返回 i.code 会给出旧码，
+       工作台按新码查 —— 于是「有词条却打不开提示词」。
+       所以这里必须过一遍登记表拿规范码。 */
+    var reg = REGISTRY.byCode(found.code);
+    if (reg && reg.code) return reg.code;
+    var mapped = REGISTRY.codes.OLD_OF[found.code];
+    if (mapped && REGISTRY.byCode(mapped)) return mapped;
+    return found.code || "";
+  }
+
+  function mutedIds(res) {
+    /* 引擎没有对外暴露 mute 明细，这里用 tags 反推：出现 hard 冲突时被点名让位的一方 */
+    var s = {};
+    (res.warnings || []).forEach(function (w) {
+      if (w.level !== "hard") return;
+      (w.loser || "").split(" + ").forEach(function (n) { s[n] = 1; });
+    });
+    return s;
+  }
+
+  function renderTray(res) {
+    var muted = mutedIds(res || { warnings: [] });
+    var n = 0, html = "";
+
+    GROUP_META.forEach(function (g) {
+      var arr = SPEC[g.key];
+      if (!arr.length) return;
+      n += arr.length;
+      html += '<div class="tray-group"><h3>' + g.zh + ' <span>×' + arr.length + '</span></h3>';
+      arr.forEach(function (ref, i) {
+        var id = typeof ref === "string" ? ref : ref.id;
+        var w = typeof ref === "string" ? 1 : (ref.w != null ? ref.w : 1);
+        var nm = nameOf(id);
+        html += '<div class="tr' + (muted[nm] ? " muted" : "") + '">' +
+                  '<div class="top"><b title="' + esc(nm) + '">' + esc(nm) + '</b>' +
+                    '<span class="w">' + w.toFixed(2) + '</span>' +
+                    '<button class="pv" data-pv="' + esc(codeOfId(id)) + '" title="看这一条对应的提示词">词</button>' +
+                    '<button class="x" data-k="' + g.key + '" data-i="' + i + '" title="移除">×</button></div>' +
+                  (g.key === "operators" ? "" :
+                    '<input type="range" min="0.2" max="1.6" step="0.05" value="' + w + '" data-k="' + g.key + '" data-i="' + i + '">') +
+                '</div>';
+      });
+      html += "</div>";
+    });
+
+    if (SPEC.optics.length) {
+      n += SPEC.optics.length;
+      html += '<div class="tray-group"><h3>光学词条 <span>×' + SPEC.optics.length + '</span></h3>';
+      SPEC.optics.forEach(function (t, i) {
+        /* 光学词条在配方里存的是「组号.裸词」，不是 ID，
+           所以要从这个词反查它的 code —— 查不到就不给「词」按钮 */
+        var oc = opticCode(t);
+        html += '<div class="tr"><div class="top"><b>' + esc(t) + '</b>' +
+                (oc ? '<button class="pv" data-pv="' + esc(oc) + '" title="看这一条对应的提示词">词</button>' : '') +
+                '<button class="x" data-k="optics" data-i="' + i + '" title="移除">×</button></div></div>';
+      });
+      html += "</div>";
+    }
+
+    $("#trayHint").textContent = n ? n + " 项" : "空";
+    $("#tray").innerHTML = html || '<p class="hintline">配方盘还空着 —— 去「全部词条」页签挑选模块点「加入」，或在「自定义出图」选一个预设场景起手。</p>';
+  }
+
+  /* ---------------- 右侧：输出 ---------------- */
+  var OUT_TAB = "tags";
+
+  function renderOut(res) {
+    var txt = res.tags;
+    if (OUT_TAB === "neg") txt = res.neg;
+    else if (OUT_TAB === "gpt") txt = res.gpt;
+    else if (OUT_TAB === "spec") txt = JSON.stringify(exportSpec(), null, 2);
+    else if (OUT_TAB === "changes") txt = changesText(res);
+    $("#out").textContent = txt;
+
+    $("#meta").innerHTML =
+      '<span class="pill">画质档 ' + res.tier + '</span>' +
+      '<span class="pill">词数 ' + res.counts.words + '</span>' +
+      '<span class="pill">源 ' + res.counts.src + '</span>' +
+      '<span class="pill">' + esc(PLATFORM_ZH[res.platform] || res.platform) + ' @' + res.strength.toFixed(2) + '</span>' +
+      (res.usedOps.length ? '<span class="pill">算子 ' + res.usedOps.join(" ") + '</span>' : "") +
+      (res.usedAtoms && res.usedAtoms.length ? '<span class="pill">模块 ' + res.usedAtoms.length + '</span>' : "") +
+      (res.experimental ? '<span class="pill" style="background:var(--warn-bg);color:var(--warn);border-color:currentColor">含未验证组合</span>' : "");
+
+    var w = res.warnings || [];
+    $("#warnBox").innerHTML = w.length
+      ? w.map(function (x) { return warnLine(x); }).join("")
+      : (res.counts.src ? '<div class="warn" style="background:var(--ok-bg);color:var(--ok);border-color:currentColor">无冲突，这套组合是自洽的</div>' : "");
+
+    renderRecipeWhy(res);
+  }
+
+  /* 「这段词在干什么」：逐段说明当前配方的每个组成部分。
+     词汇表用户能复制走，但不知道每段从哪来、为什么在，
+     下次自己改就无从下手 —— 这是新手和熟手真正的分水岭。
+     全部从当前 spec 现算，空配方也如实说，不写通用废话。 */
+  function renderRecipeWhy(res) {
+    var sp = exportSpec();
+    var bits = [];
+    function names(list, kindZh) {
+      return list.map(function (id) {
+        var found = null;
+        MODULES.forEach(function (m) {
+          if (found) return;
+          m.arr.forEach(function (e) { if (e.id === id) found = e; });
+        });
+        return found ? found.zh : id;
+      }).join("、");
+    }
+    if (sp.painters.length) bits.push("<b>① 画家（" + names(sp.painters.map(function (x) { return x.id; })) + "）</b>——定笔触、用色与光影气质。画面「像谁画的」由这一层决定");
+    if (sp.subjects.length) bits.push("<b>② 题材（" + names(sp.subjects.map(function (x) { return x.id; })) + "）</b>——定画面里有什么。人物、场景、物件是这一层给的");
+    if (sp.movements.length) bits.push("<b>③ 流派</b>——定时代审美与群体特征，比单个画家的约束更宽");
+    if (sp.works.length) bits.push("<b>④ 名画</b>——以具体作品的构图与色调为参照");
+    if (sp.mediums.length) bits.push("<b>⑤ 媒介</b>——定材料与技法（油画 / 水彩 / 版画…），影响质感");
+    if (sp.atoms.length) bits.push("<b>⑥ 原子模块（" + names(sp.atoms.map(function (x) { return x.id; })) + "）</b>——定局部视觉效果（某一种光、某一种纹理），独立于画家存在");
+    if (sp.operators.length) bits.push("<b>⑦ 变形算子（" + names(sp.operators.map(function (x) { return x.id; })) + "）</b>——对已有成分做受控变形（换材质 / 换光照 / 迁移），其余面保持不变");
+    if (sp.subjectFree) bits.push("<b>⑧ 题材补充</b>——你写的「" + esc(sp.subjectFree) + "」作为画面主描述");
+    if (sp.freeText && sp.freeText.length) bits.push("<b>⑨ 原话（" + esc(sp.freeText.join("、")) + "）</b>——追加在词面末尾，不参与冲突裁决。想要什么直说，引擎不动它");
+    bits.push("<b>负面词</b>——固定进负面通道：防畸变、防水印、防文字。不想要什么写在这里，模型就不会往那画");
+    bits.push("<b>画质词</b>——按强度档（当前 " + Number(SPEC.strength).toFixed(2) + "）自动带出，管清晰度与完成度，不管内容");
+    if (res.experimental) bits.push('<span style="color:var(--warn)">本组合含未验证变形：结构上成立，但尚未在模型上稳定复现，出图请先小样验证</span>');
+    if (!sp.painters.length && !sp.subjects.length) {
+      bits.unshift("配方盘还空着 —— 去「全部词条」页签挑选模块点「加入」，或在「自定义出图」选一个预设场景起手。只有画质词的词面出不了你要的画面");
+    }
+    $("#recipeWhyBody").innerHTML = bits.map(function (x) { return "<div>· " + x + "</div>"; }).join("");
+  }
+
+  var LVL_ZH = { hard: "已自动裁决", regional: "可分区并存", soft: "共存提示", experimental: "未验证" };
+  var LVL_CLS = { hard: "hard", regional: "regional", soft: "soft", experimental: "experimental" };
+
+  function warnLine(x) {
+    var head = LVL_ZH[x.level] || x.level;
+    var who = x.loser ? "（让位：" + esc(x.loser) + "）" : "";
+    var fg = !x.loser && x.winner ? "（涉及：" + esc(x.winner) + "）" : "";
+    var extra = "";
+    if (x.level === "regional" && x.region) {
+      extra = '<br><span style="opacity:.85">分区建议：' + esc(x.region.aSide) + " ←→ " + esc(x.region.bSide) + "；过渡：" + esc(x.region.seam) + "</span>";
+    }
+    if (x.level === "experimental") {
+      extra = '<br><span style="opacity:.85">本组合尚未在任何模型上稳定复现，出图结果请自行验证。</span>';
+    }
+    return '<div class="warn ' + LVL_CLS[x.level] + '"><b>' + head + '</b> · ' + esc(x.msg) + who + fg + extra + "</div>";
+  }
+
+  function changesText(res) {
+    var lines = ["# 变更清单", "", "这一版相对「什么都不改」的基准，改动了以下内容：", ""];
+    if (!res.changes.length) lines.push("（无变更，也无冲突）");
+    else res.changes.forEach(function (c) {
+      if (c.type === "mute") {
+        lines.push("- **已让位**：" + c.targetName + " 在 [" + c.facets.join("、") + "] 面上让位给 " + c.by + "。原因：" + c.why + "。建议：" + c.fix);
+      } else if (c.type === "split") {
+        lines.push("- **可分区**：" + c.a + " 与 " + c.b + " 可按区域共存" +
+          (c.region ? "（" + c.region.aSide + " ←→ " + c.region.bSide + "）" : "") + "。");
+      } else if (c.type === "preserve") {
+        lines.push("- **保留**：" + c.facet + " 面按算子声明保留。");
+      } else if (c.type === "region") {
+        lines.push("- **局部模块**：" + c.term + "（" + c.id + "）需配合遮罩或区域提示。");
+      } else if (c.type === "unverified") {
+        lines.push("- **未验证**：" + c.a + " × " + c.b + "，实验性组合。");
+      }
+    });
+    /* 继承关系无条件输出：即使这次没改动，也该让人知道这版是怎么来的 */
+    lines.push("", "## 继承关系", "",
+      "- 来源实体：" + ((res.parent.sources || []).map(function (s) { return s.id; }).join("、") || "—"),
+      "- 生效算子：" + ((res.parent.operators || []).join("、") || "—"),
+      "- 平台与强度：" + (PLATFORM_ZH[res.platform] || res.platform) + " @ " + res.strength.toFixed(2));
+    if (res.guardAtoms && res.guardAtoms.length) {
+      lines.push("- 硬约束模块（已进负面词）：" + res.guardAtoms.join("、"));
+    }
+    if (res.regionAtoms && res.regionAtoms.length) {
+      lines.push("- 局部模块（需遮罩）：" + res.regionAtoms.map(function (x) { return x.id; }).join("、"));
+    }
+    return lines.join("\n");
+  }
+
+  function exportSpec() {
+    return {
+      subjects: SPEC.subjects.map(function (x) { return typeof x === "string" ? x : x.id; }),
+      works: SPEC.works, movements: SPEC.movements, painters: SPEC.painters,
+      mediums: SPEC.mediums,
+      operators: SPEC.operators.map(function (x) { return typeof x === "string" ? x : x.id; }),
+      atoms: SPEC.atoms.map(function (x) { return typeof x === "string" ? x : x.id; }),
+      optics: SPEC.optics, strength: SPEC.strength, platform: SPEC.platform,
+      subjectFree: $("#subjectFree").value.trim() || undefined,
+      /* 原话通道：用户自己的句子，追加在词面末尾，不参与冲突裁决。
+         多条用逗号 / 分号 / 顿号分隔都吃 —— 分隔符是给人看的，
+         模型读到的是一串并列意图。 */
+      freeText: splitFree($("#freeText").value)
+    };
+  }
+  /* 原话分隔：中英文逗号 / 分号 / 顿号 / 竖线都算。空段滤掉。 */
+  function splitFree(v) {
+    return String(v || "").split(/[,;，、；|]/)
+      .map(function (s) { return s.trim(); })
+      .filter(Boolean);
+  }
+
+  var PLATFORM_ZH = { sd: "SD 系", mj: "Midjourney", flux: "Flux 系（不输出括号）", gpt: "GPT / 其它" };
+
+  function render() {
+    var res = FORGE.compose(exportSpec());
+    lastResult = res;
+    renderTray(res);
+    renderOut(res);
+    renderEasy(); /* 简单模式读同一份 lastResult；不在 easy 模式时它自己早退 */
+    renderPickBar(); /* 词条页的已选汇总跟着 SPEC 走（加入/移除都经过这里） */
+    saveState();
+  }
+
+  /* 平台 chips：与 SPEC.platform 同源的唯一渲染器。
+     easyPlat（自定义出图）与 platChips（合成器）两处都调它对数据，
+     各自渲染自己的容器 —— 两处各写一份选项表必然漂移。 */
+  var PLATS = [
+    ["gpt", "GPT / 对话 · 裸词（默认）", "GPT / 对话"],
+    ["sd", "Stable Diffusion · (词:权重)", "Stable Diffusion"],
+    ["mj", "Midjourney · 词::权重", "Midjourney"],
+    ["flux", "Flux 系 · 靠重复", "Flux 系"]
+  ];
+  function platChipsHtml(active, short) {
+    return PLATS.map(function (p) {
+      return '<button class="fchip' + (active === p[0] ? " on" : "") + '" data-pf="' + p[0] + '">' + (short ? p[2] : p[1]) + "</button>";
+    }).join("");
+  }
+  function renderPlatChips() {
+    $("#platChips").innerHTML = platChipsHtml(SPEC.platform || "gpt");
+  }
+
+  function syncInputs() {
+    $("#strength").value = SPEC.strength;
+    $("#strengthV").textContent = Number(SPEC.strength).toFixed(2);
+    renderPlatChips();
+  }
+
+  /* ---------------- 工具 ---------------- */
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+    });
+  }
+  function copy(txt) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { flash("已复制"); }, fallback);
+    } else fallback();
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      var okd = false;
+      try { okd = document.execCommand("copy"); } catch (e) { okd = false; }
+      document.body.removeChild(ta);
+      if (okd) { flash("已复制"); return; }
+      /* 两条自动路径都失败：不谎报，也不只丢一句「请手动选中」——
+         这条词是现算的，界面上没有全文，只提示失败等于让人手打。
+         弹手动浮层，全文摊开并全选好。 */
+      manualCopy(txt, function () { flash("已复制"); });
+    }
+  }
+  /* 手动复制浮层（复制三路的最后一路）。code-ui.js 与 detail.js
+     各有一份等价实现；这里是主界面自己的一份。 */
+  function manualCopy(text, onOk) {
+    var old = document.querySelector(".cw-cpm");
+    if (old) old.remove();
+    var mask = document.createElement("div");
+    mask.className = "cw-cpm";
+    mask.innerHTML = '<div><h4>自动复制失败 · 请手动复制</h4>'
+      + '<p>当前环境写不进剪贴板（常见于 file:// 协议或浏览器权限被拒）。'
+      + '全文已在下方全选，按 Ctrl+C（macOS 用 Cmd+C）即可。</p>'
+      + '<textarea readonly></textarea>'
+      + '<div class="row"><button class="cw-cpm-ok" type="button">好了</button></div></div>';
+    var ta = mask.querySelector("textarea");
+    ta.value = text;
+    document.body.appendChild(mask);
+    ta.focus(); ta.select();
+    mask.querySelector(".cw-cpm-ok").addEventListener("click", function () {
+      mask.remove();
+      if (onOk) onOk();
+    });
+    mask.addEventListener("click", function (e) {
+      if (e.target === mask) mask.remove();
+    });
+  }
+  var flashTimer = null;
+  /* toast 可带一个「下一步」动作：操作在 A 页、成品在 B 页时，
+     光知道"成功了"还不够，用户原话「下一步不明确」—— 按钮直接把人送过去 */
+  function flash(msg, actLabel, actFn) {
+    var t = $("#toast");
+    if (t) {
+      t.textContent = msg;
+      /* 重建动作按钮：旧的可能还挂着（textContent 会清掉子节点，但保险起见） */
+      var btn = null;
+      if (actLabel) {
+        btn = document.createElement("button");
+        btn.className = "t-act";
+        btn.textContent = actLabel;
+        btn.addEventListener("click", function () {
+          t.classList.remove("on");
+          if (actFn) actFn();
+        });
+        t.appendChild(btn);
+      }
+      t.classList.add("on");
+      clearTimeout(flashTimer);
+      flashTimer = setTimeout(function () { t.classList.remove("on"); }, 4200);
+    }
+    var b = $("#btnCopy"); /* 按钮文字反馈保留给合成器页内操作 */
+    if (b) {
+      var old = b.textContent;
+      b.textContent = msg;
+      clearTimeout(flashTimer);
+      flashTimer = setTimeout(function () { b.textContent = old; }, 1400);
+    }
+  }
+
+  /* ---------------- 编码工作台 ---------------- */
+  /* 独立覆盖层。开关只切 display，不重建 DOM —— 重建会把用户在
+     段码表里展开的状态、筛选词全部清掉，来回切换就白干了。 */
+  function renderCodeDesk() {
+    var box = $("#cdBody");
+    if (!box) return;
+    box.innerHTML = openRenderCode();
+    var h = $("#cdHint");
+    if (h) h.textContent = REGISTRY.total + " 条可引用条目 · " +
+      Object.keys(REGISTRY.byKind).length + " 个层级";
+    /* 回车提交要保证焦点落在输入框上，否则用户敲完一串要再点一次按钮 */
+    var qa = document.getElementById("cwQ");
+    if (qa && CW.q && document.activeElement !== qa) {
+      var n = qa.value.length;
+      qa.focus(); qa.setSelectionRange(n, n);
+    }
+    saveState();
+  }
+  function openCodeDesk() {
+    setMode("desk"); /* 工作台已是普通页签 —— 直达，不再有「返回工坊」这一层 */
+  }
+
+  /* ============ 页签切换：八视图（工作台也是普通页签） ============
+     学 xhs 库的八页结构：一页只回答一件事。全部视图共享一份 SPEC
+     —— 词条页点「加入」、画廊点场景卡、抽卡点「铺进合成器」，
+     改的都是同一份配方，切页不丢状态。 */
+  var VIEWS = ["gallery", "custom", "synth", "gacha",
+               "entries", "pairs", "framework", "desk"];
+  var MODE = "gallery";         /* 当前页签（沿用旧变量名，历史状态兼容） */
+  var EASY_CUR = null;          /* 自定义出图当前选中的预设名 */
+  /* 各视图的懒渲染标记：首次切入才渲染，启动只画默认页 */
+  var VIEW_RENDERED = {};
+
+  function setMode(m, opts) {
+    /* 旧存档可能带着已删页签（如 cases）—— 兜底回画廊，不能停在空屏 */
+    if (!document.getElementById("v-" + m)) m = "gallery";
+    MODE = m;
+    VIEWS.forEach(function (k) {
+      var el = document.getElementById("v-" + k);
+      if (!el) return;
+      el.style.display = ""; /* 清掉历史内联样式，显隐统一交回 .view.on 管 */
+      el.classList.toggle("on", k === m);
+    });
+    syncModeTabs(m);
+    renderView(m);
+    saveState();
+  }
+  /* 视图渲染入口：懒渲染一次，之后切回不重画
+     （画廊 / 搭配 / 框架是静态数据摊开，重画只会丢掉用户的筛选状态；
+     工作台例外 —— 每次进入都重画，行为与旧覆盖层一致，CW 状态自己会保留） */
+  function renderView(m) {
+    if (m === "custom") { renderEasy(); return; }
+    if (m === "desk") { renderCodeDesk(); return; }
+    if (VIEW_RENDERED[m]) return;
+    if (m === "gallery") renderGallery();
+    else if (m === "gacha") renderGacha();
+    else if (m === "pairs") renderPairs();
+    else if (m === "framework") renderFramework();
+    VIEW_RENDERED[m] = true;
+  }
+  function syncModeTabs(m) {
+    Array.prototype.forEach.call($("#modeTabs").children, function (c) {
+      c.classList.toggle("on", c.getAttribute("data-mode") === m);
+    });
+  }
+  $("#modeTabs").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-mode]");
+    if (b) setMode(b.getAttribute("data-mode"));
+  });
+
+  /* ---------------- 简单模式 ---------------- */
+
+  /* 一次性的静态区：统计行。数字与 header 保持同源。 */
+  (function easyStatic() {
+    var stAll = statusCount(PAINTERS);
+    $("#easyStats").innerHTML =
+      "<span><b>" + PAINTERS.length + "</b> 位画家</span>" +
+      "<span>" + MOVEMENTS.length + " 个流派</span>" +
+      "<span><b>" + WORKS.length + "</b> 幅名画参照</span>" +
+      "<span>" + (typeof ATOMS !== "undefined" ? ATOMS.length : 0) + " 个视觉模块</span>" +
+      "<span>" + MODELS_SAFE().length + " 份模型实测</span>" +
+      "<span>已测试/已复核 <b>" + (stAll.tested + stAll.reviewed) + "</b></span>";
+  })();
+
+  function renderEasyCards() {
+    var box = $("#easyCards");
+    var html = "";
+    PRESETS.forEach(function (p) {
+      var spec = buildPreset(p);
+      if (!spec) return; /* 半套预设不显示 —— 同 renderPresets 的约定 */
+      var ing = Object.keys(p.want).map(function (k) { return p.want[k]; }).join(" · ");
+      html += '<button class="easy-card' + (EASY_CUR === p.name ? " on" : "") + '" data-easy-preset="' + esc(p.name) + '">'
+        + "<b>" + esc(p.name) + "</b>"
+        + '<span class="d">' + esc(p.desc || "") + "</span>"
+        + '<span class="c">' + esc(ing) + "</span>"
+        + "</button>";
+    });
+    box.innerHTML = html || '<p class="easy-tip">预设条目缺失，请到「高级配方」手动挑选。</p>';
+  }
+
+  /* 简单模式主词面：对话式 / Flux 平台看正文更易懂，其余给段落式 tags。
+     这是「成品」心智 —— 用户要的是一张图，不是一堆词的分工说明。 */
+  function easyMainText(res) {
+    if (!res) return "";
+    return (res.platform === "gpt" || res.platform === "flux") ? res.gpt : res.tags;
+  }
+
+  function renderEasy() {
+    if (MODE !== "custom") return;
+    renderEasyCards();
+    /* 平台 chips：与 SPEC.platform 同源，点了同时同步高级模式的 select */
+    /* 平台 chips 与合成器的 platChips 同一张 PLATS 表（第三列短标签），
+       两处各写一份选项表必然漂移 */
+    $("#easyPlat").innerHTML = platChipsHtml(SPEC.platform || "gpt", true).replace(/data-pf=/g, "data-easy-pf=");
+    /* 成品与说明：直接复用高级模式已算好的 lastResult，同一份状态 */
+    var out = $("#easyOut");
+    if (!lastResult || !lastResult.counts.src) {
+      out.textContent = "← 先在左边选一个场景，提示词会出现在这里。";
+      $("#easyWhyBody").innerHTML = "";
+    } else {
+      out.textContent = easyMainText(lastResult);
+      /* 说明区与高级模式同源：renderRecipeWhy 已把逐段说明写进 #recipeWhyBody，
+         拿过来即可，不现算第二遍 —— 两处各算一套必然漂移。 */
+      $("#easyWhyBody").innerHTML = $("#recipeWhyBody").innerHTML;
+    }
+    /* 自己调区回显：正在输入的框不动（重设 value 会把光标踢到末尾） */
+    var es = $("#easySubject");
+    if (es && document.activeElement !== es) es.value = $("#subjectFree").value || "";
+    var esSlider = $("#easyStrength");
+    if (esSlider && document.activeElement !== esSlider) esSlider.value = SPEC.strength;
+    var esv = $("#easyStrengthV");
+    if (esv) esv.textContent = Number(SPEC.strength).toFixed(2);
+    var el = $("#easyLight");
+    if (el) el.innerHTML = EASY_LIGHTS.map(function (p) {
+      var on = (SPEC.optics || []).indexOf(p[0]) >= 0;
+      return '<button class="fchip' + (on ? " on" : "") + '" data-easy-light="' + esc(p[0]) + '">' + esc(p[1]) + "</button>";
+    }).join("");
+  }
+
+  $("#easyCards").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-easy-preset]");
+    if (!b) return;
+    var p = PRESETS.filter(function (x) { return x.name === b.getAttribute("data-easy-preset"); })[0];
+    if (!p) return;
+    var spec = buildPreset(p);
+    if (!spec) return;
+    SPEC = spec;
+    EASY_CUR = p.name;
+    normalizeSpec();
+    syncInputs();
+    $("#subjectFree").value = "";
+    $("#freeText").value = "";
+    render();
+  });
+
+  $("#easyPlat").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-easy-pf]");
+    if (!b) return;
+    SPEC.platform = b.getAttribute("data-easy-pf");
+    renderPlatChips(); /* 合成器的 chips 同步 */
+    render();
+  });
+
+  $("#easyRandom").addEventListener("click", function () {
+    demoFill();
+    EASY_CUR = null;
+    render();
+  });
+
+  /* ---------------- 自己调（自定义出图 ②区） ----------------
+     光线 chips 从 OPTICS 登记词里选的真实词面（O-01/O-02 组），
+     不是自造的标签 —— 卡上显示中文、进词面的是英文原文。
+     单选语义：换光就是换光，不是叠光。 */
+  var EASY_LIGHTS = [
+    ["single window light", "单侧窗光"], ["golden hour", "黄金时刻"],
+    ["chiaroscuro", "强明暗对照"], ["backlight halo", "逆光剪影"],
+    ["rim light", "轮廓光"], ["candlelight", "烛光"],
+    ["diffused skylight", "柔和天光"], ["blue hour", "蓝调时刻"],
+    ["overcast grey day", "阴天柔光"], ["deep night noir", "深夜硬光"],
+    ["fog diffused light", "雾中散射"], ["dust beam volume", "可见光柱"]
+  ];
+  $("#easyLight").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-easy-light]");
+    if (!b) return;
+    var w = b.getAttribute("data-easy-light");
+    var i = (SPEC.optics || []).indexOf(w);
+    if (i >= 0) SPEC.optics.splice(i, 1);
+    else SPEC.optics = [w];
+    render();
+  });
+  /* 画面主角：单一真源仍是合成器的 #subjectFree —— 这里只是替身，
+     两处各存一份必然漂移 */
+  $("#easySubject").addEventListener("input", function (e) {
+    $("#subjectFree").value = e.target.value;
+    render();
+  });
+  $("#easyStrength").addEventListener("input", function (e) {
+    SPEC.strength = parseFloat(e.target.value);
+    $("#strength").value = SPEC.strength; /* 合成器滑块同步 */
+    $("#strengthV").textContent = Number(SPEC.strength).toFixed(2);
+    render();
+  });
+
+  /* ---------------- 示例画廊事件 ----------------
+     整页事件都挂在 #galWrap 上（内容随筛选重画，委托才活得过重画）：
+     筛选 chips、卡上复制按钮、签名卡开详情浮层。 */
+  $("#galWrap").addEventListener("click", function (e) {
+    var el;
+    /* 筛选 chips：data-gf="cat|sub|med|tone|view|pic"（pic 是开关，其余选值） */
+    el = e.target.closest("[data-gf]");
+    if (el) {
+      var k = el.getAttribute("data-gf"), v = el.getAttribute("data-v");
+      if (k === "pic") GAL_F.pic = !GAL_F.pic;
+      else GAL_F[k] = v;
+      renderGallery();
+      return;
+    }
+    /* 卡上复制按钮先判：点按钮不该把详情浮层带出来。
+       词面从 GAL_R 现取 —— data 属性里只放 id，不放整段词。 */
+    el = e.target.closest("[data-gcopy]");
+    if (el) {
+      var cr = GAL_R[el.getAttribute("data-gcopy")];
+      if (cr) { copy(cr.tags); flash("已复制提示词（tags），到出图工具直接粘贴"); }
+      return;
+    }
+    el = e.target.closest("[data-gneg]");
+    if (el) {
+      var nr = GAL_R[el.getAttribute("data-gneg")];
+      if (nr) { copy(nr.neg); flash("已复制负面词"); }
+      return;
+    }
+    /* 合成器改用：把这张卡铺进配方盘并跳到合成器。
+       变奏卡不在 SIGNATURES 里 —— 直接铺它自己的 spec。 */
+    el = e.target.closest("[data-gload]");
+    if (el) {
+      var lid = el.getAttribute("data-gload"), ls = null;
+      GAL_ALL.forEach(function (x) { if (x.id === lid) ls = x; });
+      if (ls) {
+        if (ls.base) {
+          SPEC = JSON.parse(JSON.stringify(ls.spec));
+          SPEC.strength = SPEC.strength || 1.0;
+          normalizeSpec();
+          syncInputs();
+          render();
+        } else {
+          loadSig(ls.id);
+        }
+        setMode("synth");
+        flash("「" + ls.zh + "」已铺进合成器，可继续细调");
+      }
+      return;
+    }
+    /* 卡面编号：点一下把配图文件名交到剪贴板。
+       必须排在卡片本体分支**之前** —— 否则点编号会先展开详情，
+       复制不出来，用户只能手抄，手抄就又可能错成当年那个序号（踩过）。 */
+    el = e.target.closest("[data-gfname]");
+    if (el) {
+      var fname = el.getAttribute("data-gfname") + ".png";
+      copy(fname);
+      flash("已复制文件名 " + fname + " —— 图放进 gallery/ 就落到这张卡上");
+      return;
+    }
+    /* 签名卡本体：再点同一张收起浮层 */
+    el = e.target.closest("[data-gal-sig]");
+    if (el) {
+      var id = el.getAttribute("data-gal-sig");
+      GAL_SIG = (GAL_SIG === id) ? null : id;
+      renderGallery();
+    }
+  });
+  /* 搜索框：输入即筛。重画后把焦点还回去，连打不被打断。 */
+  $("#galWrap").addEventListener("input", function (e) {
+    if (e.target.id !== "gq") return;
+    GAL_F.q = e.target.value;
+    renderGallery();
+    var gq = $("#gq");
+    if (gq) {
+      gq.focus();
+      try { gq.setSelectionRange(gq.value.length, gq.value.length); } catch (err) { /* 类型输入控件不支持就算了 */ }
+    }
+  });
+  /* 详情浮层：点背景空白处或「收起」钮关掉，Esc 同效。
+     浮层里的「VAR-01.png」按钮同样要能复制文件名 —— 它不在 #galWrap 里，
+     上面那条委托到不了这里。 */
+  $("#galMask").addEventListener("click", function (e) {
+    if (e.target === this || e.target.closest("[data-gal-close]")) { closeGalDetail(); return; }
+    var cf = e.target.closest("[data-gfname]");
+    if (cf) {
+      var fname = cf.getAttribute("data-gfname") + ".png";
+      copy(fname);
+      flash("已复制文件名 " + fname);
+    }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && $("#galMask").classList.contains("on")) closeGalDetail();
+  });
+
+  /* ---------------- 抽卡页事件 ---------------- */
+  $("#gaRoll1").addEventListener("click", function () {
+    if (typeof GACHA === "undefined" || !GACHA) return;
+    GA.single = GACHA.roll();
+    renderGacha();
+  });
+  $("#gaRoll8").addEventListener("click", function () {
+    if (typeof GACHA === "undefined" || !GACHA) return;
+    var many = [];
+    for (var i = 0; i < 8; i++) many.push(GACHA.roll());
+    GA.multi = many;
+    renderGacha();
+  });
+  $("#gaRoll4").addEventListener("click", function () {
+    if (typeof GACHA === "undefined" || !GACHA) return;
+    var many = [];
+    for (var i = 0; i < 4; i++) many.push(GACHA.roll());
+    GA.multi = many;
+    renderGacha();
+  });
+  $("#gaClear").addEventListener("click", function () {
+    GA.single = null; GA.multi = null; GA.rand = null;
+    renderGacha();
+  });
+  $("#gaRandom").addEventListener("click", function () {
+    if (!GAL_ALL.length) return;
+    GA.rand = GAL_ALL[Math.floor(Math.random() * GAL_ALL.length)];
+    GA.single = null; GA.multi = null;
+    renderGacha();
+  });
+  $("#gaOut").addEventListener("click", function (e) {
+    /* 结果卡上的复制按钮：词面从 spec 现算，data 属性只放索引 */
+    var gc = e.target.closest("[data-ga-copy]");
+    if (gc) {
+      var gk = gc.getAttribute("data-ga-copy");
+      var gr2 = (gk === "s") ? GA.single : (GA.multi ? GA.multi[+gk] : null);
+      if (gr2 && gr2.ok) { copy(FORGE.compose(gr2.spec).tags); flash("已复制提示词（tags），到出图工具直接粘贴"); }
+      return;
+    }
+    var grc = e.target.closest("[data-ga-rcopy]");
+    if (grc && GA.rand) {
+      copy((GAL_R[GA.rand.id] || FORGE.compose(GA.rand.spec)).tags);
+      flash("已复制提示词（tags），到出图工具直接粘贴");
+      return;
+    }
+    /* 随机来一张的「铺进合成器」：变奏卡直接铺自己的 spec，
+       签名卡走 loadSig 同一条路 */
+    var rf = e.target.closest("[data-ga-rfill]");
+    if (rf) {
+      var sid = rf.getAttribute("data-ga-rfill");
+      var s0 = null;
+      GAL_ALL.forEach(function (x) { if (x.id === sid) s0 = x; });
+      if (!s0) return;
+      SPEC = JSON.parse(JSON.stringify(s0.spec));
+      SPEC.strength = SPEC.strength || 1.0;
+      normalizeSpec();
+      syncInputs();
+      $("#subjectFree").value = "";
+      $("#freeText").value = "";
+      EASY_CUR = null;
+      render();
+      setMode("synth");
+      flash("「" + s0.zh + "」已铺进配方盘，可继续细调");
+      return;
+    }
+    var b = e.target.closest("[data-ga-fill]");
+    if (!b) return;
+    var key = b.getAttribute("data-ga-fill");
+    var r = (key === "s") ? GA.single : (GA.multi ? GA.multi[+key] : null);
+    if (!r || !r.ok) return;
+    SPEC = gaToSpec(r.spec);
+    normalizeSpec();
+    syncInputs();
+    $("#subjectFree").value = "";
+    $("#freeText").value = "";
+    EASY_CUR = null;
+    render();
+    setMode("synth");
+    flash("这一组已铺进配方盘，可继续细调");
+  });
+
+  /* ---------------- 搭配页筛选 ---------------- */
+  $("#pairQ").addEventListener("input", function () {
+    if (VIEW_RENDERED.pairs) renderPairs();
+  });
+
+  /* 复制三件套：行为与高级模式完全一致，只是按钮更大更显眼 */
+  $("#easyCopy").addEventListener("click", function () {
+    if (!lastResult || !lastResult.counts.src) return;
+    copy(easyMainText(lastResult));
+  });
+  $("#easyCopyAsk").addEventListener("click", function () {
+    if (!lastResult || !lastResult.counts.src) return;
+    copy("请画一张：\n" + lastResult.gpt);
+  });
+  $("#easyCopyRun").addEventListener("click", function () {
+    if (!lastResult || !lastResult.counts.src) return;
+    var txt = easyMainText(lastResult);
+    if (lastResult.platform === "sd" || lastResult.platform === "mj") {
+      txt += "\n\nNegative prompt: " + lastResult.neg;
+    }
+    var adv = adviceParams(lastResult.platform);
+    if (adv) txt += "\n\n" + adv;
+    copy(txt);
+  });
+
+  /* code-ui 只管产出 HTML，重绘交给这里 —— 这样那个视图不依赖主界面。
+     顶层 function 声明本身就在全局，code-ui 里的 cwRender() 能直接取到。 */
+  function cwHostRender() { renderCodeDesk(); }
+
+  $("#v-desk").addEventListener("click", function (e) {
+    if (codeUiClick(e.target)) renderCodeDesk();
+  });
+
+  $("#v-desk").addEventListener("keydown", function (e) {
+    if (codeUiKey(e.target, e)) renderCodeDesk();
+  });
+
+  /* ---------------- 事件 ---------------- */
+  $("#tabs").addEventListener("click", function (e) {
+    var t = e.target.closest("[data-tab]");
+    if (!t) return;
+    cur.tab = t.getAttribute("data-tab"); cur.q = ""; cur.facet = null;
+    $("#q").value = "";
+    renderTabs(); renderFilters(); renderList();
+  });
+
+  $("#q").addEventListener("input", function (e) { cur.q = e.target.value; renderList(); });
+
+  $("#filters").addEventListener("click", function (e) {
+    var c = e.target.closest("[data-f]");
+    if (!c) return;
+    var v = c.getAttribute("data-f");
+    cur.facet = (cur.facet === v) ? null : v;
+    renderFilters(); renderList();
+  });
+
+  /* 点「加入/套用」按钮 = 加进配方；点条目本体 = 看详情。
+     两者必须分开：点按钮的意图是「改配方」，点名字的意图是「先看看」。
+     合成一个动作的后果是误点也改了配方，而用户不会想到去点「清空」找回。 */
+  $("#list").addEventListener("click", function (e) {
+    var it = e.target.closest("[data-id]");
+    if (!it) return;
+    /* 光学词条与关系边没有加入按钮，整行都可点开详情；
+       其余条目只有名字区域可点，按钮区域留给加入。 */
+    if (e.target.closest("button.add")) {
+      add(cur.tab, it.getAttribute("data-id"));
+      render();
+      /* 加入发生在词条页，成品在合成器页 —— toast 带「下一步」按钮直达 */
+      flash("已加入「" + nameOf(it.getAttribute("data-id")) + "」", "去合成器出词 →", function () {
+        setMode("synth");
+      });
+      return;
+    }
+    if (typeof DETAIL !== "undefined") {
+      DETAIL.show(cur.tab, it.getAttribute("data-id"));
+    }
+  });
+
+  $("#tray").addEventListener("click", function (e) {
+    /* 「词」按钮：跳到编码工作台并直接展开那一条的提示词。
+       走工作台而不是就地弹窗，是为了不在配方盘里再塞一套重复的
+       取词界面 —— 两处实现必然漂移。 */
+    var pv = e.target.closest("[data-pv]");
+    if (pv) {
+      var pc = pv.getAttribute("data-pv");
+      if (pc && typeof PROMPTS !== "undefined") {
+        CW.q = pc;
+        CW.open = pc;
+        CW.pf = SPEC.platform || "gpt";
+        openCodeDesk();
+      }
+      return;
+    }
+    var x = e.target.closest(".x");
+    if (!x) return;
+    var k = x.getAttribute("data-k"), i = +x.getAttribute("data-i");
+    if (k === "optics") SPEC.optics.splice(i, 1);
+    else SPEC[k].splice(i, 1);
+    render();
+  });
+  $("#tray").addEventListener("input", function (e) {
+    var r = e.target;
+    if (r.type !== "range") return;
+    var k = r.getAttribute("data-k"), i = +r.getAttribute("data-i");
+    SPEC[k][i].w = Number(r.value);
+    render();
+  });
+
+  $("#strength").addEventListener("input", function (e) {
+    SPEC.strength = Number(e.target.value);
+    $("#strengthV").textContent = SPEC.strength.toFixed(2);
+    render();
+  });
+  /* 平台 chips：点击即切，选中态在 renderPlatChips 里重画 */
+  $("#platChips").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-pf]");
+    if (!b) return;
+    SPEC.platform = b.getAttribute("data-pf");
+    renderPlatChips();
+    render(); /* renderEasy 里 easyPlat 会跟着重画 */
+  });
+  $("#subjectFree").addEventListener("input", render);
+  $("#freeText").addEventListener("input", render);
+
+  $("#btnClear").addEventListener("click", function () {
+    SPEC = blank(); $("#subjectFree").value = ""; $("#freeText").value = ""; syncInputs(); render();
+  });
+
+  /* 随机灵感：题材 + 一位画家 + 可选算子，保证出得来画面。
+     抽成函数 —— 主界面按钮与简单模式的「随机来一张」共用。 */
+  function demoFill() {
+    SPEC = blank();
+    var sm = MODULES.filter(function (x) { return x.key === "subjects"; })[0].arr;
+    SPEC.subjects.push({ id: sm[Math.floor(Math.random() * sm.length)].id, w: 1 });
+    var pm = MODULES.filter(function (x) { return x.key === "painters"; })[0].arr;
+    SPEC.painters.push({ id: pm[Math.floor(Math.random() * pm.length)].id, w: (Math.random() * 0.5 + 0.8) });
+    if (Math.random() < 0.45) {
+      var om = MODULES.filter(function (x) { return x.key === "operators"; })[0].arr;
+      SPEC.operators.push({ id: om[Math.floor(Math.random() * om.length)].id, w: 1 });
+    }
+    SPEC.strength = Math.round((Math.random() * 0.7 + 0.7) * 20) / 20;
+    syncInputs();
+  }
+  $("#btnDemo").addEventListener("click", function () {
+    demoFill();
+    EASY_CUR = null;
+    render();
+  });
+
+  $("#outTabs").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-out]");
+    if (!b) return;
+    OUT_TAB = b.getAttribute("data-out");
+    Array.prototype.forEach.call($("#outTabs").children, function (c) { c.classList.toggle("on", c === b); });
+    if (lastResult) renderOut(lastResult);
+  });
+
+  $("#btnCopy").addEventListener("click", function () { copy($("#out").textContent); });
+  $("#btnCopyBoth").addEventListener("click", function () {
+    if (!lastResult) return;
+    copy(lastResult.tags + "\n\nNegative prompt: " + lastResult.neg);
+  });
+
+  /* ---------------- 出图参数与一句话指令 ----------------
+     「复制完还要回头查参数」与「复制就能直接出图」差一步——
+     这一步就是要不要打开文档翻实测记录的差别。参数全部从
+     TESTS 实测记录派生，不另写一份；没有实测的平台就说没有。 */
+  var PLAT_TO_TEST = { sd: "MT-02", mj: "MT-06", flux: "MT-04", gpt: "MT-10" };
+  function adviceParams(platform) {
+    var t = null;
+    MODELS_SAFE().forEach(function (x) { if (x.id === PLAT_TO_TEST[platform]) t = x; });
+    if (!t) return "";
+    var lines = [];
+    if (t.cfg && t.cfg.length === 2) {
+      lines.push("CFG " + t.cfg[0] + (t.cfg[1] !== t.cfg[0] ? "-" + t.cfg[1] : "")
+        + (t.cfgDefault ? "（建议 " + t.cfgDefault + "）" : ""));
+    }
+    if (t.steps && t.steps.length === 2) {
+      lines.push("步数 " + t.steps[0] + (t.steps[1] !== t.steps[0] ? "-" + t.steps[1] : ""));
+    }
+    if (t.sampler) lines.push("采样器：" + t.sampler);
+    if (t.weightSyntax && (platform === "sd" || platform === "mj")) {
+      lines.push("权重写法：" + t.weightSyntax + "，甜区 " +
+        (t.weightRange ? t.weightRange.join("–") : "") + "，别堆高");
+    }
+    if (platform === "mj") lines.push("比例：--ar 2:3（竖版人像）或 --ar 3:2（横版场景），负面词用 --no 跟在参数后");
+    if (platform === "flux") lines.push("Flux 对自然语言最敏感：优先投自然语言正文，tags 只做补充");
+    if (platform === "gpt") lines.push("对话式模型直接投自然语言正文，无需参数");
+    if (t.failTypes && t.failTypes.length) lines.push("已知坑：" + t.failTypes.join("；"));
+    if (!lines.length) return "";
+    return "【出图参数 · 来自" + t.zh + "实测】\n" + lines.map(function (x) { return "· " + x; }).join("\n");
+  }
+  $("#btnCopyRun").addEventListener("click", function () {
+    if (!lastResult) return;
+    var txt = lastResult.tags;
+    if (OUT_TAB === "gpt" || OUT_TAB === "neg") txt = $("#out").textContent;
+    if (lastResult.platform !== "gpt" && OUT_TAB === "tags") {
+      txt += "\n\nNegative prompt: " + lastResult.neg;
+    }
+    var adv = adviceParams(lastResult.platform);
+    if (adv) txt += "\n\n" + adv;
+    copy(txt);
+  });
+  $("#btnCopyAsk").addEventListener("click", function () {
+    if (!lastResult) return;
+    /* gpt 正文本身就是完整英文段落，前面加一句中文指令头，
+       对话式模型就能直接开工 —— 用户不需要懂什么叫负面词。 */
+    copy("请画一张：\n" + lastResult.gpt);
+  });
+
+  $("#btnSnap").addEventListener("click", function () {
+    var code = FORGE.pack(exportSpec());
+    $("#out").textContent = code;
+    OUT_TAB = "tags";
+    Array.prototype.forEach.call($("#outTabs").children, function (c) { c.classList.toggle("on", c.getAttribute("data-out") === "tags"); });
+    copy(code);
+  });
+
+  $("#btnLoad").addEventListener("click", function () {
+    var code = prompt("粘贴以 AFX1. 开头的分享码：");
+    if (!code) return;
+    var s = FORGE.unpack(code);
+    if (!s) { alert("分享码无法识别，请检查是否完整复制。"); return; }
+    SPEC = blank();
+    ["subjects", "works", "movements", "painters", "mediums", "operators", "atoms"].forEach(function (k) {
+      SPEC[k] = (s[k] || []).map(function (x) { return typeof x === "string" ? { id: x, w: 1 } : { id: x.id, w: x.w != null ? x.w : 1 }; });
+    });
+    SPEC.optics = s.optics || [];
+    SPEC.strength = s.strength || 1.0;
+    SPEC.platform = s.platform || "gpt";
+    $("#subjectFree").value = s.subjectFree || "";
+    /* 载入签名卡 / 任务模板时清空原话：那一套是调好的成品，
+       往里塞用户原话会得到「不完全是那套东西」的结果，
+       而用户以为套用成功了。 */
+    $("#freeText").value = "";
+    var tn = document.getElementById("taskNote"); if (tn) tn.style.display = "none";
+    syncInputs(); render();
+  });
+
+  $("#btnMd").addEventListener("click", function () {
+    if (!lastResult) return;
+    var lines = ["# 提示词配方", "",
+      "## 段落式", "", "```", lastResult.tags, "```", "",
+      "## 负面词", "", "```", lastResult.neg, "```", "",
+      "## 自然语言正文", "", "```", lastResult.gpt, "```", "",
+      "## 七面拆解", ""];
+    FACETS.forEach(function (f) {
+      var v = lastResult.parts[f.k] || [];
+      lines.push("- **" + f.zh + "**（`" + f.k + "`）：" + (v.length ? v.map(function (x) { return "`" + x + "`"; }).join(" / ") : "—"));
+    });
+    lines.push("", "- 画质档：`" + lastResult.tier + "`");
+    lines.push("- 署名层：" + lastResult.style.map(function (x) { return "`" + x + "`"; }).join(" "));
+    lines.push("- 算子散词：" + (lastResult.addon.length ? lastResult.addon.map(function (x) { return "`" + x + "`"; }).join(" ") : "—"));
+    if (lastResult.usedAtoms && lastResult.usedAtoms.length) {
+      lines.push("- 原子模块：" + lastResult.usedAtoms.join(" "));
+    }
+    if (lastResult.regionAtoms && lastResult.regionAtoms.length) {
+      lines.push("- 局部模块（需配合遮罩）：" + lastResult.regionAtoms.map(function (x) { return "`" + x.t + "`"; }).join(" "));
+    }
+    if (lastResult.experimental) {
+      lines.push("- ⚠ 本组合含未验证的实验性配对，结果需自行验证");
+    }
+    if (lastResult.changes.length) {
+      lines.push("", "## 变更清单", "", "```", changesText(lastResult), "```");
+    }
+    if (lastResult.warnings.length) {
+      lines.push("", "## 冲突裁决", "");
+      lastResult.warnings.forEach(function (w) {
+        lines.push("- [" + (LVL_ZH[w.level] || w.level) + "] " + w.msg + (w.loser ? "（让位：" + w.loser + "）" : ""));
+      });
+    }
+    lines.push("", "## 原始配方", "", "```json", JSON.stringify(exportSpec(), null, 2), "```", "");
+
+    var blob = new Blob([lines.join("\n")], { type: "text/markdown;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "prompt-recipe.md";
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  /* ---------------- 状态持久化 ----------------
+     刷新丢配方是逼人重做选择的隐形税：调好一个组合、复制完、
+     刷新页面想再调一版 —— 全没了。存一份本地状态，载入时校验
+     每个条目 id 仍在登记表里（数据变了就把那一条丢弃，而不是
+     让不存在的 id 静默留在配方里，出词时才发现少东西）。 */
+  var LS_KEY = "apf.ui.v1";
+  function saveState() {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify({
+        spec: SPEC,
+        subjectFree: $("#subjectFree").value,
+        freeText: $("#freeText").value,
+        outTab: OUT_TAB,
+        mode: MODE,
+        easyCur: EASY_CUR,
+        /* 工作台只存输入串与平台 —— 展开状态是过路景，不值得存 */
+        cw: { q: CW.q, pf: CW.pf }
+      }));
+    } catch (e) { /* 隐身模式等场景存不了，静默降级为不持久化 */ }
+  }
+  function loadState() {
+    var raw = null;
+    try { raw = localStorage.getItem(LS_KEY); } catch (e) { return false; }
+    if (!raw) return false;
+    var o = null;
+    try { o = JSON.parse(raw); } catch (e) { return false; }
+    if (!o || !o.spec) return false;
+    /* 校验：id 必须仍能对上登记表。对不上的条目丢弃并计数 ——
+       直接塞回去的后果是配方里躺着一条查无此人的引用。 */
+    var dropped = 0;
+    var byKey = {};
+    MODULES.forEach(function (m) { byKey[m.key] = m; });
+    ["subjects", "works", "movements", "painters", "mediums", "operators", "atoms"].forEach(function (k) {
+      var m = byKey[k];
+      if (!m || !Array.isArray(o.spec[k])) return;
+      var ids = {};
+      m.arr.forEach(function (e) { ids[e.id] = 1; });
+      var kept = o.spec[k].filter(function (x) {
+        var id = x && x.id;
+        if (id && ids[id]) return true;
+        dropped++; return false;
+      });
+      o.spec[k] = kept;
+    });
+    SPEC = o.spec;
+    normalizeSpec();
+    syncInputs();
+    if (typeof o.subjectFree === "string") $("#subjectFree").value = o.subjectFree;
+    if (typeof o.freeText === "string") $("#freeText").value = o.freeText;
+    if (o.outTab && $("#outTabs").querySelector('[data-out="' + o.outTab + '"]')) {
+      OUT_TAB = o.outTab;
+      Array.prototype.forEach.call($("#outTabs").children, function (c) {
+        c.classList.toggle("on", c.getAttribute("data-out") === OUT_TAB);
+      });
+    }
+    /* 工作台状态恢复（q / pf）。CW 是 code-ui 的内部对象，
+       宿主只改这两个字段 —— 展开项重算没意义。 */
+    if (o.cw) {
+      if (typeof o.cw.q === "string") CW.q = o.cw.q;
+      if (o.cw.pf) CW.pf = o.cw.pf;
+    }
+    /* 模式恢复：上次停在哪个页签，这次还开在哪个页签。
+       旧存档的 mode 是三模式时代写的（easy/pro），迁移到新页签名 ——
+       不迁移的话老用户刷新会落到画廊页，调到一半的「高级配方」像丢了。 */
+    var MODE_ALIAS = { easy: "custom", pro: "synth" };
+    var wantMode = (o.mode && o.mode === "desk") ? "desk"
+      : MODE_ALIAS[o.mode] || (VIEWS.indexOf(o.mode) >= 0 ? o.mode : null);
+    if (wantMode && wantMode !== "desk") MODE = wantMode;
+    if (typeof o.easyCur === "string") EASY_CUR = o.easyCur;
+    return dropped > 0 ? "partial" : true;
+  }
+
+  /* ---------------- 快速开始预设 ----------------
+     新手最怕空白配方盘：不知道 205 位画家从哪挑起。
+     预设给出「一眼看懂这是什么画面」的起手组合，一键铺进配方盘。
+     条目全部按中文名走解析器现查，不硬编码 id —— 数据改名、
+     编码变更都不会让预设悄悄指错；解析不到的条目直接剔除，
+     剔到空的预设整个不显示（数据缺口如实，不装作有）。 */
+  var PRESETS = [
+    { name: "窗光肖像",   want: { painters: "伦勃朗", subjects: "单人肖像", atoms: "单侧窗光" },
+      desc: "一束侧窗光打在人物脸上，伦勃朗式的明暗与厚重笔触" },
+    { name: "印象派田园", want: { painters: "莫奈", subjects: "田园牧歌" },
+      desc: "户外碎光、松散笔触，田园里的树影与花畦" },
+    { name: "浮世绘海景", want: { painters: "葛饰北斋", subjects: "海景" },
+      desc: "平面色块与波浪线条，浮世绘版画的江户海" },
+    { name: "未来都市",   want: { painters: "西蒙·斯塔伦哈格", subjects: "夜市与霓虹" },
+      desc: "暮色里的巨大基础设施与霓虹，怀旧未来主义" },
+    { name: "山水渔隐",   want: { painters: "王维", subjects: "山水意境" },
+      desc: "水墨留白，山间渔舟与隐士的空寂" },
+    /* 以下 9 个按六类补齐：写实与古典 / 东方笔墨 / 装饰与设计 / 现代与想象。
+       名字全部走解析器现查，解析不到的整卡不显示（数据缺口如实）。 */
+    { name: "明暗戏剧",   want: { painters: "卡拉瓦乔", subjects: "群像" },
+      desc: "一束光从高处劈下来，暗部吃掉一半画面，剩下的人是重点" },
+    { name: "历史一瞬",   want: { painters: "伊利亚·列宾", subjects: "战争与历史" },
+      desc: "一群人卡在决定性的瞬间，表情与手势都是台词" },
+    { name: "大写意花鸟", want: { painters: "徐渭", subjects: "花卉与鸟兽" },
+      desc: "泼墨一路砸下去，形准让位于势准" },
+    { name: "金屏风",     want: { painters: "尾形光琳", subjects: "花卉与鸟兽" },
+      desc: "金地上的平涂，花瓣没有任何明暗，水的形状自己决定构图" },
+    { name: "新艺术海报", want: { painters: "阿尔丰斯·穆夏", subjects: "封面构图" },
+      desc: "弧线从人物周围长出来，版面本身也是构图的一部分" },
+    { name: "童话森林",   want: { painters: "伊万·比利宾", subjects: "妖怪志怪" },
+      desc: "民间故事画成装饰板，边框、服饰与树林服从同一种线条" },
+    { name: "波普丝网",   want: { painters: "安迪·沃霍尔", subjects: "封面构图" },
+      desc: "同一张脸重复几十次，印刷的错误手感是风格核心" },
+    { name: "超现实梦境", want: { painters: "萨尔瓦多·达利", subjects: "天体与太空" },
+      desc: "梦境比照片更清楚，远处的地平线低到不合理" },
+    { name: "科幻机械",   want: { painters: "西德·米德", subjects: "科幻机械" },
+      desc: "未来被画成一个可用的产品，透视干净、结构清楚、天气真实" }
+  ];
+  function buildPreset(p) {
+    /* 逐条解析；命中数与要的数对不上就放弃整个预设 ——
+       半套预设比没有更糟：用户以为铺全了，其实缺了主心骨。 */
+    var spec = blank();
+    var okAll = true;
+    Object.keys(p.want).forEach(function (k) {
+      var r = RESOLVER.resolve(p.want[k]);
+      if (!r.ok) { okAll = false; return; }
+      var key = (k === "atoms") ? "atoms" : k;
+      spec[key].push({ id: r.hits[0].oldId, w: 1 });
+    });
+    return okAll ? spec : null;
+  }
+  function renderPresets() {
+    var box = $("#presets");
+    if (!box) return;
+    var chips = "";
+    PRESETS.forEach(function (p) {
+      var spec = buildPreset(p);
+      if (!spec) return;
+      chips += '<button class="fchip" data-preset="' + esc(p.name) + '" '
+        + 'title="铺入：' + esc(Object.keys(p.want).map(function (k) { return p.want[k]; }).join(" + ")) + '">'
+        + esc(p.name) + '</button>';
+    });
+    box.innerHTML = chips || '<span class="hint">预设条目缺失，请直接从左侧模块库挑选</span>';
+    box.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-preset]");
+      if (!b) return;
+      var p = PRESETS.filter(function (x) { return x.name === b.getAttribute("data-preset"); })[0];
+      if (!p) return;
+      var spec = buildPreset(p);
+      if (!spec) return;
+      SPEC = spec;
+      normalizeSpec();
+      syncInputs();
+      $("#subjectFree").value = "";
+      $("#freeText").value = "";
+      render();
+      flash("已铺入「" + p.name + "」，可继续增删");
+    });
+  }
+
+  /* ================= 五个新页签的渲染器 =================
+     学 xhs 库的分工：一页只回答一件事。渲染器全部从数据表现算，
+     不另写一份静态文案 —— 数据升级，页面跟着走。 */
+
+  /* ---------- 示例画廊 ---------- */
+  var GAL_SIG = null; /* 当前展开详情的签名卡 id */
+  /* 每张签名卡的 compose 结果缓存：卡片、复制按钮、搜索都吃它，
+     data 属性里只放 id 不放整段词 */
+  var GAL_R = {};
+  /* 画廊筛选状态（学 beauty-album 的 S）：搜索词 / 主分类 /
+     题材与色调（派生行）/ 看图密度 / 只看有图。
+     切走再切回不丢。状态筛选按用户判定删除 —— 卡上的已实测/未实测
+     徽章还在，信息没丢，只是不再占一行筛选。 */
+  var GAL_F = { q: "", cat: "全部", sub: "全部", tone: "全部", pic: false, view: "big" };
+
+  /* 配图取用：standalone 版优先用注入的 base64（APF_IMG_DATA），
+     整个单文件拷走也不丢图；页面版读清单里的相对路径。
+     两处都没有就是没图，卡片回落色卡 —— 不编一个空 src 出来。 */
+  function galImgSrc(id) {
+    if (typeof window !== "undefined" && window.APF_IMG_DATA && window.APF_IMG_DATA[id])
+      return window.APF_IMG_DATA[id];
+    var GI = (typeof GALLERY_IMGS === "undefined") ? {} : GALLERY_IMGS;
+    return GI[id] || "";
+  }
+  function galImgCount() {
+    var n = 0;
+    GAL_ALL.forEach(function (s) { if (galImgSrc(s.id)) n++; });
+    return n;
+  }
+  /* 派生筛选维度一：题材（SUBJECTS 自带 cat：人物/叙事/静物/风景/东方/幻想…），
+     从 spec 现算，卡片改配方那天这行筛选自己跟上，不写死一个数。 */
+  function cardSubCats(s) {
+    var sp = s.spec || {}, out = [];
+    (sp.subjects || []).forEach(function (x) {
+      var r = FORGE.find(x && typeof x === "object" ? x.id : x);
+      if (r && r.e && r.e.cat && out.indexOf(r.e.cat) < 0) out.push(r.e.cat);
+    });
+    return out;
+  }
+  /* 派生筛选维度二：色调。色卡已经从词面现推了 hue，
+     按色相归成六组 —— 画廊是看调子选配方的地方，
+     「我想找蓝调的」就是在这里问的。归组跟随色卡，不另立一套颜色真相。 */
+  function toneGroup(t) {
+    if (t.s <= 10) return "黑白灰";
+    if (t.h < 20 || t.h >= 330) return "红调";
+    if (t.h < 70) return "金褐调";
+    if (t.h < 160) return "绿调";
+    if (t.h < 260) return "蓝调";
+    return "紫调";
+  }
+  var TONE_ORDER = ["红调", "金褐调", "绿调", "蓝调", "紫调", "黑白灰"];
+
+  /* ---------- 组合变奏卡：画廊第 26–40 张 ----------
+     不是新的签名卡 —— 是「拿一张已实测的签名卡，换题材」的组合示范。
+     base 指回真实签名卡（词面来源可查），题材换成 SUBJECTS 里的另一条，
+     词面由 compose 现算 —— 与卡片上显示的完全同源，不另写一套。
+     status 如实标 written：没有实测过的配方不冒充实测过。 */
+  var GAL_EXTRA_DEF = [
+    { v: "01", base: "G-01", sub: "S-11", zh: "古典家居一角", en: "domestic interior, classical",
+      desc: "古典室内肖像的配方，题材从「单人肖像」换成「家居室内」—— 窗光与静谧感不变，画面从人转到房间。" },
+    { v: "02", base: "G-01", sub: "S-08", zh: "窗光静物", en: "still life by window",
+      desc: "同上基底换「静物」：单侧窗光打在器物上，古典主义的克制配色照旧。",
+      imgNote: "配图是窗边倒奶的室内场景，人物在画面中央——这张变奏的题材是「静物」，配方里没有人。窗光、蓝白瓷器、桌上果物的调子与基底（G-01 古典室内肖像）同源，出入在题材多了个人。" },
+    { v: "03", base: "G-02", sub: "S-05", zh: "明暗神话", en: "chiaroscuro myth scene",
+      desc: "极端明暗的基底换「神话场面」—— 强对比本来就有戏剧性，正好接住神话题材。",
+      imgNote: "配图是卡拉瓦乔《圣马太蒙召》的博物馆实拍照片（带画框、展签、玻璃反光），不是用本卡配方生成的画面。两件事要分清：①它恰好就是本卡基底（G-02）那位画家（卡拉瓦乔）的真迹，题材与画法同族；②馆藏影像本身有版权限制，可作画法参考，商用请换成自己生成的图。" },
+    { v: "04", base: "G-04", sub: "S-14", zh: "湿润海岸", en: "rain-washed coast",
+      desc: "英国湿润风景换「海景」：湿漉漉的大气感不变，地平线压低让天空说话。" },
+    { v: "05", base: "G-05", sub: "S-07", zh: "壁画式历史", en: "mural-style history",
+      desc: "墨西哥壁画群像换「战争与历史」：纪念碑式构图承接宏大叙事。" },
+    { v: "06", base: "G-06", sub: "S-10", zh: "历史宴集", en: "historical banquet",
+      desc: "俄罗斯历史场面的油彩厚度换「宫廷宴集」—— 人物密度高，靠明暗分组。",
+      imgNote: "配图是河岸码头的历史场面：纤夫拉船、华服贵族立于台阶、远处金顶教堂 —— 人物密度与油彩厚度同 G-06 一脉，但画面讲的是码头仪式与劳役，不是本卡题材的「宫廷宴集」（宴饮、席面、室内）。场景有出入。" },
+    { v: "07", base: "G-07", sub: "S-13", zh: "北宋式荒野", en: "northern-song wilderness",
+      desc: "北宋全景山水换「崇高荒野」：三远法照用，主峰给出敬畏感。" },
+    { v: "08", base: "G-09", sub: "S-25", zh: "大写意走兽", en: "expressive animal sketch",
+      desc: "大写意花鸟换「动物写生」：笔意不变，从枝头换到兽形。",
+      imgNote: "配图是徐渭一路的大写意禽鸟立石（猛禽、葡萄、蟹、牡丹、红色点染、题款钤印），\n语汇与本卡基底（G-09 大写意花鸟）完全同源；出入在主体：画中是禽不是兽，而卡名写「走兽」。\n本卡题材为「动物写生」（S-25，含皮毛与羽毛），禽鸟并不越界，卡名比题材窄了一格。" },
+    { v: "09", base: "G-10", sub: "S-21", zh: "志怪护法卷", en: "guardian scroll",
+      desc: "唐卡式圣像换「妖怪志怪」—— 圣像画的秩序感正好压住志怪题材的野。" },
+    { v: "10", base: "G-11", sub: "S-14", zh: "浮世绘海浪", en: "ukiyo-e waves",
+      desc: "浮世绘风景版面换「海景」：平面化的浪是最经典的浮世绘命题。" },
+    { v: "11", base: "G-12", sub: "S-09", zh: "新艺术花卉", en: "art-nouveau flora",
+      desc: "新艺术海报换「花卉与鸟兽」：装饰性线条本来就是为植物纹样生的。" },
+    { v: "12", base: "G-13", sub: "S-20", zh: "童话市井", en: "fairy-tale street life",
+      desc: "俄罗斯童话插画换「市井风俗」—— 插画的暖意照旧，画面从森林换到街巷。" },
+    { v: "13", base: "G-17", sub: "S-11", zh: "超现实家居", en: "surreal room",
+      desc: "超现实梦境换「家居室内」：熟悉的空间里放不合理的物件，正是超现实的用法。" },
+    { v: "14", base: "G-18", sub: "S-02", zh: "表现主义群像", en: "expressionist crowd",
+      desc: "表现主义呐喊换「群像」—— 扭曲与焦躁从一个人放大到一群人。" },
+    { v: "15", base: "G-21", sub: "S-22", zh: "科幻深空", en: "sci-fi deep space",
+      desc: "科幻概念设计换「天体与太空」：机械感让位给尺度感。" }
+  ];
+  /* 解析成真身：spec 从 base 签名卡克隆，subjects 换成变奏题材 */
+  function buildGalExtras() {
+    return GAL_EXTRA_DEF.map(function (d) {
+      var base = null;
+      SIGNATURES.forEach(function (s) { if (s.id === d.base) base = s; });
+      if (!base) return null; /* 基底缺失如实不显示，不硬凑 */
+      var spec = JSON.parse(JSON.stringify(base.spec));
+      spec.subjects = [d.sub];
+      return {
+        id: "VAR-" + d.v, base: d.base, zh: d.zh, en: d.en, cat: "组合变奏",
+        status: "written", spec: spec, desc: d.desc,
+        /* 配图与配方对不上时如实带出来，卡面会挂「图≠配方」徽章 */
+        imgNote: d.imgNote,
+        note: "变奏卡：基于签名卡 " + d.base + " 换题材而来，词面与它同源。"
+      };
+    }).filter(Boolean);
+  }
+  /* 画廊全量 = 25 张签名卡 + 15 张组合变奏 */
+  var GAL_ALL = SIGNATURES.concat(buildGalExtras());
+
+  /* 色卡的示意色：从配方能拿到的文本（流派色彩词面 / 光线词 / 类别）
+     推 hue、明度跨度和打光角度。查询表按序命中即停。
+     推不出的（色彩词面没写颜色）按类别名 hash 出一个稳定 hue ——
+     同一张卡每次刷新颜色一致，比随机好看，比硬编诚实。 */
+  var KWHUE = [
+    [/lapis|blue|indigo|cyan|teal/i, 214, 0],
+    [/vermilion|red|crimson|scarlet/i, 8, 0],
+    [/gold|amber|ochre|yellow/i, 42, 0],
+    [/green|viridian|jade|verd/i, 145, 0],
+    [/violet|purple|magenta/i, 278, 0],
+    [/sepia|brown|umber|earth/i, 26, 0],
+    [/monochrome|gre?y|silver|sumi/i, 220, 8],
+    [/ivory|porcelain|white|pale|pastel/i, 40, 16]
+  ];
+  function sigTone(s) {
+    var text = (s.cat || "") + " ";
+    var sp = s.spec || {};
+    (sp.movements || []).forEach(function (m) {
+      var r = FORGE.find(m.id || m);
+      if (r && r.e && r.e.F)
+        text += (r.e.F.color || []).join(" ") + " " + (r.e.F.light || []).join(" ") + " ";
+    });
+    (sp.optics || []).forEach(function (o) { text += o + " "; });
+    var h = null, sat = 46;
+    for (var i = 0; i < KWHUE.length; i++) {
+      if (KWHUE[i][0].test(text)) { h = KWHUE[i][1]; if (KWHUE[i][2]) sat = KWHUE[i][2]; break; }
+    }
+    if (h == null) {
+      var x = 0, c = s.cat || s.zh || "";
+      for (var j = 0; j < c.length; j++) x = (x * 31 + c.charCodeAt(j)) % 360;
+      h = x;
+    }
+    var dark = /chiaroscuro|tenebris|candle|dramatic|deep shadow|noir|night/i.test(text);
+    var soft = /window|daylight|even|soft|diffus|overcast/i.test(text);
+    return {
+      h: h, s: sat,
+      l: dark ? 30 : soft ? 60 : 46,
+      d: dark ? 26 : soft ? 9 : 17,
+      angle: /side|raking|back|rembrandt|side light/i.test(text) ? 115 : 180
+    };
+  }
+  function sigSwatch(t) {
+    return "linear-gradient(" + t.angle + "deg,"
+      + "hsl(" + t.h + "," + t.s + "%," + Math.min(88, t.l + t.d) + "%) 0%,"
+      + "hsl(" + t.h + "," + t.s + "%," + t.l + "%) 55%,"
+      + "hsl(" + ((t.h + 14) % 360) + "," + t.s + "%," + Math.max(12, t.l - t.d) + "%) 100%)";
+  }
+  /* 色卡底部五条色带：同族 hue 阶梯。纯示意，别读出它没有的含义 */
+  function sigStrips(t) {
+    var out = "";
+    for (var i = 0; i < 5; i++) {
+      out += '<i style="background:hsl(' + ((t.h + i * 9 - 18 + 360) % 360) + ","
+        + Math.max(6, t.s - i * 4) + "%,"
+        + Math.min(90, Math.max(14, t.l + 22 - i * 11)) + '%)"></i>';
+    }
+    return out;
+  }
+  /* 关键词 chips：配方成分的中文名，画家冷色 / 流派琥珀 / 其余中性。
+     超长的截断，title 留全名。 */
+  function sigChips(s) {
+    var out = "";
+    function chip(cls, zh) {
+      if (!zh) return;
+      zh = String(zh);
+      var full = zh;
+      if (zh.length > 9) zh = zh.slice(0, 8) + "…";
+      out += '<span class="' + cls + '" title="' + esc(full) + '">' + esc(zh) + "</span>";
+    }
+    var sp = s.spec || {};
+    function one(x) { return x && typeof x === "object" ? x.id : x; }
+    (sp.painters || []).forEach(function (x) { chip("pp", nameOf(one(x))); });
+    (sp.movements || []).forEach(function (x) { chip("mv", nameOf(one(x))); });
+    (sp.subjects || []).forEach(function (x) { chip("", nameOf(one(x))); });
+    (sp.mediums || []).forEach(function (x) { chip("", nameOf(one(x))); });
+    (sp.works || []).forEach(function (x) { chip("mv", nameOf(one(x))); });
+    (sp.atoms || []).forEach(function (x) { chip("", nameOf(one(x))); });
+    (sp.optics || []).forEach(function (o) {
+      var fo = FORGE.findOptic ? FORGE.findOptic(o) : null;
+      chip("pp", fo ? (fo.i.zh || fo.i.t) : o);
+    });
+    return out;
+  }
+
+  function renderGallery() {
+    /* compose 缓存填满：卡片、复制按钮、搜索三处共用 */
+    GAL_ALL.forEach(function (s) {
+      if (!GAL_R[s.id]) GAL_R[s.id] = FORGE.compose(s.spec);
+    });
+    /* 命中列表：主分类 / 题材 / 媒介 / 只看有图 / 搜索词（搜正文与词面，不只搜标题） */
+    var q = GAL_F.q.trim().toLowerCase();
+    var list = GAL_ALL.filter(function (s) {
+      if (GAL_F.cat !== "全部" && (s.cat || "未分类") !== GAL_F.cat) return false;
+      if (GAL_F.sub !== "全部" && cardSubCats(s).indexOf(GAL_F.sub) < 0) return false;
+      if (GAL_F.tone !== "全部" && toneGroup(sigTone(s)) !== GAL_F.tone) return false;
+      if (GAL_F.pic && !galImgSrc(s.id)) return false;
+      if (!q) return true;
+      var r = GAL_R[s.id];
+      return ([s.id, s.zh, s.en, s.desc, s.note, s.cat, r.tags, r.gpt]
+        .join(" ") + " " + sigChips(s)).toLowerCase().indexOf(q) >= 0;
+    });
+    var f = "";
+    /* 场景起手已从画廊移除：同一份 PRESETS 已在「自定义出图」（卡片）与
+       「提示词合成器」（chips）两处常驻 —— 画廊只干画廊的事：看卡选配方。 */
+    f += '<input type="search" id="gq" placeholder="搜索编号 / 名称 / 配方里的任何词…" value="'
+      + esc(GAL_F.q) + '" autocomplete="off" style="width:100%;margin:6px 0 2px">';
+    /* 没进画廊的文件，摆到页面上来。
+       命令行早就报过它们，可多数人的流程是「图往文件夹里一丢、回来刷新页面」——
+       页面没动静就只会得出「没同步」这一个结论，然后来问。
+       所以把「你放的那张没被认领」这句话直接写在画廊顶上，
+       连它该改成什么名字一起给。这是「用户以为会自动生效」的反向提示。 */
+    var uncl = (typeof GALLERY_UNCLAIMED !== "undefined" && GALLERY_UNCLAIMED) || [];
+    if (uncl.length) {
+      f += '<div class="warnline"><b>gallery/ 里有 ' + uncl.length + " 个文件没进画廊</b>："
+        + uncl.map(function (n) { return esc(n); }).join("、")
+        + "。它们没被认领（文件名不是卡片编码），所以你看不到 —— "
+        + "改成卡面左上角那个编号就自动上卡，例如 <b>"
+        + esc(GAL_ALL[GAL_ALL.length - 1].id) + ".png</b>；"
+        + "也可以双击根目录的「同步画廊.bat」让它自动改名。</div>";
+    }
+    /* 主分类：数量现算，不写死 —— 下一张卡改类别那天它就开始骗人 */
+    var cats = {};
+    GAL_ALL.forEach(function (s) { var c = s.cat || "未分类"; cats[c] = (cats[c] || 0) + 1; });
+    f += '<div class="filters">';
+    f += '<button class="fchip' + (GAL_F.cat === "全部" ? " on" : "")
+      + '" data-gf="cat" data-v="全部">全部<small>' + GAL_ALL.length + "</small></button>";
+    Object.keys(cats).sort().forEach(function (c) {
+      f += '<button class="fchip' + (GAL_F.cat === c ? " on" : "") + '" data-gf="cat" data-v="'
+        + esc(c) + '">' + esc(c) + "<small>" + cats[c] + "</small></button>";
+    });
+    f += "</div>";
+    /* 题材 × 色调：两行派生筛选（主分类不够用时的第二第三把刀） */
+    var subN = {}, toneN = {};
+    GAL_ALL.forEach(function (s) {
+      cardSubCats(s).forEach(function (c) { subN[c] = (subN[c] || 0) + 1; });
+      var tg = toneGroup(sigTone(s));
+      toneN[tg] = (toneN[tg] || 0) + 1;
+    });
+    f += '<div class="filters">';
+    f += '<span class="flab">题材</span>';
+    f += '<button class="fchip' + (GAL_F.sub === "全部" ? " on" : "")
+      + '" data-gf="sub" data-v="全部">全部</button>';
+    Object.keys(subN).sort().forEach(function (c) {
+      f += '<button class="fchip' + (GAL_F.sub === c ? " on" : "") + '" data-gf="sub" data-v="'
+        + esc(c) + '">' + esc(c) + "<small>" + subN[c] + "</small></button>";
+    });
+    f += "</div>";
+    f += '<div class="filters">';
+    f += '<span class="flab">色调</span>';
+    f += '<button class="fchip' + (GAL_F.tone === "全部" ? " on" : "")
+      + '" data-gf="tone" data-v="全部">全部</button>';
+    TONE_ORDER.forEach(function (t) {
+      if (!toneN[t]) return; /* 没有这个色相组就不摆空 chip */
+      f += '<button class="fchip' + (GAL_F.tone === t ? " on" : "") + '" data-gf="tone" data-v="'
+        + esc(t) + '">' + esc(t) + "<small>" + toneN[t] + "</small></button>";
+    });
+    f += "</div>";
+    /* 视图密度（学 beauty-album）：看图 / 扫编号放主行，不折叠；
+       「全部 · 有图 N」只在真有配图时出现 —— 没图还摆这个筛选就是空筛选 */
+    f += '<div class="filters">';
+    f += '<span class="flab">视图</span>';
+    f += '<button class="fchip' + (GAL_F.view === "big" ? " on" : "")
+      + '" data-gf="view" data-v="big" title="色卡放大，看调子看画面">看图</button>';
+    f += '<button class="fchip' + (GAL_F.view === "dense" ? " on" : "")
+      + '" data-gf="view" data-v="dense" title="一屏扫完 ' + GAL_ALL.length + ' 个编号">扫编号</button>';
+    var imgN = galImgCount();
+    if (imgN > 0) {
+      f += '<span style="flex:1"></span>';
+      f += '<button class="fchip' + (GAL_F.pic ? " on" : "") + '" data-gf="pic" data-v="1">'
+        + (GAL_F.pic ? "只看有图 " : "全部 · 有图 ") + imgN + "</button>";
+    }
+    f += "</div>";
+    /* 图例 + 色卡诚实注记：色卡看着像缩略图，必须写清它不是出图 */
+    f += '<div class="legend">'
+      + '<span><i style="background:#3a5a68"></i>画家 / 光学（风格锚）</span>'
+      + '<span><i style="background:#5c4a2a"></i>流派 / 名画</span>'
+      + '<span><i style="background:var(--line)"></i>题材 / 媒介 / 模块</span>'
+      + '<span>色卡由配方词面现推，改配方色就跟着变</span></div>';
+    f += '<div class="note" style="margin:0 0 4px">配了<b>实图</b>的卡直接看图；'
+      + "没配图的卡显示<b>色卡</b> —— 它不是出图结果，"
+      + "由这条配方自己的<b>流派色彩 · 光线 · 光学词面</b>现推（词面里没有颜色线索时，"
+      + "按类别给一个稳定底色），说明的是「这套配方长什么调子」。"
+      + "点卡片本体展开完整词面与用法，卡上按钮直接复制。</div>";
+    var filtered = q || GAL_F.cat !== "全部" || GAL_F.sub !== "全部"
+      || GAL_F.tone !== "全部" || GAL_F.pic;
+    f += '<div class="secthead"><h3>命中</h3><span class="n">' + list.length + " / " + GAL_ALL.length
+      + '</span><span class="why">'
+      + (filtered ? "有筛选生效中" : "全库") + "</span></div>";
+    if (!list.length) {
+      f += '<div class="empty">没有匹配「' + esc(GAL_F.q) + "」的签名卡</div>";
+    } else {
+      f += '<div class="gal ' + (GAL_F.view === "big" ? "big" : "dense") + '" id="galSigs">';
+      list.forEach(function (s) { f += galCard(s); });
+      f += "</div>";
+    }
+    $("#galWrap").innerHTML = f;
+    renderGalDetail();
+  }
+  function galCard(s) {
+    var r = GAL_R[s.id];
+    /* 卡面编号直接用**卡片 id**（G-01 / VAR-01）—— 它就是这张卡配图该用的文件名。
+       从前这里显示的是数组序号（001–040）：前 25 张序号碰巧与 id 一致，
+       从第 26 张起分叉（页面上的 026 其实是 VAR-01），用户照着序号把图命名成
+       G-26.png，清单里只认 VAR-01 —— 图放进去毫无反应，页面上还看不出为什么。
+       配图文件该叫什么，卡面就写什么。库内规范编码（SG-001）放详情里，两处不混。 */
+    var code = s.id;
+    var tested = s.status === "tested";
+    var negN = (r.neg || "").split(",").filter(function (x) { return x.trim(); }).length;
+    var tone = sigTone(s);
+    var src = galImgSrc(s.id);
+    return '<div class="gcard sig' + (GAL_SIG === s.id ? " on" : "")
+      + '" data-gal-sig="' + esc(s.id) + '" role="button" tabindex="0">'
+      + '<div class="gsw' + (src ? " hasimg" : "") + '" style="background:' + sigSwatch(tone) + '" aria-hidden="true">'
+      + (src ? '<img src="' + esc(src) + '" alt="' + esc(s.zh) + '" loading="lazy">' : "")
+      + '<button class="gid" data-gfname="' + esc(s.id) + '" title="这张卡的配图文件名：'
+      + esc(s.id) + '.png —— 点一下复制，放进 gallery/ 就自动上卡"><em>文件名 </em>'
+      + esc(code) + "<em>.png</em></button>"
+      + '<span class="gbadge gstat' + (tested ? "" : " un") + '">' + (tested ? "已实测" : "未实测") + "</span>"
+      /* 配图与配方不一致：卡面就要看见，不能只藏在详情里 */
+      + (s.imgNote ? '<span class="gbadge gmis" title="这张配图与卡内配方不是同一件作品，点开看说明">图≠配方</span>' : "")
+      + '<div class="gstrips">' + sigStrips(tone) + "</div></div>"
+      + '<div class="gbody">'
+      + '<div class="gname">' + esc(s.zh) + "<em>" + esc(s.en || "") + "</em></div>"
+      + '<div class="gs">' + esc(s.desc || "") + "</div>"
+      + '<div class="gkw">' + (sigChips(s) || "") + "</div>"
+      + '<div class="gfoot"><span>' + esc(s.cat || "") + '</span><span class="sp"></span>'
+      + "<span>" + (r.counts ? r.counts.words : "?") + " 词</span></div>"
+      + "</div>"
+      + '<div class="gact">'
+      + '<button class="mini p" data-gcopy="' + esc(s.id) + '" title="复制段落式 tags，到出图工具直接粘贴">复制提示词</button>'
+      + '<button class="mini use" data-gload="' + esc(s.id) + '" title="把这张配方铺进提示词合成器继续细调">合成器改用</button>'
+      + "</div>"
+      + '<div class="gact" style="padding-top:0">'
+      + '<button class="mini neg" data-gneg="' + esc(s.id) + '" title="复制负面词 —— SD 填 Negative 框，MJ 用 --no">负面词 ' + negN + "</button>"
+      + "</div>"
+      + (s.note ? '<div class="gwhat">' + esc(s.note) + "</div>" : "")
+      + "</div>";
+  }
+  /* 详情：居中浮层（mask + sheet）。详情是要细读的，给它整块宽。 */
+  function closeGalDetail() {
+    GAL_SIG = null;
+    $("#galMask").classList.remove("on");
+  }
+  function renderGalDetail() {
+    var mask = $("#galMask"), box = $("#galSheet");
+    var s = null;
+    GAL_ALL.forEach(function (x) { if (x.id === GAL_SIG) s = x; });
+    if (!s) { mask.classList.remove("on"); box.innerHTML = ""; return; }
+    var r = GAL_R[s.id] || FORGE.compose(s.spec);
+    var code = s.id
+      + (codeOfId(s.id) ? "（库内编码 " + codeOfId(s.id) + "）" : "")
+      + (s.base ? " · 基于 " + s.base : "");
+    var html = '<div class="sh"><b>' + esc(s.zh) + "</b>"
+      + '<span class="hint">' + esc(code) + " · " + (s.status === "tested" ? "已实测" : "未实测") + "</span>"
+      + '<span class="sp"></span>'
+      + '<button class="btn" data-gal-close>收起（Esc）</button></div>'
+      + '<div class="sbody">';
+    var src = galImgSrc(s.id);
+    if (src) html += '<img class="galhero" src="' + esc(src) + '" alt="' + esc(s.zh) + '">';
+    html += '<div class="hint" style="margin-bottom:8px">' + esc(s.desc || "") + "</div>";
+    /* 配图该叫什么名字 —— 写在卡里，不用去翻说明文档。
+       「放进去没反应」十次有九次是文件名与卡片编码对不上，
+       所以这里不写「请用 VAR-01.png」让人手抄，直接给一个能点的按钮。 */
+    html += '<div class="hint" style="margin-bottom:8px">'
+      + (src ? "本卡<b>已配图</b>；换图或补图时文件名用 " : "本卡<b>还没有配图</b>；放图时文件名用 ")
+      + '<button class="btn mini" data-gfname="' + esc(s.id) + '" title="点一下复制这个文件名">'
+      + esc(s.id) + ".png</button>"
+      + " 放进 gallery/ 就自动上卡。</div>";
+    if (s.note) html += '<div class="vp-note"><b>复现要点</b>' + esc(s.note) + "</div>";
+    /* 配图与配方不一致时必须说在前面 —— 用户看着图复制提示词，
+       两者不是一回事却不说，比没有图更误导 */
+    if (s.imgNote) html += '<div class="vp-mismatch"><b>配图与配方不完全一致</b>' + esc(s.imgNote) + "</div>";
+    html += '<div class="vp"><b>段落式 tags（' + (r.counts ? r.counts.words : "?") + " 词）</b>" + esc(r.tags) + "</div>";
+    html += '<div class="vp"><b>自然语言正文</b>' + esc(r.gpt) + "</div>";
+    html += '<div class="vp"><b>负面词</b>' + esc(r.neg) + "</div>";
+    if (r.warnings && r.warnings.length) {
+      html += r.warnings.map(function (w) { return warnLine(w); }).join("");
+    }
+    html += '<div class="btns">'
+      + '<button class="btn pri" id="galCopy">复制提示词（tags + 负面词）</button>'
+      + '<button class="btn" id="galLoad">载入到合成器细调</button>'
+      + "</div></div>";
+    box.innerHTML = html;
+    mask.classList.add("on");
+    box.querySelector("#galCopy").addEventListener("click", function () {
+      copy(r.tags + "\n\nNegative prompt: " + r.neg);
+    });
+    box.querySelector("#galLoad").addEventListener("click", function () {
+      if (s.base) {
+        /* 变奏卡不在 SIGNATURES 里 —— 直接铺它自己的 spec */
+        SPEC = JSON.parse(JSON.stringify(s.spec));
+        SPEC.strength = SPEC.strength || 1.0;
+        normalizeSpec();
+        syncInputs();
+        render();
+      } else {
+        loadSig(s.id);
+      }
+      closeGalDetail();
+      setMode("synth");
+      flash("已载入「" + s.zh + "」，在合成器里继续细调");
+    });
+  }
+
+  /* ---------- 抽卡页 ---------- */
+  var GA = { single: null, multi: null, rand: null };
+  function gaSpace() {
+    if (typeof GACHA === "undefined" || !GACHA) return "—";
+    var sp = GACHA.pool().space;
+    if (!sp) return "—";
+    if (sp >= 1e12) return (sp / 1e12).toFixed(1) + " 万亿";
+    if (sp >= 1e8) return (sp / 1e8).toFixed(1) + " 亿";
+    if (sp >= 1e4) return (sp / 1e4).toFixed(1) + " 万";
+    return String(sp);
+  }
+  /* 抽卡 spec → 配方盘 spec 形状：oldId 串 → {id,w}。
+     光学词条例外：配方盘里存的是「组号.裸词」字符串，
+     套对象形状会让托盘把它当 id 渲染成一个查无此人的条目。 */
+  function gaToSpec(gspec) {
+    var s = blank();
+    Object.keys(gspec || {}).forEach(function (k) {
+      if (!s[k]) return;
+      if (k === "optics") { s.optics = (gspec.optics || []).slice(); return; }
+      s[k] = (gspec[k] || []).map(function (id) { return { id: id, w: 1 }; });
+    });
+    return s;
+  }
+  function renderGacha() {
+    $("#gaPool").textContent = "组合空间约 " + gaSpace();
+    var box = $("#gaOut");
+    var html = "";
+    function gaBlock(r, idx, label) {
+      var c = FORGE.compose(r.spec);
+      var p = (typeof PROMPTS !== "undefined" && PROMPTS) ? PROMPTS.ofSpec(r.spec, { platform: SPEC.platform }) : null;
+      var combo = r.picks.map(function (x) { return x.code + " " + x.zh; }).join(" + ");
+      var h = '<div class="case"><div class="hd"><h3>' + label + "</h3>"
+        + '<span class="m">组合空间约 ' + gaSpace() + "</span>"
+        + '<button class="btn pri" data-ga-copy="' + idx + '" title="复制段落式 tags，到出图工具直接粘贴">复制提示词</button>'
+        + '<button class="btn" data-ga-fill="' + idx + '" title="把这一组铺进配方盘，去合成器细调">铺进合成器</button></div>'
+        + '<div class="scenes">' + esc(combo) + "</div>";
+      if (p && p.explain) h += '<div class="vp-note"><b>效果说明</b>' + esc(p.explain) + "</div>";
+      h += '<div class="vp"><b>段落式 tags</b>' + esc(c.tags) + "</div>";
+      h += '<div class="vp"><b>自然语言正文</b>' + esc(c.gpt) + "</div>";
+      if (c.warnings && c.warnings.length) {
+        h += c.warnings.map(function (w) { return warnLine(w); }).join("");
+      }
+      return h + "</div>";
+    }
+    if (GA.single && GA.single.ok) html += gaBlock(GA.single, "s", "抽到的组合");
+    else if (GA.single && !GA.single.ok) {
+      html += '<div class="failbox">抽卡失败：' + esc((GA.single.missing || []).join("；") || "未知原因") + "</div>";
+    }
+    if (GA.multi && GA.multi.length) {
+      GA.multi.forEach(function (r, i) {
+        if (r && r.ok) html += gaBlock(r, i, " #" + (i + 1));
+      });
+    }
+    /* 随机来一张：从画廊 40 张成品配方（含组合变奏）里取一张。
+       与抽卡的区别：抽卡是词条级组合（可能生僻），这个是调好的完整配方。 */
+    if (GA.rand) {
+      var s0 = GA.rand, c0 = GAL_R[s0.id] || FORGE.compose(s0.spec);
+      var p0 = (typeof PROMPTS !== "undefined" && PROMPTS) ? PROMPTS.ofSpec(s0.spec, { platform: SPEC.platform }) : null;
+      var h0 = '<div class="case"><div class="hd"><h3>随机来一张 · ' + esc(s0.zh) + "</h3>"
+        + '<span class="m">' + esc(s0.base ? "变奏 · 基于 " + s0.base : (codeOfId(s0.id) || s0.id)) + "</span>"
+        + '<button class="btn pri" data-ga-rcopy="1" title="复制段落式 tags，到出图工具直接粘贴">复制提示词</button>'
+        + '<button class="btn" data-ga-rfill="' + esc(s0.id) + '" title="把这张配方铺进配方盘，去合成器细调">铺进合成器</button></div>'
+        + '<div class="scenes">' + esc(s0.desc || "") + "</div>";
+      if (p0 && p0.explain) h0 += '<div class="vp-note"><b>效果说明</b>' + esc(p0.explain) + "</div>";
+      h0 += '<div class="vp"><b>段落式 tags</b>' + esc(c0.tags) + "</div>";
+      h0 += '<div class="vp"><b>自然语言正文</b>' + esc(c0.gpt) + "</div>";
+      h0 += '<div class="vp"><b>负面词</b>' + esc(c0.neg) + "</div>";
+      html += h0 + "</div>";
+    }
+    if (!html) html = '<p class="hintline">点上面「抽 1 组」或「随机来一张」开始。锁槽重抽在「编码工作台」里。</p>';
+    box.innerHTML = html;
+  }
+
+  /* ---------- 验证案例 ---------- */
+  /* 模型实测记录：单份 case 的 HTML。原来独立成「验证案例」页签，
+     用户判定价值不大 —— 并进「框架与体检」的折叠区，
+     徽章背后仍有原始证据可查，但不占一个页签。 */
+  function caseHtml(t) {
+    var h = '<div class="case"><div class="hd"><h3>' + esc(t.zh) + "</h3>"
+      + '<span class="m">' + esc(t.model || "") + " · " + esc(t.family || "") + " · " + esc(t.gen || "") + "</span>"
+      + badge(t.status) + "</div>";
+    h += '<div class="vp"><b>fact · 原理</b>' + esc(t.fact || "—") + "</div>";
+    h += '<div class="vp"><b>seen · 观察</b>' + esc(t.seen || "—") + "</div>";
+    h += '<div class="vp"><b>test · 实测</b>' + esc(t.test || "—") + "</div>";
+    h += '<div class="kv">'
+      + '<div class="kvr"><b>权重写法</b><span>' + esc(t.weightSyntax || "—")
+      + (t.weightRange ? "（甜区 " + t.weightRange.join("–") + "）" : "") + "</span></div>"
+      + '<div class="kvr"><b>出图参数</b><span>'
+      + (t.cfg ? "CFG " + t.cfg.join("–") + (t.cfgDefault ? "（建议 " + t.cfgDefault + "）" : "") : "—")
+      + (t.steps ? " · 步数 " + t.steps.join("–") : "")
+      + (t.sampler ? " · " + esc(t.sampler) : "") + "</span></div>"
+      + '<div class="kvr"><b>提示词形态</b><span>' + esc(t.promptStyle || "—")
+      + (t.idealLen ? "（长度 " + t.idealLen.join("–") + " 词）" : "") + "</span></div>"
+      + '<div class="kvr"><b>负面词</b><span>' + esc(t.negPrompt || "—") + "</span></div>"
+      + '<div class="kvr"><b>自然语言</b><span>' + esc(t.naturalLang || "—") + "</span></div>"
+      + "</div>";
+    if (t.failTypes && t.failTypes.length) {
+      h += '<div class="failbox"><b>已知翻车点：</b>' + t.failTypes.map(esc).join("；") + "</div>";
+    }
+    if (t.note) h += '<div class="vp-note"><b>备注</b>' + esc(t.note) + "</div>";
+    return h + "</div>";
+  }
+
+  /* ---------- 风格配色搭配 ---------- */
+  var PAIR_FACETS = [
+    { k: "color", zh: "色彩" }, { k: "light", zh: "光线" },
+    { k: "medium", zh: "媒介" }, { k: "space", zh: "空间" }
+  ];
+  function renderPairs() {
+    var q = ($("#pairQ").value || "").trim().toLowerCase();
+    var rows = MOVEMENTS.filter(function (m) {
+      if (!q) return true;
+      return [m.zh, m.en, m.region, m.era].join(" ").toLowerCase().indexOf(q) >= 0;
+    });
+    $("#pairGrid").innerHTML = rows.length ? rows.map(function (m) {
+      var h = '<div class="pair"><h3>' + esc(m.zh) + "</h3>"
+        + '<div class="pen">' + esc(m.en || "") + (m.era ? " · " + esc(m.era) : "") + (m.region ? " · " + esc(m.region) : "") + "</div>";
+      PAIR_FACETS.forEach(function (f) {
+        var v = (m.F && m.F[f.k]) || [];
+        if (!v.length) return;
+        h += '<div class="prow"><span class="pk">' + f.zh + '</span><span class="ptags">'
+          + v.map(function (x) { return '<span class="ptag">' + esc(x) + "</span>"; }).join("") + "</span></div>";
+      });
+      return h + "</div>";
+    }).join("") : '<p class="hintline">没有匹配的流派。</p>';
+  }
+
+  /* ---------- 框架与体检 ---------- */
+  function renderFramework() {
+    var layerRows = [
+      ["一 全球艺术地图", "PAINTERS / MOVEMENTS / WORKS", "有谁、什么流派、哪些具体作品"],
+      ["二 参考实体与关系", "MEDIUMS / SUBJECTS / OPTICS / RELATIONS", "什么材料、画什么、跟谁有关系"],
+      ["三 原子视觉模块", "ATOMS", "一个可独立取用的视觉单元，带角色与投放面"],
+      ["四 任务与成品模板", "TASKS / SIGNATURES", "使用者带着什么诉求来，验收标准是什么"],
+      ["五 组合与变形规则", "OPERATORS / CONFLICTS", "怎么改写、撞车时听谁的"],
+      ["六 模型适配与验证", "TESTS / PROVENANCE", "换模型还成不成立、图像能不能商用"]
+    ];
+    var statRows = [
+      ["画家", PAINTERS], ["流派", MOVEMENTS], ["名画", WORKS],
+      ["媒介", MEDIUMS], ["题材", SUBJECTS], ["原子模块", ATOMS || []],
+      ["算子", OPERATORS], ["签名卡", SIGNATURES], ["模型实测", MODELS_SAFE()]
+    ].map(function (x) {
+      var c = statusCount(x[1]);
+      var total = x[1].length || 1;
+      var good = c.tested + c.reviewed;
+      return "<tr><td>" + esc(x[0]) + "</td><td class=\"c\">" + x[1].length + "</td>"
+        + "<td>" + c.collected + " 收录 / " + c.written + " 编写 / "
+        + c.tested + " 测试 / " + c.reviewed + " 复核</td>"
+        + "<td><div class=\"bar\"><i style=\"width:" + Math.round(good / total * 100) + "%\"></i></div></td></tr>";
+    }).join("");
+
+    /* 覆盖缺口：连「推不出来」的空白也算上 —— 画家没名画、没师承边，
+       都是从数据表现算的，不写死数字（数字会过期，过期就是谎话） */
+    var gaps = coverageGaps();
+    var noWork = PAINTERS.filter(function (p) {
+      return !WORKS.some(function (w) { return w.pid === p.id; });
+    }).length;
+    var noRel = PAINTERS.filter(function (p) {
+      return !RELATIONS.some(function (r) {
+        return (r.kind === "student_of" || r.kind === "influenced") &&
+               (r.from === p.id || r.to === p.id);
+      });
+    }).length;
+    var gapHtml = gaps.length
+      ? gaps.map(function (g) { return "<li>" + esc(g) + "</li>"; }).join("")
+      : "<li>当前各流派均有画家，暂无已知空白。</li>";
+    gapHtml += "<li>" + noWork + " 位画家还没配名画参照</li>";
+    gapHtml += "<li>" + noRel + " 位画家在关系表里没有师承或影响边</li>";
+
+    var confRows = (typeof CONFLICTS !== "undefined" ? CONFLICTS : []).map(function (c) {
+      return "<tr><td>" + esc(c.zh) + '</td><td><span class="lvl ' + esc(c.level) + '">'
+        + esc(LVL_ZH[c.level] || c.level) + "</span></td>"
+        + "<td>" + (c.scope || []).map(esc).join("、") + "</td>"
+        + "<td>" + esc(c.msg || "") + '<br><span style="color:var(--ink2)">裁决：' + esc(c.fix || "") + "</span></td></tr>";
+    }).join("");
+
+    var pvRows = PROVENANCE.map(function (p) {
+      return "<tr><td>" + esc(p.zh) + '<br><span style="color:var(--ink2);font-size:11px">' + esc(p.org || "") + "</span></td>"
+        + "<td>" + esc(p.license || "—") + "</td>"
+        + "<td>" + (p.commercial ? "可商用" : "不可商用") + (p.attribution ? "（需署名）" : "") + "</td>"
+        + "<td>" + esc(p.scale || "") + "</td></tr>";
+    }).join("");
+
+    $("#fwBody").innerHTML =
+      '<div class="panel"><h2>六层结构</h2><div class="hint">每一层回答一个问题，层层引用但不互相混装 —— 模型实测有效不等于艺术史事实。</div>'
+      + "<table><tr><th>层</th><th>表</th><th>回答什么</th></tr>"
+      + layerRows.map(function (r) { return "<tr><td>" + r[0] + '</td><td class="c">' + r[1] + "</td><td>" + r[2] + "</td></tr>"; }).join("")
+      + "</table></div>"
+      + '<div class="panel"><h2>状态分布</h2><div class="hint">已收录 → 已编写 → 已测试 → 已复核。进度条是「已测试 + 已复核」占比 —— 能出词不等于验证过。</div>'
+      + "<table><tr><th>表</th><th>条数</th><th>状态</th><th>验证进度</th></tr>" + statRows + "</table></div>"
+      + '<div class="panel"><h2>覆盖缺口</h2><div class="hint">不宣称收齐 —— 哪里还薄，老实列在这里。</div><ul style="margin:6px 0 0;padding-left:20px;font-size:12.5px;line-height:2">'
+      + gapHtml + "</ul>"
+      + '<div class="note"><b>诚实口径：</b>体检只验结构与引用完整性，<b>不验出图效果</b>。'
+      + "免 key 出图通道验证不了画风效果，只适合试构图；画风验证必须走带密钥的通道。</div></div>"
+      + '<div class="panel"><h2>冲突裁决</h2><div class="hint">引擎按这 ' + confRows.length + " 条规则自动裁决：明确矛盾让位、局部并存给分区、可共存仅提示、实验性允许但标注未验证。</div>"
+      + "<table><tr><th>冲突对</th><th>级别</th><th>面</th><th>说明与裁决</th></tr>" + confRows + "</table></div>"
+      + '<div class="panel"><h2>来源与许可</h2><div class="hint">名画图像能不能商用取决于收藏机构的许可，与提示词文本的许可无关 —— 出图前逐条查。</div>'
+      + "<table><tr><th>来源</th><th>许可</th><th>商用</th><th>规模</th></tr>" + pvRows + "</table>"
+      + '<div class="note"><b>商用前：</b>查 <code>dist/commercial-ok-sources.json</code> 的逐条结论，'
+      + "本页是概览不是许可文本。</div></div>"
+      + '<div class="panel"><h2>模型实测记录 <span class="gbadge">' + MODELS_SAFE().length + " 份 · 全库只信实测</span></h2>"
+      + '<div class="hint">每份记录回答同一件事：这个模型怎么喂词、参数给多少、什么情况会翻车。fact 是原理、seen 是观察、test 是实测结论 —— 三层分开，不混装。点开折叠区查看。</div>'
+      + '<details><summary style="cursor:pointer;font-size:13px;color:var(--accent);user-select:none;padding:6px 0">展开 ' + MODELS_SAFE().length + " 份实测记录</summary>"
+      + '<div style="margin-top:8px">' + MODELS_SAFE().map(caseHtml).join("") + "</div></details></div>";
+  }
+
+  /* ---------------- 启动 ---------------- */
+  function countBy(arr, key) {
+    var m = {};
+    (arr || []).forEach(function (e) { var v = e[key]; if (v) m[v] = (m[v] || 0) + 1; });
+    return m;
+  }
+  function statusCount(arr) {
+    var m = { collected: 0, written: 0, tested: 0, reviewed: 0 };
+    (arr || []).forEach(function (e) { if (m[e.status] != null) m[e.status]++; });
+    return m;
+  }
+  function coverageGaps() {
+    /* 覆盖缺口：不是「宣称全球收齐」，而是老实说哪里还薄 */
+    var gaps = [];
+    var byRegion = countBy(PAINTERS, "region");
+    var thin = Object.keys(byRegion).filter(function (r) { return byRegion[r] < 6; });
+    if (thin.length) gaps.push("画家偏少的地区：" + thin.join("、"));
+    var byMv = {};
+    MOVEMENTS.forEach(function (m) {
+      var n = PAINTERS.filter(function (p) { return p.mvId === m.id; }).length;
+      if (n === 0) byMv[m.zh] = 1;
+    });
+    if (Object.keys(byMv).length) gaps.push("无画家的流派：" + Object.keys(byMv).join("、"));
+    var st = statusCount(WORKS);
+    if (st.written > 0) gaps.push("名画待复核：" + st.written + " 幅");
+    var mc = statusCount(MODELS_SAFE());
+    if (mc.written > 0) gaps.push("模型适配待实测：" + mc.written + " 条");
+    return gaps;
+  }
+  function MODELS_SAFE() { return typeof TESTS !== "undefined" ? TESTS : []; }
+
+  var stAll = statusCount(PAINTERS);
+  /* 库存条 + 顶栏章：全部现算。写死的数字在改库那天就开始骗人。 */
+  var opticWords = (typeof OPTICS !== "undefined" ? OPTICS : []).reduce(function (n, g) {
+    return n + (g.items ? g.items.length : 0);
+  }, 0);
+  var entriesTotal = PAINTERS.length + MOVEMENTS.length + WORKS.length +
+    (typeof MEDIUMS !== "undefined" ? MEDIUMS.length : 0) +
+    (typeof SUBJECTS !== "undefined" ? SUBJECTS.length : 0) +
+    opticWords + OPERATORS.length +
+    (typeof ATOMS !== "undefined" ? ATOMS.length : 0) +
+    (typeof TASKS !== "undefined" ? TASKS.length : 0) + SIGNATURES.length;
+  $("#stamp").innerHTML = "可引用条目 <b>" + entriesTotal + "</b>";
+  $("#inv").innerHTML =
+    '<span>画家 <b>' + PAINTERS.length + '</b></span>'
+    + '<span>流派 <b>' + MOVEMENTS.length + '</b></span>'
+    + '<span>名画 <b>' + WORKS.length + '</b></span>'
+    + '<span>光学 <b>' + opticWords + '</b></span>'
+    + '<span>算子 <b>' + OPERATORS.length + '</b></span>'
+    + '<span>原子模块 <b>' + (typeof ATOMS !== "undefined" ? ATOMS.length : 0) + '</b></span>'
+    + '<span>任务 <b>' + (typeof TASKS !== "undefined" ? TASKS.length : 0) + '</b></span>'
+    + '<span>签名卡 <b>' + SIGNATURES.length + '</b></span>'
+    + '<span>模型实测 <b>' + MODELS_SAFE().length + '</b></span>'
+    + '<span>已测试/已复核 <b>' + (stAll.tested + stAll.reviewed) + '</b> · 已编写 <b>' + stAll.written + '</b> · 已收录 <b>' + stAll.collected + '</b></span>';
+  /* 页签计数：有家底可数的才给数字，没有的不硬凑 */
+  $("#nGallery").textContent = GAL_ALL.length;
+  $("#nEntries").textContent = entriesTotal;
+  $("#nPairs").textContent = MOVEMENTS.length;
+
+  /* 覆盖缺口不再塞在页眉 —— 「框架与体检」页签专页摊开：
+     首页保持「选场景出词」一个任务，家底与缺口去看体检页。 */
+
+  /* 抽屉要在第一次渲染前绑好事件，否则首屏点条目没反应。
+     同时注入 DETAIL 摸不到的 IIFE 内常量 —— 那些不是全局，
+     detail.js 自己去猜全局只会拿到 undefined。 */
+  if (typeof DETAIL !== "undefined") {
+    DETAIL.ready({
+      MODULES: MODULES, REL_META: REL_META, REL_NAME: REL_NAME,
+      CAT_ZH: CAT_ZH, PID_NAME: PID_NAME, ROLE_ZH: ROLE_ZH
+    });
+  }
+
+  renderTabs(); renderFilters(); renderList(); renderPresets(); renderPickBar(); syncInputs();
+  /* 先试本地状态：上次调到一半的组合还在，就不铺默认配方。
+     载入失败（首次访问 / 存不了 / 数据变更后条目全丢）才铺起手配方便于理解。 */
+  var restored = loadState();
+  if (!restored) {
+    SPEC.subjects.push({ id: "S-01", w: 1 });
+    SPEC.painters.push({ id: "P-NE14", w: 1 });
+  }
+  render();
+  /* 恢复上次停留的页签（首次访问默认「示例画廊」—— 先看库里有什么，
+     再决定点什么）。放于 render() 之后：custom 页的 renderEasy
+     需要 lastResult 已就绪。 */
+  setMode(MODE);
+  if (restored === "partial") {
+    flash("已恢复上次配方（部分条目已失效，已剔除）");
+  }
+})();
+</script>
+
+</body>
+</html>

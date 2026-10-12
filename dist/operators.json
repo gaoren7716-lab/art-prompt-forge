@@ -1,0 +1,1663 @@
+[
+  {
+    "id": "OP-E-01",
+    "status": "tested",
+    "zh": "时代迁移 · 古典重写",
+    "en": "Era Shift: Classical Panel",
+    "kind": "era",
+    "keep": [
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "inject": {
+      "medium": [
+        "egg tempera and oil glazes on gessoed panel"
+      ],
+      "light": [
+        "single high window light",
+        "deep chiaroscuro"
+      ],
+      "space": [
+        "strict linear perspective",
+        "architectural framing"
+      ]
+    },
+    "add": [
+      "fifteenth century devotional panel"
+    ],
+    "neg": [
+      "led lighting",
+      "modern furniture"
+    ],
+    "desc": "把任何画面的承载方式退回十五至十七世纪的木板坦培拉：光线变成唯一的窗光，空间退回严谨透视线，但笔性与配色仍是本人的。",
+    "note": "古典重写后不要再追加现代高对比的画质词，多层罩染那种通透感会被直接洗成塑料。",
+    "preserve": [
+      "brush",
+      "color",
+      "spirit",
+      "motif"
+    ],
+    "change": [
+      "medium",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "modern lighting",
+      "modern furniture",
+      "electric wires",
+      "plastic material",
+      "digital gloss",
+      "multiple light sources",
+      "oil impasto ridges"
+    ],
+    "code": "OR-006"
+  },
+  {
+    "id": "OP-E-02",
+    "status": "tested",
+    "zh": "时代迁移 · 巴洛克剧场",
+    "en": "Era Shift: Baroque Theatre",
+    "kind": "era",
+    "keep": [
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "inject": {
+      "medium": [
+        "oil on canvas",
+        "thick bituminous underpainting"
+      ],
+      "light": [
+        "raking stage light",
+        "theatrical spotlight falloff"
+      ],
+      "space": [
+        "diagonal thrust composition",
+        "figures pushed to the picture plane"
+      ]
+    },
+    "add": [
+      "seventeenth century altarpiece scale",
+      "dramatic tenebrism"
+    ],
+    "neg": [
+      "flat even lighting",
+      "minimalist emptiness"
+    ],
+    "desc": "把画面改造成十七世纪的舞台：光是一束从上斜劈下来的强光，构图走对角线，人物几乎贴着画面边缘冲出去。",
+    "note": "巴洛克 + 极少留白是死组合，画面会既吵又空；给足道具与褶皱。",
+    "preserve": [
+      "brush",
+      "color",
+      "spirit",
+      "motif"
+    ],
+    "change": [
+      "medium",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "modern lighting",
+      "modern furniture",
+      "electric wires",
+      "plastic material",
+      "digital gloss",
+      "flat even lighting",
+      "empty minimal composition"
+    ],
+    "code": "OR-007"
+  },
+  {
+    "id": "OP-E-03",
+    "status": "tested",
+    "zh": "时代迁移 · 江户木版",
+    "en": "Era Shift: Edo Woodblock",
+    "kind": "era",
+    "keep": [
+      "color",
+      "motif",
+      "spirit"
+    ],
+    "inject": {
+      "medium": [
+        "ukiyo-e woodblock print on washi"
+      ],
+      "brush": [
+        "keyblock outlines",
+        "flat colour planes",
+        "visible wood grain"
+      ],
+      "light": [
+        "no cast shadow",
+        "even flat illumination"
+      ],
+      "space": [
+        "flattened stacked planes",
+        "decorative cropping"
+      ]
+    },
+    "add": [
+      "edo period print",
+      "bokashi gradient"
+    ],
+    "neg": [
+      "photorealistic skin",
+      "chiaroscuro"
+    ],
+    "desc": "把题材改写成江户浮世绘：主版墨线定形，色块平涂，中间调交给云母摺渐变，人物不再投影。",
+    "note": "一旦画面里出现真实投影与空气透视，浮世绘的“平面装饰感”立刻散掉。",
+    "preserve": [
+      "color",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "modern lighting",
+      "modern furniture",
+      "electric wires",
+      "plastic material",
+      "digital gloss",
+      "cast shadow",
+      "atmospheric perspective",
+      "photoreal skin"
+    ],
+    "code": "OR-008"
+  },
+  {
+    "id": "OP-E-04",
+    "status": "tested",
+    "zh": "时代迁移 · 宋元山水",
+    "en": "Era Shift: Song-Yuan Landscape",
+    "kind": "era",
+    "keep": [
+      "brush",
+      "motif",
+      "spirit"
+    ],
+    "inject": {
+      "medium": [
+        "ink and light washes on silk"
+      ],
+      "color": [
+        "near-monochrome ink tonalities",
+        "warm silk ground"
+      ],
+      "light": [
+        "mist separated distance",
+        "no single light source"
+      ],
+      "space": [
+        "three-distance composition",
+        "vast white voids",
+        "walking-path viewpoint"
+      ]
+    },
+    "add": [
+      "classical chinese landscape",
+      "colophon inscriptions"
+    ],
+    "neg": [
+      "linear perspective",
+      "western horizon line"
+    ],
+    "desc": "把任何题材放进宋元山水的时空：得意忘象的散点移动视点，墨分五色，留白即是云水。",
+    "note": "加了焦点透视或地平线就变成风景油画，国画的那口气断在第一刀。",
+    "preserve": [
+      "brush",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "color",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "modern lighting",
+      "modern furniture",
+      "electric wires",
+      "plastic material",
+      "digital gloss",
+      "linear perspective",
+      "western horizon line",
+      "color saturation"
+    ],
+    "code": "OR-009"
+  },
+  {
+    "id": "OP-E-05",
+    "status": "tested",
+    "zh": "时代迁移 · 世纪末颓美",
+    "en": "Era Shift: Fin de Siecle",
+    "kind": "era",
+    "keep": [
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "inject": {
+      "medium": [
+        "oil on canvas with gold ground"
+      ],
+      "light": [
+        "sickly twilight",
+        "candle-lit interior gloom"
+      ],
+      "space": [
+        "ornamental framing",
+        "elongated format"
+      ]
+    },
+    "add": [
+      "symbolist ornament",
+      "decadent aesthetic",
+      "art nouveau whiplash curve"
+    ],
+    "neg": [
+      "cheerful daylight",
+      "clinical sterility"
+    ],
+    "desc": "十九世纪末的象征主义空气：烛光与暮色、金底与涡卷装饰、拉长的画幅，所有东西都在倦怠里。",
+    "note": "这类画面怕“干净的白天”，一旦打亮就变成普通装饰画。",
+    "preserve": [
+      "brush",
+      "color",
+      "spirit",
+      "motif"
+    ],
+    "change": [
+      "medium",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "modern lighting",
+      "modern furniture",
+      "electric wires",
+      "plastic material",
+      "digital gloss",
+      "bright daylight",
+      "clean clinical surface"
+    ],
+    "code": "OR-010"
+  },
+  {
+    "id": "OP-E-06",
+    "status": "tested",
+    "zh": "时代迁移 · 月份牌擦笔",
+    "en": "Era Shift: Republic-era Calendar Poster",
+    "kind": "era",
+    "keep": [
+      "color",
+      "motif",
+      "spirit"
+    ],
+    "inject": {
+      "medium": [
+        "rubbed charcoal-retouched gouache on board"
+      ],
+      "brush": [
+        "airbrush-soft charcoal rubbing",
+        "measured watercolour wash"
+      ],
+      "light": [
+        "soft even studio halo"
+      ],
+      "space": [
+        "advertising poster layout",
+        "product framing"
+      ]
+    },
+    "add": [
+      "old shanghai calendar poster",
+      "lithographic print texture"
+    ],
+    "neg": [
+      "harsh contrast",
+      "heavy impasto"
+    ],
+    "desc": "民国月份牌的擦笔水彩：炭精粉擦出体积，水彩薄薄罩上去，再加一层石印网点与排版留白。",
+    "note": "这套语言建立在“薄”之上，一旦叠厚涂就立刻失真。",
+    "preserve": [
+      "color",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "modern lighting",
+      "modern furniture",
+      "electric wires",
+      "plastic material",
+      "digital gloss",
+      "heavy impasto",
+      "harsh contrast"
+    ],
+    "code": "OR-011"
+  },
+  {
+    "id": "OP-E-07",
+    "status": "tested",
+    "zh": "时代迁移 · 蒸汽未来考古",
+    "en": "Era Shift: Retro-Futurism",
+    "kind": "era",
+    "keep": [
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "inject": {
+      "medium": [
+        "engraved steel plate illustration"
+      ],
+      "light": [
+        "gaslight and furnace glow"
+      ],
+      "space": [
+        "heroic engineering scale",
+        "cross-section view"
+      ]
+    },
+    "add": [
+      "nineteenth century vision of the future",
+      "jules verne engraving"
+    ],
+    "neg": [
+      "led panel",
+      "carbon fibre texture"
+    ],
+    "desc": "让十九世纪的人去想象未来：蒸汽机械、巨大工程剖面、铜版排线的黑白插图。",
+    "note": "现代材料词（发光屏、碳纤、注塑）一进来，年代幻觉就破了。",
+    "preserve": [
+      "brush",
+      "color",
+      "spirit",
+      "motif"
+    ],
+    "change": [
+      "medium",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "modern lighting",
+      "modern furniture",
+      "electric wires",
+      "plastic material",
+      "digital gloss",
+      "led panel",
+      "composite material",
+      "digital glow"
+    ],
+    "code": "OR-012"
+  },
+  {
+    "id": "OP-M-01",
+    "status": "tested",
+    "zh": "媒介迁移 · 湿壁画",
+    "en": "Medium Shift: Fresco",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "buon fresco on lime plaster"
+      ],
+      "brush": [
+        "pigment absorbed into wet plaster",
+        "giornata seam"
+      ],
+      "light": [
+        "diffuse daylight",
+        "no dark underpainting"
+      ]
+    },
+    "add": [
+      "salt efflorescence",
+      "plaster loss",
+      "architectural wall integration"
+    ],
+    "neg": [
+      "canvas weave",
+      "brush hair marks"
+    ],
+    "desc": "颜料溶进湿灰泥里，颜色是被石灰“养”出来的哑光粉质；接缝、盐霜与剥落是它的签名。",
+    "note": "画布纹理和笔毛痕要进负面词，否则模型会把壁画画成画在布上的油画。",
+    "preserve": [
+      "color",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "canvas weave",
+      "brush hair marks",
+      "gloss varnish"
+    ],
+    "code": "OR-016"
+  },
+  {
+    "id": "OP-M-02",
+    "status": "tested",
+    "zh": "媒介迁移 · 坦培拉蛋彩",
+    "en": "Medium Shift: Egg Tempera",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "egg tempera on gessoed panel"
+      ],
+      "brush": [
+        "fine cross-hatched strokes",
+        "translucent layered glazes"
+      ],
+      "light": [
+        "no deep shadow",
+        "even luminous matte"
+      ]
+    },
+    "add": [
+      "gold ground",
+      "punched halo"
+    ],
+    "neg": [
+      "impasto ridges",
+      "wet blending"
+    ],
+    "desc": "蛋黄调矿物色，一层层细密排线叠出半透明的光，干燥后是均匀的哑光，没有油画的润。",
+    "note": "蛋彩永远厚不起来，画面里出现厚涂凸起就是错的。",
+    "preserve": [
+      "color",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "impasto ridges",
+      "wet blending",
+      "deep shadow"
+    ],
+    "code": "OR-017"
+  },
+  {
+    "id": "OP-M-03",
+    "status": "tested",
+    "zh": "媒介迁移 · 木刻套色",
+    "en": "Medium Shift: Woodcut",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "relief woodcut print"
+      ],
+      "brush": [
+        "gouged chisel marks",
+        "hard black positive shape"
+      ],
+      "color": [
+        "two or three spot colours"
+      ],
+      "light": [
+        "black carries the shadow"
+      ]
+    },
+    "add": [
+      "misregistered colour block",
+      "printing ink bleed"
+    ],
+    "neg": [
+      "soft gradient",
+      "photographic texture"
+    ],
+    "desc": "黑色承担全部结构，一至三个专色补形；刀痕、错版与油墨外溢都是语言本身。",
+    "note": "给渐变和照片质感，木刻会瞬间退化成一张平涂插画。",
+    "preserve": [
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "color",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "soft gradient",
+      "photographic texture",
+      "more than three spot colours"
+    ],
+    "code": "OR-018"
+  },
+  {
+    "id": "OP-M-04",
+    "status": "tested",
+    "zh": "媒介迁移 · 杂志水粉插画",
+    "en": "Medium Shift: Mid-century Gouache",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "gouache on illustration board"
+      ],
+      "brush": [
+        "flat opaque shapes",
+        "dry brush drag"
+      ],
+      "light": [
+        "designed three-value system"
+      ]
+    },
+    "add": [
+      "nineteen fifties magazine illustration",
+      "poster simplification"
+    ],
+    "neg": [
+      "airbrush smooth skin",
+      "rendered detail"
+    ],
+    "desc": "二十世纪中叶的商业插画：三到四个明度层级撑全图，形状优先于细节，干笔拖痕负责质感。",
+    "note": "这类需要“设计感”，细节渲染越多越掉价。",
+    "preserve": [
+      "color",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "airbrush smooth skin",
+      "rendered micro detail"
+    ],
+    "code": "OR-019"
+  },
+  {
+    "id": "OP-M-05",
+    "status": "tested",
+    "zh": "媒介迁移 · 丝网版画",
+    "en": "Medium Shift: Silkscreen",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "screen print on paper"
+      ],
+      "color": [
+        "flat spot ink",
+        "halftone dot pattern"
+      ],
+      "brush": [
+        "hard squeegee edge"
+      ]
+    },
+    "add": [
+      "misprint offset",
+      "cmyk separation"
+    ],
+    "neg": [
+      "soft optical blending"
+    ],
+    "desc": "专色叠印、半调网点、硬边刮痕，可以把照片感的东西一次性打平成波普。",
+    "note": "不要修补错版，偏移是它的表情。",
+    "preserve": [
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "color",
+      "brush"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "soft optical blending",
+      "continuous tone gradient"
+    ],
+    "code": "OR-020"
+  },
+  {
+    "id": "OP-M-06",
+    "status": "tested",
+    "zh": "媒介迁移 · 铜版蚀刻",
+    "en": "Medium Shift: Etching & Aquatint",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "copper plate etching with aquatint"
+      ],
+      "brush": [
+        "bitten line",
+        "cross-hatched tonal net"
+      ],
+      "light": [
+        "hatching density builds darkness"
+      ]
+    },
+    "add": [
+      "plate impression edge",
+      "laid paper texture"
+    ],
+    "neg": [
+      "colour",
+      "smooth gradient"
+    ],
+    "desc": "一切明度都由排线密度换算：蚀线勾形，飞尘铺调，纸张压痕框住画面。",
+    "note": "有色或渐变会立刻让它失去版画的换算逻辑。",
+    "preserve": [
+      "color",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "colour",
+      "smooth gradient",
+      "photographic depth of field"
+    ],
+    "code": "OR-021"
+  },
+  {
+    "id": "OP-M-07",
+    "status": "tested",
+    "zh": "媒介迁移 · 大画幅摄影",
+    "en": "Medium Shift: Large Format Photo",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "large format silver gelatin print"
+      ],
+      "brush": [
+        "grain with no visible stroke"
+      ],
+      "light": [
+        "single soft key light",
+        "shallow depth of field"
+      ]
+    },
+    "add": [
+      "optical lens rendering",
+      "analog grain"
+    ],
+    "neg": [
+      "visible brushstroke",
+      "painterly texture"
+    ],
+    "desc": "把绘画重铸成一张真的照片：银盐颗粒替代笔触，景深替代虚实，光源变成唯一的柔光灯。",
+    "note": "残留任何笔触都会让画面卡在“油画伪装照片 ”的尴尬处。",
+    "preserve": [
+      "color",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "visible brushstroke",
+      "painted texture",
+      "canvas weave"
+    ],
+    "code": "OR-022"
+  },
+  {
+    "id": "OP-M-08",
+    "status": "tested",
+    "zh": "媒介迁移 · 矿物岩彩",
+    "en": "Medium Shift: Mineral Pigment",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "ground mineral pigment with animal glue"
+      ],
+      "brush": [
+        "granular settling",
+        "layered sanding"
+      ],
+      "color": [
+        "natural stone hues",
+        "shell white underpainting"
+      ],
+      "light": [
+        "matte scattered reflection"
+      ]
+    },
+    "add": [
+      "gold leaf",
+      "mineral granularity"
+    ],
+    "neg": [
+      "synthetic fluorescent hue"
+    ],
+    "desc": "天然矿物磨成的粗颗粒在胶里沉降，罩染后打磨出半哑光的宝石感；金箔与蛤粉负责最后那口亮。",
+    "note": "荧光色一进来，整套矿物色阶就崩了。",
+    "preserve": [
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "color",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "synthetic fluorescent hue",
+      "smooth digital surface"
+    ],
+    "code": "OR-023"
+  },
+  {
+    "id": "OP-M-09",
+    "status": "tested",
+    "zh": "媒介迁移 · 数字绘景",
+    "en": "Medium Shift: Digital Matte",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "digital matte painting"
+      ],
+      "brush": [
+        "photobashed texture layering",
+        "soft digital round brush"
+      ],
+      "light": [
+        "volumetric atmospheric haze"
+      ]
+    },
+    "add": [
+      "concept art pipeline",
+      "8k value study"
+    ],
+    "neg": [
+      "canvas weave",
+      "paint cracking"
+    ],
+    "desc": "用照片拼贴加数字笔刷搭出来的概念图：大气透视浓，边缘半实半虚，表面不脏。",
+    "note": "把油画布纹和龟裂加进去会让数字图层逻辑自相矛盾。",
+    "preserve": [
+      "color",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "canvas texture",
+      "handmade irregularity",
+      "impasto"
+    ],
+    "code": "OR-024"
+  },
+  {
+    "id": "OP-M-10",
+    "status": "tested",
+    "zh": "媒介迁移 · 拼贴混合媒介",
+    "en": "Medium Shift: Collage",
+    "kind": "medium",
+    "inject": {
+      "medium": [
+        "cut paper and mixed media collage"
+      ],
+      "brush": [
+        "torn edge",
+        "misaligned pasted fragments"
+      ],
+      "space": [
+        "overlapping disconnected fragments"
+      ]
+    },
+    "add": [
+      "found ephemera",
+      "visible adhesive"
+    ],
+    "neg": [
+      "seamless blending"
+    ],
+    "desc": "撕边、粘贴错位、材质互不相让：杂乱本身就是这一层的信息。",
+    "note": "一旦要求“融合自然”，拼贴就白做了。",
+    "preserve": [
+      "color",
+      "light",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "space"
+    ],
+    "forbid": [
+      "mixed incompatible physical media",
+      "physically impossible material layering",
+      "paper fibre",
+      "hand drawn outline",
+      "physical print artefact"
+    ],
+    "code": "OR-025"
+  },
+  {
+    "id": "OP-S-01",
+    "status": "tested",
+    "zh": "题材迁移 · 推向崇高风景",
+    "en": "Subject Shift: Sublime Landscape",
+    "kind": "subject",
+    "inject": {
+      "motif": [
+        "towering cliffs and distant horizon",
+        "tiny human figure for scale"
+      ],
+      "light": [
+        "awe-filled sky gradient"
+      ],
+      "space": [
+        "vast scale contrast"
+      ]
+    },
+    "add": [
+      "panoramic aspect ratio"
+    ],
+    "neg": [
+      "close crop"
+    ],
+    "desc": "把大师的手压到自然崇高上：巨物与小人的体量比决定一切，画幅跟着变长。",
+    "note": "小人的比例越小越震撼，画大了就回到普通风景。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "change": [
+      "motif",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "empty landscape without subject",
+      "modern urban elements"
+    ],
+    "code": "OR-031"
+  },
+  {
+    "id": "OP-S-02",
+    "status": "tested",
+    "zh": "题材迁移 · 推向静物",
+    "en": "Subject Shift: Still Life",
+    "kind": "subject",
+    "inject": {
+      "motif": [
+        "arranged objects on a draped table"
+      ],
+      "light": [
+        "single directional light",
+        "measured cast shadow"
+      ],
+      "space": [
+        "tight tabletop framing"
+      ]
+    },
+    "add": [
+      "arranged still life",
+      "vanitas objects"
+    ],
+    "neg": [
+      "crowded scene"
+    ],
+    "desc": "最考验材质的题材：把风格压缩到一张桌布、几个容器、一道投影上。",
+    "note": "静物最忌元素过多，三到五件最好看。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "change": [
+      "motif",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "carnival crowds",
+      "flat graphic signage"
+    ],
+    "code": "OR-032"
+  },
+  {
+    "id": "OP-S-03",
+    "status": "tested",
+    "zh": "题材迁移 · 推向城市夜景",
+    "en": "Subject Shift: Neon City",
+    "kind": "subject",
+    "inject": {
+      "motif": [
+        "wet city street at night",
+        "neon sign reflections"
+      ],
+      "light": [
+        "multiple coloured light sources",
+        "reflection in rain"
+      ],
+      "space": [
+        "deep street perspective"
+      ]
+    },
+    "add": [
+      "night cityscape"
+    ],
+    "neg": [
+      "flat daylight"
+    ],
+    "desc": "多光源加湿地面：霓虹把颜料的颜色逻辑打乱重建，反射承担一半的画面。",
+    "note": "多光源场景下光源方向词要谨慎，容易互相打架。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "change": [
+      "motif",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "clinical emptiness",
+      "modern furniture"
+    ],
+    "code": "OR-033"
+  },
+  {
+    "id": "OP-S-04",
+    "status": "tested",
+    "zh": "题材迁移 · 推向太空奇观",
+    "en": "Subject Shift: Cosmic Scale",
+    "kind": "subject",
+    "inject": {
+      "motif": [
+        "orbital planets and nebula field"
+      ],
+      "light": [
+        "star light with no atmospheric falloff"
+      ],
+      "space": [
+        "specks floating in black void"
+      ]
+    },
+    "add": [
+      "space art scale",
+      "wide aspect"
+    ],
+    "neg": [
+      "grounded horizon"
+    ],
+    "desc": "没有地面透视、没有空气透视，只剩悬浮物的大小对比，最适合夸张笔法的流派。",
+    "note": "保留地平线会立刻把宇宙降格成一张夜景。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "change": [
+      "motif",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "purely abstract field",
+      "no human presence"
+    ],
+    "code": "OR-034"
+  },
+  {
+    "id": "OP-S-05",
+    "status": "tested",
+    "zh": "题材迁移 · 推向祭坛神话",
+    "en": "Subject Shift: Altarpiece Myth",
+    "kind": "subject",
+    "inject": {
+      "motif": [
+        "multi figure ritual scene",
+        "drapery and symbolic attribute"
+      ],
+      "light": [
+        "front-raised sacred light"
+      ],
+      "space": [
+        "hierarchical figure scale",
+        "architectural niche"
+      ]
+    },
+    "add": [
+      "altarpieceFormat",
+      "gold ground"
+    ],
+    "neg": [
+      "casual snapshot angle"
+    ],
+    "desc": "人物按地位放大、动作示意化、道具带象征义，整套服从仪式秩序。",
+    "note": "随手抓拍的机位是这组的第一杀手。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "change": [
+      "motif",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "wide establishing shot",
+      "tiny distant subject"
+    ],
+    "code": "OR-035"
+  },
+  {
+    "id": "OP-S-06",
+    "status": "tested",
+    "zh": "题材迁移 · 推向封面构图",
+    "en": "Subject Shift: Cover Layout",
+    "kind": "subject",
+    "inject": {
+      "space": [
+        "strong central motif with breathing room",
+        "space for title"
+      ],
+      "light": [
+        "contrast readable at thumbnail size"
+      ]
+    },
+    "add": [
+      "poster layout",
+      "readable silhouette"
+    ],
+    "neg": [
+      "busy background clutter"
+    ],
+    "desc": "为标题留出位置的版面思维：缩小到指甲盖还能读得出来才算过关。",
+    "note": "背景一乱，缩略图就糊成一团灰。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "motif",
+      "spirit"
+    ],
+    "change": [
+      "space",
+      "light"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "human figure",
+      "figurative narrative"
+    ],
+    "code": "OR-036"
+  },
+  {
+    "id": "OP-S-07",
+    "status": "tested",
+    "zh": "题材迁移 · 推向群像仪式",
+    "en": "Subject Shift: Ceremonial Group",
+    "kind": "subject",
+    "inject": {
+      "motif": [
+        "many figures in arranged formation"
+      ],
+      "space": [
+        "rhythmic repetition of heads and hands"
+      ],
+      "light": [
+        "even light across the group"
+      ]
+    },
+    "add": [
+      "group portrait rhythm"
+    ],
+    "neg": [
+      "single hero focus"
+    ],
+    "desc": "多人的排布是节奏学：头、手、道具重复形成拍子，而不是各画各的。",
+    "note": "把注意力全给一个人，群像就散了。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "change": [
+      "motif",
+      "space",
+      "light"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "empty architectural shell",
+      "absence of atmosphere"
+    ],
+    "code": "OR-037"
+  },
+  {
+    "id": "OP-S-08",
+    "status": "tested",
+    "zh": "题材迁移 · 推向东方市集",
+    "en": "Subject Shift: Bazaar & Medina",
+    "kind": "subject",
+    "inject": {
+      "motif": [
+        "arched arcade and hanging textiles",
+        "spice piles and copper vessels"
+      ],
+      "light": [
+        "filtered light through lattice",
+        "dust beam"
+      ],
+      "space": [
+        "layered arch depth"
+      ]
+    },
+    "add": [
+      "orientalist architecture",
+      "intricate tile pattern"
+    ],
+    "neg": [
+      "european square"
+    ],
+    "desc": "拱券层层套深、格子窗过滤光线、堆放的货物制造纹理密度。",
+    "note": "把欧洲广场的建筑逻辑套上去会立刻穿帮。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "spirit"
+    ],
+    "change": [
+      "motif",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "wrong era props",
+      "anachronistic objects",
+      "empty narrative scene",
+      "scattered clutter",
+      "hard edge geometric order"
+    ],
+    "code": "OR-038"
+  },
+  {
+    "id": "OP-D-01",
+    "status": "tested",
+    "zh": "解构 · 只取色彩关系",
+    "en": "Decouple: Palette Only",
+    "kind": "decouple",
+    "only": [
+      "color"
+    ],
+    "desc": "只借用这个人的配色逻辑：色相如何相邻、纯度如何收敛，其余全部自由。",
+    "note": "解构后要补一个自己的媒介词，否则模型会用默认油画来填。",
+    "preserve": [
+      "color"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "forbid": [
+      "uncontrolled style bleed from muted facets",
+      "impasto texture",
+      "structural line emphasis"
+    ],
+    "code": "OR-001"
+  },
+  {
+    "id": "OP-D-02",
+    "status": "tested",
+    "zh": "解构 · 只取笔法肌理",
+    "en": "Decouple: Brushwork Only",
+    "kind": "decouple",
+    "only": [
+      "brush"
+    ],
+    "desc": "只借用笔触的形态与走向：是旋、是皴、是排线，还是刮刀。",
+    "note": "笔法单独用时记得指定画面基调，否则会在空气里乱长。",
+    "preserve": [
+      "brush"
+    ],
+    "change": [
+      "medium",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "forbid": [
+      "uncontrolled style bleed from muted facets",
+      "flat decorative colour",
+      "linear perspective stress"
+    ],
+    "code": "OR-002"
+  },
+  {
+    "id": "OP-D-03",
+    "status": "tested",
+    "zh": "解构 · 只取构图空间",
+    "en": "Decouple: Composition Only",
+    "kind": "decouple",
+    "only": [
+      "space"
+    ],
+    "desc": "只借摆放关系：透视怎么走、留白怎么留、视线怎么引。",
+    "note": "构图算子最好配合一个具体题材使用，单独看没有画面。",
+    "preserve": [
+      "space"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "motif",
+      "spirit"
+    ],
+    "forbid": [
+      "uncontrolled style bleed from muted facets",
+      "volumetric light modelling",
+      "surface texture emphasis"
+    ],
+    "code": "OR-003"
+  },
+  {
+    "id": "OP-D-04",
+    "status": "tested",
+    "zh": "解构 · 只取光",
+    "en": "Decouple: Light Only",
+    "kind": "decouple",
+    "only": [
+      "light"
+    ],
+    "desc": "只借处理明暗的方式：是窗光、烛火、还是无影平光。",
+    "note": "取光时记得同时给一个场景，光要落在东西上才成立。",
+    "preserve": [
+      "light"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "color",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "forbid": [
+      "uncontrolled style bleed from muted facets",
+      "hard edge graphic division",
+      "flat colour blocking"
+    ],
+    "code": "OR-004"
+  },
+  {
+    "id": "OP-D-05",
+    "status": "tested",
+    "zh": "解构 · 只取气质",
+    "en": "Decouple: Spirit Only",
+    "kind": "decouple",
+    "only": [
+      "spirit",
+      "motif"
+    ],
+    "desc": "只借那口气：孤独、狂喜、肃穆、倦怠，以及惯用的母题。",
+    "note": "气质是无形的，必须落到具体的题材上才出画面。",
+    "preserve": [
+      "spirit",
+      "motif"
+    ],
+    "change": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space"
+    ],
+    "forbid": [
+      "uncontrolled style bleed from muted facets",
+      "surface texture emphasis",
+      "perspective construction"
+    ],
+    "code": "OR-005"
+  },
+  {
+    "id": "OP-F-01",
+    "status": "tested",
+    "zh": "融合 · 主次七三",
+    "en": "Fuse: 70 / 30 Dominance",
+    "kind": "fuse",
+    "desc": "七三开：主导方提供媒介、笔法、空间，从属方只渗透色彩与气质。",
+    "note": "这是最稳的融合比，八成以上的双画家组合都该从七三试起。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "featureless generic output",
+      "identity dilution between sources",
+      "identity dilution",
+      "uniformly averaged output"
+    ],
+    "code": "OR-013"
+  },
+  {
+    "id": "OP-F-02",
+    "status": "tested",
+    "zh": "融合 · 对等碰撞",
+    "en": "Fuse: Even Collision",
+    "kind": "fuse",
+    "desc": "各半：两套笔法在同一画面拉锯，冲突明显但张力最大。",
+    "note": "对等碰撞容易糊，建议先把媒介统一，只让笔法与色彩互撞。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "featureless generic output",
+      "identity dilution between sources",
+      "identity dilution",
+      "mutually cancelling directives"
+    ],
+    "code": "OR-014"
+  },
+  {
+    "id": "OP-F-03",
+    "status": "tested",
+    "zh": "融合 · 分层渗透",
+    "en": "Fuse: Layered Seepage",
+    "kind": "fuse",
+    "desc": "甲方管色彩与光，乙方管媒介与笔法，空间居中调停，各自不许跨界。",
+    "note": "这是同时调用两位以上大师时最好用的一种，能保住两边的辨识度。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "featureless generic output",
+      "identity dilution between sources"
+    ],
+    "code": "OR-015"
+  },
+  {
+    "id": "OP-P-01",
+    "status": "tested",
+    "zh": "呈现 · 博物馆射灯",
+    "en": "Present: Museum Lighting",
+    "kind": "present",
+    "add": [
+      "gallery wall context",
+      "museum spotlight",
+      "neutral grey surround"
+    ],
+    "neg": [
+      "outdoor ground"
+    ],
+    "desc": "把画面当作一件实物挂在展厅里：射灯打下来，周围是中性灰墙与投影边缘。",
+    "note": "这是“展示画作”而不是“进入画作”，两者别混用。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "text artifacts",
+      "watermark",
+      "signature",
+      "flat even lighting",
+      "blown highlight"
+    ],
+    "code": "OR-026"
+  },
+  {
+    "id": "OP-P-02",
+    "status": "tested",
+    "zh": "呈现 · 未修复扫瞄",
+    "en": "Present: unrestored scan",
+    "kind": "present",
+    "add": [
+      "craquelure",
+      "yellowed varnish",
+      "dust accumulation",
+      "unrestored museum scan"
+    ],
+    "neg": [
+      "pristine digital surface"
+    ],
+    "desc": "龟裂、泛黄清漆、积尘与未修复的老化状态，适合一切年代题材。",
+    "note": "用了这套就别再混入高清锐利类的画质词，两者会互相撕。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "text artifacts",
+      "watermark",
+      "signature",
+      "pristine digital surface",
+      "hdr bloom",
+      "oversaturated neon"
+    ],
+    "code": "OR-027"
+  },
+  {
+    "id": "OP-P-03",
+    "status": "tested",
+    "zh": "呈现 · 巨幅壁画现场",
+    "en": "Present: Monumental Mural",
+    "kind": "present",
+    "add": [
+      "wall-filling scale",
+      "scaffold perspective",
+      "public architecture integration"
+    ],
+    "neg": [
+      "small framed canvas"
+    ],
+    "desc": "让画面回到建筑本身：占满整面墙，观众站在脚手架的透视里抬头看。",
+    "note": "巨幅必须给够仰视角，否则看不出尺度。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "text artifacts",
+      "watermark",
+      "signature",
+      "plastic texture",
+      "vector flatness"
+    ],
+    "code": "OR-028"
+  },
+  {
+    "id": "OP-P-04",
+    "status": "tested",
+    "zh": "呈现 · 笔触微距",
+    "en": "Present: Macro Surface",
+    "kind": "present",
+    "add": [
+      "extreme close-up of paint surface",
+      "raking light across texture"
+    ],
+    "neg": [
+      "wide view"
+    ],
+    "desc": "只给颜料的表面：厚度、边缘、刮痕在斜光下的起伏。",
+    "note": "微距要配盛行光，平光打不出肌理。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "text artifacts",
+      "watermark",
+      "signature",
+      "shallow depth of field",
+      "blurred fine detail"
+    ],
+    "code": "OR-029"
+  },
+  {
+    "id": "OP-P-05",
+    "status": "tested",
+    "zh": "呈现 · 未完成稿",
+    "en": "Present: Unfinished Study",
+    "kind": "present",
+    "add": [
+      "abbozzo underdrawing visible",
+      "unfinished canvas edge",
+      "loose blocking-in"
+    ],
+    "neg": [
+      "polished finish"
+    ],
+    "desc": "停在中途：起稿线露出、局部只铺了大关系、画布边是空的。",
+    "note": "“未完成”比“完成”更难画，别让它变成“画得差”。",
+    "preserve": [
+      "medium",
+      "brush",
+      "color",
+      "light",
+      "space",
+      "motif",
+      "spirit"
+    ],
+    "change": [],
+    "forbid": [
+      "text artifacts",
+      "watermark",
+      "signature",
+      "flat even lighting",
+      "no light hierarchy"
+    ],
+    "code": "OR-030"
+  }
+]

@@ -1,0 +1,462 @@
+[
+  {
+    "id": "MT-01",
+    "zh": "SD 1.5",
+    "model": "Stable Diffusion 1.5 / 2.x",
+    "family": "classic",
+    "gen": "2022-2023",
+    "weightSyntax": "(tag:1.3)",
+    "weightRange": [
+      1.1,
+      1.4
+    ],
+    "weightEffect": "强，注意力集中明显",
+    "bracketStack": "(词) 约等于 1.1 倍，嵌套相乘，三层约 1.33 倍",
+    "negPrompt": "支持，且效果显著",
+    "naturalLang": "弱，不擅长长句",
+    "cfg": [
+      5,
+      8
+    ],
+    "cfgDefault": 7,
+    "steps": [
+      25,
+      40
+    ],
+    "sampler": "DPM++ 2M Karras 一类收敛快的采样器最省算力",
+    "promptStyle": "短标签串，用逗号分隔，不写句子",
+    "idealLen": [
+      50,
+      120
+    ],
+    "failTypes": [
+      "权重堆到 1.7 以上出现色带与解剖崩坏"
+    ],
+    "status": "tested",
+    "fact": "经典扩散模型，CLIP 文本编码器，注意力对括号权重响应最强。",
+    "seen": "标签顺序影响很大，靠前的词拿到更多注意力。",
+    "test": "权重 1.1 到 1.4 是甜区；超过 1.5 期待色带、解剖崩坏与概念串味。",
+    "note": "这一代的经验最丰富，但它已经是最旧的架构，本库的建议配置以 SDXL 为基线。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-001"
+  },
+  {
+    "id": "MT-02",
+    "zh": "SDXL",
+    "model": "SDXL 1.0",
+    "family": "sdxl",
+    "gen": "2023-",
+    "weightSyntax": "(tag:1.3)",
+    "weightRange": [
+      1.1,
+      1.4
+    ],
+    "weightEffect": "中等，仍然有效",
+    "bracketStack": "(词) 约 1.1 倍，(tag:1.3) 为显式写法；方括号是减弱的旧写法",
+    "negPrompt": "支持，推荐使用",
+    "naturalLang": "中等，短标签串最稳",
+    "cfg": [
+      5,
+      8
+    ],
+    "cfgDefault": 7,
+    "steps": [
+      30,
+      45
+    ],
+    "sampler": "DPM++ 2M SDE Karras",
+    "promptStyle": "标签加短词组，句子不要超过两个分句",
+    "idealLen": [
+      75,
+      150
+    ],
+    "failTypes": [
+      "高纯度补色配高权重会溢出",
+      "把权重误当质量开关会牺牲画面"
+    ],
+    "status": "tested",
+    "fact": "双文本编码器，1024 像素原生训练，画质与提示词响应都显著好于前代。",
+    "seen": "对负面的响应依然稳定，可以放心用来压解剖问题。",
+    "test": "1.0 基线原则：先用无权重版本跑一遍，如果每个元素都出来了就不要加权重。已经能出对的提示词，再加权通常会更差。",
+    "note": "要拆解概念就用 BREAK 类节点或 ComfyUI 的条件拼接节点切块，比硬调权重更可控。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-002"
+  },
+  {
+    "id": "MT-03",
+    "zh": "SD 3.5",
+    "model": "SD 3.5",
+    "family": "sd3",
+    "gen": "2024-",
+    "weightSyntax": "(tag:1.2)",
+    "weightRange": [
+      1.05,
+      1.2
+    ],
+    "weightEffect": "弱，文本编码器换成 T5 系后不再敏感",
+    "bracketStack": "效果接近 1.0，不建议叠",
+    "negPrompt": "支持",
+    "naturalLang": "强，适合自然语句",
+    "cfg": [
+      4,
+      5.5
+    ],
+    "cfgDefault": 5,
+    "steps": [
+      28,
+      40
+    ],
+    "sampler": "与架构配套的默认采样器最稳",
+    "promptStyle": "一到三句自然语句",
+    "idealLen": [
+      1,
+      3
+    ],
+    "failTypes": [
+      "沿用 SD1.5 时代的权重习惯会过度调教",
+      "引导值调高会整体过饱和"
+    ],
+    "status": "tested",
+    "fact": "改用 T5 系文本编码器，对自然语句的理解明显好于 CLIP 系。",
+    "seen": "同样的语义，写成句子比写成标签串更准。",
+    "test": "引导值 4 到 5.5 是可用区间，调高容易过饱和；在 SDXL 上需要 1.3 的权重，这里 1.1 到 1.2 通常就够了。",
+    "note": "从 SDXL 迁过来时最该改的两件事：权重幅度砍半，引导值下调。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-003"
+  },
+  {
+    "id": "MT-04",
+    "zh": "Flux.1 dev",
+    "model": "Flux.1 dev",
+    "family": "flux",
+    "gen": "2024-",
+    "weightSyntax": "基本忽略",
+    "weightRange": [
+      1,
+      1
+    ],
+    "weightEffect": "几乎无效，括号里的数字可能当成画面文字",
+    "bracketStack": "不要用",
+    "negPrompt": "支持但不是必需，很多情况下不写更好",
+    "naturalLang": "很强，整段自然语言都读得进去",
+    "cfg": [
+      2.5,
+      4.5
+    ],
+    "cfgDefault": 3.5,
+    "steps": [
+      25,
+      35
+    ],
+    "sampler": "默认流匹配采样器，不要换回扩散采样器",
+    "promptStyle": "一到四句自然语言，把重点写进句子而不是括号",
+    "idealLen": [
+      1,
+      4
+    ],
+    "failTypes": [
+      "沿用括号权重会产生字面数字被画进画面",
+      "照抄 SD 的负面词清单会过度压制"
+    ],
+    "status": "tested",
+    "fact": "流匹配架构，配自然语言理解力很强的文本编码器。",
+    "seen": "它按整句理解语义，所以句子写得越完整，响应越好。",
+    "test": "引导值 3.5 是标准值，可用区间 2.5 到 4.5。想强调某个概念，正确做法是改写句子（明确说出颜色、材质、重要性），而不是加括号。",
+    "note": "本库加 flux 平台方言时用的策略：权重词就地重复一遍描述，最重要的概念挪到句首，不输出任何括号。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-004"
+  },
+  {
+    "id": "MT-05",
+    "zh": "Flux.1 schnell",
+    "model": "Flux.1 schnell",
+    "family": "flux",
+    "gen": "2024-",
+    "weightSyntax": "忽略",
+    "weightRange": [
+      1,
+      1
+    ],
+    "weightEffect": "无",
+    "bracketStack": "不要用",
+    "negPrompt": "通常不写",
+    "naturalLang": "强",
+    "cfg": [
+      1,
+      1
+    ],
+    "cfgDefault": 1,
+    "steps": [
+      1,
+      4
+    ],
+    "sampler": "默认",
+    "promptStyle": "一到两句自然语言",
+    "idealLen": [
+      1,
+      2
+    ],
+    "failTypes": [
+      "引导值超过 2 会烧掉画面",
+      "步数给多反而不如少"
+    ],
+    "status": "tested",
+    "fact": "四步左右的蒸馏版本，速度极快。",
+    "seen": "牺牲了细节层次与负面响应，代价换来的是秒级出图。",
+    "test": "引导值固定 1，给到 2 以上画面就会糊掉并出现光晕。这与 dev 版完全是两套参数。",
+    "note": "适合大批量试构图与配色，不适合出最终稿。",
+    "gptWorks": false,
+    "retouched": true,
+    "code": "MT-005"
+  },
+  {
+    "id": "MT-06",
+    "zh": "Midjourney v7",
+    "model": "Midjourney v7",
+    "family": "midjourney",
+    "gen": "2024-",
+    "weightSyntax": "tag::2",
+    "weightRange": [
+      0.5,
+      2
+    ],
+    "weightEffect": "强，但为相对权重",
+    "bracketStack": "不支持圆括号；裸双冒号用于断开概念防串味",
+    "negPrompt": "用 --no，不是负权重，力度更温和",
+    "naturalLang": "中等，偏好描述性短语",
+    "cfg": null,
+    "steps": null,
+    "sampler": "内置",
+    "promptStyle": "描述性短语，开头写媒介（如图注明写插画）",
+    "idealLen": [
+      20,
+      80
+    ],
+    "failTypes": [
+      "权重超过 2 后结果迅速失控",
+      "把负权重当负面提示用会得到反效果"
+    ],
+    "status": "tested",
+    "fact": "权重是相对值：把一个概念翻倍，等于把其余全部减半，所以全图加权重等于什么都没做。",
+    "seen": "风格参考与图像提示的强度由独立参数控制，对风格匹配来说比文字权重更有效。",
+    "test": "常用区间是 0.5 到 2；超过之后结构迅速崩坏。与其他模型不同，它更吃描述性短语而不是标签串。",
+    "note": "本库 mj 方言用双冒号，并且刻意不把权重加到 1.4 以上，就是为了守住这个区间的上限。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-006"
+  },
+  {
+    "id": "MT-07",
+    "zh": "ComfyUI",
+    "model": "ComfyUI（SDXL 系）",
+    "family": "sdxl",
+    "gen": "2023-",
+    "weightSyntax": "(tag:1.3) + 区域提示",
+    "weightRange": [
+      1.1,
+      1.4
+    ],
+    "weightEffect": "强，且可按区域分配",
+    "bracketStack": "支持",
+    "negPrompt": "支持",
+    "naturalLang": "中等",
+    "cfg": [
+      5,
+      8
+    ],
+    "cfgDefault": 7,
+    "steps": [
+      30,
+      45
+    ],
+    "sampler": "DPM++ 2M SDE Karras",
+    "promptStyle": "原生条件节点，分区域分别送入文本",
+    "idealLen": null,
+    "failTypes": [
+      "区域提示的边界遮罩没对齐会出现接缝"
+    ],
+    "status": "tested",
+    "fact": "节点式工作流，能把不同的提示词分别送进同一张图的不同区域。",
+    "seen": "区域提示与注意力耦合在控制空间位置这件事上，远胜于文字权重。",
+    "test": "要控制物体出现在画面哪里，优先用区域提示或注意力耦合节点，而不是把文字权重调高。",
+    "note": "本库 AM 类模块里标了 role 为 region 的条目，正是为这个场景准备的：它们本就该只作用于一块地方。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-007"
+  },
+  {
+    "id": "MT-08",
+    "zh": "ControlNet 与 IP-Adapter",
+    "model": "ControlNet / IP-Adapter",
+    "family": "any",
+    "gen": "2023-",
+    "weightSyntax": "由底层模型决定",
+    "weightRange": [
+      0.4,
+      0.7
+    ],
+    "weightEffect": "结构参考取 0.6 左右稳定；风格参考可到 0.8",
+    "bracketStack": "随底层模型",
+    "negPrompt": "随底层模型",
+    "naturalLang": "随底层模型",
+    "cfg": null,
+    "steps": null,
+    "sampler": "随底层模型",
+    "promptStyle": "提示词只负责补氛围与细节，结构交给控制通道",
+    "idealLen": null,
+    "failTypes": [
+      "结构权重给太高会连原图的姿态一起僵化复制",
+      "用风格参考时若不给风格词，会退化成内容参考"
+    ],
+    "status": "tested",
+    "fact": "控制通道按输入约束生成：骨架图定姿态、深度图定空间、边缘图定轮廓；适配器则喂参考图定风格。",
+    "seen": "两者性质不同：控制通道管结构，适配器管风格，混用会互相干扰。",
+    "test": "适配器权重 0.4 到 0.7 最常用；控制通道的结构权重超过 0.9 会把画面锁死到参考图，失去变化空间。",
+    "note": "这是解决本库 T-06 区域改造任务的正解：用遮罩控制通道，只在目标区域施加，不要靠提示词。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-008"
+  },
+  {
+    "id": "MT-09",
+    "zh": "LoRA 微调",
+    "model": "LoRA 微调",
+    "family": "any",
+    "gen": "2023-",
+    "weightSyntax": "随底层模型",
+    "weightRange": [
+      0.5,
+      1
+    ],
+    "weightEffect": "建议从 0.7 起调",
+    "bracketStack": "随底层模型",
+    "negPrompt": "随底层模型",
+    "naturalLang": "随底层模型",
+    "cfg": null,
+    "steps": null,
+    "sampler": "随底层模型",
+    "promptStyle": "仍需要写提示词，但描述性可以大幅简化",
+    "idealLen": [
+      20,
+      60
+    ],
+    "failTypes": [
+      "权重 1.0 以上容易过拟合，出现固定构图与固定配色"
+    ],
+    "status": "tested",
+    "fact": "二三十张风格一致的图就能训出一个风格适配器，适合长期稳定输出同一套视觉语言。",
+    "seen": "它学到的是这个训练集的共同特征，包括缺点（固定构图、偏好色调）。",
+    "test": "权重建议 0.7 起步，上限不要超过 1.0，超过就容易变成复制训练图。",
+    "note": "注意许可：拿在世画家的画训适配器用于商业是法律灰区，商业项目请用已故作者或已授权素材，并单独评估许可。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-009"
+  },
+  {
+    "id": "MT-10",
+    "zh": "自然语言模型",
+    "model": "GPT 图像 / Ideogram / Firefly 等自然语言模型",
+    "family": "nlp",
+    "gen": "2024-",
+    "weightSyntax": "忽略",
+    "weightRange": [
+      1,
+      1
+    ],
+    "weightEffect": "无，强调靠位置与重复",
+    "bracketStack": "不要用",
+    "negPrompt": "多数不提供，或效果有限",
+    "naturalLang": "很强，整段对话式描述都有效",
+    "cfg": null,
+    "steps": null,
+    "sampler": "内置",
+    "promptStyle": "完整句子，明确写出重点与优先级",
+    "idealLen": null,
+    "failTypes": [
+      "堆砌括号权重",
+      "把最重要的词放在最后"
+    ],
+    "status": "tested",
+    "fact": "这类模型不解析数值权重，强调靠语义位置：越靠前、重复越多，被关注得越多。",
+    "seen": "写「一身鲜红的红毛狐狸」比写「红狐狸」有效；写「红衣是画面主色」比任何权重语法都有效。",
+    "test": "有效顺序是：先写主体，再写次要元素，用具体形容词替代强度词。这是本库 gpt 输出通道的设计依据。",
+    "note": "本库 gpt 通道输出的就是完整自然语言，直接可粘，不要再自己补括号。",
+    "gptWorks": true,
+    "retouched": false,
+    "code": "MT-010"
+  },
+  {
+    "id": "MT-11",
+    "zh": "蒸馏加速模型",
+    "model": "蒸馏加速模型（Turbo / Lightning / Hyper 等）",
+    "family": "distilled",
+    "gen": "2023-",
+    "weightSyntax": "随底层",
+    "weightRange": null,
+    "weightEffect": "弱",
+    "bracketStack": "随底层",
+    "negPrompt": "弱",
+    "naturalLang": "中等",
+    "cfg": [
+      1,
+      2
+    ],
+    "cfgDefault": 1.5,
+    "steps": [
+      4,
+      8
+    ],
+    "sampler": "配套的少步采样器",
+    "promptStyle": "短标签串，与底层一致",
+    "idealLen": [
+      40,
+      80
+    ],
+    "failTypes": [
+      "引导值给到 7 以上会烧掉画面",
+      "步数给多反而崩"
+    ],
+    "status": "tested",
+    "fact": "在底模上做少步蒸馏，换来的是十几倍速度。",
+    "seen": "画面细节会掉一档，构图反而更干净。",
+    "test": "引导值 1 到 2，任何超过 3 的值都会烧掉画面。这是与底模最反直觉的参数差异。",
+    "note": "适合快速筛构图，定稿仍应回到底模重跑。",
+    "gptWorks": false,
+    "retouched": true,
+    "code": "MT-011"
+  },
+  {
+    "id": "MT-12",
+    "zh": "社区微调底模",
+    "model": "风格权重站与社区微调底模",
+    "family": "community",
+    "gen": "2023-",
+    "weightSyntax": "随底层",
+    "weightRange": null,
+    "weightEffect": "随底层",
+    "bracketStack": "随底层",
+    "negPrompt": "随底层",
+    "naturalLang": "随底层",
+    "cfg": null,
+    "steps": null,
+    "sampler": "随发布页说明",
+    "promptStyle": "部分底模带评分标签习惯（如某系二次元模型需要特定标签）",
+    "idealLen": null,
+    "failTypes": [
+      "沿用通用提示词导致画面不对味",
+      "忽视底模特有的标签体系"
+    ],
+    "status": "written",
+    "fact": "社区底模常带自己训练时用的标签习惯，不写在发布页上就不知道。",
+    "read": "本库不收录具体社区底模的提示词，因为这类习惯变化极快，写死反而误导。",
+    "test": "拿到新底模的第一件事：读它的发布页模型卡，把触发词抄进本地备注，再开始调。",
+    "note": "许可上是重灾区：底模许可、训练数据来源、能否商用三者常常不一致，商用前必须逐项确认，不要凭感觉判断。",
+    "gptWorks": false,
+    "retouched": false,
+    "code": "MT-012"
+  }
+]

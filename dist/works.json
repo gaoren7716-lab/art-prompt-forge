@@ -1,0 +1,4418 @@
+[
+  {
+    "id": "W-01",
+    "status": "reviewed",
+    "collection": "故宫博物院",
+    "src": {
+      "qid": "Q2020418",
+      "pv": "Wikidata"
+    },
+    "zh": "洛神赋图",
+    "en": "Nymph of the Luo River",
+    "pid": "P-CN01",
+    "year": "宋摹本",
+    "mvId": "M-41",
+    "F": {
+      "medium": [
+        "silk handscroll with mineral pigment"
+      ],
+      "brush": [
+        "spring worm thread line"
+      ],
+      "color": [
+        "flat cinnabar and malachite"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "continuous shifting viewpoint"
+      ],
+      "motif": [
+        "goddess above ripples",
+        "floating silk scarf"
+      ],
+      "spirit": [
+        "ethereal courtly longing"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "flat-decoration",
+      "gold-ground",
+      "perspective-flat",
+      "tiny-detail"
+    ],
+    "desc": "人与神隔着一层水汽：线条细到几乎没有起伏，但衣带飘得足够长。",
+    "note": "人物可以反复出现在同一卷上，这是移动视点的特权，不要用单一透视去修正它。",
+    "code": "WK-001"
+  },
+  {
+    "id": "W-02",
+    "status": "reviewed",
+    "collection": "故宫博物院",
+    "src": {
+      "qid": "Q1092048",
+      "pv": "Wikidata"
+    },
+    "zh": "游春图",
+    "en": "Spring Excursion",
+    "pid": "P-CN02",
+    "year": "约600",
+    "mvId": "M-41",
+    "F": {
+      "medium": [
+        "silk with mineral blue and green"
+      ],
+      "brush": [
+        "fine even contour"
+      ],
+      "color": [
+        "azurite and malachite green"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "early receding water distance"
+      ],
+      "motif": [
+        "spring outing",
+        "small boat on lake"
+      ],
+      "spirit": [
+        "fresh courtly delight"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "polychrome-full",
+      "perspective-flat",
+      "flat-decoration"
+    ],
+    "desc": "中国现存最早的独立山水画：人还很小，山水的比例第一次站住了。",
+    "note": "石青石绿要压得住，但不能出现投影，一有投影就掉进后世的语言里。",
+    "code": "WK-002"
+  },
+  {
+    "id": "W-03",
+    "status": "reviewed",
+    "collection": "故宫博物院",
+    "src": {
+      "qid": "Q1174144",
+      "pv": "Wikidata"
+    },
+    "zh": "步辇图",
+    "en": "Emperor Taizong Receiving the Tibetan Envoy",
+    "pid": "P-CN03",
+    "year": "约640",
+    "mvId": "M-41",
+    "F": {
+      "medium": [
+        "silk handscroll"
+      ],
+      "brush": [
+        "iron wire steady line"
+      ],
+      "color": [
+        "flat court red and ink black"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "ceremonial frontal grouping"
+      ],
+      "motif": [
+        "imperial palanquin",
+        "tribute envoy",
+        "fan bearers"
+      ],
+      "spirit": [
+        "state dignity"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "polychrome-full",
+      "hard-edge",
+      "perspective-flat"
+    ],
+    "desc": "一幅政治文件：用体量与朝向把尊卑说得清清楚楚。",
+    "note": "九位宫女簇拥一辆步辇，人群的疏密就是等级，不要平均分布。",
+    "code": "WK-003"
+  },
+  {
+    "id": "W-04",
+    "status": "reviewed",
+    "collection": "故宫博物院",
+    "zh": "送子天王图",
+    "en": "Birth of the Prince",
+    "pid": "P-CN04",
+    "year": "唐",
+    "mvId": "M-41",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "flying ribbon stroke"
+      ],
+      "color": [
+        "ink line with slight tint"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "diagonal surge of deities"
+      ],
+      "motif": [
+        "heavenly attendants",
+        "wind-blown drapery"
+      ],
+      "spirit": [
+        "celestial motion"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "monochrome-ink",
+      "broad-gesture",
+      "flat-decoration"
+    ],
+    "desc": "线条自己会跑：衣带比人物更用力，笔锋一路不停。",
+    "note": "所谓吴带当风，关键在笔的连续；断成一节一节就失去势。",
+    "code": "WK-004"
+  },
+  {
+    "id": "W-05",
+    "status": "reviewed",
+    "collection": "台北故宫博物院",
+    "zh": "江山雪霁图",
+    "en": "Clearing Snow over Rivers and Mountains",
+    "pid": "P-CN05",
+    "year": "传唐",
+    "mvId": "M-41",
+    "F": {
+      "medium": [
+        "ink on silk"
+      ],
+      "brush": [
+        "soft broken ink wash"
+      ],
+      "color": [
+        "monochrome ink with reserved white"
+      ],
+      "light": [
+        "cold reflected snowlight"
+      ],
+      "space": [
+        "wide level river distance"
+      ],
+      "motif": [
+        "snowy ridge",
+        "bare tree",
+        "hermit hut"
+      ],
+      "spirit": [
+        "silent Buddhist emptiness"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "ink-aqueous",
+      "minimal-empty",
+      "wet-blending"
+    ],
+    "desc": "雪不画雪，留出白就是雪：全凭墨的浓淡把冬天托出来。",
+    "note": "留白必须是真的空，补几笔远树就毁了那股寒气。",
+    "code": "WK-005"
+  },
+  {
+    "id": "W-06",
+    "status": "reviewed",
+    "collection": "台北故宫博物院",
+    "zh": "捣练图",
+    "en": "Court Ladies Preparing Newly Woven Silk",
+    "pid": "P-CN06",
+    "year": "宋摹本",
+    "mvId": "M-41",
+    "F": {
+      "medium": [
+        "silk with heavy mineral colour"
+      ],
+      "brush": [
+        "thin even court line"
+      ],
+      "color": [
+        "rouge crimson and indigo"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "three stage work sequence"
+      ],
+      "motif": [
+        "silk pounding women",
+        "charcoal brazier",
+        "seated supervisor"
+      ],
+      "spirit": [
+        "calm court industry"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "polychrome-full",
+      "flat-decoration",
+      "tiny-detail"
+    ],
+    "desc": "捣练、缝制、熨烫三段排成一条时间线：劳动被画得像礼节。",
+    "note": "三组人要在平面上排队，不能做出前後纵深；这是手卷的读法。",
+    "code": "WK-006"
+  },
+  {
+    "id": "W-07",
+    "status": "reviewed",
+    "collection": "故宫博物院",
+    "zh": "挥扇仕女图",
+    "en": "Ladies with Fans",
+    "pid": "P-CN07",
+    "year": "唐末",
+    "mvId": "M-41",
+    "F": {
+      "medium": [
+        "silk with opaque mineral colour"
+      ],
+      "brush": [
+        "rounded plump contour"
+      ],
+      "color": [
+        "muted peach and dull gold"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "spaced idle row"
+      ],
+      "motif": [
+        "fan holding lady",
+        "empty distant stare"
+      ],
+      "spirit": [
+        "bored court melancholy"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "polychrome-full",
+      "flat-decoration",
+      "muted-grey"
+    ],
+    "desc": "丰腴是时代的标准，眼神的空洞却是画家自己的观察。",
+    "note": "衣裳可以用铅白压出厚度，但背景必须空，拥挤就失去那种无聊。",
+    "code": "WK-007"
+  },
+  {
+    "id": "W-08",
+    "status": "reviewed",
+    "collection": "辽宁省博物馆",
+    "zh": "匡庐图",
+    "en": "Mount Kuang-lu",
+    "pid": "P-CN08",
+    "year": "五代",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink on silk"
+      ],
+      "brush": [
+        "axe-cut texture stroke"
+      ],
+      "color": [
+        "monochrome ink"
+      ],
+      "light": [
+        "raking side light on rock"
+      ],
+      "space": [
+        "towering full mountain"
+      ],
+      "motif": [
+        "sheer cliff",
+        "hidden mountain path"
+      ],
+      "spirit": [
+        "northern monumental order"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "fine-art-depth",
+      "tiny-detail",
+      "cropped-depth"
+    ],
+    "desc": "全景式大山的祖版：中堂立轴，人要走了很远才发现自己在画外。",
+    "note": "皴法必须见刀痕，磨平就失去北方山石的硬。",
+    "code": "WK-008"
+  },
+  {
+    "id": "W-09",
+    "status": "reviewed",
+    "collection": "故宫博物院",
+    "zh": "潇湘图",
+    "en": "Xiao and Xiang Rivers",
+    "pid": "P-CN09",
+    "year": "五代",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink and light colour on silk"
+      ],
+      "brush": [
+        "hemp fibre texture stroke"
+      ],
+      "color": [
+        "warm ink with soft green"
+      ],
+      "light": [
+        "humid diffused haze"
+      ],
+      "space": [
+        "low rolling riverbank"
+      ],
+      "motif": [
+        "fishermen casting net",
+        "reed covered bank"
+      ],
+      "spirit": [
+        "southern moist softness"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "wet-blending",
+      "ink-aqueous",
+      "fine-art-depth"
+    ],
+    "desc": "江南的土山起伏很缓，全靠水汽把远近分成几层。",
+    "note": "一定要保留那种湿：笔笔不要太干，干了就不像江南。",
+    "code": "WK-009"
+  },
+  {
+    "id": "W-10",
+    "status": "reviewed",
+    "collection": "台北故宫博物院",
+    "zh": "溪山行旅图",
+    "en": "Travelers among Mountains and Streams",
+    "pid": "P-CN11",
+    "year": "约1000",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink on silk"
+      ],
+      "brush": [
+        "raindrop texture stroke"
+      ],
+      "color": [
+        "deep monochrome ink"
+      ],
+      "light": [
+        "cool crisp daylight"
+      ],
+      "space": [
+        "vertical wall of mountain"
+      ],
+      "motif": [
+        "narrow ledge trail",
+        "mule train"
+      ],
+      "spirit": [
+        "awe before nature"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "fine-art-depth",
+      "tiny-detail",
+      "perspective-linear"
+    ],
+    "desc": "整座山几乎顶到纸边：人只有指甲大，却在近处看得清每一匹骡子。",
+    "note": "主峰必须占据三分之二以上，缩小它就没有那种压迫感。",
+    "code": "WK-010"
+  },
+  {
+    "id": "W-11",
+    "status": "reviewed",
+    "zh": "早春图",
+    "en": "Early Spring",
+    "pid": "P-CN12",
+    "year": "1072",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink and pale colour on silk"
+      ],
+      "brush": [
+        "cloud head texture stroke"
+      ],
+      "color": [
+        "warm ink with pale ochre"
+      ],
+      "light": [
+        "early seasonal mist"
+      ],
+      "space": [
+        "serpentine swirling mass"
+      ],
+      "motif": [
+        "curling rock mass",
+        "crab claw branch"
+      ],
+      "spirit": [
+        "seasonal breath"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "fine-art-depth",
+      "wet-blending",
+      "painterly-stroke"
+    ],
+    "desc": "山像龙一样扭起来：这不是地质，是「气」的形状。",
+    "note": "雾要在山腰断层留出一段白，填满了就失去那种刚刚复苏的季节感。",
+    "code": "WK-011"
+  },
+  {
+    "id": "W-12",
+    "status": "reviewed",
+    "zh": "万壑松风图",
+    "en": "Wind among Pines in a Myriad Valleys",
+    "pid": "P-CN13",
+    "year": "1124",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink and pale wash on silk"
+      ],
+      "brush": [
+        "large axe-cut stroke"
+      ],
+      "color": [
+        "deep ink with light wash"
+      ],
+      "light": [
+        "strong side raking light"
+      ],
+      "space": [
+        "compressed stone gorge"
+      ],
+      "motif": [
+        "pine grove",
+        "white water jet"
+      ],
+      "spirit": [
+        "hard northern grandeur"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "fine-art-depth",
+      "hard-edge",
+      "cropped-depth"
+    ],
+    "desc": "把大斧劈皴用到极致：石头像被刀削过，水是画布上唯一的声音。",
+    "note": "皴的笔要阔、要狠；描得太细就变成后人的仿本。",
+    "code": "WK-012"
+  },
+  {
+    "id": "W-13",
+    "status": "reviewed",
+    "zh": "寒江独钓图",
+    "en": "Solitary Angler on a Wintry River",
+    "pid": "P-CN14",
+    "year": "南宋",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink on silk album leaf"
+      ],
+      "brush": [
+        "restrained sparse wet line"
+      ],
+      "color": [
+        "monochrome ink with vast white"
+      ],
+      "light": [
+        "cold pale water light"
+      ],
+      "space": [
+        "single corner composition"
+      ],
+      "motif": [
+        "lone boat",
+        "taut fishing line"
+      ],
+      "spirit": [
+        "solitary Daoist stillness"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "minimal-empty",
+      "ink-aqueous",
+      "perspective-flat"
+    ],
+    "desc": "画面只剩一只船：空白不是没画，是被当作水与雾在用。",
+    "note": "九成必须留白，多添一笔远山就堵死了。",
+    "code": "WK-013"
+  },
+  {
+    "id": "W-14",
+    "status": "reviewed",
+    "zh": "溪山清远图",
+    "en": "Pure and Remote Views of Streams and Mountains",
+    "pid": "P-CN15",
+    "year": "南宋",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink on paper handscroll"
+      ],
+      "brush": [
+        "rough axe-cut with splashed wash"
+      ],
+      "color": [
+        "wet ink with pale mist"
+      ],
+      "light": [
+        "bright river glare"
+      ],
+      "space": [
+        "receding half corner distance"
+      ],
+      "motif": [
+        "fishing hamlet",
+        "long sandy river"
+      ],
+      "spirit": [
+        "clear distant openness"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "wet-blending",
+      "minimal-empty",
+      "cropped-depth"
+    ],
+    "desc": "长卷上的半边构图：远处一层一层退进去，近处一块石头就够了。",
+    "note": "墨要饱、要带飞白；刷得太匀就没有那种水气。",
+    "code": "WK-014"
+  },
+  {
+    "id": "W-15",
+    "status": "reviewed",
+    "zh": "五马图",
+    "en": "Five Tribute Horses",
+    "pid": "P-CN16",
+    "year": "约1090",
+    "mvId": "M-42",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "plain drawing white line"
+      ],
+      "color": [
+        "ink only with light tint"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "isolated single horse"
+      ],
+      "motif": [
+        "tribute horse",
+        "foreign groom"
+      ],
+      "spirit": [
+        "scholar restraint"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "monochrome-ink",
+      "minimal-empty",
+      "tiny-detail"
+    ],
+    "desc": "白描的最高峰：不着一色，马的肥瘦与性格全在一根线的提按里。",
+    "note": "可以极淡地渲染一点结构，但不能上重色；上了就丢掉白描的骨气。",
+    "code": "WK-015"
+  },
+  {
+    "id": "W-16",
+    "status": "reviewed",
+    "zh": "鹊华秋色图",
+    "en": "Autumn Colors on the Qiao and Hua Mountains",
+    "pid": "P-CN17",
+    "year": "1295",
+    "mvId": "M-43",
+    "F": {
+      "medium": [
+        "ink and colour on paper"
+      ],
+      "brush": [
+        "archaic even calligraphic line"
+      ],
+      "color": [
+        "blue green with warm ochre"
+      ],
+      "light": [
+        "clear autumn daylight"
+      ],
+      "space": [
+        "flat interwoven alluvial plain"
+      ],
+      "motif": [
+        "autumn red trees",
+        "two named peaks",
+        "huts in grove"
+      ],
+      "spirit": [
+        "learned archaic nostalgia"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "polychrome-full",
+      "perspective-flat",
+      "flat-decoration"
+    ],
+    "desc": "一纸卷起来的家国想象：把远方的两座山，画成朋友家乡的样子。",
+    "note": "要有那种「老笔」的生拙：刻意追求工整就失去赵孟頫的复古心思。",
+    "code": "WK-016"
+  },
+  {
+    "id": "W-17",
+    "status": "reviewed",
+    "zh": "富春山居图",
+    "en": "Dwelling in the Fuchun Mountains",
+    "pid": "P-CN18",
+    "year": "约1350",
+    "mvId": "M-43",
+    "F": {
+      "medium": [
+        "ink on long paper scroll"
+      ],
+      "brush": [
+        "long hemp fibre stroke"
+      ],
+      "color": [
+        "warm dry ink with light ochre"
+      ],
+      "light": [
+        "soft autumn diffusion"
+      ],
+      "space": [
+        "wandering river valley"
+      ],
+      "motif": [
+        "fishing hut",
+        "pine on the bank",
+        "empty bridge"
+      ],
+      "spirit": [
+        "retired hermit ease"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "painterly-stroke",
+      "minimal-empty",
+      "wet-blending"
+    ],
+    "desc": "一段长达数米的手卷：山的起落像呼吸，看画的人在山上慢慢走。",
+    "note": "笔要干中有润；一味干枯变成荒，一味湿润就腻。",
+    "code": "WK-017"
+  },
+  {
+    "id": "W-18",
+    "status": "reviewed",
+    "zh": "渔庄秋霁图",
+    "en": "Autumn Rain at Fishing Village",
+    "pid": "P-CN20",
+    "year": "1355",
+    "mvId": "M-43",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "dry casual side stroke"
+      ],
+      "color": [
+        "pale grey ink"
+      ],
+      "light": [
+        "cold thin daylight"
+      ],
+      "space": [
+        "three layered emptiness"
+      ],
+      "motif": [
+        "bare tree",
+        "absent boat",
+        "distant low bank"
+      ],
+      "spirit": [
+        "aloof cleanliness"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "minimal-empty",
+      "line-primary",
+      "muted-grey"
+    ],
+    "desc": "一河两岸：中间全是水，一棵歪树站在最前面，比整幅山水还倔。",
+    "note": "墨必须淡到几乎不见；浓一笔就俗了。",
+    "code": "WK-018"
+  },
+  {
+    "id": "W-19",
+    "status": "reviewed",
+    "zh": "青卞隐居图",
+    "en": "Retreat in the Qingbian Mountains",
+    "pid": "P-CN21",
+    "year": "1366",
+    "mvId": "M-43",
+    "F": {
+      "medium": [
+        "ink on paper hanging scroll"
+      ],
+      "brush": [
+        "dense curling ox hair stroke"
+      ],
+      "color": [
+        "warm deep monochrome ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "piled cramped peaks"
+      ],
+      "motif": [
+        "hidden retreat",
+        "winding valley path"
+      ],
+      "spirit": [
+        "turbulent erudite energy"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "painterly-stroke",
+      "hyper-ornament",
+      "fine-art-depth"
+    ],
+    "desc": "山一层压一层，笔也一层压一层：密到喘不过气，却处处有路可走。",
+    "note": "皴法可以重复交叠，但不能糊成一团黑，每一笔都要认得出起落。",
+    "code": "WK-019"
+  },
+  {
+    "id": "W-20",
+    "status": "reviewed",
+    "zh": "墨葡萄图",
+    "en": "Ink Grapes",
+    "pid": "P-CN28",
+    "year": "明万历",
+    "mvId": "M-43",
+    "F": {
+      "medium": [
+        "ink on paper handscroll"
+      ],
+      "brush": [
+        "wild splashed monochrome ink"
+      ],
+      "color": [
+        "graded wet ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "eccentric off-centre scatter"
+      ],
+      "motif": [
+        "grape vine",
+        "broken branch"
+      ],
+      "spirit": [
+        "reckless frustration"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "broad-gesture",
+      "ink-aqueous",
+      "minimal-empty"
+    ],
+    "desc": "葡萄只是借口：泼墨一路砸下去，题诗占了半张纸。",
+    "note": "必须保留那种野，线可以乱，但不能没有提按的速度。",
+    "code": "WK-020"
+  },
+  {
+    "id": "W-21",
+    "status": "written",
+    "zh": "秋兴八景图册",
+    "en": "Eight Views of Autumn",
+    "pid": "P-CN29",
+    "year": "1620",
+    "mvId": "M-43",
+    "F": {
+      "medium": [
+        "ink and light colour on paper album"
+      ],
+      "brush": [
+        "dry calligraphic stroke"
+      ],
+      "color": [
+        "warm ochre with pale ink"
+      ],
+      "light": [
+        "clear autumn daylight"
+      ],
+      "space": [
+        "constructed modular peaks"
+      ],
+      "motif": [
+        "autumn trees",
+        "river terrace"
+      ],
+      "spirit": [
+        "learned formal order"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "painterly-stroke",
+      "monochrome-ink",
+      "fine-art-depth"
+    ],
+    "desc": "把古人拆成构件再重装：山势的起伏先服从于笔墨的排布。",
+    "note": "要有书法用笔的意识，中锋为主，纯渲染就失去那种理趣。",
+    "code": "WK-021"
+  },
+  {
+    "id": "W-22",
+    "status": "written",
+    "zh": "水浒叶子",
+    "en": "Water Margin Cards",
+    "pid": "P-CN30",
+    "year": "1633",
+    "mvId": "M-43",
+    "F": {
+      "medium": [
+        "woodblock printed album"
+      ],
+      "brush": [
+        "angular exaggerated outline"
+      ],
+      "color": [
+        "flat black printed ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "isolated single figure"
+      ],
+      "motif": [
+        "outlaw hero",
+        "sword and staff"
+      ],
+      "spirit": [
+        "grotesque loyal heroism"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "hard-edge",
+      "flat-print",
+      "perspective-flat"
+    ],
+    "desc": "酒牌上的一百零八将：躯干压得矮、头却很大，变形是为了让性格立住。",
+    "note": "轮廓要拙要有顿挫，画得圆润就失去木刻的金石味。",
+    "code": "WK-022"
+  },
+  {
+    "id": "W-23",
+    "status": "written",
+    "zh": "荷花图",
+    "en": "Lotus after Yun Shouping",
+    "pid": "P-CN31",
+    "year": "清康熙",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "silk with transparent colour"
+      ],
+      "brush": [
+        "boneless colour wash"
+      ],
+      "color": [
+        "pink and pale green"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "single centred bloom"
+      ],
+      "motif": [
+        "lotus flower",
+        "broad leaf"
+      ],
+      "spirit": [
+        "elegant lucid freshness"
+      ]
+    },
+    "tags": [
+      "wet-blending",
+      "polychrome-full",
+      "no-outline",
+      "minimal-empty"
+    ],
+    "desc": "没骨法的极致：不勾一根轮廓线，全靠颜色的边界把花瓣托起来。",
+    "note": "可以薄到看得见绢纹，一旦加线就不是恽派了。",
+    "code": "WK-023"
+  },
+  {
+    "id": "W-24",
+    "status": "written",
+    "zh": "仿大痴山水图",
+    "en": "After Huang Gongwang",
+    "pid": "P-CN32",
+    "year": "1707",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "short layered dry stroke"
+      ],
+      "color": [
+        "warm ink with pale ochre"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "stacked geometric mass"
+      ],
+      "motif": [
+        "mountain blocks",
+        "empty pavilion"
+      ],
+      "spirit": [
+        "methodical scholarly discipline"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "painterly-stroke",
+      "fine-art-depth",
+      "hard-edge"
+    ],
+    "desc": "小块山石垒出大块山：一层皴加一层淡墨，像盖房子一样往上垒。",
+    "note": "要有淡墨一遍遍积上去的厚度，一遍刷完就薄了。",
+    "code": "WK-024"
+  },
+  {
+    "id": "W-25",
+    "status": "written",
+    "zh": "孤禽图",
+    "en": "Lone Bird",
+    "pid": "P-CN33",
+    "year": "1692",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "single decisive stroke"
+      ],
+      "color": [
+        "monochrome ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "vast emptiness around one bird"
+      ],
+      "motif": [
+        "lone bird",
+        "square rolled eye"
+      ],
+      "spirit": [
+        "cold aristocratic defiance"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "minimal-empty",
+      "broad-gesture",
+      "cropped-depth"
+    ],
+    "desc": "一只鸟站在大片空白里，眼睛是方的：翻着看这个世界。",
+    "note": "空白是画面的主体，不要补背景，一补那股冷就没有了。",
+    "code": "WK-025"
+  },
+  {
+    "id": "W-26",
+    "status": "written",
+    "zh": "搜尽奇峰打草稿",
+    "en": "Drafting after Searching All the Strange Peaks",
+    "pid": "P-CN34",
+    "year": "1691",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "ink and pale colour on paper scroll"
+      ],
+      "brush": [
+        "varied wet and dry invocation"
+      ],
+      "color": [
+        "wet ink with light ochre"
+      ],
+      "light": [
+        "shifting mist"
+      ],
+      "space": [
+        "winding continuous mountain"
+      ],
+      "motif": [
+        "odd peak",
+        "hermit in cave"
+      ],
+      "spirit": [
+        "radical direct authenticity"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "painterly-stroke",
+      "wet-blending",
+      "broad-gesture"
+    ],
+    "desc": "标题就是宣言：黄山只是素材，真正要画的是搜罗进胸中的那些峰。",
+    "note": "笔法要一变再变，全卷统一成一种皴就违背了石涛的主张。",
+    "code": "WK-026"
+  },
+  {
+    "id": "W-27",
+    "status": "written",
+    "zh": "千岩万壑图",
+    "en": "Valleys and Myriad Ravines",
+    "pid": "P-CN35",
+    "year": "1670年代",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "layered dot accumulation"
+      ],
+      "color": [
+        "deep dense ink"
+      ],
+      "light": [
+        "crepuscular heavy"
+      ],
+      "space": [
+        "deep stacked valley"
+      ],
+      "motif": [
+        "dense forest",
+        "hidden cottages"
+      ],
+      "spirit": [
+        "solemn accumulated darkness"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "tiny-detail",
+      "fine-art-depth",
+      "muted-grey"
+    ],
+    "desc": "一遍遍积墨：山是被无数次淡染堆出来的，越黑越见厚度。",
+    "note": "亮的白要留给林间的雾，没有这块白，黑就死住了。",
+    "code": "WK-027"
+  },
+  {
+    "id": "W-28",
+    "status": "written",
+    "zh": "黄山天都峰图",
+    "en": "Tiandu Peak of Mount Huang",
+    "pid": "P-CN36",
+    "year": "1660",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "thin geometric line"
+      ],
+      "color": [
+        "pale cold ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "angular stacked rock"
+      ],
+      "motif": [
+        "granite peak",
+        "lone pine"
+      ],
+      "spirit": [
+        "ascetic clarity"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "line-primary",
+      "hard-edge",
+      "minimal-empty"
+    ],
+    "desc": "几乎没有皴：只用线把黄山的石面分出来，冷得像几何。",
+    "note": "皴擦要压到最少，靠结构线撑住，墨一多就浊。",
+    "code": "WK-028"
+  },
+  {
+    "id": "W-29",
+    "status": "written",
+    "zh": "墨竹图",
+    "en": "Ink Bamboo",
+    "pid": "P-CN38",
+    "year": "清乾隆",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "calligraphic bamboo stroke"
+      ],
+      "color": [
+        "monochrome ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "vertical sparse arrangement"
+      ],
+      "motif": [
+        "bamboo stalk",
+        "rock companion"
+      ],
+      "spirit": [
+        "stubborn official integrity"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "line-primary",
+      "broad-gesture",
+      "minimal-empty"
+    ],
+    "desc": "竹叶是撇出去的字：一笔一叶，笔笔讲究起收。",
+    "note": "要疏不要密，所谓难得糊涂，落到画上就是留出气口。",
+    "code": "WK-029"
+  },
+  {
+    "id": "W-30",
+    "status": "written",
+    "zh": "酸寒尉像",
+    "en": "Portrait of a Poor Low-Rank Official",
+    "pid": "P-CN40",
+    "year": "1888",
+    "mvId": "M-44",
+    "F": {
+      "medium": [
+        "ink and light colour on paper"
+      ],
+      "brush": [
+        "swift mixed line and wash"
+      ],
+      "color": [
+        "pale flesh tint with black robe"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "frontally stiff figure"
+      ],
+      "motif": [
+        "low rank official",
+        "sealed hat"
+      ],
+      "spirit": [
+        "satiric self pity"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "broad-gesture",
+      "minimal-empty",
+      "muted-grey"
+    ],
+    "desc": "画给朋友的穷像：袍子是黑的，眼神是忍着的。",
+    "note": "要有写意的快，但不能潦草，五官的准度是任伯年的底子。",
+    "code": "WK-030"
+  },
+  {
+    "id": "W-31",
+    "status": "written",
+    "zh": "桃实图",
+    "en": "Peaches of Longevity",
+    "pid": "P-CN41",
+    "year": "1915",
+    "mvId": "M-52",
+    "F": {
+      "medium": [
+        "ink and heavy colour on paper"
+      ],
+      "brush": [
+        "seal script branch stroke"
+      ],
+      "color": [
+        "cinnabar peach with deep ink leaf"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "diagonal heavy branch"
+      ],
+      "motif": [
+        "peaches",
+        "thick branch"
+      ],
+      "spirit": [
+        "robust auspicious vigour"
+      ]
+    },
+    "tags": [
+      "broad-gesture",
+      "saturated-clash",
+      "polychrome-full",
+      "painterly-stroke"
+    ],
+    "desc": "把篆书的笔力画进果子：枝干粗得像铁，桃子红得发亮。",
+    "note": "色必须压得住墨，洋红要厚但要沉，浮艳就变俗。",
+    "code": "WK-031"
+  },
+  {
+    "id": "W-32",
+    "status": "written",
+    "zh": "墨虾图",
+    "en": "Ink Shrimps",
+    "pid": "P-CN42",
+    "year": "1940年代",
+    "mvId": "M-52",
+    "F": {
+      "medium": [
+        "ink on paper"
+      ],
+      "brush": [
+        "transparent layered wash"
+      ],
+      "color": [
+        "graded grey ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "free swimming void"
+      ],
+      "motif": [
+        "shrimp",
+        "long antenna line"
+      ],
+      "spirit": [
+        "playful rustic wit"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "wet-blending",
+      "ink-aqueous",
+      "minimal-empty"
+    ],
+    "desc": "水从来不画：虾身的浓淡自己把水做出来了。",
+    "note": "水必须完全留白，只靠虾身的透明感，补一道水纹就是败笔。",
+    "code": "WK-032"
+  },
+  {
+    "id": "W-33",
+    "status": "written",
+    "zh": "松鹰图",
+    "en": "Eagle on Pine",
+    "pid": "P-CN44",
+    "year": "1950年代",
+    "mvId": "M-52",
+    "F": {
+      "medium": [
+        "ink and pale colour on large paper"
+      ],
+      "brush": [
+        "iron wire with axe-cut"
+      ],
+      "color": [
+        "grey ink with ochre"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "corner weighted diagonal"
+      ],
+      "motif": [
+        "eagle on pine",
+        "cliff edge"
+      ],
+      "spirit": [
+        "severe structural might"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "hard-edge",
+      "line-primary",
+      "cropped-depth"
+    ],
+    "desc": "先把纸看成待分割的平面：线用得很硬，留白切得很准。",
+    "note": "构图必须险，主体压到边上，留出大块的空。",
+    "code": "WK-033"
+  },
+  {
+    "id": "W-34",
+    "status": "written",
+    "zh": "待细把江山图画",
+    "en": "The Country I Have Yet to Paint in Detail",
+    "pid": "P-CN45",
+    "year": "1961",
+    "mvId": "M-52",
+    "F": {
+      "medium": [
+        "ink and colour on paper"
+      ],
+      "brush": [
+        "scattered broad-split stroke"
+      ],
+      "color": [
+        "wet ink with pale green"
+      ],
+      "light": [
+        "rainy mountain mist"
+      ],
+      "space": [
+        "towering rain filled gorge"
+      ],
+      "motif": [
+        "huangshan pines",
+        "misty ridge"
+      ],
+      "spirit": [
+        "sweeping lyric realism"
+      ]
+    },
+    "tags": [
+      "broad-gesture",
+      "wet-blending",
+      "monochrome-ink",
+      "fine-art-depth"
+    ],
+    "desc": "散锋在纸上横冲竖撞：雨气、山气、笔气全搅在一处。",
+    "note": "皴要散、墨要湿，收得太整齐就不是傅家山水。",
+    "code": "WK-034"
+  },
+  {
+    "id": "W-35",
+    "status": "written",
+    "zh": "长江万里图",
+    "en": "Ten Thousand Li of the Yangtze",
+    "pid": "P-CN46",
+    "year": "1968",
+    "mvId": "M-52",
+    "F": {
+      "medium": [
+        "ink and heavy colour on long paper scroll"
+      ],
+      "brush": [
+        "splashed colour over ink line"
+      ],
+      "color": [
+        "azurite and malachite with gold"
+      ],
+      "light": [
+        "misty river haze"
+      ],
+      "space": [
+        "aerial continuous panorama"
+      ],
+      "motif": [
+        "great river",
+        "sailing boats"
+      ],
+      "spirit": [
+        "grand nostalgic sweep"
+      ]
+    },
+    "tags": [
+      "polychrome-full",
+      "broad-gesture",
+      "saturated-clash",
+      "fine-art-depth"
+    ],
+    "desc": "近二十米的长卷从源头走到入海：泼彩是晚年的武器。",
+    "note": "泼彩要与墨线互相咬住，纯泼的色彩就没有骨架。",
+    "code": "WK-035"
+  },
+  {
+    "id": "W-36",
+    "status": "written",
+    "zh": "万山红遍",
+    "en": "All Mountains Turned Red",
+    "pid": "P-CN49",
+    "year": "1963",
+    "mvId": "M-52",
+    "F": {
+      "medium": [
+        "ink and heavy colour on paper"
+      ],
+      "brush": [
+        "layered dark ink with cinnabar"
+      ],
+      "color": [
+        "cinnabar red over black ink"
+      ],
+      "light": [
+        "backlit glow through trees"
+      ],
+      "space": [
+        "compressed full composition"
+      ],
+      "motif": [
+        "autumn red hills",
+        "white cascade"
+      ],
+      "spirit": [
+        "solemn revolutionary grandeur"
+      ]
+    },
+    "tags": [
+      "saturated-clash",
+      "hard-edge",
+      "fine-art-depth",
+      "painterly-stroke"
+    ],
+    "desc": "红得几乎铺满全纸：靠几道白瀑和屋白把画面救回来。",
+    "note": "必须层层积到很黑再用红，一遍刷的红就浮。",
+    "code": "WK-036"
+  },
+  {
+    "id": "W-37",
+    "status": "written",
+    "zh": "唐狮子图屏风",
+    "en": "Chinese Lions at a Waterfall",
+    "pid": "P-JP02",
+    "year": "十六世纪",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "gold leaf folding screen with mineral colour"
+      ],
+      "brush": [
+        "broad ink stroke with flat fill"
+      ],
+      "color": [
+        "gold ground with ink black"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "monumental close cropping"
+      ],
+      "motif": [
+        "lion pair",
+        "pine tree"
+      ],
+      "spirit": [
+        "warlord authority"
+      ]
+    },
+    "tags": [
+      "gold-ground",
+      "hyper-ornament",
+      "hard-edge",
+      "flat-decoration"
+    ],
+    "desc": "两米高的金屏风：狮子几乎占满整个画面，金地比天空还亮。",
+    "note": "必须保留大面积金箔的空，塞满细节就失去桃山时代的豪气。",
+    "code": "WK-037"
+  },
+  {
+    "id": "W-38",
+    "status": "written",
+    "zh": "风神雷神图",
+    "en": "Wind and Thunder Gods",
+    "pid": "P-JP03",
+    "year": "十七世纪初",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "gold and colour on paper screens"
+      ],
+      "brush": [
+        "rapid ink with pooled wash"
+      ],
+      "color": [
+        "green azure and gold"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "two panel opposed swirl"
+      ],
+      "motif": [
+        "wind god",
+        "thunder god"
+      ],
+      "spirit": [
+        "comic elemental vigour"
+      ]
+    },
+    "tags": [
+      "gold-ground",
+      "flat-decoration",
+      "broad-gesture",
+      "saturated-clash"
+    ],
+    "desc": "两个神各占一扇屏：衣纹的线条本身就在起风。",
+    "note": "要有那种即兴的不匀，涂得太均匀就失去水汽。",
+    "code": "WK-038"
+  },
+  {
+    "id": "W-39",
+    "status": "written",
+    "zh": "红白梅图屏风",
+    "en": "Red and White Plum Blossoms",
+    "pid": "P-JP04",
+    "year": "约1710",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "gold leaf screen with mineral colour"
+      ],
+      "brush": [
+        "pooled wash without contour"
+      ],
+      "color": [
+        "vermilion white and gold"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "asymmetric flowing river"
+      ],
+      "motif": [
+        "red plum",
+        "white plum",
+        "black trunk"
+      ],
+      "spirit": [
+        "decorative seasonal elegance"
+      ]
+    },
+    "tags": [
+      "gold-ground",
+      "flat-decoration",
+      "hard-edge",
+      "hyper-ornament"
+    ],
+    "desc": "一条黑水从画面中间穿过：红梅与白梅被水一分为二。",
+    "note": "平涂是关键，花瓣不能有任何明暗，加了光影就不成琳派。",
+    "code": "WK-039"
+  },
+  {
+    "id": "W-40",
+    "status": "written",
+    "zh": "神奈川冲浪里",
+    "en": "The Great Wave off Kanagawa",
+    "pid": "P-JP05",
+    "year": "约1831",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "woodblock print on washi"
+      ],
+      "brush": [
+        "keyblock outline with flat colour plane"
+      ],
+      "color": [
+        "prussian blue with pale ochre"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "low horizon with breaking wave"
+      ],
+      "motif": [
+        "great wave",
+        "small mount fuji",
+        "oar boats"
+      ],
+      "spirit": [
+        "sublime natures force"
+      ]
+    },
+    "tags": [
+      "flat-print",
+      "hard-edge",
+      "line-primary",
+      "flat-decoration"
+    ],
+    "desc": "浪爪盖过富士山：最低的一角露出远处的雪顶，尺度全靠这个对比。",
+    "note": "普鲁士蓝必须是主角，颜色一多就失去那种印刷的力。",
+    "code": "WK-040"
+  },
+  {
+    "id": "W-41",
+    "status": "written",
+    "zh": "大桥骤雨",
+    "en": "Sudden Shower over Shin-Ohashi Bridge",
+    "pid": "P-JP06",
+    "year": "1857",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "woodblock print on washi"
+      ],
+      "brush": [
+        "flat plane with graded bokashi"
+      ],
+      "color": [
+        "grey blue with deep indigo"
+      ],
+      "light": [
+        "rain haze"
+      ],
+      "space": [
+        "high viewpoint over bridge"
+      ],
+      "motif": [
+        "summer squall",
+        "running figures",
+        "river below"
+      ],
+      "spirit": [
+        "fleeting weather mood"
+      ]
+    },
+    "tags": [
+      "flat-print",
+      "wet-blending",
+      "flat-decoration",
+      "natural-daylight"
+    ],
+    "desc": "雨丝要靠渐变与留白做出来：桥上的人在跑，桥下的水纹却很稳。",
+    "note": "雨的气氛来自渐变的灰，不是白线，画满白线就俗了。",
+    "code": "WK-041"
+  },
+  {
+    "id": "W-42",
+    "status": "written",
+    "zh": "妇人相学十体之一",
+    "en": "Ten Physiognomies of Women",
+    "pid": "P-JP07",
+    "year": "1792",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "woodblock print with mica ground"
+      ],
+      "brush": [
+        "fine curved line"
+      ],
+      "color": [
+        "muted purple with mica silver"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "half length close crop"
+      ],
+      "motif": [
+        "beauty arranging hair",
+        "hand mirror"
+      ],
+      "spirit": [
+        "elegant observation"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "flat-print",
+      "flat-decoration",
+      "tiny-detail"
+    ],
+    "desc": "把职业与性情都写进一根眼线和一只手：表面是美人，实际是相术。",
+    "note": "背景的云母必须留出空，装饰一多就把人盖住了。",
+    "code": "WK-042"
+  },
+  {
+    "id": "W-43",
+    "status": "written",
+    "zh": "奴江户兵卫",
+    "en": "Actor Otani Oniji III as Yakko Edobei",
+    "pid": "P-JP08",
+    "year": "1794",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "woodblock print with dark mica ground"
+      ],
+      "brush": [
+        "exaggerated angular outline"
+      ],
+      "color": [
+        "black robe with dark mica"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "bust against loaded ground"
+      ],
+      "motif": [
+        "kabuki actor",
+        "frown and glare"
+      ],
+      "spirit": [
+        "brutal theatrical truth"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "flat-print",
+      "hard-edge",
+      "flat-decoration"
+    ],
+    "desc": "写乐只画了十个月：演员脸上的那些丑与狠，他一个也不改。",
+    "note": "云母黑的背景必须压住，五官也不能修饰，修一点就不是写乐。",
+    "code": "WK-043"
+  },
+  {
+    "id": "W-44",
+    "status": "written",
+    "zh": "雪松图屏风",
+    "en": "Pines in Snow",
+    "pid": "P-JP09",
+    "year": "十八世纪",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "ink and light colour on gold screen"
+      ],
+      "brush": [
+        "restrained ink with snow reserve"
+      ],
+      "color": [
+        "gold ground with grey ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "wide low serial view"
+      ],
+      "motif": [
+        "snow laden pine",
+        "frozen stream"
+      ],
+      "spirit": [
+        "quiet observational calm"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "minimal-empty",
+      "gold-ground",
+      "wet-blending"
+    ],
+    "desc": "雪不画雪：留出纸的白，只把树身与水路的暗部写下来。",
+    "note": "要克制，多添一笔写实就失去那种冷而静的距离。",
+    "code": "WK-044"
+  },
+  {
+    "id": "W-45",
+    "status": "written",
+    "zh": "十便十宜图",
+    "en": "Ten Pleasures and Ten Conveniences",
+    "pid": "P-JP10",
+    "year": "1771",
+    "mvId": "M-46",
+    "F": {
+      "medium": [
+        "ink and pale colour on paper"
+      ],
+      "brush": [
+        "light abbreviated brushwork"
+      ],
+      "color": [
+        "pale ink with muted ochre"
+      ],
+      "light": [
+        "soft seasonal ambient"
+      ],
+      "space": [
+        "small intimate garden view"
+      ],
+      "motif": [
+        "rustic retreat",
+        "poem inscription"
+      ],
+      "spirit": [
+        "literati leisure"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "line-primary",
+      "minimal-empty",
+      "painterly-stroke"
+    ],
+    "desc": "十幅小景各自配诗：文人理想的居住方式被画成了一份清单。",
+    "note": "题意要先于技巧，构图可以很松，但不能松到没有生活。",
+    "code": "WK-045"
+  },
+  {
+    "id": "W-46",
+    "status": "written",
+    "zh": "生生流转",
+    "en": "Metempsychosis",
+    "pid": "P-JP13",
+    "year": "1923",
+    "mvId": "M-47",
+    "F": {
+      "medium": [
+        "ink on long paper scroll"
+      ],
+      "brush": [
+        "broken outline with heavy wash"
+      ],
+      "color": [
+        "monochrome ink"
+      ],
+      "light": [
+        "misty shifting"
+      ],
+      "space": [
+        "continuous flowing journey"
+      ],
+      "motif": [
+        "waterfall",
+        "cherry blossom",
+        "crane"
+      ],
+      "spirit": [
+        "panoramic vital cycle"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "broad-gesture",
+      "wet-blending",
+      "fine-art-depth"
+    ],
+    "desc": "一滴水从山顶一直走到大海：四十米的长卷讲的是循环，不是风景。",
+    "note": "留白与浓墨的节奏必须清楚，全卷一个密度就垮了。",
+    "code": "WK-046"
+  },
+  {
+    "id": "W-47",
+    "status": "written",
+    "zh": "落叶",
+    "en": "Fallen Leaves",
+    "pid": "P-JP14",
+    "year": "1909",
+    "mvId": "M-47",
+    "F": {
+      "medium": [
+        "colour on silk"
+      ],
+      "brush": [
+        "colour wash without outline"
+      ],
+      "color": [
+        "muted gold and brown"
+      ],
+      "light": [
+        "soft flat ambient"
+      ],
+      "space": [
+        "shallow decorative foreground"
+      ],
+      "motif": [
+        "fallen leaves",
+        "wet stones"
+      ],
+      "spirit": [
+        "melancholic delicate beauty"
+      ]
+    },
+    "tags": [
+      "no-outline",
+      "wet-blending",
+      "muted-grey",
+      "flat-decoration"
+    ],
+    "desc": "取消轮廓线，整幅靠颜色本身的边界成立。",
+    "note": "背景要有层次极薄的渲染，平刷一块灰就失去了那种潮湿。",
+    "code": "WK-047"
+  },
+  {
+    "id": "W-48",
+    "status": "written",
+    "zh": "道",
+    "en": "Road",
+    "pid": "P-JP15",
+    "year": "1950",
+    "mvId": "M-47",
+    "F": {
+      "medium": [
+        "colour on paper"
+      ],
+      "brush": [
+        "even smooth layered wash"
+      ],
+      "color": [
+        "blue green with white road"
+      ],
+      "light": [
+        "even cool daylight"
+      ],
+      "space": [
+        "single receding path"
+      ],
+      "motif": [
+        "lonely road",
+        "quiet grass slope"
+      ],
+      "spirit": [
+        "silent meditative solitude"
+      ]
+    },
+    "tags": [
+      "minimal-empty",
+      "muted-grey",
+      "no-outline",
+      "flat-decoration"
+    ],
+    "desc": "一条路从画面下缘直通天际：没有人，也没有戏剧。",
+    "note": "笔触要藏起来，画面越安静，越接近那种午后的沉默。",
+    "code": "WK-048"
+  },
+  {
+    "id": "W-49",
+    "status": "written",
+    "zh": "金刚全图",
+    "en": "Complete View of Mount Kumgang",
+    "pid": "P-JP17",
+    "year": "1734",
+    "mvId": "M-53",
+    "F": {
+      "medium": [
+        "ink and pale colour on paper"
+      ],
+      "brush": [
+        "vertical wrinkle texture stroke"
+      ],
+      "color": [
+        "grey ink with pale blue green"
+      ],
+      "light": [
+        "clear high altitude"
+      ],
+      "space": [
+        "compressed vertical mass"
+      ],
+      "motif": [
+        "diamond mountain peaks",
+        "pine ridges"
+      ],
+      "spirit": [
+        "true scenery conviction"
+      ]
+    },
+    "tags": [
+      "monochrome-ink",
+      "fine-art-depth",
+      "painterly-stroke",
+      "hard-edge"
+    ],
+    "desc": "朝鲜真景山水的代表：画的是真去看过的金刚山，不是胸中的山水。",
+    "note": "要有那种垂直皴法的紧密度，一放松就变成想象里的远山。",
+    "code": "WK-049"
+  },
+  {
+    "id": "W-50",
+    "status": "written",
+    "zh": "舞童图",
+    "en": "Dancing Boy",
+    "pid": "P-JP18",
+    "year": "十八世纪",
+    "mvId": "M-53",
+    "F": {
+      "medium": [
+        "ink and light colour on paper"
+      ],
+      "brush": [
+        "lively abbreviated line"
+      ],
+      "color": [
+        "light flesh tint with ink"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "single small figure"
+      ],
+      "motif": [
+        "dancing boy",
+        "raised sleeve"
+      ],
+      "spirit": [
+        "folk humour"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "broad-gesture",
+      "minimal-empty",
+      "monochrome-ink"
+    ],
+    "desc": "一个跳舞的孩子：用笔很少，袖口与重心把动作撑住了。",
+    "note": "要快要准，修补过多就失去了那股民间的鲜活气。",
+    "code": "WK-050"
+  },
+  {
+    "id": "W-51",
+    "status": "written",
+    "zh": "城堡的建造",
+    "en": "The Construction of the Castle",
+    "pid": "P-AS01",
+    "year": "约1494",
+    "mvId": "M-59",
+    "F": {
+      "medium": [
+        "opaque watercolour and gold on polished paper"
+      ],
+      "brush": [
+        "hair-fine precise handling"
+      ],
+      "color": [
+        "lapis vermilion and gold"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "stacked multiple viewpoint"
+      ],
+      "motif": [
+        "building site",
+        "workers on scaffold"
+      ],
+      "spirit": [
+        "court poetic order"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "gold-ground",
+      "flat-decoration",
+      "perspective-flat"
+    ],
+    "desc": "一堵墙正在长高：脚手架上每个人都在动，画面却没有一个投影。",
+    "note": "砖缝与织纹必须交代清楚，一旦加透视，这套语言立刻失效。",
+    "code": "WK-051"
+  },
+  {
+    "id": "W-52",
+    "status": "written",
+    "zh": "斑马图",
+    "en": "Zebra with Keeper",
+    "pid": "P-AS05",
+    "year": "约1620",
+    "mvId": "M-60",
+    "F": {
+      "medium": [
+        "opaque watercolour on paper"
+      ],
+      "brush": [
+        "fine naturalistic modelling"
+      ],
+      "color": [
+        "warm grey with muted ochre"
+      ],
+      "light": [
+        "soft even ambient"
+      ],
+      "space": [
+        "isolated specimen page"
+      ],
+      "motif": [
+        "zebra",
+        "attendant"
+      ],
+      "spirit": [
+        "curious courtly record"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "flat-decoration",
+      "natural-daylight",
+      "muted-grey"
+    ],
+    "desc": "君主命画师记录刚到的异兽：既有观察，也保留细密画的装饰。",
+    "note": "动物要准，背景却必须保持平面；一旦画出地面投影就串了味。",
+    "code": "WK-052"
+  },
+  {
+    "id": "W-53",
+    "status": "written",
+    "zh": "庆典图",
+    "en": "Procession from the Festival Book",
+    "pid": "P-AS06",
+    "year": "1720",
+    "mvId": "M-61",
+    "F": {
+      "medium": [
+        "opaque watercolour and gold on paper"
+      ],
+      "brush": [
+        "fine court line with flat gold"
+      ],
+      "color": [
+        "vermilion green and gold"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "processional horizontal frieze"
+      ],
+      "motif": [
+        "sultans procession",
+        "musicians",
+        "guild banners"
+      ],
+      "spirit": [
+        "festive court spectacle"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "gold-ground",
+      "hyper-ornament",
+      "flat-decoration"
+    ],
+    "desc": "用最亮的红与金记录一场庆典：人排成一条横线，各自交代身份。",
+    "note": "每个人都要清晰，但空间必须是并置，不能做出前后纵深。",
+    "code": "WK-053"
+  },
+  {
+    "id": "W-54",
+    "status": "written",
+    "zh": "释迦牟尼本生唐卡",
+    "en": "Scenes from the Life of the Buddha Thangka",
+    "pid": "P-AS14",
+    "year": "十八世纪",
+    "mvId": "M-64",
+    "F": {
+      "medium": [
+        "mineral pigment on cotton with silk mount"
+      ],
+      "brush": [
+        "fine outline with graded fill"
+      ],
+      "color": [
+        "deep blue gold and vermilion"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "symmetrical mandala layout"
+      ],
+      "motif": [
+        "buddha life scene",
+        "central halo"
+      ],
+      "spirit": [
+        "doctrinal serenity"
+      ]
+    },
+    "tags": [
+      "gold-ground",
+      "hyper-ornament",
+      "polychrome-full",
+      "perspective-flat"
+    ],
+    "desc": "比例要合度量经：手势、持物与位置都不容画师自己发挥。",
+    "note": "装饰可以极繁，但构图的对称与严格不能打折。",
+    "code": "WK-054"
+  },
+  {
+    "id": "W-55",
+    "status": "written",
+    "zh": "哀悼基督",
+    "en": "Lamentation of Christ",
+    "pid": "P-IT01",
+    "year": "约1305",
+    "mvId": "M-01",
+    "F": {
+      "medium": [
+        "fresco on plaster wall"
+      ],
+      "brush": [
+        "flat fresco patches with line"
+      ],
+      "color": [
+        "lapis blue and pale flesh"
+      ],
+      "light": [
+        "gentle uniform daylight"
+      ],
+      "space": [
+        "shallow stage with tilted rock"
+      ],
+      "motif": [
+        "mourning group",
+        "lowered head"
+      ],
+      "spirit": [
+        "human grief made visible"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "hard-edge",
+      "muted-grey",
+      "natural-daylight"
+    ],
+    "desc": "人第一次有了体重：袍子下能看出膝盖，悲伤也开始有表情。",
+    "note": "要有壁画的粉质与薄涂装，做成油画厚涂就丢掉了那个年代的石膏感。",
+    "code": "WK-055"
+  },
+  {
+    "id": "W-56",
+    "status": "written",
+    "zh": "纳税银",
+    "en": "The Tribute Money",
+    "pid": "P-IT02",
+    "year": "约1427",
+    "mvId": "M-01",
+    "F": {
+      "medium": [
+        "fresco on plaster"
+      ],
+      "brush": [
+        "broad modelled mass"
+      ],
+      "color": [
+        "ochre rose and lapis"
+      ],
+      "light": [
+        "single directional daylight"
+      ],
+      "space": [
+        "semicircular apostle ring"
+      ],
+      "motif": [
+        "outstretched hand",
+        "coin"
+      ],
+      "spirit": [
+        "solemn civic rationality"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "chiaroscuro-volume",
+      "natural-daylight",
+      "hard-edge"
+    ],
+    "desc": "光线来自礼拜堂真实的窗：人物因此有了真实的投影。",
+    "note": "投影要落在地面上，不能只是暗部；这一步走出哥特。",
+    "code": "WK-056"
+  },
+  {
+    "id": "W-57",
+    "status": "written",
+    "zh": "维纳斯的诞生",
+    "en": "The Birth of Venus",
+    "pid": "P-IT04",
+    "year": "约1485",
+    "mvId": "M-02",
+    "F": {
+      "medium": [
+        "tempera on canvas"
+      ],
+      "brush": [
+        "linear arabesque contour"
+      ],
+      "color": [
+        "pale gold and sea green"
+      ],
+      "light": [
+        "soft even illumination"
+      ],
+      "space": [
+        "frieze like frontal plane"
+      ],
+      "motif": [
+        "shell borne goddess",
+        "flowing hair"
+      ],
+      "spirit": [
+        "neoplatonic ideal beauty"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "flat-decoration",
+      "gold-ground",
+      "perspective-flat"
+    ],
+    "desc": "线比体积重要：身体的重量几乎不存在，一切都押在这条轮廓上。",
+    "note": "不要追求解剖正确，波提切利的拉长与歪斜正是他的理想。",
+    "code": "WK-057"
+  },
+  {
+    "id": "W-58",
+    "status": "written",
+    "zh": "最后的晚餐",
+    "en": "The Last Supper",
+    "pid": "P-IT07",
+    "year": "1498",
+    "mvId": "M-03",
+    "F": {
+      "medium": [
+        "experimental dry plaster and tempera"
+      ],
+      "brush": [
+        "smoke soft blended modelling"
+      ],
+      "color": [
+        "muted brown with blue accents"
+      ],
+      "light": [
+        "frontal window light"
+      ],
+      "space": [
+        "one point perspective hall"
+      ],
+      "motif": [
+        "twelve reacting apostles",
+        "central isosceles"
+      ],
+      "spirit": [
+        "psychological dramatic focus"
+      ]
+    },
+    "tags": [
+      "perspective-linear",
+      "fine-art-depth",
+      "chiaroscuro-volume",
+      "tiny-detail"
+    ],
+    "desc": "所有透视线汇聚到基督的头部：建筑在替叙事做指示。",
+    "note": "透视必须严格 одноопорное",
+    "code": "WK-058"
+  },
+  {
+    "id": "W-59",
+    "status": "written",
+    "zh": "蒙娜丽莎",
+    "en": "Mona Lisa",
+    "pid": "P-IT07",
+    "year": "约1506",
+    "mvId": "M-03",
+    "F": {
+      "medium": [
+        "oil on poplar panel"
+      ],
+      "brush": [
+        "sfumato smoked blending"
+      ],
+      "color": [
+        "warm amber sienna"
+      ],
+      "light": [
+        "diffused aerial envelope"
+      ],
+      "space": [
+        "half length with remote landscape"
+      ],
+      "motif": [
+        "folded hands",
+        "elusive smile"
+      ],
+      "spirit": [
+        "quiet unknowable presence"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "wet-blending",
+      "no-outline",
+      "muted-grey"
+    ],
+    "desc": "轮廓被雾吃掉，远景却在加速：晕涂不只是柔，是一种呼吸。",
+    "note": "完全看不到笔触；一旦出现肯定的边线，那种悬而未决就没有了。",
+    "code": "WK-059"
+  },
+  {
+    "id": "W-60",
+    "status": "written",
+    "zh": "雅典学院",
+    "en": "The School of Athens",
+    "pid": "P-IT09",
+    "year": "1511",
+    "mvId": "M-03",
+    "F": {
+      "medium": [
+        "fresco on plaster vault"
+      ],
+      "brush": [
+        "even idealised modelling"
+      ],
+      "color": [
+        "pale ochre with cool marble"
+      ],
+      "light": [
+        "even architectural clarity"
+      ],
+      "space": [
+        "deep symmetrical barrel vault"
+      ],
+      "motif": [
+        "philosophers gathered",
+        "central pointing gesture"
+      ],
+      "spirit": [
+        "harmonious humanist order"
+      ]
+    },
+    "tags": [
+      "perspective-linear",
+      "fine-art-depth",
+      "muted-grey",
+      "hard-edge"
+    ],
+    "desc": "把几十个人放进一套完美的透视建筑里，谁也不打架。",
+    "note": "构图必须对称镇定，动势再大也不能瓦解那个中心。",
+    "code": "WK-060"
+  },
+  {
+    "id": "W-61",
+    "status": "written",
+    "zh": "圣母升天",
+    "en": "Assumption of the Virgin",
+    "pid": "P-IT10",
+    "year": "1518",
+    "mvId": "M-04",
+    "F": {
+      "medium": [
+        "oil on large canvas"
+      ],
+      "brush": [
+        "broad vigorous impasto"
+      ],
+      "color": [
+        "deep crimson and gold light"
+      ],
+      "light": [
+        "radiant upward glare"
+      ],
+      "space": [
+        "steep vertical counter-movement"
+      ],
+      "motif": [
+        "rising virgin",
+        "apostles reaching"
+      ],
+      "spirit": [
+        "theatrical sacred triumph"
+      ]
+    },
+    "tags": [
+      "oil-impasto",
+      "saturated-clash",
+      "chiaroscuro-volume",
+      "fine-art-depth"
+    ],
+    "desc": "提香把祭坛画变成向上发动的机关：三层运动绕着同一个人转。",
+    "note": "色彩先于素描，笔触要能看见；磨平了就废掉了。",
+    "code": "WK-061"
+  },
+  {
+    "id": "W-62",
+    "status": "written",
+    "zh": "圣马可遗体的发现",
+    "en": "The Finding of the Body of Saint Mark",
+    "pid": "P-IT11",
+    "year": "1566",
+    "mvId": "M-04",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "hurried broken brushstroke"
+      ],
+      "color": [
+        "sulphur yellow and cold grey"
+      ],
+      "light": [
+        "uncanny supernatural glare"
+      ],
+      "space": [
+        "plunging diagonal perspective"
+      ],
+      "motif": [
+        "opened sarcophagus",
+        "fleeing crowd"
+      ],
+      "spirit": [
+        "restless visionary terror"
+      ]
+    },
+    "tags": [
+      "perspective-linear",
+      "broad-gesture",
+      "saturated-clash",
+      "chiaroscuro-volume"
+    ],
+    "desc": "透视故意过头：地板陡得像要立起来，人群顺着它往旁边逃。",
+    "note": "笔触要破碎要急，画得从容就失去了那种惊慌。",
+    "code": "WK-062"
+  },
+  {
+    "id": "W-63",
+    "status": "written",
+    "zh": "长颈圣母",
+    "en": "Madonna with the Long Neck",
+    "pid": "P-IT12",
+    "year": "约1535",
+    "mvId": "M-04",
+    "F": {
+      "medium": [
+        "oil on panel"
+      ],
+      "brush": [
+        "polished enamel finish"
+      ],
+      "color": [
+        "acid pink green and blue"
+      ],
+      "light": [
+        "cold unnatural shine"
+      ],
+      "space": [
+        "unstable compressed crowd"
+      ],
+      "motif": [
+        "elongated neck",
+        "oversized column"
+      ],
+      "spirit": [
+        "courtly artificial elegance"
+      ]
+    },
+    "tags": [
+      "hard-edge",
+      "saturated-clash",
+      "flat-decoration",
+      "tiny-detail"
+    ],
+    "desc": "故意的失衡：柱子太远、天使挤在一侧，比例服从小巧的语法。",
+    "note": "变形要保留，修正任何一个比例就不再是样式主义。",
+    "code": "WK-063"
+  },
+  {
+    "id": "W-64",
+    "status": "written",
+    "zh": "阿尔诺芬尼夫妇像",
+    "en": "The Arnolfini Portrait",
+    "pid": "P-NE01",
+    "year": "1434",
+    "mvId": "M-06",
+    "F": {
+      "medium": [
+        "oil on oak panel"
+      ],
+      "brush": [
+        "glazed microscopically layered oil"
+      ],
+      "color": [
+        "deep green vermilion and brown"
+      ],
+      "light": [
+        "soft window light with reflections"
+      ],
+      "space": [
+        "intimate domestic interior"
+      ],
+      "motif": [
+        "joined hands",
+        "convex mirror",
+        "dog"
+      ],
+      "spirit": [
+        "meticulous witnessed reality"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "fine-art-depth",
+      "chiaroscuro-volume",
+      "natural-daylight"
+    ],
+    "desc": "每一种物质都交了税：铜吊灯、玻璃、羊绒、小狗的毛各自发光。",
+    "note": "细节要到能看见镜中的两个人，但不能加笔触感，油画在这里是透明的。",
+    "code": "WK-064"
+  },
+  {
+    "id": "W-65",
+    "status": "written",
+    "zh": "人间乐园",
+    "en": "The Garden of Earthly Delights",
+    "pid": "P-NE04",
+    "year": "约1500",
+    "mvId": "M-06",
+    "F": {
+      "medium": [
+        "oil on oak triptych"
+      ],
+      "brush": [
+        "precise enamel-like miniature"
+      ],
+      "color": [
+        "acid fruit tones with black night"
+      ],
+      "light": [
+        "uneven fantastic glow"
+      ],
+      "space": [
+        "crowded simultaneous episodes"
+      ],
+      "motif": [
+        "hybrid creatures",
+        "glass bubble",
+        "strange fruit"
+      ],
+      "spirit": [
+        "grotesque moral panic"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "hyper-ornament",
+      "saturated-clash",
+      "flat-decoration"
+    ],
+    "desc": "三联画里没有单一焦点：几百个怪事同时发生，看得越久越不安。",
+    "note": "拒绝统一光源与统一空间，一旦整理清楚就失去那种梦魇。",
+    "code": "WK-065"
+  },
+  {
+    "id": "W-66",
+    "status": "written",
+    "zh": "雪中猎人",
+    "en": "Hunters in the Snow",
+    "pid": "P-NE05",
+    "year": "1565",
+    "mvId": "M-07",
+    "F": {
+      "medium": [
+        "oil on oak panel"
+      ],
+      "brush": [
+        "thin quiet landscape touch"
+      ],
+      "color": [
+        "cold white with black silhouette"
+      ],
+      "light": [
+        "flat winter overcast"
+      ],
+      "space": [
+        "high horizon whole world view"
+      ],
+      "motif": [
+        "returning hunters",
+        "bare trees",
+        "frozen pond"
+      ],
+      "spirit": [
+        "secular seasonal rhythm"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "natural-daylight",
+      "muted-grey",
+      "tiny-detail"
+    ],
+    "desc": "主角其实不是猎人：这是世界被大雪压住之后的那份安静。",
+    "note": "视点要高、人物要小；把人放大就破坏了勃鲁盖尔的世界感。",
+    "code": "WK-066"
+  },
+  {
+    "id": "W-67",
+    "status": "written",
+    "zh": "伊森海姆祭坛画",
+    "en": "Isenheim Altarpiece",
+    "pid": "P-NE07",
+    "year": "1515",
+    "mvId": "M-08",
+    "F": {
+      "medium": [
+        "oil and tempera on panel"
+      ],
+      "brush": [
+        "twisted expressionist contour"
+      ],
+      "color": [
+        "acid green with bruised violet"
+      ],
+      "light": [
+        "harsh wounded contrast"
+      ],
+      "space": [
+        "cramped frontal torture"
+      ],
+      "motif": [
+        "diseased skin",
+        "lamenting mourners"
+      ],
+      "spirit": [
+        "brutal compassionate agony"
+      ]
+    },
+    "tags": [
+      "saturated-clash",
+      "hard-edge",
+      "chiaroscuro-volume",
+      "broad-gesture"
+    ],
+    "desc": "画给病人看的：身体越惨，复活的那一面板越亮。",
+    "note": "变形必须极端，任何美化都是在取消这幅画的功能。",
+    "code": "WK-067"
+  },
+  {
+    "id": "W-68",
+    "status": "written",
+    "zh": "忧郁之一",
+    "en": "Melencolia I",
+    "pid": "P-NE06",
+    "year": "1514",
+    "mvId": "M-08",
+    "F": {
+      "medium": [
+        "copperplate engraving on laid paper"
+      ],
+      "brush": [
+        "burin hatched network"
+      ],
+      "color": [
+        "black ink on cream paper"
+      ],
+      "light": [
+        "cold moonlit sheen"
+      ],
+      "space": [
+        "dense cluttered enclosure"
+      ],
+      "motif": [
+        "winged brooding figure",
+        "polyhedron",
+        "ladder"
+      ],
+      "spirit": [
+        "intellectual paralysis"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "monochrome-ink",
+      "hard-edge",
+      "tiny-detail"
+    ],
+    "desc": "版画的最高难度：一切明暗都靠网线与交叉网线的密度算出来。",
+    "note": "必须是纯线条的黑白逻辑，出现灰面渲染就不是铜版画了。",
+    "code": "WK-068"
+  },
+  {
+    "id": "W-69",
+    "status": "written",
+    "zh": "夜巡",
+    "en": "The Night Watch",
+    "pid": "P-NE12",
+    "year": "1642",
+    "mvId": "M-09",
+    "F": {
+      "medium": [
+        "oil on large canvas"
+      ],
+      "brush": [
+        "loaded impasto against dark glaze"
+      ],
+      "color": [
+        "gold yellow with deep brown"
+      ],
+      "light": [
+        "theatrical shaft of daylight"
+      ],
+      "space": [
+        "baroque diagonal surge"
+      ],
+      "motif": [
+        "militia company",
+        "captains gesture",
+        "girl in light"
+      ],
+      "spirit": [
+        "kinetic civic pride"
+      ]
+    },
+    "tags": [
+      "oil-impasto",
+      "chiaroscuro-volume",
+      "fine-art-depth",
+      "broad-gesture"
+    ],
+    "desc": "一张群像被改造成一场剧：光只给需要被看见的人。",
+    "note": "保留厚涂与暗底的冲突，平均打光就等于取消这张画。",
+    "code": "WK-069"
+  },
+  {
+    "id": "W-70",
+    "status": "written",
+    "zh": "戴珍珠耳环的少女",
+    "en": "Girl with a Pearl Earring",
+    "pid": "P-NE14",
+    "year": "约1665",
+    "mvId": "M-09",
+    "F": {
+      "medium": [
+        "oil on small canvas"
+      ],
+      "brush": [
+        "soft pooled contour with pointille"
+      ],
+      "color": [
+        "ultramarine and lead white"
+      ],
+      "light": [
+        "soft wraparound window light"
+      ],
+      "space": [
+        "dark void three quarter turn"
+      ],
+      "motif": [
+        "turned head",
+        "pearl highlight",
+        "turban"
+      ],
+      "spirit": [
+        "intimate suspended attention"
+      ]
+    },
+    "tags": [
+      "wet-blending",
+      "fine-art-depth",
+      "no-outline",
+      "minimal-empty"
+    ],
+    "desc": "没有背景、没有故事：只剩一个回头的瞬间和两点高光。",
+    "note": "背景必须是纯粹的暗，加任何道具都会抢掉那颗珍珠。",
+    "code": "WK-070"
+  },
+  {
+    "id": "W-71",
+    "status": "written",
+    "zh": "犹太新娘",
+    "en": "The Jewish Bride",
+    "pid": "P-NE12",
+    "year": "约1667",
+    "mvId": "M-09",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "thick sculptural impasto"
+      ],
+      "color": [
+        "crimson and gold on deep shadow"
+      ],
+      "light": [
+        "warm absorbed glow"
+      ],
+      "space": [
+        "compressed close embrace"
+      ],
+      "motif": [
+        "joined hands",
+        "tender downward glance"
+      ],
+      "spirit": [
+        "quiet marital tenderness"
+      ]
+    },
+    "tags": [
+      "oil-impasto",
+      "chiaroscuro-volume",
+      "saturated-clash",
+      "wet-blending"
+    ],
+    "desc": "颜料本身在发光：红色被堆得像金属，情感全在手的动作上。",
+    "note": "要允许笔触粗到几乎抽象，磨平就失去了那种厚重的温度。",
+    "code": "WK-071"
+  },
+  {
+    "id": "W-72",
+    "status": "written",
+    "zh": "宫娥",
+    "en": "Las Meninas",
+    "pid": "P-ES02",
+    "year": "1656",
+    "mvId": "M-05",
+    "F": {
+      "medium": [
+        "oil on large canvas"
+      ],
+      "brush": [
+        "fleeting descriptive touch"
+      ],
+      "color": [
+        "warm grey with vermilion notes"
+      ],
+      "light": [
+        "natural daylight from side"
+      ],
+      "space": [
+        "mirror complicated studio depth"
+      ],
+      "motif": [
+        "infanta with attendants",
+        "artist at easel",
+        "back mirror"
+      ],
+      "spirit": [
+        "self-aware royal intrigue"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "perspective-linear",
+      "natural-daylight",
+      "tiny-detail"
+    ],
+    "desc": "画家把观者的位置也画进去了：镜子、门口、画架构成一个圈。",
+    "note": "光要自然、不要戏剧化；一打强光就失去那种被偷看的真实。",
+    "code": "WK-072"
+  },
+  {
+    "id": "W-73",
+    "status": "written",
+    "zh": "秋千",
+    "en": "The Swing",
+    "pid": "P-FR05",
+    "year": "1767",
+    "mvId": "M-10",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "feathery rococo touch"
+      ],
+      "color": [
+        "pink and leafy green"
+      ],
+      "light": [
+        "dappled garden sunlight"
+      ],
+      "space": [
+        "high diagonal axis"
+      ],
+      "motif": [
+        "swinging lady",
+        "flying slipper",
+        "marble cupid"
+      ],
+      "spirit": [
+        "playful aristocratic flirtation"
+      ]
+    },
+    "tags": [
+      "painterly-stroke",
+      "polychrome-full",
+      "natural-daylight",
+      "fine-art-depth"
+    ],
+    "desc": "整幅画都在向上飘：连鞋子也飞了出去，雕像在旁边憋着笑。",
+    "note": "轻是第一要义，笔触不能有任何沉重的地方。",
+    "code": "WK-073"
+  },
+  {
+    "id": "W-74",
+    "status": "written",
+    "zh": "鳐鱼",
+    "en": "The Ray",
+    "pid": "P-FR06",
+    "year": "1728",
+    "mvId": "M-10",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "thick quiet layered paint"
+      ],
+      "color": [
+        "warm brown with pink interior"
+      ],
+      "light": [
+        "soft single source"
+      ],
+      "space": [
+        "kitchen table still life"
+      ],
+      "motif": [
+        "skinned ray",
+        "copper pot",
+        "cat arching"
+      ],
+      "spirit": [
+        "sober domestic dignity"
+      ]
+    },
+    "tags": [
+      "oil-impasto",
+      "chiaroscuro-volume",
+      "muted-grey",
+      "fine-art-depth"
+    ],
+    "desc": "把一条剥了皮的鱼画成静物主角：旁边的猫弓着背，也是静物。",
+    "note": "要沉得住，颜色不能用亮。一华丽就失去了那种厨房里的耐心。",
+    "code": "WK-074"
+  },
+  {
+    "id": "W-75",
+    "status": "written",
+    "zh": "马拉之死",
+    "en": "The Death of Marat",
+    "pid": "P-FR07",
+    "year": "1793",
+    "mvId": "M-11",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "polished invisible modelling"
+      ],
+      "color": [
+        "greenish grey with linen white"
+      ],
+      "light": [
+        "soft top-lit martyr muse"
+      ],
+      "space": [
+        "shallow tomb-like box"
+      ],
+      "motif": [
+        "slumped body",
+        "letter",
+        "knife on floor"
+      ],
+      "spirit": [
+        "revolutionary pieta"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "chiaroscuro-volume",
+      "hard-edge",
+      "minimal-empty"
+    ],
+    "desc": "把政治事件画成宗教画：背景空得像墓室，光专门落在手臂上。",
+    "note": "笔触要完全藏起来，宣传画的说服力靠的就是这份冷静。",
+    "code": "WK-075"
+  },
+  {
+    "id": "W-76",
+    "status": "written",
+    "zh": "泉",
+    "en": "The Source",
+    "pid": "P-FR08",
+    "year": "1856",
+    "mvId": "M-11",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "enamel smooth blending"
+      ],
+      "color": [
+        "pale ivory and cool shadow"
+      ],
+      "light": [
+        "even studio clarity"
+      ],
+      "space": [
+        "vertical standing figure"
+      ],
+      "motif": [
+        "water jar",
+        "stream of water"
+      ],
+      "spirit": [
+        "classical idealised purity"
+      ]
+    },
+    "tags": [
+      "no-outline",
+      "wet-blending",
+      "fine-art-depth",
+      "hard-edge"
+    ],
+    "desc": "安格尔为这条曲线服务了一辈子：身体的变形是为轮廓线的音乐。",
+    "note": "不能有任何笔触可见，也不能有表情；一有表情就俗。",
+    "code": "WK-076"
+  },
+  {
+    "id": "W-77",
+    "status": "written",
+    "zh": "自由引导人民",
+    "en": "Liberty Leading the People",
+    "pid": "P-FR09",
+    "year": "1830",
+    "mvId": "M-12",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "energetic loaded brushstroke"
+      ],
+      "color": [
+        "tricolour against smoke grey"
+      ],
+      "light": [
+        "battle smoke glare"
+      ],
+      "space": [
+        "forward surging pyramid"
+      ],
+      "motif": [
+        "bare-breasted liberty",
+        "national guard boy",
+        "fallen bodies"
+      ],
+      "spirit": [
+        "revolutionary romantic fury"
+      ]
+    },
+    "tags": [
+      "broad-gesture",
+      "oil-impasto",
+      "saturated-clash",
+      "fine-art-depth"
+    ],
+    "desc": "寓意人物走进了战场：脚下是真实的尸体，手里是真的枪烟。",
+    "note": "笔触必须是动的、脏的，收拾干净就失去了那种当下的热气。",
+    "code": "WK-077"
+  },
+  {
+    "id": "W-78",
+    "status": "written",
+    "zh": "拾穗者",
+    "en": "The Gleaners",
+    "pid": "P-FR10",
+    "year": "1857",
+    "mvId": "M-13",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "broad restrained mass"
+      ],
+      "color": [
+        "golden field earth tones"
+      ],
+      "light": [
+        "low evening sun"
+      ],
+      "space": [
+        "horizontal frieze against horizon"
+      ],
+      "motif": [
+        "three bending women",
+        "stubble field"
+      ],
+      "spirit": [
+        "solemn rural pity"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "muted-grey",
+      "natural-daylight",
+      "hard-edge"
+    ],
+    "desc": "三个弯腰的动作排成一句咒语：把穷人的劳动画到了纪念碑的尺度。",
+    "note": "不能美化成田园；裤子和手的粗粝必须保留。",
+    "code": "WK-078"
+  },
+  {
+    "id": "W-79",
+    "status": "written",
+    "zh": "草地上的午餐",
+    "en": "Luncheon on the Grass",
+    "pid": "P-FR12",
+    "year": "1863",
+    "mvId": "M-14",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "broad simplified planes"
+      ],
+      "color": [
+        "raw green with black and flesh"
+      ],
+      "light": [
+        "flat frontal daylight"
+      ],
+      "space": [
+        "shallow staged backdrop"
+      ],
+      "motif": [
+        "nude woman among dressed men",
+        "picnic basket"
+      ],
+      "spirit": [
+        "deliberate modern affront"
+      ]
+    },
+    "tags": [
+      "hard-edge",
+      "flat-decoration",
+      "natural-daylight",
+      "fine-art-depth"
+    ],
+    "desc": "故意不给解释：画的其实是「现代生活里无所适从的裸体」。",
+    "note": "要保留平面化的生硬，把暗部柔化就没了那份挑衅。",
+    "code": "WK-079"
+  },
+  {
+    "id": "W-80",
+    "status": "written",
+    "zh": "睡莲",
+    "en": "Water Lilies",
+    "pid": "P-FR13",
+    "year": "1916",
+    "mvId": "M-14",
+    "F": {
+      "medium": [
+        "oil on large canvas"
+      ],
+      "brush": [
+        "modulated flecked touches"
+      ],
+      "color": [
+        "violet blue green reflection"
+      ],
+      "light": [
+        "sky reflected in water"
+      ],
+      "space": [
+        "all-over boundless surface"
+      ],
+      "motif": [
+        "lily pads",
+        "no horizon"
+      ],
+      "spirit": [
+        "immersive optical reverie"
+      ]
+    },
+    "tags": [
+      "painterly-stroke",
+      "wet-blending",
+      "polychrome-full",
+      "no-outline"
+    ],
+    "desc": "取消了地平线：整个画面都是水面，上下左右没有边界。",
+    "note": "每一笔都当成一小块颜色摆上去，画成整块的绿就不是印象派的晚年。",
+    "code": "WK-080"
+  },
+  {
+    "id": "W-81",
+    "status": "written",
+    "zh": "舞台上的舞蹈课",
+    "en": "The Ballet Class",
+    "pid": "P-FR15",
+    "year": "约1874",
+    "mvId": "M-14",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "disciplined drawing with soft touch"
+      ],
+      "color": [
+        "pale tulle white with warm floor"
+      ],
+      "light": [
+        "diffused rehearsal light"
+      ],
+      "space": [
+        "asymmetric off-centre glance"
+      ],
+      "motif": [
+        "dancers waiting",
+        "scratching back"
+      ],
+      "spirit": [
+        "unsentimental backstage truth"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "natural-daylight",
+      "muted-grey",
+      "cropped-depth"
+    ],
+    "desc": "不看舞台看后台：抓痒、发呆、等轮到自己，这才是芭蕾的日常。",
+    "note": "构图要偏、要像偷看；摆正了就失去那种偶然。",
+    "code": "WK-081"
+  },
+  {
+    "id": "W-82",
+    "status": "written",
+    "zh": "圣维克多山",
+    "en": "Mont Sainte-Victoire",
+    "pid": "P-FR16",
+    "year": "1904",
+    "mvId": "M-16",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "parallel constructive patches"
+      ],
+      "color": [
+        "ochre green and lavender blue"
+      ],
+      "light": [
+        "even structural daylight"
+      ],
+      "space": [
+        "tilted constructive planes"
+      ],
+      "motif": [
+        "mountain mass",
+        "viaduct"
+      ],
+      "spirit": [
+        "architectural permanence"
+      ]
+    },
+    "tags": [
+      "painterly-stroke",
+      "hard-edge",
+      "fine-art-depth",
+      "natural-daylight"
+    ],
+    "desc": "每一笔都是一块结构的砖：山不是轮廓出来的，是一笔笔砌出来的。",
+    "note": "要保持那种并列笔触的秩序，抹平就回到了印象派的瞬间。",
+    "code": "WK-082"
+  },
+  {
+    "id": "W-83",
+    "status": "written",
+    "zh": "大碗岛的星期天下午",
+    "en": "A Sunday on La Grande Jatte",
+    "pid": "P-FR17",
+    "year": "1886",
+    "mvId": "M-16",
+    "F": {
+      "medium": [
+        "oil on canvas with divisionist dots"
+      ],
+      "brush": [
+        "systematic small dot application"
+      ],
+      "color": [
+        "emerald orange and violet"
+      ],
+      "light": [
+        "harsh flat sunlight"
+      ],
+      "space": [
+        "frieze of frozen silhouettes"
+      ],
+      "motif": [
+        "Sunday strollers",
+        "sunlit lawn",
+        "monkey with parasol"
+      ],
+      "spirit": [
+        "scientific modern stillness"
+      ]
+    },
+    "tags": [
+      "hard-edge",
+      "flat-decoration",
+      "tiny-detail",
+      "saturated-clash"
+    ],
+    "desc": "用点子代替调色：人在大太阳下定住，像剪影又像雕像。",
+    "note": "必须保留点彩的颗粒，混成平滑色调就等于取消修拉。",
+    "code": "WK-083"
+  },
+  {
+    "id": "W-84",
+    "status": "written",
+    "zh": "我们从哪里来？我们是谁？我们往哪里去？",
+    "en": "Where Do We Come From? What Are We? Where Are We Going?",
+    "pid": "P-FR18",
+    "year": "1898",
+    "mvId": "M-16",
+    "F": {
+      "medium": [
+        "oil on coarse canvas"
+      ],
+      "brush": [
+        "flat symbolic colour areas"
+      ],
+      "color": [
+        "tropical blue green and flesh"
+      ],
+      "light": [
+        "even dream illumination"
+      ],
+      "space": [
+        "frieze read right to left"
+      ],
+      "motif": [
+        "tahitian women",
+        "idol",
+        "white bird"
+      ],
+      "spirit": [
+        "mythic existential lament"
+      ]
+    },
+    "tags": [
+      "flat-decoration",
+      "no-outline",
+      "saturated-clash",
+      "perspective-flat"
+    ],
+    "desc": "画成一整块壁画：人物被摆进玩偶与神像排列成的序列里，颜色自己说话。",
+    "note": "拒绝透视与投影，一旦做出空间纵深感就失去那种原始的力量。",
+    "code": "WK-084"
+  },
+  {
+    "id": "W-85",
+    "status": "written",
+    "zh": "红磨坊",
+    "en": "At the Moulin Rouge",
+    "pid": "P-FR19",
+    "year": "1895",
+    "mvId": "M-16",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "rapid thinned line"
+      ],
+      "color": [
+        "acid green with red and black"
+      ],
+      "light": [
+        "harsh artificial night glare"
+      ],
+      "space": [
+        "crowded off-centre corner"
+      ],
+      "motif": [
+        "night revellers",
+        "pale theatrical faces"
+      ],
+      "spirit": [
+        "merciless nightlife reportage"
+      ]
+    },
+    "tags": [
+      "hard-edge",
+      "flat-decoration",
+      "saturated-clash",
+      "cropped-depth"
+    ],
+    "desc": "煤气灯把脸照成青白：这不是欢场，是一份毫不留情的记录。",
+    "note": "那种难看的灯光绿必须保留，暖一下就变成了风俗画。",
+    "code": "WK-085"
+  },
+  {
+    "id": "W-86",
+    "status": "written",
+    "zh": "舞蹈",
+    "en": "Dance",
+    "pid": "P-FR22",
+    "year": "1910",
+    "mvId": "M-17",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "flat unmodulated colour fill"
+      ],
+      "color": [
+        "pure vermilion blue and green"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "circular dance frieze"
+      ],
+      "motif": [
+        "linked dancers",
+        "earth and sky"
+      ],
+      "spirit": [
+        "primal rhythmic joy"
+      ]
+    },
+    "tags": [
+      "flat-decoration",
+      "no-outline",
+      "saturated-clash",
+      "perspective-flat"
+    ],
+    "desc": "只用三种颜色和一个环形：去掉全部明暗，快乐反而更直接。",
+    "note": "不能有体积塑造，加了明暗就变回十九世纪。",
+    "code": "WK-086"
+  },
+  {
+    "id": "W-87",
+    "status": "written",
+    "zh": "呐喊",
+    "en": "The Scream",
+    "pid": "P-NO02",
+    "year": "1893",
+    "mvId": "M-20",
+    "F": {
+      "medium": [
+        "oil tempera and pastel on board"
+      ],
+      "brush": [
+        "wavy streaming bands"
+      ],
+      "color": [
+        "blood orange against deep blue"
+      ],
+      "light": [
+        "unnatural burning sky"
+      ],
+      "space": [
+        "plunging perspective bridge"
+      ],
+      "motif": [
+        "skull-like head",
+        "two distant walkers"
+      ],
+      "spirit": [
+        "modern existential panic"
+      ]
+    },
+    "tags": [
+      "broad-gesture",
+      "saturated-clash",
+      "hard-edge",
+      "perspective-linear"
+    ],
+    "desc": "天空在尖叫而不是人：所有线条都朝着同一个瀑布状的方向奔涌。",
+    "note": "那种流淌的笔法不能整理，画笔形成一个方向的漩涡是关键。",
+    "code": "WK-087"
+  },
+  {
+    "id": "W-88",
+    "status": "written",
+    "zh": "吻",
+    "en": "The Kiss",
+    "pid": "P-NO03",
+    "year": "1908",
+    "mvId": "M-20",
+    "F": {
+      "medium": [
+        "oil and gold leaf on canvas"
+      ],
+      "brush": [
+        "flat shape with ornament fill"
+      ],
+      "color": [
+        "gold with jewelled squares"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "isolated shallow relief"
+      ],
+      "motif": [
+        "embracing couple",
+        "kneeling on flowers"
+      ],
+      "spirit": [
+        "gilded erotic devotion"
+      ]
+    },
+    "tags": [
+      "gold-ground",
+      "hyper-ornament",
+      "flat-decoration",
+      "saturated-clash"
+    ],
+    "desc": "人身上填满了图案，背景却是金色的虚空：装饰既是衣服也是牢笼。",
+    "note": "金箔必须是真的平面，做出背景纵深就散了。",
+    "code": "WK-088"
+  },
+  {
+    "id": "W-89",
+    "status": "written",
+    "zh": "拥抱",
+    "en": "The Embrace",
+    "pid": "P-NO04",
+    "year": "1917",
+    "mvId": "M-20",
+    "F": {
+      "medium": [
+        "gouache watercolour and pencil"
+      ],
+      "brush": [
+        "nervous angular contour"
+      ],
+      "color": [
+        "pale flesh with ochre and black"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "empty void around two bodies"
+      ],
+      "motif": [
+        "intertwined lovers",
+        "contorted hands"
+      ],
+      "spirit": [
+        "feverish exposed intimacy"
+      ]
+    },
+    "tags": [
+      "line-primary",
+      "hard-edge",
+      "minimal-empty",
+      "flat-decoration"
+    ],
+    "desc": "背景彻底抽空：只剩下线条和两块苍白的皮肤。",
+    "note": "线条要神经质、要有顿挫；画得圆润就不是席勒。",
+    "code": "WK-089"
+  },
+  {
+    "id": "W-90",
+    "status": "written",
+    "zh": "雾海上的旅人",
+    "en": "Wanderer above the Sea of Fog",
+    "pid": "P-NO01",
+    "year": "约1818",
+    "mvId": "M-19",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "precise layered atmospheric glaze"
+      ],
+      "color": [
+        "cold grey with dark silhouette"
+      ],
+      "light": [
+        "pale diffused mountain dawn"
+      ],
+      "space": [
+        "back figure against abyss"
+      ],
+      "motif": [
+        "cloaked traveller",
+        "rocky summit",
+        "sea of cloud"
+      ],
+      "spirit": [
+        "romantic sublime solitude"
+      ]
+    },
+    "tags": [
+      "fine-art-depth",
+      "minimal-empty",
+      "muted-grey",
+      "natural-daylight"
+    ],
+    "desc": "人物背面朝我们：替观众站到崖顶，把整个未知的世界交给他看。",
+    "note": "雾必须要一层层薄涂出来，笔触可见会立刻破坏那种寂静。",
+    "code": "WK-090"
+  },
+  {
+    "id": "W-91",
+    "status": "written",
+    "zh": "向日葵",
+    "en": "Sunflowers",
+    "pid": "P-FX01",
+    "year": "1888",
+    "mvId": "M-13",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "thick directional ridges"
+      ],
+      "color": [
+        "chrome yellow on pale ground"
+      ],
+      "light": [
+        "self-generating radiance"
+      ],
+      "space": [
+        "shallow table front"
+      ],
+      "motif": [
+        "wilting sunflower heads"
+      ],
+      "spirit": [
+        "grateful consuming hope"
+      ]
+    },
+    "tags": [
+      "oil-impasto",
+      "broad-gesture",
+      "saturated-clash",
+      "hard-edge"
+    ],
+    "desc": "只用一种黄画出全部生命状态：从盛开到枯谢，全在颜料的厚薄里。",
+    "note": "笔触必须一条一条看得见方向，抹平就等于取消了梵高。",
+    "code": "WK-091"
+  },
+  {
+    "id": "W-92",
+    "status": "written",
+    "zh": "星月夜",
+    "en": "The Starry Night",
+    "pid": "P-FX01",
+    "year": "1889",
+    "mvId": "M-13",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "rolling rhythmic swirl"
+      ],
+      "color": [
+        "prussian blue with sulphur yellow"
+      ],
+      "light": [
+        "luminous non-observed night"
+      ],
+      "space": [
+        "compressed village under storm"
+      ],
+      "motif": [
+        "cypress flame",
+        "eleven stars",
+        "sleeping village"
+      ],
+      "spirit": [
+        "ecstatic cosmic unrest"
+      ]
+    },
+    "tags": [
+      "broad-gesture",
+      "saturated-clash",
+      "painterly-stroke",
+      "flat-decoration"
+    ],
+    "desc": "天空在转：连柏树也像一个黑色的火焰往天上推。",
+    "note": "那种旋转的笔法要与夜空的对照一起留着，写实星象就毁了。",
+    "code": "WK-092"
+  },
+  {
+    "id": "W-93",
+    "status": "written",
+    "zh": "奥尔南的葬礼",
+    "en": "A Burial at Ornans",
+    "pid": "P-FX02",
+    "year": "1850",
+    "mvId": "M-10",
+    "F": {
+      "medium": [
+        "oil on huge canvas"
+      ],
+      "brush": [
+        "loaded sombre slab"
+      ],
+      "color": [
+        "black earth brown and dull flesh"
+      ],
+      "light": [
+        "flat cloudy daylight"
+      ],
+      "space": [
+        "life-size horizontal frieze"
+      ],
+      "motif": [
+        "village mourners",
+        "open grave",
+        "cliff behind"
+      ],
+      "spirit": [
+        "democratic material gravity"
+      ]
+    },
+    "tags": [
+      "oil-impasto",
+      "fine-art-depth",
+      "muted-grey",
+      "natural-daylight"
+    ],
+    "desc": "给一场乡下葬礼英雄画的尺寸：没有主角，只有一排站得很沉的人。",
+    "note": "不能有任何美化，脸要画得普通，这正是他要的挑衅。",
+    "code": "WK-093"
+  },
+  {
+    "id": "W-94",
+    "status": "written",
+    "zh": "洗浴祈祷",
+    "en": "Prayer in the Bath",
+    "pid": "P-FX03",
+    "year": "1860",
+    "mvId": "M-08",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "invisible academic polish"
+      ],
+      "color": [
+        "tile blue with sunlit ochre"
+      ],
+      "light": [
+        "hard shaft from above"
+      ],
+      "space": [
+        "archaeological stage set"
+      ],
+      "motif": [
+        "tiled courtyard",
+        "attendant and supplicant"
+      ],
+      "spirit": [
+        "chilly ethnographic spectacle"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "photographic",
+      "fine-art-depth",
+      "natural-daylight"
+    ],
+    "desc": "每块瓷砖都算过透视：这种准确本身构成了十九世纪的注视方式。",
+    "note": "笔触必须完全消失，一切服从于那套准确的学院规则。",
+    "code": "WK-094"
+  },
+  {
+    "id": "W-95",
+    "status": "written",
+    "zh": "罗纳河上的星夜",
+    "en": "Starry Night over the Rhone",
+    "pid": "P-FX01",
+    "year": "1888",
+    "mvId": "M-13",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "short reflected dashes"
+      ],
+      "color": [
+        "deep blue with gaslight orange"
+      ],
+      "light": [
+        "paired reflections"
+      ],
+      "space": [
+        "wide river with lovers"
+      ],
+      "motif": [
+        "gas lamp reflection",
+        "lovers in foreground"
+      ],
+      "spirit": [
+        "nocturnal lyrical calm"
+      ]
+    },
+    "tags": [
+      "painterly-stroke",
+      "saturated-clash",
+      "fine-art-depth",
+      "oil-impasto"
+    ],
+    "desc": "灯光在水面上被拆成一段一段的短笔：夜里也照样可以很暖。",
+    "note": "要保留那种颤动的反射，抹平水面就没有那种夜的呼吸。",
+    "code": "WK-095"
+  },
+  {
+    "id": "W-96",
+    "status": "written",
+    "zh": "构成第八号",
+    "en": "Composition VIII",
+    "pid": "P-RU02",
+    "year": "1923",
+    "mvId": "M-20",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "ruled firm edge"
+      ],
+      "color": [
+        "primary with black line"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "floating geometric field"
+      ],
+      "motif": [
+        "circle grid",
+        "crossing bands"
+      ],
+      "spirit": [
+        "constructivist harmonic machine"
+      ]
+    },
+    "tags": [
+      "hard-edge",
+      "flat-decoration",
+      "minimal-empty",
+      "perspective-flat"
+    ],
+    "desc": "几何不是为了装饰：他认为这些形状本身能像音乐一样响起来。",
+    "note": "边必须切得像刀，笔触一出现就失去那种构成力学。",
+    "code": "WK-096"
+  },
+  {
+    "id": "W-97",
+    "status": "written",
+    "zh": "记忆的永恒",
+    "en": "The Persistence of Memory",
+    "pid": "P-ES06",
+    "year": "1931",
+    "mvId": "M-23",
+    "F": {
+      "medium": [
+        "oil on small canvas"
+      ],
+      "brush": [
+        "invisible miniature glazing"
+      ],
+      "color": [
+        "catalan ochre with cold blue"
+      ],
+      "light": [
+        "sharp infinite twilight"
+      ],
+      "space": [
+        "vast empty dream coast"
+      ],
+      "motif": [
+        "melting clocks",
+        "ant swarm",
+        "geological plateau"
+      ],
+      "spirit": [
+        "paranoiac time anxiety"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "photographic",
+      "fine-art-depth",
+      "minimal-empty"
+    ],
+    "desc": "比照片还清楚的一场梦：钟表软了，蚂蚁还在按自己的时间走。",
+    "note": "渲染必须细到无情，任何笔触都会把幻觉戳破。",
+    "code": "WK-097"
+  },
+  {
+    "id": "W-98",
+    "status": "written",
+    "zh": "亚维农的少女",
+    "en": "Les Demoiselles d'Avignon",
+    "pid": "P-ES04",
+    "year": "1907",
+    "mvId": "M-18",
+    "F": {
+      "medium": [
+        "oil on large canvas"
+      ],
+      "brush": [
+        "angular fractured planes"
+      ],
+      "color": [
+        "pink ochre with mask blue"
+      ],
+      "light": [
+        "inconsistent multiple"
+      ],
+      "space": [
+        "shattered simultaneous view"
+      ],
+      "motif": [
+        "five figures",
+        "iberian mask faces"
+      ],
+      "spirit": [
+        "violent formal rupture"
+      ]
+    },
+    "tags": [
+      "hard-edge",
+      "saturated-clash",
+      "flat-decoration",
+      "perspective-flat"
+    ],
+    "desc": "一张脸可以同时是正面和侧面：透视的统一性在这里被正式废除。",
+    "note": "多视点必须并存，把它调回统一透视就退回十九世纪。",
+    "code": "WK-098"
+  },
+  {
+    "id": "W-99",
+    "status": "written",
+    "zh": "我与村庄",
+    "en": "I and the Village",
+    "pid": "P-RU04",
+    "year": "1911",
+    "mvId": "M-23",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "naive outlined colour shapes"
+      ],
+      "color": [
+        "green white and crimson"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "interlocking circular halves"
+      ],
+      "motif": [
+        "goat and peasant profile",
+        "milking hand"
+      ],
+      "spirit": [
+        "nostalgic folk reverie"
+      ]
+    },
+    "tags": [
+      "flat-decoration",
+      "hard-edge",
+      "saturated-clash",
+      "perspective-flat"
+    ],
+    "desc": "两个头像互换视线：图形层层嵌进去，像一封通向故乡的信。",
+    "note": "一定要有那种拙；画得太专业就丢掉村庄的那份真。",
+    "code": "WK-099"
+  },
+  {
+    "id": "W-100",
+    "status": "written",
+    "zh": "黑方块",
+    "en": "Black Square",
+    "pid": "P-RU03",
+    "year": "1915",
+    "mvId": "M-20",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "matte ungestured fill"
+      ],
+      "color": [
+        "black and white"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "single iconic placement"
+      ],
+      "motif": [
+        "black square"
+      ],
+      "spirit": [
+        "zero point declaration"
+      ]
+    },
+    "tags": [
+      "minimal-empty",
+      "flat-decoration",
+      "hard-edge",
+      "monochrome-ink"
+    ],
+    "desc": "把绘画归零：什么都不画，只留下一个位置和一个判断。",
+    "note": "必须是绝对平的无反光黑，出现笔触或肌理就退回到装饰。",
+    "code": "WK-100"
+  },
+  {
+    "id": "W-101",
+    "status": "written",
+    "zh": "克里斯蒂娜的世界",
+    "en": "Christina's World",
+    "pid": "P-US05",
+    "year": "1948",
+    "mvId": "M-33",
+    "F": {
+      "medium": [
+        "tempera on panel"
+      ],
+      "brush": [
+        "dry meticulous hatch"
+      ],
+      "color": [
+        "dry grass ochre with grey"
+      ],
+      "light": [
+        "low raking Maine light"
+      ],
+      "space": [
+        "steep field with distant house"
+      ],
+      "motif": [
+        "woman turned away",
+        "weathered barn"
+      ],
+      "spirit": [
+        "stubborn solitary endurance"
+      ]
+    },
+    "tags": [
+      "tiny-detail",
+      "fine-art-depth",
+      "muted-grey",
+      "natural-daylight"
+    ],
+    "desc": "草叶是一根根数出来的：蛋彩的干笔最适合画那种硬的土地。",
+    "note": "要慢要薄，蛋彩不能用厚涂，一厚就失去那种干枯的真实。",
+    "code": "WK-101"
+  },
+  {
+    "id": "W-102",
+    "status": "written",
+    "zh": "秋韵",
+    "en": "Autumn Rhythm",
+    "pid": "P-US04",
+    "year": "1950",
+    "mvId": "M-24",
+    "F": {
+      "medium": [
+        "enamel paint on large canvas"
+      ],
+      "brush": [
+        "poured continuous line"
+      ],
+      "color": [
+        "black white grey and ochre"
+      ],
+      "light": [
+        "none"
+      ],
+      "space": [
+        "all-over uncentred field"
+      ],
+      "motif": [
+        "no subject"
+      ],
+      "spirit": [
+        "gesture as whole event"
+      ]
+    },
+    "tags": [
+      "broad-gesture",
+      "minimal-empty",
+      "flat-decoration"
+    ],
+    "desc": "没有中心也没有主题：一整张画布就是一次行动的记录。",
+    "note": "绝不能出现形象或焦点，任何中心都会把它拉回绘画。",
+    "code": "WK-102"
+  },
+  {
+    "id": "W-103",
+    "status": "written",
+    "zh": "两个弗里达",
+    "en": "The Two Fridas",
+    "pid": "P-LA02",
+    "year": "1939",
+    "mvId": "M-35",
+    "F": {
+      "medium": [
+        "oil on canvas"
+      ],
+      "brush": [
+        "flat precise folk line"
+      ],
+      "color": [
+        "white dress with blood red"
+      ],
+      "light": [
+        "stormy split sky"
+      ],
+      "space": [
+        "doubled seated pair"
+      ],
+      "motif": [
+        "joined hearts",
+        "shared hand",
+        "tehuana dress"
+      ],
+      "spirit": [
+        "devoted self-duplication"
+      ]
+    },
+    "tags": [
+      "flat-decoration",
+      "hard-edge",
+      "saturated-clash",
+      "perspective-flat"
+    ],
+    "desc": "两个她互相握住手：血管从一个人的心牵到另一个人的心。",
+    "note": "那种民间画的硬边必须保留，柔化成现实就失去内容。",
+    "code": "WK-103"
+  },
+  {
+    "id": "W-104",
+    "status": "written",
+    "zh": "玛丽莲双联画",
+    "en": "Marilyn Diptych",
+    "pid": "P-US06",
+    "year": "1962",
+    "mvId": "M-26",
+    "F": {
+      "medium": [
+        "acrylic and silkscreen on canvas"
+      ],
+      "brush": [
+        "screenprint flat registration"
+      ],
+      "color": [
+        "garish hot pink and turquoise"
+      ],
+      "light": [
+        "harsh printed evenness"
+      ],
+      "space": [
+        "repeated grid of faces"
+      ],
+      "motif": [
+        "screen siren repeated",
+        "fading ink"
+      ],
+      "spirit": [
+        "celebrity industrial irony"
+      ]
+    },
+    "tags": [
+      "flat-print",
+      "hard-edge",
+      "commercial-poster",
+      "saturated-clash"
+    ],
+    "desc": "一半亮一半褪：同一张脸重复五十次，她就不存在了。",
+    "note": "必须像印刷错位那样平，笔触出现就破功。",
+    "code": "WK-104"
+  }
+]

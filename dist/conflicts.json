@@ -1,0 +1,332 @@
+[
+  {
+    "id": "CF-01",
+    "zh": "墨性渗透 对 油彩厚涂",
+    "status": "reviewed",
+    "a": "ink-aqueous",
+    "b": "oil-impasto",
+    "level": "hard",
+    "scope": [
+      "medium",
+      "brush"
+    ],
+    "msg": "水性墨的渗透与油画厚涂的堆叠是互斥的物质逻辑",
+    "fix": "保留高权重一方的底材与肌理，另一方降级为只提供构图与色彩关系",
+    "code": "CF-001"
+  },
+  {
+    "id": "CF-02",
+    "zh": "平涂装饰 对 明暗塑形",
+    "status": "reviewed",
+    "a": "flat-decoration",
+    "b": "chiaroscuro-volume",
+    "level": "hard",
+    "scope": [
+      "light"
+    ],
+    "msg": "装饰平涂要求无影均衡，明暗塑造却依赖投影与明暗交界线",
+    "fix": "二选一：要么接受平面，要么接受体积，不要同时要求",
+    "code": "CF-002"
+  },
+  {
+    "id": "CF-03",
+    "zh": "照片质感 对 可见笔触",
+    "status": "reviewed",
+    "a": "photographic",
+    "b": "painterly-stroke",
+    "level": "hard",
+    "scope": [
+      "medium",
+      "brush"
+    ],
+    "msg": "照片语言要求无笔触，绘画语言要求笔触可见",
+    "fix": "弱的一方让位：谁权重低，谁就被另一方吃掉，别指望两者同时成立",
+    "code": "CF-003"
+  },
+  {
+    "id": "CF-04",
+    "zh": "数字净面 对 做旧痕迹",
+    "status": "reviewed",
+    "a": "digital-clean",
+    "b": "aged-decay",
+    "level": "hard",
+    "scope": [
+      "medium",
+      "brush"
+    ],
+    "msg": "数字图层自带的干净表面与做旧材质的龟裂积尘相斥",
+    "fix": "做旧优先时放弃数字质感，反之放弃老化效果",
+    "code": "CF-004"
+  },
+  {
+    "id": "CF-05",
+    "zh": "线性透视 对 平面透视",
+    "status": "reviewed",
+    "a": "perspective-linear",
+    "b": "perspective-flat",
+    "level": "hard",
+    "scope": [
+      "space"
+    ],
+    "msg": "焦点透视与散点平面透视无法共存于同一空间判断",
+    "fix": "选定一种：要么严格透视线，要么层层平铺，中间地带最糊",
+    "code": "CF-005"
+  },
+  {
+    "id": "CF-07",
+    "zh": "以线立骨 对 无线造型",
+    "status": "reviewed",
+    "a": "line-primary",
+    "b": "no-outline",
+    "level": "hard",
+    "scope": [
+      "brush"
+    ],
+    "msg": "以线立骨与无线造型是两套相反的起手式",
+    "fix": "要么轮廓线明确承担结构，要么用块面与色彩交界承担",
+    "code": "CF-007"
+  },
+  {
+    "id": "CF-11",
+    "zh": "立体堆塑 对 平版印刷",
+    "status": "reviewed",
+    "a": "embossed-relief",
+    "b": "flat-print",
+    "level": "hard",
+    "scope": [
+      "medium"
+    ],
+    "msg": "立体堆塑和平版印刷一个是物质厚度一个是绝对平面",
+    "fix": "选定一种承载形态",
+    "code": "CF-011"
+  },
+  {
+    "id": "CF-13",
+    "zh": "繁密装饰 对 极简留白",
+    "status": "reviewed",
+    "a": "hyper-ornament",
+    "b": "minimal-empty",
+    "level": "hard",
+    "scope": [
+      "space",
+      "brush"
+    ],
+    "msg": "繁密装饰与极简留白是相反的画面密度策略",
+    "fix": "决定画面密度之后再谈别的",
+    "code": "CF-013"
+  },
+  {
+    "id": "CF-06",
+    "zh": "灰调低纯度 对 高饱和对冲",
+    "status": "reviewed",
+    "a": "muted-grey",
+    "b": "saturated-clash",
+    "level": "regional",
+    "scope": [
+      "color"
+    ],
+    "region": {
+      "aSide": "主体与大面积",
+      "bSide": "小面积点缀",
+      "seam": "靠中性色过渡带隔开"
+    },
+    "msg": "低纯度灰调与高饱和对冲无法同时最大化，但可以分区共存",
+    "fix": "主体铺灰调，只留小面积高饱和做跳色；两区之间用中性色过渡，否则会脏",
+    "code": "CF-006"
+  },
+  {
+    "id": "CF-08",
+    "zh": "精微描摹 对 阔笔写意",
+    "status": "reviewed",
+    "a": "tiny-detail",
+    "b": "broad-gesture",
+    "level": "regional",
+    "scope": [
+      "brush"
+    ],
+    "region": {
+      "aSide": "主体与近景",
+      "bSide": "背景与远景",
+      "seam": "在中景交界处让笔触逐步变粗"
+    },
+    "msg": "精微描摹与阔笔写意对笔触速度的要求相反，但可以按景别分配",
+    "fix": "主体精微、背景阔笔；关键是让笔触粗细在交界处连续过渡，否则像拼贴",
+    "code": "CF-008"
+  },
+  {
+    "id": "CF-09",
+    "zh": "金底无空间 对 自然日光",
+    "status": "reviewed",
+    "a": "gold-ground",
+    "b": "natural-daylight",
+    "level": "regional",
+    "scope": [
+      "light"
+    ],
+    "region": {
+      "aSide": "主体所在平面",
+      "bSide": "环境与远景",
+      "seam": "用一条硬边把两个光系统切开"
+    },
+    "msg": "金底的无空间光与自然日光处于两套光逻辑，但可以各占一块",
+    "fix": "金底只给主体，环境另给日光；两块之间要有一条明确边界，不要渐变过去",
+    "code": "CF-009"
+  },
+  {
+    "id": "CF-10",
+    "zh": "水墨单色 对 全彩",
+    "status": "reviewed",
+    "a": "monochrome-ink",
+    "b": "polychrome-full",
+    "level": "regional",
+    "scope": [
+      "color"
+    ],
+    "region": {
+      "aSide": "主画面",
+      "bSide": "局部设色区",
+      "seam": "设色面积控制在两成以内"
+    },
+    "msg": "水墨单色体系与全彩体系难以同时占满画面，但可以主辅分配",
+    "fix": "一方主导，另一方让步至局部设色（如小青绿、浅绛），设色面积不要超过两成",
+    "code": "CF-010"
+  },
+  {
+    "id": "CF-12",
+    "zh": "商业版面 对 绘画纵深",
+    "status": "reviewed",
+    "a": "commercial-poster",
+    "b": "fine-art-depth",
+    "level": "regional",
+    "scope": [
+      "space"
+    ],
+    "region": {
+      "aSide": "版面主体区",
+      "bSide": "边缘与背景区",
+      "seam": "在版面区边界收掉纵深"
+    },
+    "msg": "版面的信息层级与绘画的纵深营造互相打架，但可以分区",
+    "fix": "海报主体区压掉纵深保证信息可读，边缘区保留纵深撑住空间感",
+    "code": "CF-012"
+  },
+  {
+    "id": "CF-14",
+    "zh": "湿接过渡 对 硬边切断",
+    "status": "reviewed",
+    "a": "wet-blending",
+    "b": "hard-edge",
+    "level": "regional",
+    "scope": [
+      "brush"
+    ],
+    "region": {
+      "aSide": "形体内部过渡",
+      "bSide": "结构轮廓",
+      "seam": "轮廓线本身作为分界"
+    },
+    "msg": "湿接的柔和过渡与硬边切断不能同时主导，但可以分工",
+    "fix": "让硬边负责结构轮廓，软过渡负责内部过渡；轮廓线本身天然就是那条缝",
+    "code": "CF-014"
+  },
+  {
+    "id": "CF-15",
+    "zh": "极特写 对 厚重笔触",
+    "status": "reviewed",
+    "a": "tiny-detail",
+    "b": "cropped-depth",
+    "level": "soft",
+    "scope": [
+      "space"
+    ],
+    "msg": "极近特写与厚重笔触可以同框，但细节密度与精度要求会互相挤占",
+    "fix": "特写时把笔触简化，否则模型会同时给足细节与厚涂，结果两边都不到位",
+    "code": "CF-015"
+  },
+  {
+    "id": "CF-16",
+    "zh": "金底 对 水墨单色",
+    "status": "reviewed",
+    "a": "gold-ground",
+    "b": "monochrome-ink",
+    "level": "soft",
+    "scope": [
+      "medium",
+      "color"
+    ],
+    "msg": "金底与水墨单色是不同年代的组合，历史上不常见但技术上不矛盾",
+    "fix": "想成立就要给出合理性，例如后世摹本或装饰性壁画的再创作",
+    "code": "CF-016"
+  },
+  {
+    "id": "CF-17",
+    "zh": "商业版面 对 做旧痕迹",
+    "status": "reviewed",
+    "a": "commercial-poster",
+    "b": "aged-decay",
+    "level": "soft",
+    "scope": [
+      "medium"
+    ],
+    "msg": "商业印刷版面与做旧痕迹的组合需要交代它为什么旧",
+    "fix": "补一句年代与流通史，否则会像脏而不是旧",
+    "code": "CF-017"
+  },
+  {
+    "id": "CF-18",
+    "zh": "照片 对 水墨",
+    "status": "written",
+    "a": "photographic",
+    "b": "ink-aqueous",
+    "level": "experimental",
+    "scope": [
+      "medium",
+      "brush"
+    ],
+    "msg": "水墨与照片质感同框是实验性组合，本库尚未在任何模型上稳定复现",
+    "fix": "若要尝试：用遮罩分区，水墨只作用于主体区域、照片质感只作用于背景；不要指望单段提示词同时成立",
+    "code": "CF-018"
+  },
+  {
+    "id": "CF-19",
+    "zh": "极繁装饰 对 数字净面",
+    "status": "written",
+    "a": "digital-clean",
+    "b": "hyper-ornament",
+    "level": "experimental",
+    "scope": [
+      "brush"
+    ],
+    "msg": "极繁装饰与数字净面同框，模型容易把繁密画成噪点",
+    "fix": "若要尝试：把装饰密度降到三成以下，并明确写装饰为有结构的纹样而非随机堆叠",
+    "code": "CF-019"
+  },
+  {
+    "id": "CF-20",
+    "zh": "堆塑厚度 对 空气透视",
+    "status": "written",
+    "a": "embossed-relief",
+    "b": "atmospheric-distance",
+    "level": "experimental",
+    "scope": [
+      "space"
+    ],
+    "msg": "堆塑厚度与空气透视衰减同框会互相削弱，已知效果不稳定",
+    "fix": "若要尝试：只保留近景堆塑，远景放弃空气透视，改用明度递减",
+    "code": "CF-020"
+  },
+  {
+    "id": "CF-21",
+    "zh": "无线造型 对 极精细节",
+    "status": "written",
+    "a": "no-outline",
+    "b": "tiny-detail",
+    "level": "experimental",
+    "scope": [
+      "brush"
+    ],
+    "msg": "无线造型与极精细节同框，模型常退回自动描边",
+    "fix": "若要尝试：把细节放在色块交界处而不是轮廓处，并显式写不要轮廓线",
+    "code": "CF-021"
+  }
+]

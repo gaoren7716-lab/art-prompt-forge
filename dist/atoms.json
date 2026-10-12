@@ -1,0 +1,2077 @@
+[
+  {
+    "id": "AM-101",
+    "role": "lead",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "chiaroscuro",
+    "zh": "明暗对照",
+    "c": "强侧光塑造体积，暗部吃掉一半画面",
+    "alt": [
+      "strong side lighting",
+      "dramatic light shadow"
+    ],
+    "read": "一旦画面里有第二个光源，这一条立刻失效。",
+    "code": "AT-001"
+  },
+  {
+    "id": "AM-102",
+    "role": "lead",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "tenebrism",
+    "zh": "极端明暗",
+    "c": "光束像刀一样劈下来，暗部几乎全黑",
+    "alt": [
+      "dramatic tenebrism",
+      "single dominant light shaft"
+    ],
+    "read": "暗部要真黑，不能靠后期提亮；提亮就等于取消这条。",
+    "code": "AT-002"
+  },
+  {
+    "id": "AM-103",
+    "role": "support",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "rim light",
+    "zh": "轮廓光",
+    "c": "主体背后被光勾出一道边",
+    "alt": [
+      "backlit rim",
+      "edge highlight"
+    ],
+    "read": "是分离主体与背景最省事的一招，比整体提亮有效。",
+    "code": "AT-003"
+  },
+  {
+    "id": "AM-104",
+    "role": "lead",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "single window light",
+    "zh": "单侧窗光",
+    "c": "光只从一侧窗口进来，另一侧交给反射",
+    "alt": [
+      "window light from left",
+      "single light source"
+    ],
+    "read": "室内题材最稳的默认光；给两个窗就废了。",
+    "code": "AT-004"
+  },
+  {
+    "id": "AM-105",
+    "role": "lead",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "diffused skylight",
+    "zh": "天顶柔光",
+    "c": "天顶罩下来的光，几乎不投影",
+    "alt": [
+      "soft overhead light",
+      "shadowless ambient light"
+    ],
+    "read": "阴天或北向窗的逻辑，画面会平但通透。",
+    "code": "AT-005"
+  },
+  {
+    "id": "AM-106",
+    "role": "support",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "candlelight",
+    "zh": "烛火",
+    "c": "近距离火光，衰减极快，暖到发橙",
+    "alt": [
+      "warm candlelit glow",
+      "oil lamp light"
+    ],
+    "read": "光源必须在画面内，否则橙调没有理由。",
+    "code": "AT-006"
+  },
+  {
+    "id": "AM-107",
+    "role": "support",
+    "status": "written",
+    "cat": 1,
+    "slot": "light",
+    "t": "reflected bounce light",
+    "zh": "反跳光",
+    "c": "地面或墙反上来的二次光托住暗部",
+    "alt": [
+      "bounce fill light",
+      "indirect reflected light"
+    ],
+    "read": "是让暗部透气又不提亮的关键，比直接加亮度词好。",
+    "code": "AT-007"
+  },
+  {
+    "id": "AM-108",
+    "role": "lead",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "no cast shadow",
+    "zh": "取消投影",
+    "c": "完全取消投影，画面转向平面",
+    "alt": [
+      "shadowless flat lighting",
+      "no cast shadows"
+    ],
+    "read": "要平还是要体积，这是分水岭；和平面装饰同时用才对。",
+    "code": "AT-008"
+  },
+  {
+    "id": "AM-109",
+    "role": "support",
+    "status": "written",
+    "cat": 1,
+    "slot": "light",
+    "t": "dust beam volume",
+    "zh": "可见光柱",
+    "c": "光柱成形，悬浮尘埃在光里",
+    "alt": [
+      "volumetric god rays",
+      "visible light shafts with dust"
+    ],
+    "read": "只在有遮挡物时成立，空房间不会出光柱。",
+    "code": "AT-009"
+  },
+  {
+    "id": "AM-110",
+    "role": "guard",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "no text or watermark",
+    "zh": "禁文字水印",
+    "c": "画面里不得出现任何文字、签名、标识、水印",
+    "alt": [
+      "no lettering",
+      "clean image without text"
+    ],
+    "guard": true,
+    "read": "约束类模块，任何权重都压不掉；导出时进负面词。",
+    "code": "AT-010"
+  },
+  {
+    "id": "AM-201",
+    "role": "support",
+    "status": "tested",
+    "cat": 2,
+    "slot": "light",
+    "t": "golden hour",
+    "zh": "金色时刻",
+    "c": "日出日落，低角度暖长影",
+    "alt": [
+      "sunset warm light",
+      "low angle golden light"
+    ],
+    "read": "影子会被拉得很长，构图上要提前给影子的位置。",
+    "code": "AT-011"
+  },
+  {
+    "id": "AM-202",
+    "role": "support",
+    "status": "tested",
+    "cat": 2,
+    "slot": "light",
+    "t": "blue hour",
+    "zh": "蓝调时刻",
+    "c": "日落后的冷调，天空比地面还亮",
+    "alt": [
+      "dusk blue ambient",
+      "twilight cool tone"
+    ],
+    "read": "天空亮、地面暗，是这张图全部的对比来源。",
+    "code": "AT-012"
+  },
+  {
+    "id": "AM-203",
+    "role": "support",
+    "status": "written",
+    "cat": 2,
+    "slot": "light",
+    "t": "high noon",
+    "zh": "正午顶光",
+    "c": "顶光，影子最短最硬",
+    "alt": [
+      "overhead midday sun",
+      "short hard shadow"
+    ],
+    "read": "顶光会在眼窝与鼻下留硬阴影，需要补一条反跳光才自然。",
+    "code": "AT-013"
+  },
+  {
+    "id": "AM-204",
+    "role": "support",
+    "status": "tested",
+    "cat": 2,
+    "slot": "light",
+    "t": "overcast grey day",
+    "zh": "阴天",
+    "c": "阴天柔光，色彩发闷",
+    "alt": [
+      "grey overcast sky",
+      "flat dull daylight"
+    ],
+    "read": "是所有需要压低饱和的题材的省事开关。",
+    "code": "AT-014"
+  },
+  {
+    "id": "AM-205",
+    "role": "support",
+    "status": "written",
+    "cat": 2,
+    "slot": "light",
+    "t": "storm breaking light",
+    "zh": "暴雨间隙",
+    "c": "乌云缝隙里透出的一线冷光",
+    "alt": [
+      "light breaking through storm clouds",
+      "crepuscular ray through rain"
+    ],
+    "read": "要有云的形状才成立，平铺的灰底出不来。",
+    "code": "AT-015"
+  },
+  {
+    "id": "AM-206",
+    "role": "support",
+    "status": "tested",
+    "cat": 2,
+    "slot": "light",
+    "t": "deep night noir",
+    "zh": "深夜",
+    "c": "夜，只有零星几点硬光",
+    "alt": [
+      "dark night scene",
+      "night with sparse hard light"
+    ],
+    "read": "点光源数量要控制，多了就不像夜戏了。",
+    "code": "AT-016"
+  },
+  {
+    "id": "AM-207",
+    "role": "support",
+    "status": "tested",
+    "cat": 2,
+    "slot": "light",
+    "t": "fog diffused light",
+    "zh": "雾中散射",
+    "c": "雾把对比压到最低，远景只剩轮廓",
+    "alt": [
+      "heavy fog low contrast",
+      "misty diffused atmosphere"
+    ],
+    "read": "雾是最强的深度工具，比空气透视省力。",
+    "code": "AT-017"
+  },
+  {
+    "id": "AM-208",
+    "role": "support",
+    "status": "written",
+    "cat": 2,
+    "slot": "light",
+    "t": "seasonal snow light",
+    "zh": "雪地反光",
+    "c": "雪把暗部整体抬起来",
+    "alt": [
+      "snow covered ground bounce",
+      "bright winter reflected light"
+    ],
+    "read": "物理上暗部会被抬亮，不补这句模型就不知道。",
+    "code": "AT-018"
+  },
+  {
+    "id": "AM-301",
+    "role": "lead",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "strict linear perspective",
+    "zh": "严谨焦点透视",
+    "c": "所有透视线收于单一灭点",
+    "alt": [
+      "one point perspective",
+      "scientific linear perspective"
+    ],
+    "read": "单灭点是西方写生的底线，用了就别再叠散点透视。",
+    "code": "AT-019"
+  },
+  {
+    "id": "AM-302",
+    "role": "support",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "atmospheric perspective",
+    "zh": "空气透视",
+    "c": "越远越灰越冷越淡",
+    "alt": [
+      "aerial perspective",
+      "depth by value fading"
+    ],
+    "read": "国画里叫「远淡」，两套逻辑可以共用。",
+    "code": "AT-020"
+  },
+  {
+    "id": "AM-303",
+    "role": "lead",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "flattened stacked planes",
+    "zh": "平铺层叠",
+    "c": "层层平铺，取消纵深",
+    "alt": [
+      "flat layered planes",
+      "stacked register planes"
+    ],
+    "read": "浮世绘与中世纪金底画共用这一条。",
+    "code": "AT-021"
+  },
+  {
+    "id": "AM-304",
+    "role": "lead",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "scattered perspective",
+    "zh": "散点透视",
+    "c": "视点移动的多重视野",
+    "alt": [
+      "moving viewpoint perspective",
+      "multiple viewpoints in one image"
+    ],
+    "read": "中国山水的基本空间逻辑；与单灭点互斥。",
+    "code": "AT-022"
+  },
+  {
+    "id": "AM-305",
+    "role": "lead",
+    "status": "written",
+    "cat": 3,
+    "slot": "space",
+    "t": "three distance depth",
+    "zh": "三远法",
+    "c": "高远、平远、深远三段式",
+    "alt": [
+      "three distances composition",
+      "high level distance deep level distance"
+    ],
+    "read": "不只是纵深，更是三段景别的节奏编排。",
+    "code": "AT-023"
+  },
+  {
+    "id": "AM-306",
+    "role": "support",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "forced foreshortening",
+    "zh": "夸张透视",
+    "c": "近大远小推到极端，把观者逼进画面",
+    "alt": [
+      "dramatic foreshortening",
+      "extreme perspective distortion"
+    ],
+    "read": "前景物要给足尺度，否则夸张不出来。",
+    "code": "AT-024"
+  },
+  {
+    "id": "AM-307",
+    "role": "support",
+    "status": "written",
+    "cat": 3,
+    "slot": "space",
+    "t": "shallow relief depth",
+    "zh": "浅浮雕厚度",
+    "c": "只留一点厚度，像浮雕",
+    "alt": [
+      "shallow bas relief depth",
+      "slight raised relief"
+    ],
+    "read": "拜占庭与埃及壁画的深度感来源。",
+    "code": "AT-025"
+  },
+  {
+    "id": "AM-308",
+    "role": "support",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "isometric space",
+    "zh": "轴测空间",
+    "c": "平行轴测，不走灭点",
+    "alt": [
+      "isometric projection",
+      "parallel axonometric view"
+    ],
+    "read": "技术插图与游戏场景图的标准空间。",
+    "code": "AT-026"
+  },
+  {
+    "id": "AM-309",
+    "role": "guard",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "no linear perspective",
+    "zh": "禁焦点透视",
+    "c": "不得出现单灭点式的写实透视",
+    "alt": [
+      "avoid one point perspective"
+    ],
+    "guard": true,
+    "read": "上散点透视或平铺时用这条把它钉死。",
+    "code": "AT-027"
+  },
+  {
+    "id": "AM-401",
+    "role": "lead",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "pyramidal composition",
+    "zh": "三角构图",
+    "c": "稳定的三角结构体",
+    "alt": [
+      "triangular composition",
+      "stable pyramid grouping"
+    ],
+    "read": "最不容易出错的群像摆法。",
+    "code": "AT-028"
+  },
+  {
+    "id": "AM-402",
+    "role": "lead",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "diagonal thrust",
+    "zh": "对角推动",
+    "c": "沿对角线推进，画面带方向感",
+    "alt": [
+      "strong diagonal composition",
+      "dynamic diagonal movement"
+    ],
+    "read": "静的东西想动起来，就靠这条。",
+    "code": "AT-029"
+  },
+  {
+    "id": "AM-403",
+    "role": "lead",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "center subject with void",
+    "zh": "主体居中四周空",
+    "c": "主体落在中心，四周大片留白",
+    "alt": [
+      "centered subject large empty space",
+      "central figure surrounded by void"
+    ],
+    "read": "留白要给够，否则会被自动填满。",
+    "code": "AT-030"
+  },
+  {
+    "id": "AM-404",
+    "role": "support",
+    "status": "written",
+    "cat": 4,
+    "slot": "space",
+    "t": "off-center imbalance",
+    "zh": "失衡构图",
+    "c": "故意让重心偏出画面，制造不安",
+    "alt": [
+      "unbalanced off center composition",
+      "deliberately off center framing"
+    ],
+    "read": "失衡要有明确的重物压住一角，不然就是失误。",
+    "code": "AT-031"
+  },
+  {
+    "id": "AM-405",
+    "role": "lead",
+    "status": "written",
+    "cat": 4,
+    "slot": "space",
+    "t": "one corner composition",
+    "zh": "占一角",
+    "c": "主体只占一角，其余全留白",
+    "alt": [
+      "subject in one corner",
+      "minimal corner placement"
+    ],
+    "read": "中式册页与日本屏风的标准摆法。",
+    "code": "AT-032"
+  },
+  {
+    "id": "AM-406",
+    "role": "support",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "crowded full frame",
+    "zh": "塞满画框",
+    "c": "画面铺满，没有喘息空间",
+    "alt": [
+      "densely packed full frame",
+      "edge to edge composition"
+    ],
+    "read": "满与空是两套语言，混用会两头不讨好。",
+    "code": "AT-033"
+  },
+  {
+    "id": "AM-407",
+    "role": "support",
+    "status": "written",
+    "cat": 4,
+    "slot": "space",
+    "t": "high horizon line",
+    "zh": "高地平线",
+    "c": "地平线抬到高处，强调地面",
+    "alt": [
+      "raised horizon line",
+      "high horizon emphasis on ground"
+    ],
+    "read": "天空被压成一条带，地面成为主角。",
+    "code": "AT-034"
+  },
+  {
+    "id": "AM-408",
+    "role": "support",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "extreme low viewpoint",
+    "zh": "贴地仰视",
+    "c": "几乎贴着地面往上拍，物体压向观者",
+    "alt": [
+      "extreme low angle view",
+      "worm's eye view from ground"
+    ],
+    "read": "仰视会夸大尺度，适合表达压迫与纪念性。",
+    "code": "AT-035"
+  },
+  {
+    "id": "AM-409",
+    "role": "support",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "rule of thirds",
+    "zh": "三分法",
+    "c": "主体落在横向或纵向的三分线上",
+    "alt": [
+      "thirds based composition"
+    ],
+    "read": "安全但平庸；一旦与其他模块冲突，优先让位。",
+    "code": "AT-036"
+  },
+  {
+    "id": "AM-410",
+    "role": "guard",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "no cropping of subject",
+    "zh": "禁裁切主体",
+    "c": "主体不得被画框切断",
+    "alt": [
+      "uncropped full subject",
+      "subject entirely within frame"
+    ],
+    "guard": true,
+    "read": "做参考图对照时用这条，避免出现半个人。",
+    "code": "AT-037"
+  },
+  {
+    "id": "AM-501",
+    "role": "lead",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "complementary contrast",
+    "zh": "补色对撞",
+    "c": "补色并置，两组颜色互相把对方推得更艳",
+    "alt": [
+      "complementary colour scheme",
+      "opposed hues on screen"
+    ],
+    "read": "对撞要控制面积，小面积高纯度才不炸。",
+    "code": "AT-038"
+  },
+  {
+    "id": "AM-502",
+    "role": "support",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "analogous harmony",
+    "zh": "邻近色和",
+    "c": "相邻色相缓慢过渡",
+    "alt": [
+      "analogous colour palette",
+      "neighbouring hues harmony"
+    ],
+    "read": "过渡太慢会闷，加一个小跳色。",
+    "code": "AT-039"
+  },
+  {
+    "id": "AM-503",
+    "role": "lead",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "limited four colour scheme",
+    "zh": "限色",
+    "c": "全画只用三四色，其余靠明度拉开",
+    "alt": [
+      "restricted limited palette",
+      "three or four colour only"
+    ],
+    "read": "限色是最容易出高级感的一招。",
+    "code": "AT-040"
+  },
+  {
+    "id": "AM-504",
+    "role": "lead",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "muted grey tonality",
+    "zh": "灰调",
+    "c": "饱和度整体压低，靠明度说话",
+    "alt": [
+      "desaturated muted palette",
+      "grey tonal harmony"
+    ],
+    "read": "压低饱和度后要靠冷暖差撑住，否则一片糊。",
+    "code": "AT-041"
+  },
+  {
+    "id": "AM-505",
+    "role": "support",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "shadow rendered in violet",
+    "zh": "紫暗部",
+    "c": "暗部不用黑，改用紫",
+    "alt": [
+      "violet tinted shadows",
+      "purple shadow tones"
+    ],
+    "read": "这是印象派与新印象派共同的暗部配方。",
+    "code": "AT-042"
+  },
+  {
+    "id": "AM-506",
+    "role": "support",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "earthy earth palette",
+    "zh": "土系色",
+    "c": "土红、赭石、橄榄绿的暖土系",
+    "alt": [
+      "earth tone palette",
+      "umber ochre olive palette"
+    ],
+    "read": "土系最不容易出错，也最容易显得廉价，取决于明度层次。",
+    "code": "AT-043"
+  },
+  {
+    "id": "AM-507",
+    "role": "support",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "single accent colour",
+    "zh": "单点跳色",
+    "c": "整体安静，只有一处跳一点纯色",
+    "alt": [
+      "single accent colour pop",
+      "one vivid accent against muted tones"
+    ],
+    "read": "跳色位置要小，通常在视觉焦点上。",
+    "code": "AT-044"
+  },
+  {
+    "id": "AM-508",
+    "role": "lead",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "tonal monochrome",
+    "zh": "单色铺满",
+    "c": "一个色相铺满全画，只走浓淡",
+    "alt": [
+      "monochrome single hue",
+      "single hue value variation only"
+    ],
+    "read": "水墨与粉彩单色都靠这条撑。",
+    "code": "AT-045"
+  },
+  {
+    "id": "AM-509",
+    "role": "support",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "high key",
+    "zh": "高调",
+    "c": "整体提亮，以白与浅灰为底",
+    "alt": [
+      "high key light palette",
+      "bright overall tonality"
+    ],
+    "read": "高调不等于加曝光，暗部也要浅。",
+    "code": "AT-046"
+  },
+  {
+    "id": "AM-510",
+    "role": "support",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "low key",
+    "zh": "低调",
+    "c": "整体压暗，亮部极少极金贵",
+    "alt": [
+      "low key dark palette",
+      "dark overall tonality with sparse highlights"
+    ],
+    "read": "低调画面里亮部要集中，散了就没有戏剧。",
+    "code": "AT-047"
+  },
+  {
+    "id": "AM-601",
+    "role": "lead",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "visible confident brushstroke",
+    "zh": "可见落笔",
+    "c": "笔触清晰可见，落笔不犹豫",
+    "alt": [
+      "bold visible brushwork",
+      "confident painterly strokes"
+    ],
+    "read": "可见笔触是绘画语言的基本承诺，不能同时要照片质感。",
+    "code": "AT-048"
+  },
+  {
+    "id": "AM-602",
+    "role": "support",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "invisible blended surface",
+    "zh": "无痕表面",
+    "c": "笔触完全消失，表面像搪瓷",
+    "alt": [
+      "perfectly smooth blended surface",
+      "no visible brushwork"
+    ],
+    "read": "无痕表面会牺牲所有物质感，别一边无痕一边要厚涂。",
+    "code": "AT-049"
+  },
+  {
+    "id": "AM-603",
+    "role": "support",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "broken colour touch",
+    "zh": "并置小笔道",
+    "c": "小笔道分开并置，不互相调和",
+    "alt": [
+      "broken colour small distinct strokes",
+      "unblushed short colour touches"
+    ],
+    "read": "新印象派的核心笔法。",
+    "code": "AT-050"
+  },
+  {
+    "id": "AM-604",
+    "role": "lead",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "dry brush scrape",
+    "zh": "干笔拖擦",
+    "c": "干笔拖过，露出底材颗粒",
+    "alt": [
+      "dry brush scraping texture",
+      "scumbled dry brush drag"
+    ],
+    "read": "要露底材就得前面加一条底材词，否则拖不出东西。",
+    "code": "AT-051"
+  },
+  {
+    "id": "AM-605",
+    "role": "support",
+    "status": "written",
+    "cat": 6,
+    "slot": "brush",
+    "t": "loaded directional stroke",
+    "zh": "同向长笔",
+    "c": "方向一致的长笔道",
+    "alt": [
+      "consistent directional strokes",
+      "uniform stroke direction"
+    ],
+    "read": "方向一致会强化风势或水流。",
+    "code": "AT-052"
+  },
+  {
+    "id": "AM-606",
+    "role": "lead",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "gestural sweeping mark",
+    "zh": "挥扫笔势",
+    "c": "抡开手臂的一次性笔势",
+    "alt": [
+      "sweeping gestural mark",
+      "broad arm movement stroke"
+    ],
+    "read": "一次成形的笔势不能与细描并存。",
+    "code": "AT-053"
+  },
+  {
+    "id": "AM-607",
+    "role": "support",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "stippled dot texture",
+    "zh": "点彩堆塑",
+    "c": "用点状堆积代替平涂",
+    "alt": [
+      "stippled pointillist dots",
+      "dot based texture build up"
+    ],
+    "read": "模型点彩容易糊成一团，要给足点数提示。",
+    "code": "AT-054"
+  },
+  {
+    "id": "AM-608",
+    "role": "lead",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "cross-hatch density",
+    "zh": "排线换算",
+    "c": "用排线密度换算明度",
+    "alt": [
+      "cross hatched tonal build",
+      "hatch density as value"
+    ],
+    "read": "版画与素描都靠这一条，铜版蚀刻必配。",
+    "code": "AT-055"
+  },
+  {
+    "id": "AM-609",
+    "role": "support",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "wet blending",
+    "zh": "湿接湿",
+    "c": "颜色未干时互相渗开",
+    "alt": [
+      "wet on wet blending",
+      "soft wet transition"
+    ],
+    "read": "湿接湿需要画面里有水或者油，纸面干画做不到。",
+    "code": "AT-056"
+  },
+  {
+    "id": "AM-610",
+    "role": "support",
+    "status": "written",
+    "cat": 6,
+    "slot": "brush",
+    "t": "wet-blending absent",
+    "zh": "禁湿接",
+    "c": "不得出现颜色互相渗开的湿画法",
+    "alt": [
+      "no wet on wet blending",
+      "avoid soft blended transitions"
+    ],
+    "read": "蛋彩与硬边画派需要这条，否则罩染层会糊。",
+    "code": "AT-057"
+  },
+  {
+    "id": "AM-701",
+    "role": "lead",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "canvas weave visible",
+    "zh": "可见布纹",
+    "c": "画布纹理透过颜料显示出来",
+    "alt": [
+      "visible canvas weave texture",
+      "raw linen texture showing"
+    ],
+    "read": "油画布的默认肌理，几乎所有油画都该有。",
+    "code": "AT-058"
+  },
+  {
+    "id": "AM-702",
+    "role": "support",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "craquelure network",
+    "zh": "龟裂网",
+    "c": "清漆与颜料开裂形成的细网",
+    "alt": [
+      "fine craquelure crack network",
+      "aged varnish crackle"
+    ],
+    "read": "龟裂要跟做旧一起上，单独出现会像塑料压纹。",
+    "code": "AT-059"
+  },
+  {
+    "id": "AM-703",
+    "role": "support",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "yellowed varnish patina",
+    "zh": "泛黄清漆",
+    "c": "年代久远的清漆罩出黄调",
+    "alt": [
+      "yellowed aged varnish",
+      "warm amber varnish patina"
+    ],
+    "read": "泛黄会整体拉暖，抵消它的同时别忘了调冷色。",
+    "code": "AT-060"
+  },
+  {
+    "id": "AM-704",
+    "role": "support",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "washi fibre texture",
+    "zh": "和纸纤维",
+    "c": "和纸的纤维与帘纹",
+    "alt": [
+      "washi paper fibre texture",
+      "kozo paper grain"
+    ],
+    "read": "日本画与浮世绘的底子，必配。",
+    "code": "AT-061"
+  },
+  {
+    "id": "AM-705",
+    "role": "lead",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "plaster loss and salt bloom",
+    "zh": "灰泥剥落盐霜",
+    "c": "壁画特有的剥落与盐霜",
+    "alt": [
+      "plaster flaking and salt efflorescence",
+      "fresco deterioration"
+    ],
+    "read": "湿壁画必配，且要负面掉画布纹。",
+    "code": "AT-062"
+  },
+  {
+    "id": "AM-706",
+    "role": "support",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "gold leaf",
+    "zh": "金箔",
+    "c": "真正的金箔贴面，有金属反光",
+    "alt": [
+      "applied gold leaf",
+      "gilded gold surface"
+    ],
+    "read": "金箔在照片与数字档里极易变成黄色塑料，要加反光限定。",
+    "code": "AT-063"
+  },
+  {
+    "id": "AM-707",
+    "role": "support",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "egg tempera matte",
+    "zh": "蛋彩哑光",
+    "c": "蛋彩特有的均匀哑光，没有油画的润",
+    "alt": [
+      "egg tempera matte finish",
+      "flat luminous tempera surface"
+    ],
+    "read": "蛋彩永远厚不起来，出现厚涂凸起就是错的。",
+    "code": "AT-064"
+  },
+  {
+    "id": "AM-708",
+    "role": "support",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "raking light on impasto",
+    "zh": "斜光扫过厚涂",
+    "c": "侧向的光扫过凸起的颜料，显出厚度",
+    "alt": [
+      "raking light across thick paint",
+      "side light revealing impasto"
+    ],
+    "read": "表现厚涂唯一有效的办法，别指望正面光。",
+    "code": "AT-065"
+  },
+  {
+    "id": "AM-709",
+    "role": "guard",
+    "status": "tested",
+    "cat": 7,
+    "slot": "medium",
+    "t": "unrestored museum scan",
+    "zh": "未修复扫描",
+    "c": "画面保持未修复状态，保留原始损坏",
+    "alt": [
+      "unrestored original condition",
+      "conservation unretouched scan"
+    ],
+    "guard": true,
+    "read": "做古代名画复现时必加，否则模型会自作主张补全。",
+    "code": "AT-066"
+  },
+  {
+    "id": "AM-801",
+    "role": "lead",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "visible contour outline",
+    "zh": "轮廓线在场",
+    "c": "形体由明确的轮廓线界定",
+    "alt": [
+      "clear contour line drawing",
+      "outlined forms"
+    ],
+    "read": "有轮廓线就不要再同时要求无线造型的块面语言。",
+    "code": "AT-067"
+  },
+  {
+    "id": "AM-802",
+    "role": "lead",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "form built by colour mass",
+    "zh": "块面塑形",
+    "c": "不用轮廓线，靠色块与交界塑形",
+    "alt": [
+      "colour mass modelling",
+      "forms defined by colour boundaries"
+    ],
+    "read": "与轮廓线互斥；想两头都要，就分区处理。",
+    "code": "AT-068"
+  },
+  {
+    "id": "AM-803",
+    "role": "support",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "deliberate anatomical distortion",
+    "zh": "有意变形",
+    "c": "形体比例被有意夸张或压缩",
+    "alt": [
+      "intentional anatomical distortion",
+      "stylised deformed proportions"
+    ],
+    "read": "一旦允许变形，原画家的比例参照就不再自动成立，需要额外补一句比例基准。",
+    "code": "AT-069"
+  },
+  {
+    "id": "AM-804",
+    "role": "support",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "elongated proportions",
+    "zh": "拉长比例",
+    "c": "身形或空间被纵向拉长",
+    "alt": [
+      "elongated vertical proportions",
+      "stretched figure proportions"
+    ],
+    "read": "拉长是笔触与姿态共同的产物，只给词不给姿态词会失效。",
+    "code": "AT-070"
+  },
+  {
+    "id": "AM-805",
+    "role": "support",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "faceted planar forms",
+    "zh": "平面化切块",
+    "c": "形体被切成清晰的平面块",
+    "alt": [
+      "faceted planar shapes",
+      "crystalline geometric faceting"
+    ],
+    "read": "立体派与低多边形的共同语言。",
+    "code": "AT-071"
+  },
+  {
+    "id": "AM-806",
+    "role": "support",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "soft lost edges",
+    "zh": "边缘虚化",
+    "c": "形体边缘在背景里溶解",
+    "alt": [
+      "lost soft edges",
+      "edges dissolving into background"
+    ],
+    "read": "虚化的边缘必须配相近的明度，否则模型会补出硬边。",
+    "code": "AT-072"
+  },
+  {
+    "id": "AM-807",
+    "role": "support",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "hard cut edges",
+    "zh": "硬边切割",
+    "c": "形体之间以硬边直接相接",
+    "alt": [
+      "hard cut crisp edges",
+      "sharp geometric edges"
+    ],
+    "read": "硬边会让画面立刻数码感，与做旧互斥。",
+    "code": "AT-073"
+  },
+  {
+    "id": "AM-808",
+    "role": "support",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "anatomical accuracy",
+    "zh": "解剖准确",
+    "c": "人体结构按解剖学准确交代",
+    "alt": [
+      "anatomically accurate figure",
+      "correct human anatomy"
+    ],
+    "read": "古典与学院派必加；与有意变形互斥。",
+    "code": "AT-074"
+  },
+  {
+    "id": "AM-809",
+    "role": "guard",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "no distorted hands",
+    "zh": "禁手部畸变",
+    "c": "手部不得出现畸变",
+    "alt": [
+      "normal hands no deformation"
+    ],
+    "guard": true,
+    "read": "几乎所有人物图都该常驻这条，它默认进负面词。",
+    "code": "AT-075"
+  },
+  {
+    "id": "AM-810",
+    "role": "support",
+    "status": "written",
+    "cat": 8,
+    "slot": "brush",
+    "t": "flattened shallow volume",
+    "zh": "浅体积",
+    "c": "体积只交代一点点，不做全三维",
+    "alt": [
+      "shallow flattened volume",
+      "minimal three dimensional modelling"
+    ],
+    "read": "浅体积是金底画与埃及壁画的共性。",
+    "code": "AT-076"
+  },
+  {
+    "id": "AM-901",
+    "role": "lead",
+    "status": "tested",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "quiet melancholy",
+    "zh": "安静的哀伤",
+    "c": "不诉苦的、低声的哀伤",
+    "alt": [
+      "silent melancholy",
+      "restrained sadness"
+    ],
+    "read": "要压低对比与饱和，哭不出来才成。",
+    "code": "AT-077"
+  },
+  {
+    "id": "AM-902",
+    "role": "lead",
+    "status": "tested",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "ceremonial solemnity",
+    "zh": "仪式庄重",
+    "c": "带距离感的庄严",
+    "alt": [
+      "ceremonial gravity",
+      "solemn ritual atmosphere"
+    ],
+    "read": "庄严靠对称与静止，不靠宏大叙事。",
+    "code": "AT-078"
+  },
+  {
+    "id": "AM-903",
+    "role": "lead",
+    "status": "tested",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "sublime terror",
+    "zh": "崇高之惧",
+    "c": "巨大的恐惧与敬意混在一起",
+    "alt": [
+      "sublime mixture of awe and terror",
+      "overwhelming majestic dread"
+    ],
+    "read": "这类画面必须有尺度参照物，否则恐惧感出不来。",
+    "code": "AT-079"
+  },
+  {
+    "id": "AM-904",
+    "role": "support",
+    "status": "tested",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "intimate domesticity",
+    "zh": "私密松弛",
+    "c": "私人空间里的松弛与暖",
+    "alt": [
+      "quiet domestic intimacy",
+      "cosy private interior"
+    ],
+    "read": "要软光与杂物密度，别用大场面词。",
+    "code": "AT-080"
+  },
+  {
+    "id": "AM-905",
+    "role": "lead",
+    "status": "tested",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "decadent languor",
+    "zh": "病态倦怠",
+    "c": "华丽而疲倦",
+    "alt": [
+      "decadent listless luxury",
+      "opulent weariness"
+    ],
+    "read": "倦怠要靠半垂的姿态与过饱和的暗部一起做。",
+    "code": "AT-081"
+  },
+  {
+    "id": "AM-906",
+    "role": "lead",
+    "status": "tested",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "stoic endurance",
+    "zh": "隐忍负重",
+    "c": "不抱怨的、压着的重量",
+    "alt": [
+      "quiet stoic endurance",
+      "suppressed weight without complaint"
+    ],
+    "read": "这类画的关键是别把表情做成哭喊。",
+    "code": "AT-082"
+  },
+  {
+    "id": "AM-907",
+    "role": "support",
+    "status": "written",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "carnival irony",
+    "zh": "狂欢底刺",
+    "c": "热闹底下有一根刺",
+    "alt": [
+      "carnival festivity with irony",
+      "celebration hiding mockery"
+    ],
+    "read": "要靠画中有一处不对劲的东西撑住。",
+    "code": "AT-083"
+  },
+  {
+    "id": "AM-908",
+    "role": "support",
+    "status": "tested",
+    "cat": 9,
+    "slot": "spirit",
+    "t": "meditative emptiness",
+    "zh": "空到可冥想",
+    "c": "空到可以作为的状态",
+    "alt": [
+      "meditative still emptiness",
+      "contemplative emptiness"
+    ],
+    "read": "空不等于没画完，需要靠光与材质证明是刻意的。",
+    "code": "AT-084"
+  },
+  {
+    "id": "AM-A01",
+    "role": "lead",
+    "status": "tested",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "frozen decisive moment",
+    "zh": "凝固的决定瞬间",
+    "c": "事情正在发生，但被定格在关键一瞬",
+    "alt": [
+      "decisive moment frozen in time",
+      "suspended moment of action"
+    ],
+    "read": "比静态立像有力得多；姿态要给出前倾与未完成感。",
+    "code": "AT-085"
+  },
+  {
+    "id": "AM-A02",
+    "role": "support",
+    "status": "tested",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "implied narrative",
+    "zh": "暗示叙事",
+    "c": "画面暗示有事发生过，但不交代全貌",
+    "alt": [
+      "suggested narrative",
+      "story implied not stated"
+    ],
+    "read": "要留一个未交代的缺口，观众自己会补。",
+    "code": "AT-086"
+  },
+  {
+    "id": "AM-A03",
+    "role": "support",
+    "status": "written",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "portrait of unknown sitter",
+    "zh": "无名者像",
+    "c": "画面里的人身份不明，无名无姓",
+    "alt": [
+      "anonymous portrait",
+      "unidentified sitter"
+    ],
+    "read": "无名反而让观众代入，比给出姓名更强。",
+    "code": "AT-087"
+  },
+  {
+    "id": "AM-A04",
+    "role": "lead",
+    "status": "written",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "threshold crossing",
+    "zh": "门槛时刻",
+    "c": "人正处在进入与离开之间",
+    "alt": [
+      "threshold moment of crossing",
+      "figure at the doorway"
+    ],
+    "read": "门、窗、帘这类边界物必须真的出现在画面里。",
+    "code": "AT-088"
+  },
+  {
+    "id": "AM-A05",
+    "role": "support",
+    "status": "written",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "long duration implied",
+    "zh": "长时段暗示",
+    "c": "时间被拉得很长，痕迹积累",
+    "alt": [
+      "implied long duration",
+      "accumulated traces of time"
+    ],
+    "read": "靠磨损、风化、层积来暗示，而不是直接画时钟。",
+    "code": "AT-089"
+  },
+  {
+    "id": "AM-A06",
+    "role": "support",
+    "status": "tested",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "still life as memento",
+    "zh": "静物如纪念",
+    "c": "物品被当作记忆与告别的载体",
+    "alt": [
+      "objects as memento mori",
+      "still life as remembrance"
+    ],
+    "read": "要有磨损或使用痕迹，否则只是商品图。",
+    "code": "AT-090"
+  },
+  {
+    "id": "AM-A07",
+    "role": "guard",
+    "status": "tested",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "no modern objects",
+    "zh": "禁现代物件",
+    "c": "画面中不得出现现代物品",
+    "alt": [
+      "no modern objects",
+      "exclude contemporary items"
+    ],
+    "guard": true,
+    "read": "做历史题材复现时常驻，模型极容易塞进电线与塑料。",
+    "code": "AT-091"
+  },
+  {
+    "id": "AM-A08",
+    "role": "support",
+    "status": "written",
+    "cat": 10,
+    "slot": "spirit",
+    "t": "interrupted gesture",
+    "zh": "被打断的动作",
+    "c": "动作在中途被外力打断",
+    "alt": [
+      "gesture interrupted mid motion",
+      "abrupt halted movement"
+    ],
+    "read": "要有明确的打断源（他人、门、声音），否则只是姿势奇怪。",
+    "code": "AT-092"
+  },
+  {
+    "id": "AM-B01",
+    "role": "lead",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "extreme close-up",
+    "zh": "极近特写",
+    "c": "贴到表面，只看细节",
+    "alt": [
+      "extreme close up detail",
+      "very tight framing"
+    ],
+    "read": "特写是最容易做出高级感的景别，前提是表面真有细节。",
+    "code": "AT-093"
+  },
+  {
+    "id": "AM-B02",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "medium shot",
+    "zh": "中景",
+    "c": "半身到腰，标准叙事距离",
+    "alt": [
+      "medium shot framing",
+      "half body portrait distance"
+    ],
+    "read": "最安全的人像景别。",
+    "code": "AT-094"
+  },
+  {
+    "id": "AM-B03",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "wide establishing shot",
+    "zh": "全景远景",
+    "c": "交待全景，人物极小",
+    "alt": [
+      "wide establishing shot",
+      "vast landscape with tiny figure"
+    ],
+    "read": "小人物压在大环境里，气氛最足。",
+    "code": "AT-095"
+  },
+  {
+    "id": "AM-B04",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "shallow depth of field",
+    "zh": "浅景深",
+    "c": "背景虚化，主体分离",
+    "alt": [
+      "shallow depth of field",
+      "blurred background separation"
+    ],
+    "read": "只在照片与写实语言里成立；版画油画里虚化会变成脏。",
+    "code": "AT-096"
+  },
+  {
+    "id": "AM-B05",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "tilted Dutch angle",
+    "zh": "倾斜地平线",
+    "c": "地平线故意不平，制造不安",
+    "alt": [
+      "dutch angle tilted horizon",
+      "canted horizon"
+    ],
+    "read": "小幅倾斜最有效，超过十五度就成了灾难片。",
+    "code": "AT-097"
+  },
+  {
+    "id": "AM-B06",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "vast white void",
+    "zh": "大面留白",
+    "c": "大片空白，实物极少",
+    "alt": [
+      "vast empty space",
+      "large area of nothing"
+    ],
+    "read": "留白必须有东西压住一角或一角，否则像没画完。",
+    "code": "AT-098"
+  },
+  {
+    "id": "AM-B07",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "sparse three elements",
+    "zh": "三件式",
+    "c": "只留三样东西互相搀扶",
+    "alt": [
+      "three sparse elements",
+      "minimal arrangement of three objects"
+    ],
+    "read": "限制元素数量是最可靠的构图纪律。",
+    "code": "AT-099"
+  },
+  {
+    "id": "AM-B08",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "horror vacui",
+    "zh": "塞满不留空",
+    "c": "怕空，密密麻麻铺满",
+    "alt": [
+      "horror vacui densely filled",
+      "no empty space anywhere"
+    ],
+    "read": "与东亚的空寂美学完全相反，两套语言不可混用。",
+    "code": "AT-100"
+  },
+  {
+    "id": "AM-B09",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "layered depth crowd",
+    "zh": "三层纵深",
+    "c": "远中近各有一层",
+    "alt": [
+      "foreground middle ground background layering",
+      "three plane depth staging"
+    ],
+    "read": "三层各自要有一件清晰的东西，否则会糊成一片。",
+    "code": "AT-101"
+  },
+  {
+    "id": "AM-B10",
+    "role": "support",
+    "status": "tested",
+    "cat": 11,
+    "slot": "space",
+    "t": "serial repetition grid",
+    "zh": "重复网格",
+    "c": "重复排列，取消个体差异",
+    "alt": [
+      "repeating serial grid",
+      "rhythmic repetition of identical units"
+    ],
+    "read": "重复会消掉叙事，格纹与叙事类模块冲突。",
+    "code": "AT-102"
+  },
+  {
+    "id": "AM-C01",
+    "role": "lead",
+    "status": "tested",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "vertical poster format",
+    "zh": "竖版海报",
+    "c": "2:3 竖构图，上方留标题空间",
+    "alt": [
+      "vertical poster layout",
+      "portrait poster proportion"
+    ],
+    "read": "上方三分之一必须压低信息密度，否则标题压不住。",
+    "code": "AT-103"
+  },
+  {
+    "id": "AM-C02",
+    "role": "lead",
+    "status": "tested",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "landscape banner format",
+    "zh": "横版横幅",
+    "c": "16:9 或 21:9 横构图，横向铺陈",
+    "alt": [
+      "wide banner layout",
+      "panoramic horizontal composition"
+    ],
+    "read": "横幅适合叙事横向展开，不适合单个人物特写。",
+    "code": "AT-104"
+  },
+  {
+    "id": "AM-C03",
+    "role": "support",
+    "status": "tested",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "square social format",
+    "zh": "方形社交图",
+    "c": "1:1 方形，中心安全区内构图",
+    "alt": [
+      "square format composition",
+      "one by one square framing"
+    ],
+    "read": "方形最安全，但也最容易平庸，关键在中心层次。",
+    "code": "AT-105"
+  },
+  {
+    "id": "AM-C04",
+    "role": "lead",
+    "status": "written",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "editorial full page",
+    "zh": "杂志整页",
+    "c": "2:3 竖幅，图文混排预留大面积",
+    "alt": [
+      "magazine full page layout",
+      "editorial spread with copy space"
+    ],
+    "read": "至少留三分之一为空白文字区，否则排版会挤。",
+    "code": "AT-106"
+  },
+  {
+    "id": "AM-C05",
+    "role": "support",
+    "status": "written",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "book plate frontispiece",
+    "zh": "书籍插图",
+    "c": "单幅插图，构图收得住",
+    "alt": [
+      "book frontispiece plate",
+      "single plate illustration"
+    ],
+    "read": "书页图要考虑与文字并置，密度不宜过满。",
+    "code": "AT-107"
+  },
+  {
+    "id": "AM-C06",
+    "role": "support",
+    "status": "tested",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "concept art keyframe",
+    "zh": "概念设定图",
+    "c": "游戏或影视概念图，重设计信息",
+    "alt": [
+      "concept art keyframe",
+      "production design key art"
+    ],
+    "read": "要交代空间关系但不追求气氛模糊。",
+    "code": "AT-108"
+  },
+  {
+    "id": "AM-C07",
+    "role": "support",
+    "status": "tested",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "canvas print ready",
+    "zh": "可印刷画布",
+    "c": "按实体画布比例出图，可直接装裱",
+    "alt": [
+      "canvas print aspect ratio",
+      "framed canvas ready"
+    ],
+    "read": "实体画布常用 2:3、3:2、1:1 与黄金比，不要出屏比。",
+    "code": "AT-109"
+  },
+  {
+    "id": "AM-C08",
+    "role": "support",
+    "status": "written",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "decorative panel",
+    "zh": "装饰挂饰",
+    "c": "可作挂饰或屏风的装饰面",
+    "alt": [
+      "decorative wall panel",
+      "screen or hanging panel art"
+    ],
+    "read": "这类图要两面都经得住看，边缘不能草率。",
+    "code": "AT-110"
+  },
+  {
+    "id": "AM-C09",
+    "role": "guard",
+    "status": "tested",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "no watermark no signature",
+    "zh": "禁水印禁签名",
+    "c": "不得出现水印、签名、标识、界面元素",
+    "alt": [
+      "no watermark no signature"
+    ],
+    "guard": true,
+    "read": "常驻约束，默认进负面词。",
+    "code": "AT-111"
+  },
+  {
+    "id": "AM-C10",
+    "role": "support",
+    "status": "tested",
+    "cat": 12,
+    "slot": "spirit",
+    "t": "generous margin",
+    "zh": "留边距",
+    "c": "四周留出装裱或排版边距",
+    "alt": [
+      "wide clean margins",
+      "generous border space"
+    ],
+    "read": "留边距要显式写出来，模型默认总是铺满。",
+    "code": "AT-112"
+  },
+  {
+    "id": "AM-D01",
+    "role": "region",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "foreground subject in focus",
+    "zh": "前景主体实焦",
+    "c": "画面近处的主体清晰结实，占据视觉重心",
+    "alt": [
+      "sharp detailed foreground subject",
+      "crisp focal subject in near field"
+    ],
+    "read": "分区方案里给主体区用。与 AM-D05 的背景处理配对，两者同时上才成立。",
+    "region": {
+      "zone": "foreground",
+      "pairWith": "AM-D05"
+    },
+    "code": "AT-113"
+  },
+  {
+    "id": "AM-D02",
+    "role": "region",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "figure rendered in full detail",
+    "zh": "人物满细节",
+    "c": "人物部分画到接近插画的精度，衣料与手部都不省略",
+    "alt": [
+      "highly detailed figure rendering",
+      "illustration level figure detail"
+    ],
+    "read": "当背景要往后退时，人物区必须顶上来，否则画面会整体发空。配 AM-D06。",
+    "region": {
+      "zone": "figure",
+      "pairWith": "AM-D06"
+    },
+    "code": "AT-114"
+  },
+  {
+    "id": "AM-D03",
+    "role": "region",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "impasto build up on accents",
+    "zh": "重色堆积处厚涂",
+    "c": "只在最亮的几个高光处把颜料堆起来，其余保持薄",
+    "alt": [
+      "thick impasto only at highlights",
+      "selective heavy paint accents"
+    ],
+    "read": "配 AM-D07。厚涂一旦铺满全图，暗部会跟着变脏，务必只给高光。",
+    "region": {
+      "zone": "accents",
+      "pairWith": "AM-D07"
+    },
+    "code": "AT-115"
+  },
+  {
+    "id": "AM-D04",
+    "role": "region",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "saturated accent passages",
+    "zh": "局部高纯度色块",
+    "c": "只在一小块地方用足纯度，其余全部压低",
+    "alt": [
+      "small area of saturated colour",
+      "isolated vivid colour passage"
+    ],
+    "read": "这是 CF-06（灰调对撞高饱和）的标准解法：主体铺灰，只留这一小块跳色。",
+    "region": {
+      "zone": "accent",
+      "pairWith": "AM-D08"
+    },
+    "code": "AT-116"
+  },
+  {
+    "id": "AM-D05",
+    "role": "region",
+    "status": "tested",
+    "cat": 3,
+    "slot": "space",
+    "t": "background falling soft",
+    "zh": "背景退虚",
+    "c": "背景整体虚化并压低对比，只交代气氛不交代细节",
+    "alt": [
+      "soft out of focus background",
+      "low contrast defocused backdrop"
+    ],
+    "read": "与 AM-D01 配对。单用这一条会变成景深虚化片，单用 AM-D01 会变成合影。",
+    "region": {
+      "zone": "background",
+      "pairWith": "AM-D01"
+    },
+    "code": "AT-117"
+  },
+  {
+    "id": "AM-D06",
+    "role": "region",
+    "status": "tested",
+    "cat": 8,
+    "slot": "brush",
+    "t": "background reduced to mass",
+    "zh": "背景概括成面",
+    "c": "背景只交代大形与明度，不画细节与质感",
+    "alt": [
+      "background simplified to masses",
+      "broad background shapes only"
+    ],
+    "read": "与 AM-D02 配对。这是把一幅画画得「有空气」最省力的一招。",
+    "region": {
+      "zone": "background",
+      "pairWith": "AM-D02"
+    },
+    "code": "AT-118"
+  },
+  {
+    "id": "AM-D07",
+    "role": "region",
+    "status": "tested",
+    "cat": 6,
+    "slot": "brush",
+    "t": "thin flat passages elsewhere",
+    "zh": "其余薄涂平铺",
+    "c": "除高光外全部薄涂平铺，不留笔触堆积",
+    "alt": [
+      "thin flat paint elsewhere",
+      "smooth thin glazing pass"
+    ],
+    "read": "与 AM-D03 配对。这一对是控制油画质感的关键：厚薄分配本身就是构图。",
+    "region": {
+      "zone": "field",
+      "pairWith": "AM-D03"
+    },
+    "code": "AT-119"
+  },
+  {
+    "id": "AM-D08",
+    "role": "region",
+    "status": "tested",
+    "cat": 5,
+    "slot": "color",
+    "t": "muted low saturation field",
+    "zh": "低纯度大色域",
+    "c": "大面积颜色一律压到中低纯度，作为高纯度色块的底",
+    "alt": [
+      "large muted colour field",
+      "desaturated background colour"
+    ],
+    "read": "与 AM-D04 配对。CF-06 的完整解法就是这一对，别只上其中一条。",
+    "region": {
+      "zone": "field",
+      "pairWith": "AM-D04"
+    },
+    "code": "AT-120"
+  },
+  {
+    "id": "AM-D09",
+    "role": "region",
+    "status": "tested",
+    "cat": 2,
+    "slot": "light",
+    "t": "open sky with no detail",
+    "zh": "素净天空",
+    "c": "天空只留渐变，不放云的结构也不放任何剪影",
+    "alt": [
+      "plain gradient sky",
+      "empty unadorned sky"
+    ],
+    "read": "给宋元一路的山水用。天空一旦有细节，整幅画立刻掉价。",
+    "region": {
+      "zone": "sky",
+      "pairWith": "AM-D10"
+    },
+    "code": "AT-121"
+  },
+  {
+    "id": "AM-D10",
+    "role": "region",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "distant range fading into haze",
+    "zh": "远山没入雾中",
+    "c": "最远的一层山只留一条淡影，边界要化开",
+    "alt": [
+      "distant mountains fading into mist",
+      "far range dissolved in haze"
+    ],
+    "read": "与 AM-D09 配对。空气透视的关键不在近景，而在最远那一层给不给。",
+    "region": {
+      "zone": "far",
+      "pairWith": "AM-D09"
+    },
+    "code": "AT-122"
+  },
+  {
+    "id": "AM-D11",
+    "role": "region",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "light falling from one side only",
+    "zh": "单侧受光",
+    "c": "光只从画面一侧进来，背光面全部沉下去",
+    "alt": [
+      "light from a single side",
+      "one sided illumination"
+    ],
+    "read": "分区布光的第一条。暗面不是画暗，是让光进不去。",
+    "region": {
+      "zone": "lit",
+      "pairWith": "AM-D12"
+    },
+    "code": "AT-123"
+  },
+  {
+    "id": "AM-D12",
+    "role": "region",
+    "status": "tested",
+    "cat": 1,
+    "slot": "light",
+    "t": "shadow side merging into ground",
+    "zh": "暗面并入地面",
+    "c": "背光区域与地面暗部连成一片，不留交界线",
+    "alt": [
+      "shadow side merges into ground tone",
+      "continuous shadow and ground"
+    ],
+    "read": "与 AM-D11 配对。这一对能造出比任何滤镜都可信的厚重感。",
+    "region": {
+      "zone": "shadow",
+      "pairWith": "AM-D11"
+    },
+    "code": "AT-124"
+  },
+  {
+    "id": "AM-D13",
+    "role": "region",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "clear margin band on top",
+    "zh": "上方留标题带",
+    "c": "画面上方留出一条不画内容的横带，供后期压字",
+    "alt": [
+      "blank band across the top for titling",
+      "reserved top margin strip"
+    ],
+    "read": "封面与海报必用。只写「留白」模型不会保证留够位置，必须指定在「上方」。",
+    "region": {
+      "zone": "top",
+      "pairWith": "AM-D14"
+    },
+    "code": "AT-125"
+  },
+  {
+    "id": "AM-D14",
+    "role": "region",
+    "status": "tested",
+    "cat": 4,
+    "slot": "space",
+    "t": "lower area carrying the main mass",
+    "zh": "下压主体量",
+    "c": "主要的内容量压在下三分之二，上方只留轻的量",
+    "alt": [
+      "visual weight anchored in lower area",
+      "heavier bottom composition"
+    ],
+    "read": "与 AM-D13 配对。留白不只是空出来，还要让下面的量足够压得住。",
+    "region": {
+      "zone": "bottom",
+      "pairWith": "AM-D13"
+    },
+    "code": "AT-126"
+  }
+]
