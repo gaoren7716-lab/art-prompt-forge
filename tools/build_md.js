@@ -121,6 +121,25 @@ function distRow(name, list) {
       return m ? (m[1].match(/"[A-Z][\w-]*"\s*:/g) || []).length : 0;
     } catch (e) { return 0; }
   })();
+  /* 核对结论与挂账明细同样现算。这里曾经写死过「有一张标了不一致」，
+     加一张图那句话立刻就成了假的 —— 而这句假话恰好写在教人怎么看配图的段落里。
+     ACCEPTED 里加一条，README 就多一行，不用人记得同步。 */
+  const GC = (function () { try { return require("./gallery_check.js"); } catch (e) { return null; } })();
+  const galTally = GC ? GC.main({ quiet: true }).tally : { match: 0, partial: 0, unknown: 0 };
+  const galOk = galTally.match;
+  const galOff = galTally.partial + galTally.unknown;
+  const galAcc = (function () {
+    if (!GC || !GC.ACCEPTED) return [];
+    /* 变奏卡的中文名只在页面定义里有，签名卡的在数据里 —— 两张表合起来查，
+       否则 G-02 这类签名卡的挂账行会缺名字，读起来像没写完 */
+    let zh = new Map();
+    db.SIGNATURES.forEach(s => zh.set(s.id, s.zh));
+    try {
+      require("./gallery_sync.js").cardTable().zhById.forEach((v, k) => { if (!zh.has(k)) zh.set(k, v); });
+    } catch (e) { /* 无目录时留空 */ }
+    return Object.keys(GC.ACCEPTED).sort()
+      .map(k => "- `" + k + "`" + (zh.get(k) ? " " + zh.get(k) : "") + "：" + GC.ACCEPTED[k]);
+  })();
   const region = {};
   db.PAINTERS.forEach(p => { region[p.region] = (region[p.region] || 0) + 1; });
   const regionRows = Object.keys(region).sort((a, b) => region[b] - region[a])
@@ -149,7 +168,13 @@ function distRow(name, list) {
   }).join("\n");
 
   out("README.md", `
+<!-- 本文件由 tools/build_md.js 生成。手改会被下次生成覆盖 —— 要改内容请改模板。
+     曾经在生成后的 README 上直接改过一整段配图说明，跑一次 build_md.js 全部消失。 -->
 # 艺术提示词配方库 · art-prompt-forge
+
+**在线打开（GitHub Pages，无需安装、无需起服务器）：**
+<https://gaoren7716-lab.github.io/art-prompt-forge/>
+仓库：<https://github.com/gaoren7716-lab/art-prompt-forge>
 
 一个开放式的绘画提示词知识库。**三条路都能走通**：
 
@@ -302,19 +327,53 @@ ${regionRows}
 视图可切「看图 / 扫编号」。已配实图的卡直接出图（目前 ${galImgs} 张），卡面自动从色卡换成实图，
 筛选行同时出现「全部 · 有图 N」。
 
-配图：**放进 gallery/ 就完事，文件名 = 卡片编码**，扩展名 png / jpg / jpeg / webp 随意（大小写不敏感）。
-\`gallery/G-01.png\` → 001 号；\`gallery/G-07.jpg\` → 007 号；\`gallery/VAR-03.webp\` → 变奏卡 03。
-\`assets/gallery-imgs.js\` 是**自动生成的派生物，不要手改** —— 构建会按目录重写它，手改会被覆盖。
+配图：**放进 gallery/ 就完事，文件名 = 卡面左上角那个编号**，扩展名 png / jpg / jpeg / webp 随意（大小写不敏感）。
+\`gallery/G-01.jpg\` → 签名卡 01；\`gallery/VAR-03.jpg\` → 第 3 张变奏卡。
+\`assets/gallery-imgs.js\` 是**自动生成的派生物，不要手改** —— 同步会按目录重写它，手改会被覆盖。
 
-**同步不是实时的**：图落盘后要跑一次 \`node tools/build_standalone.js\` 才生效（它同时重写清单、
-把图 base64 注入单文件版）。不想每次手动跑就挂上守夜人 \`node tools/gallery_watch.js\` ——
-每 2 秒看一次 gallery/，图一落盘就自动同步并重建，挂着不用管。
-文件名不像编码、或编码库里没有卡片时，构建会明确报出来，不会静默丢图。
+**正确的文件名不用记，卡面左上角那个编号就是**，而且**它能点** —— 点一下把 \`VAR-01.png\`
+这个名字复制到剪贴板，拿去重命名图片即可。
 
-**图和提示词会对不上，构建时会报。** \`node tools/gallery_check.js\` 逐张核对配图与卡片配方
-（题材、画家、反复出现的元素是否同源），构建流程已接进去，放图那一刻就能看到出入。
-目前 ${galImgs} 张里有一张标了不一致（配方写卡拉瓦乔、配图是提香），
-卡片上加了「图≠配方」徽章并写明差别 —— 图进得去不等于两者是同一件事。
+这条路上踩过一个很贵的坑，值得单独说：卡面从前显示的是**数组序号**（001–${s.SIGNATURES + 15}），
+前 ${s.SIGNATURES} 张序号碰巧与卡片编号相同，从第 ${s.SIGNATURES + 1} 张起分叉（页面上的 026 其实是 VAR-01）。
+照着序号把图命名成 \`G-26.png\`，而清单只认 \`VAR-01\` —— 图放进去**毫无反应**，
+页面上也看不出为什么。根源是「同一个映射在页面与脚本里各写了一份，改一处忘一处，
+而且不一致时不报错」。治法是别让它有两份：
+
+- 卡面显示的编号**就是**配图该用的文件名（同一个变量渲染出来的，不是两处各自拼的）；
+- 目录里**不再并存两套叫法**：\`node tools/gallery_sync.js --rename\` 会把按序号命名的文件
+  就地改成卡片编码（如 \`G-26.png\` → \`VAR-01.png\`），目标已存在则跳过、绝不覆盖；
+- 序号命名与库内规范编码（\`SG-001.png\`）仍然认，作为兜底，但正常路径用不到它们；
+- 回归里有条**闭环断言**：页面给出的每个文件名，都要能被同步器解析回同一张卡 ——
+  两边再分叉，测试当场红。
+
+**同步不是实时的**，两条路：
+
+- 临时同步：双击「同步画廊.bat」，或 \`node tools/gallery_sync.js\`。后者一秒出差异报告
+  （这次新增/移除/认领了哪些），不用等整个单文件打包跑完。「同步画廊.bat」会顺手把
+  按序号命名的文件改成卡片编码（等同于 \`--rename\`）；守夜人则不擅自改名，它只同步。
+- 自动同步：双击「画廊守夜人.bat」（窗口要留着），或 \`node tools/gallery_watch.js\`。
+  它是**进程不是服务**，窗口一关就停 —— 所以它每 10 秒写一次心跳 \`.gallery-watch.log\`，
+  跑 \`gallery_sync.js\` 会告诉你它还在不在、上次同步成没成，不用靠猜。
+
+文件名不像卡片编码、编码对不上任何卡片、或两个文件抢同一张卡时，都会明确报出来，不静默丢图。
+其中「没进画廊的文件」还会连名字一起注进清单，**在画廊页面上直接显示一条提示** ——
+多数人的流程是「图往文件夹里一丢、回来刷新页面」，命令行里的警告他们看不到；
+页面上那句「你放的这 2 个文件没被认领，改成 XXX.png 就行」才是真正能拦住问题的位置。
+
+**图和提示词会对不上，同步时就会报。** \`node tools/gallery_check.js\` 逐张核对配图与卡片配方
+（题材、画家、反复出现的元素是否同源），同步流程已接进去（同进程调用，不走 spawn ——
+本机 spawn 一律 EBUSY），放图那一刻就能看到出入。
+
+核对结论分三种：**一致**、**有出入**、**还没看过**。后两种都算「必须处理」，
+处理方式只有两条路：改图/改配方，或者**连原因与日期写进 \`tools/gallery_check.js\` 的
+\`ACCEPTED\` 挂账名单**，同时给那张卡加 \`imgNote\`（卡面挂「图≠配方」徽章、详情写明差在哪）。
+挂账之外出现的新出入会让脚本**退出码 1** —— 「图自动进去了、没人看一眼」正是这里最容易
+悄悄发生的事，所以宁可报错。目前 ${galImgs} 张里 ${galOk} 张一致、${galOff} 张挂账：
+
+${galAcc.join("\n")}
+
+**图进得去不等于两者是同一件事** —— 用户看着图复制提示词，两者不是一回事却不说，比没图更误导。
 
 若图是用引擎出图生成的，清水印与假签名的脚本在 \`tools/gallery_img.py\`：
 \`python tools/gallery_img.py <出图png> <编码>\`。平台水印压在右下角且**贴底**，
@@ -360,18 +419,25 @@ node tools/show_prompt.js      # 查单条编码对应的提示词
 node tools/dedupe_role.js      # 清理重复书写的 role 字段（幂等）
 node tools/gen_op_meta.js      # 由算子结构重新推导 preserve/change/forbid
 node tools/stamp_zh.js         # 批量补 zh（幂等，--check 预演）
+
+# 配图三件套：同步只管登记，核对只管对不对得上，转码只管体积
+node tools/gallery_sync.js     # 同步 + 差异报告（--check 只体检 / --rename 序号名改卡片编码）
+node tools/gallery_check.js    # 核对：未挂账的图/配方出入会让退出码 1
+node tools/gallery_compress.js # 1200px PNG 转 JPEG q88（--check 看能省多少 / --restore 还原原图）
+node tools/gallery_watch.js    # 守着 gallery/，图一落盘就自动同步 + 重建（窗口别关）
 \`\`\`
 
-改完数据跑一遍回归：
+改完数据跑一遍回归（四套必须全绿）：
 
 \`\`\`bash
-node tools/smoke.js            # 引擎逻辑冒烟（154 项）
-NODE_PATH=<jsdom路径> node tools/smoke-web.js   # 界面冒烟（267 项）
-node tools/check_codes.js      # 编码层体检（42 项，九组）
+node tools/check_fields.js     # 字段体检
+node tools/smoke.js            # 引擎逻辑冒烟
+NODE_PATH=<jsdom路径> node tools/smoke-web.js   # 界面冒烟（需要 jsdom，缺了它只打印一行就退出）
+node tools/check_codes.js      # 编码层体检（九组断言）
 node tools/inventory.js        # 多维盘点：谁还没收、哪个标签没人用
-node tools/gallery_check.js   # 画廊配图核对：图与卡片配方是否对得上
-node tools/gallery_watch.js   # 守着 gallery/，图一落盘就自动同步 + 重建（挂着不用管）
 \`\`\`
+
+项数不写在这里 —— 加一条断言数字就变一次，写死的项数下个月就是假的。
 `);
 }
 
