@@ -142,8 +142,61 @@ function distRow(name, list) {
   })();
   const region = {};
   db.PAINTERS.forEach(p => { region[p.region] = (region[p.region] || 0) + 1; });
-  const regionRows = Object.keys(region).sort((a, b) => region[b] - region[a])
-    .map(r => "| " + r + " | " + region[r] + " |").join("\n");
+  const regionSorted = Object.keys(region).sort((a, b) => region[b] - region[a]);
+  /* 地域分布压成一行：28 行表格对「有多少画家、集中在哪」这个问题是噪音，
+     前几名 + 尾数才是有信息量的部分。 */
+  const regionLine = regionSorted.slice(0, 5)
+    .map(r => r + " " + region[r]).join(" · ")
+    + "，其余 " + (regionSorted.length - 5) + " 个地区共 "
+    + regionSorted.slice(5).reduce((n, r) => n + region[r], 0) + " 位";
+
+  /* 画廊墙：README 顶部直接看见成品卡的实图，而不是先读一千字再决定要不要打开。
+     图与编号都从清单现算 —— 写着 40 张却只有 18 张图，比不写更糟。
+     GAL_HIDDEN 里的图不进墙：G-22 配方是生物机械、配图却是无关人体且属裸露内容，
+     公开仓库首页不适合挂它。图仍在 gallery/ 里，换图后自动回到墙上。 */
+  const GAL_HIDDEN = [
+    { code: "G-03", why: "古典裸体，且画面含儿童形象" },
+    { code: "G-22", why: "配方是生物机械、配图却是无关人体，待换图" }
+  ];
+  const hiddenCodes = GAL_HIDDEN.map(h => h.code);
+  const galWall = (function () {
+    try {
+      const sync = require("./gallery_sync.js");
+      const man = fs.readFileSync(path.join(__dirname, "..", "assets", "gallery-imgs.js"), "utf8");
+      const m = /^var GALLERY_IMGS = \{([\s\S]*?)\};/m.exec(man);
+      if (!m) return { html: "", shown: 0, hidden: [] };
+      let entries = [...m[1].matchAll(/"([A-Z][\w-]*)"\s*:\s*"([^"]+)"/g)]
+        .map(x => ({ code: x[1], rel: x[2] }));
+      const zh = new Map();
+      db.SIGNATURES.forEach(s => zh.set(s.id, s.zh));
+      try { sync.cardTable().zhById.forEach((v, k) => { if (!zh.has(k)) zh.set(k, v); }); } catch (e) { /* 无目录 */ }
+      /* 按卡片在页面上的先后排，不按文件名字典序 —— 否则 VAR 会插在 G 中间 */
+      let order = [];
+      try { order = sync.cardTable().all; } catch (e) { /* 无目录 */ }
+      entries.sort((a, b) => {
+        const ia = order.indexOf(a.code), ib = order.indexOf(b.code);
+        return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
+      });
+      const show = entries.filter(e => hiddenCodes.indexOf(e.code) < 0);
+      const hidden = GAL_HIDDEN
+        .filter(h => entries.some(e => e.code === h.code))
+        .map(h => h.code + "（" + h.why + "）");
+      const COLS = 5;
+      let html = "<table>\n";
+      for (let i = 0; i < show.length; i += COLS) {
+        html += "<tr>\n";
+        for (let j = i; j < Math.min(i + COLS, show.length); j++) {
+          const e = show[j];
+          html += '<td align="center" valign="top">'
+            + '<img src="' + e.rel + '" width="150" alt="' + e.code + '"><br>'
+            + "<code>" + e.code + "</code><br>" + (zh.get(e.code) || "") + "</td>\n";
+        }
+        html += "</tr>\n";
+      }
+      html += "</table>";
+      return { html, shown: show.length, total: entries.length, hidden };
+    } catch (e) { return { html: "", shown: 0, total: 0, hidden: [] }; }
+  })();
 
   const relKind = {};
   db.RELATIONS.forEach(r => { relKind[r.kind] = (relKind[r.kind] || 0) + 1; });
@@ -170,24 +223,36 @@ function distRow(name, list) {
   out("README.md", `
 <!-- 本文件由 tools/build_md.js 生成。手改会被下次生成覆盖 —— 要改内容请改模板。
      曾经在生成后的 README 上直接改过一整段配图说明，跑一次 build_md.js 全部消失。 -->
-# 艺术提示词配方库 · art-prompt-forge
+# 画作 提示词库 · art-prompt-forge
 
-**在线打开（GitHub Pages，无需安装、无需起服务器）：**
-<https://gaoren7716-lab.github.io/art-prompt-forge/>
-仓库：<https://github.com/gaoren7716-lab/art-prompt-forge>
+**在线打开：** <https://gaoren7716-lab.github.io/art-prompt-forge/> —— 不用安装，不用起服务器。
+（仓库：<https://github.com/gaoren7716-lab/art-prompt-forge>）
 
-一个开放式的绘画提示词知识库。**三条路都能走通**：
+把画风拆成七个面——媒介底材 / 笔法肌理 / 色彩关系 / 光的处理 / 空间构图 / 固定母题 / 精神气质。
+画风因此能当零件用：整条照搬、只取某一面、或者换世纪换媒介换题材。
 
-1. **直接抄** —— 已经有 \`${s.SIGNATURES}\` 张调好的签名卡、\`${s.PAINTERS}\` 位画家、\`${s.WORKS}\` 幅名画，词条现成，复制即用。
-2. **组合拼** —— 任何「画家 / 流派 / 名画 / 媒介 / 题材 / 光学 / 原子模块」都可以加权重叠，\`@\` 强度滑块决定像到几分。
-3. **受控变形** —— \`${s.OPERATORS}\` 个算子改写世纪、媒介、题材，或者只取某个人的某一面（只取色彩、只取笔法、只取构图）。
+- **直接抄** —— \`${s.SIGNATURES + 15}\` 张成品卡，全部配了实图，复制即用。
+- **组合拼** —— 画家 / 流派 / 名画 / 媒介 / 题材 / 光学 / 原子模块任意叠，\`@\` 强度决定像到几分。
+- **受控变形** —— \`${s.OPERATORS}\` 个算子改写世纪、媒介、题材，或只取某人的某一面。
+
+## 画廊
+
+共 \`${galWall.total}\` 张成品卡（\`${s.SIGNATURES}\` 张签名卡 + 15 张组合变奏）**全部配了实图**，
+下面按卡片顺序摊开。**图下那个编号就是配图文件名，也是这张卡在在线版里的入口** ——
+看中哪张，进在线版搜这个编号，或打开 \`index.html\` 点那张卡直接复制。
+
+${galWall.html}
+${galWall.hidden.length ? "\n> **上面少了 " + galWall.hidden.length + " 张，不是漏了：** " + galWall.hidden.join("；")
+  + "。图仍在 \`gallery/\` 里（在线画廊能看到），只是不挂在公开仓库首页；换图后自动回来。" : ""}
 
 ## 先说清楚这不是什么
 
-**它没有收齐全球画家。** 它现在有 ${s.PAINTERS} 位，覆盖 ${Object.keys(region).length} 个地区与国家。
-这个数字会变，请以本页表格为准，不要引用一个固定的「全球 N 位」。
+**它没有收齐全球画家**：现有 ${s.PAINTERS} 位，覆盖 ${Object.keys(region).length} 个地区。
+数字会变，以本页表格为准，别引用一个固定的「全球 N 位」。
 
-每条记录都带验证状态，四级：
+每条记录带四级验证状态，**\`written\` 是默认值** —— 看到它就意味着
+「词写得通，但没人验证过它在模型上真出这个效果」。一条被验证过的和一条只在纸上成立的，
+可信度差一个量级，混在一起会害你调半天参数。
 
 | 状态 | 含义 |
 | --- | --- |
@@ -196,13 +261,8 @@ function distRow(name, list) {
 | \`tested\` 已测试 | 至少在一个模型上跑过并留了结果记录 |
 | \`reviewed\` 已复核 | 有第二个来源交叉核对过，出处、年代、归属均无争议 |
 
-**最重要的一条阅读提示：\`written\` 是默认值。** 看到 \`written\` 就意味着
-「这条提示词写得通，但没人验证过它在模型上真的出这个效果」。这不是缺陷，
-是诚实标注——一条被三个模型验证过的提示词和一条只在纸上成立的提示词，
-可信度差一个量级，混在一起会害你调半天参数。
-
 ${painterNote ? painterNote + "\n" : ""}
-## 四个文件
+## 文件导航
 
 | 文件 | 给谁用 |
 | --- | --- |
@@ -217,34 +277,27 @@ ${painterNote ? painterNote + "\n" : ""}
 | \`INDEX.md\` | 一页索引：想干的事 → 去哪里；含决策归属表（谁定 / 跟着谁走） |
 | \`SKILL.md\` | 可安装技能入口：装进 agent 按这份规则用本库 |
 
-## 按编码或中文名直接取用
+## 按编码或中文名取用
 
-每一条都有三位规范编码，编码与中文名、英文名、旧 ID 都能互相解析：
+每条都有三位编码，编码 / 中文名 / 英文名 / 旧 ID 互相都能解析：
 
 \`\`\`
 PA-125 + 明暗对照 + 单侧窗光 + OP-004
 达·芬奇 + 黄金时刻 + 安静的哀伤
 \`\`\`
 
-打开 \`index.html\` 顶栏的**编码工作台**可以查编码、组组合串、看全库段码总表，
-产出规范组合串与可直接喂给引擎的 spec。详细规则见 \`docs/13-编码手册.md\`。
-
-**每一条都能直接看到它自己的提示词。** 解析结果的每一行、段码总表的每一行、
-主界面配方盘的每个零件都带一个「看提示词」按钮，展开就是段落式 tags、负面词、
-自然语言正文，各带一键复制，并可切 SD / MJ / Flux / 自然语言四种权重写法。
-命令行同样能查：
+在线版顶栏的**编码工作台**查编码、组串、看段码总表；命令行同样能取：
 
 \`\`\`bash
-node tools/show_prompt.js PA-125      # 规范编码、中文名、英文名都吃
+node tools/show_prompt.js PA-125      # 编码、中文名、英文名都吃
 node tools/show_prompt.js AT-001 --platform mj
 \`\`\`
 
-面板会标出这条属于哪一档：**可直接出图**（画家、题材、名画、签名卡…）、
-**零件需搭配基底**（原子模块、光学词条、算子 —— 单独跑只剩一句约束词，
-所以额外给一份挂在演示基底上的版本）、**不进提示词**（来源许可、模型实测、
-冲突规则 —— 会写明为什么）。分档的理由见 \`docs/13-编码手册.md\`。
+每条都标了档位：**可直接出图** / **零件需搭配基底**（原子模块、光学词条、算子 ——
+单独跑只剩一句约束词，所以附一份挂在演示基底上的）/ **不进提示词**（来源许可、
+模型实测、冲突规则 —— 会写明为什么）。理由见 \`docs/13-编码手册.md\`。
 
-**段码不含义，只表示归属** —— 可读性靠中文名：
+**段码只表示归属，不含义** —— 可读性靠中文名：
 
 | 段码 | 名称 | 条数 | 可直接组合 |
 | --- | --- | --- | --- |
@@ -309,98 +362,60 @@ ${[
 
 ### 画家的地域分布
 
-| 地区 / 国家 | 人数 |
-| --- | --- |
-${regionRows}
+${s.PAINTERS} 位画家分布在 ${Object.keys(region).length} 个地区：${regionLine}。
 
 ### 覆盖缺口（请连同上表一起读）
 
-- **没有任何画家的流派 ${lonelyMv.length} 个**：${lonelyMv.map(m => m.zh).join("、") || "无"}
-- **还没有配名画的画家 ${noWork.length} 位**（占 ${(noWork.length / db.PAINTERS.length * 100).toFixed(0)}%）：${noWork.slice(0, 16).map(p => p.zh).join("、")}${noWork.length > 16 ? " 等" : ""}
-- **名画里尚未复核的 ${notReviewedWorks.length} 幅**：机构归属与年代仍需二次核对
-- **原子模块里未实测的 ${notTestedAtoms.length} 条**：分区与约束类模块的实际效果还需在模型上验证
+${[
+  /* 0 条的那一行不输出 —— 「没有任何画家的流派 0 个：无」是纯噪音 */
+  lonelyMv.length ? "- **没有任何画家的流派 " + lonelyMv.length + " 个**：" + lonelyMv.map(m => m.zh).join("、") : "",
+  "- **还没有配名画的画家 " + noWork.length + " 位**（占 " + (noWork.length / db.PAINTERS.length * 100).toFixed(0) + "%）："
+    + noWork.slice(0, 16).map(p => p.zh).join("、") + (noWork.length > 16 ? " 等" : ""),
+  "- **名画里尚未复核的 " + notReviewedWorks.length + " 幅**：机构归属与年代仍需二次核对",
+  "- **原子模块里未实测的 " + notTestedAtoms.length + " 条**：分区与约束类模块的实际效果还需在模型上验证"
+].filter(Boolean).join("\n")}
 
 ## 四种玩法
 
-**一、直接抄。** 打开 \`index.html\`，进「示例画廊」：${s.SIGNATURES + 15} 张成品卡（${s.SIGNATURES} 张签名卡 + 15 张组合变奏），
-每张卡面有一句话画面与成分 chips，卡上按钮直接复制。筛选三层：主分类 / 题材 / 色调，
-视图可切「看图 / 扫编号」。已配实图的卡直接出图（目前 ${galImgs} 张），卡面自动从色卡换成实图，
-筛选行同时出现「全部 · 有图 N」。
+**一、直接抄。** 打开 \`index.html\` 进「示例画廊」：${s.SIGNATURES + 15} 张成品卡，
+卡面有一句话画面与成分 chips，按钮直接复制；筛选三层（主分类 / 题材 / 色调），视图可切「看图 / 扫编号」。
 
-配图：**放进 gallery/ 就完事，文件名 = 卡面左上角那个编号**，扩展名 png / jpg / jpeg / webp 随意（大小写不敏感）。
-\`gallery/G-01.jpg\` → 签名卡 01；\`gallery/VAR-03.jpg\` → 第 3 张变奏卡。
-\`assets/gallery-imgs.js\` 是**自动生成的派生物，不要手改** —— 同步会按目录重写它，手改会被覆盖。
+**二、换零件。** 抄一张卡，把画家从梵高换成谢洛夫，或用 OP-D-02 只留某位大师的笔法。每处改动立刻出词，不用重来。
 
-**正确的文件名不用记，卡面左上角那个编号就是**，而且**它能点** —— 点一下把 \`VAR-01.png\`
-这个名字复制到剪贴板，拿去重命名图片即可。
+**三、受控变形。** ${s.OPERATORS} 个算子做四件事：迁移世纪（OP-E）、迁移媒介（OP-M）、迁移题材（OP-S）、解构取值（OP-D）。冲突自动裁决，不用自己判断哪两种风格不能叠。
 
-这条路上踩过一个很贵的坑，值得单独说：卡面从前显示的是**数组序号**（001–${s.SIGNATURES + 15}），
-前 ${s.SIGNATURES} 张序号碰巧与卡片编号相同，从第 ${s.SIGNATURES + 1} 张起分叉（页面上的 026 其实是 VAR-01）。
-照着序号把图命名成 \`G-26.png\`，而清单只认 \`VAR-01\` —— 图放进去**毫无反应**，
-页面上也看不出为什么。根源是「同一个映射在页面与脚本里各写了一份，改一处忘一处，
-而且不一致时不报错」。治法是别让它有两份：
+**四、写脚本。** 拿 \`dist/all.json\` 用任意语言复现这套逻辑，或直接 require \`assets/forge-kit.js\`。
 
-- 卡面显示的编号**就是**配图该用的文件名（同一个变量渲染出来的，不是两处各自拼的）；
-- 目录里**不再并存两套叫法**：\`node tools/gallery_sync.js --rename\` 会把按序号命名的文件
-  就地改成卡片编码（如 \`G-26.png\` → \`VAR-01.png\`），目标已存在则跳过、绝不覆盖；
-- 序号命名与库内规范编码（\`SG-001.png\`）仍然认，作为兜底，但正常路径用不到它们；
-- 回归里有条**闭环断言**：页面给出的每个文件名，都要能被同步器解析回同一张卡 ——
-  两边再分叉，测试当场红。
+## 配图怎么进画廊
 
-**同步不是实时的**，两条路：
+**文件名 = 卡面左上角那个编号**（\`G-01.jpg\` / \`VAR-03.jpg\`），扩展名 png / jpg / webp 都收、大小写不敏感。
+编号不用记 —— 它**能点**，点一下把 \`VAR-01.png\` 复制到剪贴板，拿去重命名图片即可。
+\`assets/gallery-imgs.js\` 是自动生成的派生物，手改会被下次同步覆盖。
 
-- 临时同步：双击「同步画廊.bat」，或 \`node tools/gallery_sync.js\`。后者一秒出差异报告
-  （这次新增/移除/认领了哪些），不用等整个单文件打包跑完。「同步画廊.bat」会顺手把
-  按序号命名的文件改成卡片编码（等同于 \`--rename\`）；守夜人则不擅自改名，它只同步。
-- 自动同步：双击「画廊守夜人.bat」（窗口要留着），或 \`node tools/gallery_watch.js\`。
-  它是**进程不是服务**，窗口一关就停 —— 所以它每 10 秒写一次心跳 \`.gallery-watch.log\`，
-  跑 \`gallery_sync.js\` 会告诉你它还在不在、上次同步成没成，不用靠猜。
+同步两条路：双击「同步画廊.bat」（会顺手把按序号命名的旧文件改成卡片编码），
+或挂着「画廊守夜人.bat」。守夜人是**进程不是服务**，窗口一关就停 —— 它每 10 秒写一次心跳，
+\`gallery_sync.js\` 会直接告诉你它还在不在，不用靠猜。图放进去没反应时，
+**画廊页面会列出没被认领的文件名、并说清该改成什么名字**：多数人的动作是「图一丢、回来刷新页面」，
+命令行里的警告根本看不到，页面上那句提示才是能拦住问题的位置。
+（这段机制为什么会反复出问题、以及怎么钉住的，记在 \`AGENTS.md\`。）
 
-文件名不像卡片编码、编码对不上任何卡片、或两个文件抢同一张卡时，都会明确报出来，不静默丢图。
-其中「没进画廊的文件」还会连名字一起注进清单，**在画廊页面上直接显示一条提示** ——
-多数人的流程是「图往文件夹里一丢、回来刷新页面」，命令行里的警告他们看不到；
-页面上那句「你放的这 2 个文件没被认领，改成 XXX.png 就行」才是真正能拦住问题的位置。
-
-**图和提示词会对不上，同步时就会报。** \`node tools/gallery_check.js\` 逐张核对配图与卡片配方
-（题材、画家、反复出现的元素是否同源），同步流程已接进去（同进程调用，不走 spawn ——
-本机 spawn 一律 EBUSY），放图那一刻就能看到出入。
-
-核对结论分三种：**一致**、**有出入**、**还没看过**。后两种都算「必须处理」，
-处理方式只有两条路：改图/改配方，或者**连原因与日期写进 \`tools/gallery_check.js\` 的
-\`ACCEPTED\` 挂账名单**，同时给那张卡加 \`imgNote\`（卡面挂「图≠配方」徽章、详情写明差在哪）。
-挂账之外出现的新出入会让脚本**退出码 1** —— 「图自动进去了、没人看一眼」正是这里最容易
-悄悄发生的事，所以宁可报错。目前 ${galImgs} 张里 ${galOk} 张一致、${galOff} 张挂账：
+**图和提示词会对不上，同步时就报。** \`gallery_check.js\` 逐张核对图与配方是否同源；
+对不上只有两条路 —— 改图或改配方，或者连原因与日期写进 \`ACCEPTED\` 挂账、并给卡片加
+\`imgNote\`（卡面挂「图≠配方」徽章，详情写明差在哪）。挂账之外的新出入会让脚本退出码 1。
+目前 ${galImgs} 张里 ${galOk} 张一致、${galOff} 张挂账：
 
 ${galAcc.join("\n")}
 
-**图进得去不等于两者是同一件事** —— 用户看着图复制提示词，两者不是一回事却不说，比没图更误导。
+**图进得去不等于两者是同一件事** —— 看着图复制提示词，两者不是一回事却不说，比没图更误导。
+引擎出图的图还要清平台水印与模型自己画的假签名：\`python tools/gallery_img.py <出图png> <编码>\`。
 
-若图是用引擎出图生成的，清水印与假签名的脚本在 \`tools/gallery_img.py\`：
-\`python tools/gallery_img.py <出图png> <编码>\`。平台水印压在右下角且**贴底**，
-模型还会自己画假签名，两样都要清；从左侧等宽等高取带再水平翻转最干净
-（正上方取带会留横向硬接缝且色温对不上）。
+## 出词纪律（引擎自动执行）
 
-**二、换零件。** 抄一张卡，然后把画家从梵高换成谢洛夫，或用 OP-D-02 只留下某位大师的笔法。每一处改动都立刻出词，不用重来。
+三条纪律在出词时自动生效，界面上会说明，不用你记：
 
-**三、受控变形。** ${s.OPERATORS} 个算子做四件事：迁移世纪（OP-E）、迁移媒介（OP-M）、迁移题材（OP-S）、解构取值（OP-D）。
-冲突会自动裁决，不需要你自己判断哪两种风格不能叠。
-
-**四、写脚本。** 拿 \`dist/all.json\`，用任意语言复现这套组合逻辑；也可以直接 require \`assets/forge-kit.js\`。
-
-## 出词纪律（引擎自动执行，不用你记）
-
-三条纪律在出词时自动生效，界面上会说明，不需要用户做任何事：
-
-1. **在世艺术家的姓名不进词面。** 判据是生卒年字段（无卒年即在世），
-   姓名仍可用于查找与指代，只是不出现在可粘贴的词面里——以七面锚定画风。
-   已故大师的姓名引用保留，"in the style of 已故大师" 是画风库的标准锚定。
-2. **具体画作标题不进构图词面。** 画家「常见题材」面里命中作品登记表的标题
-   （如 mona lisa）会被移出 tags——写进去模型会去画那幅画，而你要的是
-   「这个画家的画风」。被移出的标题在面板「垫图兜底」区按参考图使用，
-   配参考隔离指令（只取画风，不迁移内容）。
-3. **你自己的话原样追加在末尾。** 主界面「原话」输入框或工作台未命中段的
-   「作为原话追加」：不占任何一面、不参与冲突裁决——「我要清晨薄雾的孤独感」
-   不该去改画家的任何一面。
+1. **在世艺术家的姓名不进词面**（判据是生卒年字段）；已故大师的姓名引用保留。
+2. **具体画作标题不进构图词面** —— 写进去模型会去画那幅画，而你要的是这个画家的画风。
+3. **你自己的话原样追加在末尾**，不占任何一面、不参与冲突裁决。
 
 ## 关于图像与许可
 

@@ -1,24 +1,91 @@
 
 <!-- 本文件由 tools/build_md.js 生成。手改会被下次生成覆盖 —— 要改内容请改模板。
      曾经在生成后的 README 上直接改过一整段配图说明，跑一次 build_md.js 全部消失。 -->
-# 艺术提示词配方库 · art-prompt-forge
+# 画作 提示词库 · art-prompt-forge
 
-**在线打开（GitHub Pages，无需安装、无需起服务器）：**
-<https://gaoren7716-lab.github.io/art-prompt-forge/>
-仓库：<https://github.com/gaoren7716-lab/art-prompt-forge>
+**在线打开：** <https://gaoren7716-lab.github.io/art-prompt-forge/> —— 不用安装，不用起服务器。
+（仓库：<https://github.com/gaoren7716-lab/art-prompt-forge>）
 
-一个开放式的绘画提示词知识库。**三条路都能走通**：
+把画风拆成七个面——媒介底材 / 笔法肌理 / 色彩关系 / 光的处理 / 空间构图 / 固定母题 / 精神气质。
+画风因此能当零件用：整条照搬、只取某一面、或者换世纪换媒介换题材。
 
-1. **直接抄** —— 已经有 `25` 张调好的签名卡、`205` 位画家、`104` 幅名画，词条现成，复制即用。
-2. **组合拼** —— 任何「画家 / 流派 / 名画 / 媒介 / 题材 / 光学 / 原子模块」都可以加权重叠，`@` 强度滑块决定像到几分。
-3. **受控变形** —— `38` 个算子改写世纪、媒介、题材，或者只取某个人的某一面（只取色彩、只取笔法、只取构图）。
+- **直接抄** —— `40` 张成品卡，全部配了实图，复制即用。
+- **组合拼** —— 画家 / 流派 / 名画 / 媒介 / 题材 / 光学 / 原子模块任意叠，`@` 强度决定像到几分。
+- **受控变形** —— `38` 个算子改写世纪、媒介、题材，或只取某人的某一面。
+
+## 画廊
+
+共 `40` 张成品卡（`25` 张签名卡 + 15 张组合变奏）**全部配了实图**，
+下面按卡片顺序摊开。**图下那个编号就是配图文件名，也是这张卡在在线版里的入口** ——
+看中哪张，进在线版搜这个编号，或打开 `index.html` 点那张卡直接复制。
+
+<table>
+<tr>
+<td align="center" valign="top"><img src="gallery/G-01.jpg" width="150" alt="G-01"><br><code>G-01</code><br>古典室内肖像</td>
+<td align="center" valign="top"><img src="gallery/G-02.jpg" width="150" alt="G-02"><br><code>G-02</code><br>极端明暗戏剧</td>
+<td align="center" valign="top"><img src="gallery/G-04.jpg" width="150" alt="G-04"><br><code>G-04</code><br>英国湿润风景</td>
+<td align="center" valign="top"><img src="gallery/G-05.jpg" width="150" alt="G-05"><br><code>G-05</code><br>墨西哥壁画群像</td>
+<td align="center" valign="top"><img src="gallery/G-06.jpg" width="150" alt="G-06"><br><code>G-06</code><br>俄罗斯历史场面</td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="gallery/G-07.jpg" width="150" alt="G-07"><br><code>G-07</code><br>北宋全景山水</td>
+<td align="center" valign="top"><img src="gallery/G-08.jpg" width="150" alt="G-08"><br><code>G-08</code><br>元人简远小景</td>
+<td align="center" valign="top"><img src="gallery/G-09.jpg" width="150" alt="G-09"><br><code>G-09</code><br>大写意花鸟</td>
+<td align="center" valign="top"><img src="gallery/G-10.jpg" width="150" alt="G-10"><br><code>G-10</code><br>唐卡式圣像</td>
+<td align="center" valign="top"><img src="gallery/G-11.jpg" width="150" alt="G-11"><br><code>G-11</code><br>浮世绘风景版面</td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="gallery/G-12.jpg" width="150" alt="G-12"><br><code>G-12</code><br>新艺术海报</td>
+<td align="center" valign="top"><img src="gallery/G-13.jpg" width="150" alt="G-13"><br><code>G-13</code><br>俄罗斯童话插画</td>
+<td align="center" valign="top"><img src="gallery/G-14.jpg" width="150" alt="G-14"><br><code>G-14</code><br>波斯细密画书页</td>
+<td align="center" valign="top"><img src="gallery/G-15.jpg" width="150" alt="G-15"><br><code>G-15</code><br>琳派金屏风</td>
+<td align="center" valign="top"><img src="gallery/G-16.jpg" width="150" alt="G-16"><br><code>G-16</code><br>黑白装饰插画</td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="gallery/G-17.jpg" width="150" alt="G-17"><br><code>G-17</code><br>超现实梦境</td>
+<td align="center" valign="top"><img src="gallery/G-18.jpg" width="150" alt="G-18"><br><code>G-18</code><br>表现主义呐喊</td>
+<td align="center" valign="top"><img src="gallery/G-19.jpg" width="150" alt="G-19"><br><code>G-19</code><br>色域沉默</td>
+<td align="center" valign="top"><img src="gallery/G-20.jpg" width="150" alt="G-20"><br><code>G-20</code><br>波普丝网海报</td>
+<td align="center" valign="top"><img src="gallery/G-21.jpg" width="150" alt="G-21"><br><code>G-21</code><br>科幻概念设计</td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="gallery/G-23.jpg" width="150" alt="G-23"><br><code>G-23</code><br>双画家融合示范</td>
+<td align="center" valign="top"><img src="gallery/G-24.jpg" width="150" alt="G-24"><br><code>G-24</code><br>只取色彩解构示范</td>
+<td align="center" valign="top"><img src="gallery/G-25.jpg" width="150" alt="G-25"><br><code>G-25</code><br>媒介迁移到摄影</td>
+<td align="center" valign="top"><img src="gallery/VAR-01.jpg" width="150" alt="VAR-01"><br><code>VAR-01</code><br>古典家居一角</td>
+<td align="center" valign="top"><img src="gallery/VAR-02.jpg" width="150" alt="VAR-02"><br><code>VAR-02</code><br>窗光静物</td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="gallery/VAR-03.jpg" width="150" alt="VAR-03"><br><code>VAR-03</code><br>明暗神话</td>
+<td align="center" valign="top"><img src="gallery/VAR-04.jpg" width="150" alt="VAR-04"><br><code>VAR-04</code><br>湿润海岸</td>
+<td align="center" valign="top"><img src="gallery/VAR-05.jpg" width="150" alt="VAR-05"><br><code>VAR-05</code><br>壁画式历史</td>
+<td align="center" valign="top"><img src="gallery/VAR-06.jpg" width="150" alt="VAR-06"><br><code>VAR-06</code><br>历史宴集</td>
+<td align="center" valign="top"><img src="gallery/VAR-07.jpg" width="150" alt="VAR-07"><br><code>VAR-07</code><br>北宋式荒野</td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="gallery/VAR-08.jpg" width="150" alt="VAR-08"><br><code>VAR-08</code><br>大写意走兽</td>
+<td align="center" valign="top"><img src="gallery/VAR-09.jpg" width="150" alt="VAR-09"><br><code>VAR-09</code><br>志怪护法卷</td>
+<td align="center" valign="top"><img src="gallery/VAR-10.jpg" width="150" alt="VAR-10"><br><code>VAR-10</code><br>浮世绘海浪</td>
+<td align="center" valign="top"><img src="gallery/VAR-11.jpg" width="150" alt="VAR-11"><br><code>VAR-11</code><br>新艺术花卉</td>
+<td align="center" valign="top"><img src="gallery/VAR-12.jpg" width="150" alt="VAR-12"><br><code>VAR-12</code><br>童话市井</td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="gallery/VAR-13.jpg" width="150" alt="VAR-13"><br><code>VAR-13</code><br>超现实家居</td>
+<td align="center" valign="top"><img src="gallery/VAR-14.jpg" width="150" alt="VAR-14"><br><code>VAR-14</code><br>表现主义群像</td>
+<td align="center" valign="top"><img src="gallery/VAR-15.jpg" width="150" alt="VAR-15"><br><code>VAR-15</code><br>科幻深空</td>
+</tr>
+</table>
+
+> **上面少了 2 张，不是漏了：** G-03（古典裸体，且画面含儿童形象）；G-22（配方是生物机械、配图却是无关人体，待换图）。图仍在 `gallery/` 里（在线画廊能看到），只是不挂在公开仓库首页；换图后自动回来。
 
 ## 先说清楚这不是什么
 
-**它没有收齐全球画家。** 它现在有 205 位，覆盖 28 个地区与国家。
-这个数字会变，请以本页表格为准，不要引用一个固定的「全球 N 位」。
+**它没有收齐全球画家**：现有 205 位，覆盖 28 个地区。
+数字会变，以本页表格为准，别引用一个固定的「全球 N 位」。
 
-每条记录都带验证状态，四级：
+每条记录带四级验证状态，**`written` 是默认值** —— 看到它就意味着
+「词写得通，但没人验证过它在模型上真出这个效果」。一条被验证过的和一条只在纸上成立的，
+可信度差一个量级，混在一起会害你调半天参数。
 
 | 状态 | 含义 |
 | --- | --- |
@@ -27,14 +94,9 @@
 | `tested` 已测试 | 至少在一个模型上跑过并留了结果记录 |
 | `reviewed` 已复核 | 有第二个来源交叉核对过，出处、年代、归属均无争议 |
 
-**最重要的一条阅读提示：`written` 是默认值。** 看到 `written` 就意味着
-「这条提示词写得通，但没人验证过它在模型上真的出这个效果」。这不是缺陷，
-是诚实标注——一条被三个模型验证过的提示词和一条只在纸上成立的提示词，
-可信度差一个量级，混在一起会害你调半天参数。
-
 画家条目目前全部为 `written`：词条按通行艺术史描述整理，但没有逐条做二手来源交叉核对，`reviewed` 只给了年代与归属有争议的一批名画与外部标准。不要把「已编写」读成「已核实」。
 
-## 四个文件
+## 文件导航
 
 | 文件 | 给谁用 |
 | --- | --- |
@@ -49,34 +111,27 @@
 | `INDEX.md` | 一页索引：想干的事 → 去哪里；含决策归属表（谁定 / 跟着谁走） |
 | `SKILL.md` | 可安装技能入口：装进 agent 按这份规则用本库 |
 
-## 按编码或中文名直接取用
+## 按编码或中文名取用
 
-每一条都有三位规范编码，编码与中文名、英文名、旧 ID 都能互相解析：
+每条都有三位编码，编码 / 中文名 / 英文名 / 旧 ID 互相都能解析：
 
 ```
 PA-125 + 明暗对照 + 单侧窗光 + OP-004
 达·芬奇 + 黄金时刻 + 安静的哀伤
 ```
 
-打开 `index.html` 顶栏的**编码工作台**可以查编码、组组合串、看全库段码总表，
-产出规范组合串与可直接喂给引擎的 spec。详细规则见 `docs/13-编码手册.md`。
-
-**每一条都能直接看到它自己的提示词。** 解析结果的每一行、段码总表的每一行、
-主界面配方盘的每个零件都带一个「看提示词」按钮，展开就是段落式 tags、负面词、
-自然语言正文，各带一键复制，并可切 SD / MJ / Flux / 自然语言四种权重写法。
-命令行同样能查：
+在线版顶栏的**编码工作台**查编码、组串、看段码总表；命令行同样能取：
 
 ```bash
-node tools/show_prompt.js PA-125      # 规范编码、中文名、英文名都吃
+node tools/show_prompt.js PA-125      # 编码、中文名、英文名都吃
 node tools/show_prompt.js AT-001 --platform mj
 ```
 
-面板会标出这条属于哪一档：**可直接出图**（画家、题材、名画、签名卡…）、
-**零件需搭配基底**（原子模块、光学词条、算子 —— 单独跑只剩一句约束词，
-所以额外给一份挂在演示基底上的版本）、**不进提示词**（来源许可、模型实测、
-冲突规则 —— 会写明为什么）。分档的理由见 `docs/13-编码手册.md`。
+每条都标了档位：**可直接出图** / **零件需搭配基底**（原子模块、光学词条、算子 ——
+单独跑只剩一句约束词，所以附一份挂在演示基底上的）/ **不进提示词**（来源许可、
+模型实测、冲突规则 —— 会写明为什么）。理由见 `docs/13-编码手册.md`。
 
-**段码不含义，只表示归属** —— 可读性靠中文名：
+**段码只表示归属，不含义** —— 可读性靠中文名：
 
 | 段码 | 名称 | 条数 | 可直接组合 |
 | --- | --- | --- | --- |
@@ -164,94 +219,42 @@ node tools/show_prompt.js AT-001 --platform mj
 
 ### 画家的地域分布
 
-| 地区 / 国家 | 人数 |
-| --- | --- |
-| 中国 | 55 |
-| 法国 | 27 |
-| 意大利 | 20 |
-| 日本 | 18 |
-| 美国 | 16 |
-| 尼德兰 | 9 |
-| 德国 | 9 |
-| 英国 | 7 |
-| 西班牙 | 6 |
-| 印度 | 6 |
-| 俄国 | 5 |
-| 波斯 | 3 |
-| 朝鲜 | 2 |
-| 佛兰德斯 | 2 |
-| 奥地利 | 2 |
-| 瑞士 | 2 |
-| 墨西哥 | 2 |
-| 土耳其 | 2 |
-| 瑞典 | 2 |
-| 荷兰 | 2 |
-| 挪威 | 1 |
-| 乌拉圭 | 1 |
-| 越南 | 1 |
-| 印度尼西亚 | 1 |
-| 西藏 | 1 |
-| 捷克 | 1 |
-| 丹麦 | 1 |
-| 比利时 | 1 |
+205 位画家分布在 28 个地区：中国 55 · 法国 27 · 意大利 20 · 日本 18 · 美国 16，其余 23 个地区共 69 位。
 
 ### 覆盖缺口（请连同上表一起读）
 
-- **没有任何画家的流派 0 个**：无
 - **还没有配名画的画家 105 位**（占 51%）：巨然、吴镇、徐熙、黄筌、沈周、文徵明、唐寅、仇英、金农、黄慎、黄宾虹、徐悲鸿、林风眠、石鲁、常玉、吴冠中 等
 - **名画里尚未复核的 84 幅**：机构归属与年代仍需二次核对
 - **原子模块里未实测的 21 条**：分区与约束类模块的实际效果还需在模型上验证
 
 ## 四种玩法
 
-**一、直接抄。** 打开 `index.html`，进「示例画廊」：40 张成品卡（25 张签名卡 + 15 张组合变奏），
-每张卡面有一句话画面与成分 chips，卡上按钮直接复制。筛选三层：主分类 / 题材 / 色调，
-视图可切「看图 / 扫编号」。已配实图的卡直接出图（目前 40 张），卡面自动从色卡换成实图，
-筛选行同时出现「全部 · 有图 N」。
+**一、直接抄。** 打开 `index.html` 进「示例画廊」：40 张成品卡，
+卡面有一句话画面与成分 chips，按钮直接复制；筛选三层（主分类 / 题材 / 色调），视图可切「看图 / 扫编号」。
 
-配图：**放进 gallery/ 就完事，文件名 = 卡面左上角那个编号**，扩展名 png / jpg / jpeg / webp 随意（大小写不敏感）。
-`gallery/G-01.jpg` → 签名卡 01；`gallery/VAR-03.jpg` → 第 3 张变奏卡。
-`assets/gallery-imgs.js` 是**自动生成的派生物，不要手改** —— 同步会按目录重写它，手改会被覆盖。
+**二、换零件。** 抄一张卡，把画家从梵高换成谢洛夫，或用 OP-D-02 只留某位大师的笔法。每处改动立刻出词，不用重来。
 
-**正确的文件名不用记，卡面左上角那个编号就是**，而且**它能点** —— 点一下把 `VAR-01.png`
-这个名字复制到剪贴板，拿去重命名图片即可。
+**三、受控变形。** 38 个算子做四件事：迁移世纪（OP-E）、迁移媒介（OP-M）、迁移题材（OP-S）、解构取值（OP-D）。冲突自动裁决，不用自己判断哪两种风格不能叠。
 
-这条路上踩过一个很贵的坑，值得单独说：卡面从前显示的是**数组序号**（001–40），
-前 25 张序号碰巧与卡片编号相同，从第 26 张起分叉（页面上的 026 其实是 VAR-01）。
-照着序号把图命名成 `G-26.png`，而清单只认 `VAR-01` —— 图放进去**毫无反应**，
-页面上也看不出为什么。根源是「同一个映射在页面与脚本里各写了一份，改一处忘一处，
-而且不一致时不报错」。治法是别让它有两份：
+**四、写脚本。** 拿 `dist/all.json` 用任意语言复现这套逻辑，或直接 require `assets/forge-kit.js`。
 
-- 卡面显示的编号**就是**配图该用的文件名（同一个变量渲染出来的，不是两处各自拼的）；
-- 目录里**不再并存两套叫法**：`node tools/gallery_sync.js --rename` 会把按序号命名的文件
-  就地改成卡片编码（如 `G-26.png` → `VAR-01.png`），目标已存在则跳过、绝不覆盖；
-- 序号命名与库内规范编码（`SG-001.png`）仍然认，作为兜底，但正常路径用不到它们；
-- 回归里有条**闭环断言**：页面给出的每个文件名，都要能被同步器解析回同一张卡 ——
-  两边再分叉，测试当场红。
+## 配图怎么进画廊
 
-**同步不是实时的**，两条路：
+**文件名 = 卡面左上角那个编号**（`G-01.jpg` / `VAR-03.jpg`），扩展名 png / jpg / webp 都收、大小写不敏感。
+编号不用记 —— 它**能点**，点一下把 `VAR-01.png` 复制到剪贴板，拿去重命名图片即可。
+`assets/gallery-imgs.js` 是自动生成的派生物，手改会被下次同步覆盖。
 
-- 临时同步：双击「同步画廊.bat」，或 `node tools/gallery_sync.js`。后者一秒出差异报告
-  （这次新增/移除/认领了哪些），不用等整个单文件打包跑完。「同步画廊.bat」会顺手把
-  按序号命名的文件改成卡片编码（等同于 `--rename`）；守夜人则不擅自改名，它只同步。
-- 自动同步：双击「画廊守夜人.bat」（窗口要留着），或 `node tools/gallery_watch.js`。
-  它是**进程不是服务**，窗口一关就停 —— 所以它每 10 秒写一次心跳 `.gallery-watch.log`，
-  跑 `gallery_sync.js` 会告诉你它还在不在、上次同步成没成，不用靠猜。
+同步两条路：双击「同步画廊.bat」（会顺手把按序号命名的旧文件改成卡片编码），
+或挂着「画廊守夜人.bat」。守夜人是**进程不是服务**，窗口一关就停 —— 它每 10 秒写一次心跳，
+`gallery_sync.js` 会直接告诉你它还在不在，不用靠猜。图放进去没反应时，
+**画廊页面会列出没被认领的文件名、并说清该改成什么名字**：多数人的动作是「图一丢、回来刷新页面」，
+命令行里的警告根本看不到，页面上那句提示才是能拦住问题的位置。
+（这段机制为什么会反复出问题、以及怎么钉住的，记在 `AGENTS.md`。）
 
-文件名不像卡片编码、编码对不上任何卡片、或两个文件抢同一张卡时，都会明确报出来，不静默丢图。
-其中「没进画廊的文件」还会连名字一起注进清单，**在画廊页面上直接显示一条提示** ——
-多数人的流程是「图往文件夹里一丢、回来刷新页面」，命令行里的警告他们看不到；
-页面上那句「你放的这 2 个文件没被认领，改成 XXX.png 就行」才是真正能拦住问题的位置。
-
-**图和提示词会对不上，同步时就会报。** `node tools/gallery_check.js` 逐张核对配图与卡片配方
-（题材、画家、反复出现的元素是否同源），同步流程已接进去（同进程调用，不走 spawn ——
-本机 spawn 一律 EBUSY），放图那一刻就能看到出入。
-
-核对结论分三种：**一致**、**有出入**、**还没看过**。后两种都算「必须处理」，
-处理方式只有两条路：改图/改配方，或者**连原因与日期写进 `tools/gallery_check.js` 的
-`ACCEPTED` 挂账名单**，同时给那张卡加 `imgNote`（卡面挂「图≠配方」徽章、详情写明差在哪）。
-挂账之外出现的新出入会让脚本**退出码 1** —— 「图自动进去了、没人看一眼」正是这里最容易
-悄悄发生的事，所以宁可报错。目前 40 张里 33 张一致、7 张挂账：
+**图和提示词会对不上，同步时就报。** `gallery_check.js` 逐张核对图与配方是否同源；
+对不上只有两条路 —— 改图或改配方，或者连原因与日期写进 `ACCEPTED` 挂账、并给卡片加
+`imgNote`（卡面挂「图≠配方」徽章，详情写明差在哪）。挂账之外的新出入会让脚本退出码 1。
+目前 40 张里 33 张一致、7 张挂账：
 
 - `G-02` 极端明暗戏剧：配方卡拉瓦乔、图是提香《哀悼基督》（2026-10-13 挂账，待换图或改配方画家）
 - `G-19` 色域沉默：罗斯科式色域配方上多了一个人形剪影（2026-10-13 挂账）
@@ -261,34 +264,16 @@ node tools/show_prompt.js AT-001 --platform mj
 - `VAR-06` 历史宴集：宫廷宴集配方配了码头劳役场面（2026-10-13 挂账）
 - `VAR-08` 大写意走兽：卡名「走兽」配了禽鸟立石（2026-10-13 挂账；题材 S-25「动物写生」含羽毛，禽鸟不越界，卡名比题材窄）
 
-**图进得去不等于两者是同一件事** —— 用户看着图复制提示词，两者不是一回事却不说，比没图更误导。
+**图进得去不等于两者是同一件事** —— 看着图复制提示词，两者不是一回事却不说，比没图更误导。
+引擎出图的图还要清平台水印与模型自己画的假签名：`python tools/gallery_img.py <出图png> <编码>`。
 
-若图是用引擎出图生成的，清水印与假签名的脚本在 `tools/gallery_img.py`：
-`python tools/gallery_img.py <出图png> <编码>`。平台水印压在右下角且**贴底**，
-模型还会自己画假签名，两样都要清；从左侧等宽等高取带再水平翻转最干净
-（正上方取带会留横向硬接缝且色温对不上）。
+## 出词纪律（引擎自动执行）
 
-**二、换零件。** 抄一张卡，然后把画家从梵高换成谢洛夫，或用 OP-D-02 只留下某位大师的笔法。每一处改动都立刻出词，不用重来。
+三条纪律在出词时自动生效，界面上会说明，不用你记：
 
-**三、受控变形。** 38 个算子做四件事：迁移世纪（OP-E）、迁移媒介（OP-M）、迁移题材（OP-S）、解构取值（OP-D）。
-冲突会自动裁决，不需要你自己判断哪两种风格不能叠。
-
-**四、写脚本。** 拿 `dist/all.json`，用任意语言复现这套组合逻辑；也可以直接 require `assets/forge-kit.js`。
-
-## 出词纪律（引擎自动执行，不用你记）
-
-三条纪律在出词时自动生效，界面上会说明，不需要用户做任何事：
-
-1. **在世艺术家的姓名不进词面。** 判据是生卒年字段（无卒年即在世），
-   姓名仍可用于查找与指代，只是不出现在可粘贴的词面里——以七面锚定画风。
-   已故大师的姓名引用保留，"in the style of 已故大师" 是画风库的标准锚定。
-2. **具体画作标题不进构图词面。** 画家「常见题材」面里命中作品登记表的标题
-   （如 mona lisa）会被移出 tags——写进去模型会去画那幅画，而你要的是
-   「这个画家的画风」。被移出的标题在面板「垫图兜底」区按参考图使用，
-   配参考隔离指令（只取画风，不迁移内容）。
-3. **你自己的话原样追加在末尾。** 主界面「原话」输入框或工作台未命中段的
-   「作为原话追加」：不占任何一面、不参与冲突裁决——「我要清晨薄雾的孤独感」
-   不该去改画家的任何一面。
+1. **在世艺术家的姓名不进词面**（判据是生卒年字段）；已故大师的姓名引用保留。
+2. **具体画作标题不进构图词面** —— 写进去模型会去画那幅画，而你要的是这个画家的画风。
+3. **你自己的话原样追加在末尾**，不占任何一面、不参与冲突裁决。
 
 ## 关于图像与许可
 
