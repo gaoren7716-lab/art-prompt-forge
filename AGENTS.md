@@ -99,12 +99,22 @@ OPTICS / RELATIONS）→ 原子视觉模块（ATOMS）→ 任务与成品模板�
 - motif 里**未登记到 WORKS 的画作标题**（如 moulin de la galette）仍会进词面——
   这是「只隔离可证明安全的」的代价，写在这里不假装没有。
 
+## README 与 docs 是生成物，改模板不改产物
+
+`node tools/build_md.js` 会重写 `README.md` 与 `docs/*.md`（13 篇）。
+**要改内容就改 `tools/build_md.js` 里的模板**，手改产物会被下次生成静默覆盖
+—— 曾经把一整段配图说明直接写进 README，跑一次生成，59 行全没了。
+
+模板里凡是会变的数字都要现算，不要写死：配图张数、一致/挂账张数来自
+`gallery_check.js` 的 tally 与 `ACCEPTED`，加一条挂账 README 就多一行。
+命令清单里不写项数（加一条断言就过期一次）。README 顶部有防呆注释。
+
 ## 回归命令
 
 ```bash
 node tools/check_fields.js    # 字段体检：中英串味、坏字符、非法语义标签
 node tools/build_json.js      # dist/*.json（20 个文件）
-node tools/build_md.js        # README + docs/*.md
+node tools/build_md.js        # README + docs/*.md（改模板，别手改产物）
 node tools/gen_op_meta.js     # 重推算子三字段
 node tools/smoke.js           # 引擎冒烟
 node tools/check_codes.js     # 编码体检
@@ -118,6 +128,27 @@ node tools/gallery_check.js          # 配图与配方是否对得上
 只打印一行「需要 jsdom」然后 **exit code 0**——看到这行就是没跑，不是绿。
 
 改完数据跑一遍全量回归。四项（字段 / 引擎 / 编码 / 界面）必须全绿才算完。
+
+## 发布到 GitHub
+
+仓库 <https://github.com/gaoren7716-lab/art-prompt-forge>（public，main），
+Pages <https://gaoren7716-lab.github.io/art-prompt-forge/>（main 根目录静态托管）。
+
+推送命令（本机实测 32MB / 10 秒，不要丢后台）：
+
+```bash
+git -c credential.helper= -c credential.helper="!'/c/Program Files/GitHub CLI/gh.exe' auth git-credential" \
+    -c http.proxy=http://127.0.0.1:7890 -c http.sslBackend=openssl push origin main
+```
+
+- 第一个空的 `credential.helper=` 是清空列表，否则全局 GCM 会等交互弹窗挂死。
+- `http.sslBackend=openssl` 不能少：默认的 schannel 能握手但请求永不返回。
+- **不要带 `-u`**：它会把带 token 的 URL 写进 `.git/config`。
+
+**配图保持小体积**：仓库里的图是 1200px JPEG q88（40 张 14.7MB）。
+PNG 无损重压缩只省 0%，这条路没有余量 —— 新放 PNG 会让仓库迅速回到 100MB+。
+`node tools/gallery_compress.js` 转 JPEG 并把原图移进 `gallery/_png_backup/`
+（该目录已进 .gitignore，`--restore` 可还原）。
 
 ## 配图链路的两个真源（别再加第三处）
 
