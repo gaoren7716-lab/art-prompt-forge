@@ -102,53 +102,11 @@ function dist(list) {
   (list || []).forEach(e => { const s = e.status || "written"; if (m[s] != null) m[s]++; });
   return m;
 }
-function distRow(name, list) {
-  const d = dist(list);
-  const cells = CORE.STATUS_KEYS.map(k => `${S_ZH[k]} ${d[k]}`).join(" · ");
-  return `| ${name} | ${list.length} | ${cells} |`;
-}
-
 /* ============================================================
  * 1. README —— 总览
  * ============================================================ */
 {
   const s = load.stats(db);
-  /* 配图张数现算 —— 写死一个数，文档就开始说谎 */
-  const galImgs = (function () {
-    try {
-      const man = fs.readFileSync(path.join(__dirname, "..", "assets", "gallery-imgs.js"), "utf8");
-      const m = /^var GALLERY_IMGS = \{([\s\S]*?)\};/m.exec(man);
-      return m ? (m[1].match(/"[A-Z][\w-]*"\s*:/g) || []).length : 0;
-    } catch (e) { return 0; }
-  })();
-  /* 核对结论与挂账明细同样现算。这里曾经写死过「有一张标了不一致」，
-     加一张图那句话立刻就成了假的 —— 而这句假话恰好写在教人怎么看配图的段落里。
-     ACCEPTED 里加一条，README 就多一行，不用人记得同步。 */
-  const GC = (function () { try { return require("./gallery_check.js"); } catch (e) { return null; } })();
-  const galTally = GC ? GC.main({ quiet: true }).tally : { match: 0, partial: 0, unknown: 0 };
-  const galOk = galTally.match;
-  const galOff = galTally.partial + galTally.unknown;
-  const galAcc = (function () {
-    if (!GC || !GC.ACCEPTED) return [];
-    /* 变奏卡的中文名只在页面定义里有，签名卡的在数据里 —— 两张表合起来查，
-       否则 G-02 这类签名卡的挂账行会缺名字，读起来像没写完 */
-    let zh = new Map();
-    db.SIGNATURES.forEach(s => zh.set(s.id, s.zh));
-    try {
-      require("./gallery_sync.js").cardTable().zhById.forEach((v, k) => { if (!zh.has(k)) zh.set(k, v); });
-    } catch (e) { /* 无目录时留空 */ }
-    return Object.keys(GC.ACCEPTED).sort()
-      .map(k => "- `" + k + "`" + (zh.get(k) ? " " + zh.get(k) : "") + "：" + GC.ACCEPTED[k]);
-  })();
-  const region = {};
-  db.PAINTERS.forEach(p => { region[p.region] = (region[p.region] || 0) + 1; });
-  const regionSorted = Object.keys(region).sort((a, b) => region[b] - region[a]);
-  /* 地域分布压成一行：28 行表格对「有多少画家、集中在哪」这个问题是噪音，
-     前几名 + 尾数才是有信息量的部分。 */
-  const regionLine = regionSorted.slice(0, 5)
-    .map(r => r + " " + region[r]).join(" · ")
-    + "，其余 " + (regionSorted.length - 5) + " 个地区共 "
-    + regionSorted.slice(5).reduce((n, r) => n + region[r], 0) + " 位";
 
   /* 画廊墙：README 顶部直接看见成品卡的实图，而不是先读一千字再决定要不要打开。
      图与编号都从清单现算 —— 写着 40 张却只有 18 张图，比不写更糟。
@@ -199,28 +157,6 @@ function distRow(name, list) {
     } catch (e) { return { html: "", shown: 0, total: 0, hidden: [] }; }
   })();
 
-  const relKind = {};
-  db.RELATIONS.forEach(r => { relKind[r.kind] = (relKind[r.kind] || 0) + 1; });
-
-  /* 覆盖缺口：宁可说自己缺什么，也不要让人误以为已经收齐 */
-  const byMvId = {};
-  db.PAINTERS.forEach(p => { if (p.mvId) byMvId[p.mvId] = (byMvId[p.mvId] || 0) + 1; });
-  const lonelyMv = db.MOVEMENTS.filter(m => !byMvId[m.id]);
-  const noWork = db.PAINTERS.filter(p => !db.WORKS.some(w => w.pid === p.id));
-  const notReviewedWorks = db.WORKS.filter(w => (w.status || "written") !== "reviewed");
-  const notTestedAtoms = db.ATOMS.filter(a => (a.status || "") !== "tested");
-  /* 画家目前几乎全是 written，与其让读者以为这是缺陷，不如说清原因 */
-  const painterNote = dist(db.PAINTERS).reviewed === 0
-    ? "画家条目目前全部为 `written`：词条按通行艺术史描述整理，但没有逐条做二手来源交叉核对，`reviewed` 只给了年代与归属有争议的一批名画与外部标准。不要把「已编写」读成「已核实」。"
-    : "";
-
-  /* 编码层：README 里的段码总表直接取自上面的 registry。 */
-  const codeTotal = REGISTRY.total;
-  const codeSegRow = REGISTRY.SEGMENTS.map(s => {
-    const c = s.code === "RL" ? "—（事实说明）" : REGISTRY.composableCount(s.code);
-    return "| `" + s.code + "` | " + s.zh + " | " + s.count + " | " + c + " |";
-  }).join("\n");
-
   out("README.md", `
 <!-- 本文件由 tools/build_md.js 生成。手改会被下次生成覆盖 —— 要改内容请改模板。
      曾经在生成后的 README 上直接改过一整段配图说明，跑一次 build_md.js 全部消失。 -->
@@ -232,94 +168,19 @@ function distRow(name, list) {
 把画风拆成七个面——媒介底材 / 笔法肌理 / 色彩关系 / 光的处理 / 空间构图 / 固定母题 / 精神气质。
 画风因此能当零件用：整条照搬、只取某一面、或者换世纪换媒介换题材。
 
-- **直接抄** —— \`${s.SIGNATURES + 15}\` 张成品卡，全部配了实图，复制即用。
+- **直接抄** —— \`${s.SIGNATURES + 15}\` 张成品卡（\`${galWall.total}\` 张配了实图），复制即用。
 - **组合拼** —— 画家 / 流派 / 名画 / 媒介 / 题材 / 光学 / 原子模块任意叠，\`@\` 强度决定像到几分。
 - **受控变形** —— \`${s.OPERATORS}\` 个算子改写世纪、媒介、题材，或只取某人的某一面。
 
 ## 画廊
 
-共 \`${galWall.total}\` 张成品卡（\`${s.SIGNATURES}\` 张签名卡 + 15 张组合变奏）**全部配了实图**，
-下面按卡片顺序摊开。**图下那个编号就是配图文件名，也是这张卡在在线版里的入口** ——
-看中哪张，进在线版搜这个编号，或打开 \`index.html\` 点那张卡直接复制。
+下面按卡片顺序摊开 \`${galWall.total}\` 张实图。**图下那个编号就是配图文件名，
+也是这张卡在在线版里的入口** —— 看中哪张，进在线版搜这个编号，
+或打开 \`index.html\` 点那张卡直接复制。
 
 ${galWall.html}
-${galWall.hidden.length ? "\n> **上面少了 " + galWall.hidden.length + " 张，不是漏了：** " + galWall.hidden.join("；")
-  + "。图仍在 \`gallery/\` 里（在线画廊能看到），只是不挂在公开仓库首页；换图后自动回来。" : ""}
-
-## 先说清楚这不是什么
-
-**它没有收齐全球画家**：现有 ${s.PAINTERS} 位，覆盖 ${Object.keys(region).length} 个地区。
-数字会变，以本页表格为准，别引用一个固定的「全球 N 位」。
-
-每条记录带四级验证状态，**\`written\` 是默认值** —— 看到它就意味着
-「词写得通，但没人验证过它在模型上真出这个效果」。一条被验证过的和一条只在纸上成立的，
-可信度差一个量级，混在一起会害你调半天参数。
-
-| 状态 | 含义 |
-| --- | --- |
-| \`collected\` 已收录 | 实体已建档，事实与出处已核对，但还没写成提示词 |
-| \`written\` 已编写 | 七面已填满，能直接出提示词，但没在模型上验证过 |
-| \`tested\` 已测试 | 至少在一个模型上跑过并留了结果记录 |
-| \`reviewed\` 已复核 | 有第二个来源交叉核对过，出处、年代、归属均无争议 |
-
-${painterNote ? painterNote + "\n" : ""}
-## 文件导航
-
-| 文件 | 给谁用 |
-| --- | --- |
-| \`index.html\` | 网页配方工坊 + 编码工作台，双击即可用，完全离线 |
-| \`dist/all.json\` | 结构化数据源，给写脚本的人 |
-| \`dist/codes.json\` | 编码对照表（${codeTotal} 条），给要按编码批量组合的人 |
-| \`dist/prompts.json\` | 每条编码对应的实际提示词（tags / neg / gpt / explain / zhGpt），不装引擎也能直接取词 |
-| \`dist/model-capabilities.json\` | 12 个模型的词面策略与参数甜区决策表，附参考隔离指令 |
-| \`docs/*.md\` | 源文档，给要读、要改、要补充的人 |
-| \`SCHEMA.md\` | 数据契约：想新增条目就照这里写 |
-| \`AGENTS.md\` | 给 AI agent 的项目规则：不可让步的约定、出词纪律、回归命令 |
-| \`INDEX.md\` | 一页索引：想干的事 → 去哪里；含决策归属表（谁定 / 跟着谁走） |
-| \`SKILL.md\` | 可安装技能入口：装进 agent 按这份规则用本库 |
-
-## 按编码或中文名取用
-
-每条都有三位编码，编码 / 中文名 / 英文名 / 旧 ID 互相都能解析：
-
-\`\`\`
-PA-125 + 明暗对照 + 单侧窗光 + OP-004
-达·芬奇 + 黄金时刻 + 安静的哀伤
-\`\`\`
-
-在线版顶栏的**编码工作台**查编码、组串、看段码总表；命令行同样能取：
-
-\`\`\`bash
-node tools/show_prompt.js PA-125      # 编码、中文名、英文名都吃
-node tools/show_prompt.js AT-001 --platform mj
-\`\`\`
-
-每条都标了档位：**可直接出图** / **零件需搭配基底**（原子模块、光学词条、算子 ——
-单独跑只剩一句约束词，所以附一份挂在演示基底上的）/ **不进提示词**（来源许可、
-模型实测、冲突规则 —— 会写明为什么）。理由见 \`docs/13-编码手册.md\`。
-
-**段码只表示归属，不含义** —— 可读性靠中文名：
-
-| 段码 | 名称 | 条数 | 可直接组合 |
-| --- | --- | --- | --- |
-${codeSegRow}
-
-标「可组合 0」的段是**元层**：签名卡要整套套用而不是往里加词，任务模板是流程起点，
-冲突规则由引擎自动裁决，来源许可与模型实测是查证用的。
-把它们塞进提示词不会报错，只会让结果莫名其妙，所以解析器会挡掉并在界面上标出来。
-
-## 六层结构
-
-| 层 | 表 | 回答什么问题 |
-| --- | --- | --- |
-| 一 · 全球艺术地图 | \`PAINTERS\` \`MOVEMENTS\` \`WORKS\` | 有谁、有什么流派、有哪些具体作品 |
-| 二 · 参考实体与关系 | \`MEDIUMS\` \`SUBJECTS\` \`OPTICS\` \`RELATIONS\` | 它由什么做成、画的是什么、跟谁有关系 |
-| 三 · 原子视觉模块 | \`ATOMS\`（${s.ATOMS} 条 / 12 类） | 一个可独立取用的视觉单元，带角色与投放面 |
-| 四 · 任务与成品模板 | \`TASKS\` \`SIGNATURES\` | 使用者带着什么诉求来，验收标准是什么 |
-| 五 · 组合与变形规则 | \`OPERATORS\` \`CONFLICTS\` | 怎么改写、两种风格撞车时听谁的 |
-| 六 · 模型适配与验证 | \`TESTS\` \`PROVENANCE\` | 这段词在哪个模型上怎么写、图像能不能商用 |
-
-关系表现有 \`${db.RELATIONS.length}\` 条边：${Object.keys(relKind).map(k => k + " " + relKind[k]).join(" · ")}。
+${galWall.hidden.length ? "\n（墙上少 " + galWall.hidden.length + " 张：" + galWall.hidden.join("；")
+  + "。图仍在 \`gallery/\` 里，在线画廊能看到。）" : ""}
 
 ## 核心设计：七个面
 
@@ -329,132 +190,8 @@ ${FACETS.map(f => "- **" + f.zh + "**（`" + f.k + "`）—— " + f.desc).join(
 
 想要整条就七面全取；想要零件就只取一面；想要融合就甲的笔法 + 乙的色彩 + 丙的空间。
 
-## 库存
-
-| 模块 | 数量 |
-| --- | --- |
-| 画家 | ${s.PAINTERS} |
-| 流派 / 运动 | ${s.MOVEMENTS} |
-| 名画 | ${s.WORKS} |
-| 媒介 / 技法 | ${s.MEDIUMS} |
-| 题材 | ${s.SUBJECTS} |
-| 横切光学词条 | ${s.OPTICS} 组 / ${db.OPTICS.reduce((n, g) => n + (g.items || []).length, 0)} 词 |
-| 原子视觉模块 | ${s.ATOMS} |
-| 变形算子 | ${s.OPERATORS} |
-| 冲突规则 | ${s.CONFLICTS} |
-| 签名卡 | ${s.SIGNATURES} |
-| 任务模板 | ${s.TASKS} |
-| 来源与许可登记 | ${s.PROVENANCE} |
-| 模型实测记录 | ${s.TESTS} |
-| 关系边 | ${db.RELATIONS.length} |
-| **可引用条目（带编码）** | **${codeTotal}** |
-
-### 状态分布
-
-| 表 | 条数 | 状态构成 |
-| --- | --- | --- |
-${[
-  distRow("画家", db.PAINTERS), distRow("流派", db.MOVEMENTS),
-  distRow("名画", db.WORKS), distRow("媒介", db.MEDIUMS),
-  distRow("原子模块", db.ATOMS), distRow("算子", db.OPERATORS),
-  distRow("签名卡", db.SIGNATURES), distRow("任务", db.TASKS),
-  distRow("来源", db.PROVENANCE), distRow("模型实测", db.TESTS)
-].join("\n")}
-
-### 画家的地域分布
-
-${s.PAINTERS} 位画家分布在 ${Object.keys(region).length} 个地区：${regionLine}。
-
-### 覆盖缺口（请连同上表一起读）
-
-${[
-  /* 0 条的那一行不输出 —— 「没有任何画家的流派 0 个：无」是纯噪音 */
-  lonelyMv.length ? "- **没有任何画家的流派 " + lonelyMv.length + " 个**：" + lonelyMv.map(m => m.zh).join("、") : "",
-  "- **还没有配名画的画家 " + noWork.length + " 位**（占 " + (noWork.length / db.PAINTERS.length * 100).toFixed(0) + "%）："
-    + noWork.slice(0, 16).map(p => p.zh).join("、") + (noWork.length > 16 ? " 等" : ""),
-  "- **名画里尚未复核的 " + notReviewedWorks.length + " 幅**：机构归属与年代仍需二次核对",
-  "- **原子模块里未实测的 " + notTestedAtoms.length + " 条**：分区与约束类模块的实际效果还需在模型上验证"
-].filter(Boolean).join("\n")}
-
-## 四种玩法
-
-**一、直接抄。** 打开 \`index.html\` 进「示例画廊」：${s.SIGNATURES + 15} 张成品卡，
-卡面有一句话画面与成分 chips，按钮直接复制；筛选三层（主分类 / 题材 / 色调），视图可切「看图 / 扫编号」。
-
-**二、换零件。** 抄一张卡，把画家从梵高换成谢洛夫，或用 OP-D-02 只留某位大师的笔法。每处改动立刻出词，不用重来。
-
-**三、受控变形。** ${s.OPERATORS} 个算子做四件事：迁移世纪（OP-E）、迁移媒介（OP-M）、迁移题材（OP-S）、解构取值（OP-D）。冲突自动裁决，不用自己判断哪两种风格不能叠。
-
-**四、写脚本。** 拿 \`dist/all.json\` 用任意语言复现这套逻辑，或直接 require \`assets/forge-kit.js\`。
-
-## 配图怎么进画廊
-
-**文件名 = 卡面左上角那个编号**（\`G-01.jpg\` / \`VAR-03.jpg\`），扩展名 png / jpg / webp 都收、大小写不敏感。
-编号不用记 —— 它**能点**，点一下把 \`VAR-01.png\` 复制到剪贴板，拿去重命名图片即可。
-\`assets/gallery-imgs.js\` 是自动生成的派生物，手改会被下次同步覆盖。
-
-同步两条路：双击「同步画廊.bat」（会顺手把按序号命名的旧文件改成卡片编码），
-或挂着「画廊守夜人.bat」。守夜人是**进程不是服务**，窗口一关就停 —— 它每 10 秒写一次心跳，
-\`gallery_sync.js\` 会直接告诉你它还在不在，不用靠猜。图放进去没反应时，
-**画廊页面会列出没被认领的文件名、并说清该改成什么名字**：多数人的动作是「图一丢、回来刷新页面」，
-命令行里的警告根本看不到，页面上那句提示才是能拦住问题的位置。
-（这段机制为什么会反复出问题、以及怎么钉住的，记在 \`AGENTS.md\`。）
-
-**图和提示词会对不上，同步时就报。** \`gallery_check.js\` 逐张核对图与配方是否同源；
-对不上只有两条路 —— 改图或改配方，或者连原因与日期写进 \`ACCEPTED\` 挂账、并给卡片加
-\`imgNote\`（卡面挂「图≠配方」徽章，详情写明差在哪）。挂账之外的新出入会让脚本退出码 1。
-目前 ${galImgs} 张里 ${galOk} 张一致、${galOff} 张挂账：
-
-${galAcc.join("\n")}
-
-**图进得去不等于两者是同一件事** —— 看着图复制提示词，两者不是一回事却不说，比没图更误导。
-引擎出图的图还要清平台水印与模型自己画的假签名：\`python tools/gallery_img.py <出图png> <编码>\`。
-
-## 出词纪律（引擎自动执行）
-
-三条纪律在出词时自动生效，界面上会说明，不用你记：
-
-1. **在世艺术家的姓名不进词面**（判据是生卒年字段）；已故大师的姓名引用保留。
-2. **具体画作标题不进构图词面** —— 写进去模型会去画那幅画，而你要的是这个画家的画风。
-3. **你自己的话原样追加在末尾**，不占任何一面、不参与冲突裁决。
-
-## 关于图像与许可
-
-本库的**代码与原创提示词**是本库的（见 PV-40）。
-但**名画图像不是**——它们分属各馆，各馆许可不同。
-\`dist/commercial-ok-sources.json\` 单独导出了可商用来源清单，
-大英博物馆等非商用机构已明确排除。做商用之前先看那份清单，别把 CC0 套到作品图上。
-
-## 命令
-
-\`\`\`bash
-node tools/check_fields.js     # 字段体检：中英串味、坏字符、非法语义标签
-node tools/build_json.js       # 导出 dist/*.json（含 codes.json / prompts.json）
-node tools/build_md.js         # 导出 docs/*.md 与 README
-node tools/show_prompt.js      # 查单条编码对应的提示词
-node tools/dedupe_role.js      # 清理重复书写的 role 字段（幂等）
-node tools/gen_op_meta.js      # 由算子结构重新推导 preserve/change/forbid
-node tools/stamp_zh.js         # 批量补 zh（幂等，--check 预演）
-
-# 配图三件套：同步只管登记，核对只管对不对得上，转码只管体积
-node tools/gallery_sync.js     # 同步 + 差异报告（--check 只体检 / --rename 序号名改卡片编码）
-node tools/gallery_check.js    # 核对：未挂账的图/配方出入会让退出码 1
-node tools/gallery_compress.js # 1200px PNG 转 JPEG q88（--check 看能省多少 / --restore 还原原图）
-node tools/gallery_watch.js    # 守着 gallery/，图一落盘就自动同步 + 重建（窗口别关）
-\`\`\`
-
-改完数据跑一遍回归（四套必须全绿）：
-
-\`\`\`bash
-node tools/check_fields.js     # 字段体检
-node tools/smoke.js            # 引擎逻辑冒烟
-NODE_PATH=<jsdom路径> node tools/smoke-web.js   # 界面冒烟（需要 jsdom，缺了它只打印一行就退出）
-node tools/check_codes.js      # 编码层体检（九组断言）
-node tools/inventory.js        # 多维盘点：谁还没收、哪个标签没人用
-\`\`\`
-
-项数不写在这里 —— 加一条断言数字就变一次，写死的项数下个月就是假的。
 `);
+
 }
 
 /* ============================================================
