@@ -1,0 +1,14 @@
+# 行尾统一为 LF。
+#
+# 不写这一条的话，core.autocrlf=true 会让 checkout 出的文件是 CRLF，
+# 而构建与同步脚本（Node）写文件用 LF —— 每跑一次构建或同步，git status
+# 就多出一批「只是行尾不同」的假修改，很容易被当成真改动一起提交。
+# 这个仓库的文件几乎全部由脚本生成，所以这个噪声会反复出现。
+* text=auto eol=lf
+
+# 图片按二进制处理，不做任何行尾转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico  binary

@@ -70,6 +70,7 @@ var GALLERY_IMGS = {
   "VAR-15": "gallery/VAR-15.jpg"
 };
 var GALLERY_UNCLAIMED = [];
+
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { GALLERY_IMGS: GALLERY_IMGS, GALLERY_UNCLAIMED: GALLERY_UNCLAIMED };
