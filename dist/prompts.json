@@ -19,7 +19,7 @@
     "counts": [
       {
         "grade": "full",
-        "n": 465
+        "n": 464
       },
       {
         "grade": "part",
@@ -24313,48 +24313,6 @@
       "zhGpt": "画面主体：科幻机械。变形：媒介迁移 · 数字绘景。不要文字、不要标志、不要水印。（中文对照为派生说明：词条级中文来自数据源，画家的细节词面以中文简介概括，出图请以英文词面为准。）",
       "tier": "digital",
       "words": 24,
-      "guardAtoms": [],
-      "regionAtoms": [],
-      "experimental": false,
-      "isolatedMotif": [],
-      "aliveSources": [],
-      "withBase": null,
-      "baseSpec": null
-    },
-    {
-      "code": "SG-022",
-      "oldId": "G-22",
-      "kind": "signature",
-      "kindZh": "签名卡",
-      "zh": "生物机械惊悚",
-      "en": null,
-      "grade": "full",
-      "gradeZh": "可直接出图",
-      "why": null,
-      "note": null,
-      "spec": {
-        "subjects": [
-          "S-04"
-        ],
-        "painters": [
-          {
-            "id": "P-MD08",
-            "w": 1.2
-          }
-        ],
-        "operators": [
-          "OP-D-04"
-        ],
-        "strength": 1,
-        "platform": "sd"
-      },
-      "tags": "reclining nude, figure study, drapery contrast, elongated reclining axis, drapery as dark foil, cold raking highlight, (h.r. giger:1.00), (biomechanical surrealism:1.00), photographic, shallow depth of field, film grain, high fidelity rendering, subtle chromatic aberration",
-      "neg": "lowres, bad anatomy, bad proportions, extra digits, deformed hands, mutated limbs, blurry, jpeg artifacts, watermark, signature, cropped, frame border, duplicate subjects, plastic texture, visible brushstroke, canvas weave, painted texture, uncontrolled style bleed from muted facets, hard edge graphic division, flat colour blocking",
-      "gpt": "A painting of reclining nude, figure study, drapery contrast. Light behaves as cold raking highlight. Space is organised by elongated reclining axis and drapery as dark foil. Rendered in the manner of H.R. Giger. Keep the surface consistent with the chosen medium. No text, no logos, no watermark.",
-      "explain": "由 2 个成分驱动：裸体人物（题材）＋解构 · 只取光（算子）；生效算子：1 个；画质档 photo。",
-      "zhGpt": "画面主体：裸体人物。变形：解构 · 只取光。不要文字、不要标志、不要水印。（中文对照为派生说明：词条级中文来自数据源，画家的细节词面以中文简介概括，出图请以英文词面为准。）",
-      "tier": "photo",
-      "words": 13,
       "guardAtoms": [],
       "regionAtoms": [],
       "experimental": false,

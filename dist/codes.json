@@ -12715,22 +12715,6 @@
     "shadowed": null
   },
   {
-    "code": "SG-022",
-    "oldId": "G-22",
-    "zh": "生物机械惊悚",
-    "en": "",
-    "kind": "signature",
-    "kindZh": "签名卡",
-    "seg": "SG",
-    "composable": false,
-    "legacy": [
-      "G-022"
-    ],
-    "kw": [],
-    "note": "",
-    "shadowed": null
-  },
-  {
     "code": "SG-023",
     "oldId": "G-23",
     "zh": "双画家融合示范",

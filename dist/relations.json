@@ -2460,22 +2460,13 @@
     "code": "RL-274",
     "kind": "realizes",
     "kindZh": "构成模块",
-    "from": "G-22",
-    "to": "AM-801",
-    "status": "written",
-    "note": "生物机械形体需要轮廓线的介入"
-  },
-  {
-    "code": "RL-275",
-    "kind": "realizes",
-    "kindZh": "构成模块",
     "from": "G-25",
     "to": "AM-110",
     "status": "written",
     "note": "摄影迁移要的是低景深与写实镜头"
   },
   {
-    "code": "RL-276",
+    "code": "RL-275",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "MD-01",
@@ -2484,7 +2475,7 @@
     "note": "AAT 中的壁画类概念"
   },
   {
-    "code": "RL-277",
+    "code": "RL-276",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "MD-02",
@@ -2493,7 +2484,7 @@
     "note": "AAT 中的蛋彩画概念"
   },
   {
-    "code": "RL-278",
+    "code": "RL-277",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "MD-11",
@@ -2502,7 +2493,7 @@
     "note": "AAT 中的水墨画概念"
   },
   {
-    "code": "RL-279",
+    "code": "RL-278",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "MD-12",
@@ -2511,7 +2502,7 @@
     "note": "AAT 中的工笔重彩概念"
   },
   {
-    "code": "RL-280",
+    "code": "RL-279",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "MD-13",
@@ -2520,7 +2511,7 @@
     "note": "AAT 中的矿物颜料概念"
   },
   {
-    "code": "RL-281",
+    "code": "RL-280",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "MD-18",
@@ -2529,7 +2520,7 @@
     "note": "AAT 中的丝网版画概念"
   },
   {
-    "code": "RL-282",
+    "code": "RL-281",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "W-01",
@@ -2538,7 +2529,7 @@
     "note": "Wikidata 条目已核对（见 W-01 的 src 字段）"
   },
   {
-    "code": "RL-283",
+    "code": "RL-282",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "W-02",
@@ -2547,7 +2538,7 @@
     "note": "Wikidata 条目已核对"
   },
   {
-    "code": "RL-284",
+    "code": "RL-283",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "W-03",
@@ -2556,7 +2547,7 @@
     "note": "Wikidata 条目已核对"
   },
   {
-    "code": "RL-285",
+    "code": "RL-284",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "S-05",
@@ -2565,7 +2556,7 @@
     "note": "Iconclass 的神话母题分类"
   },
   {
-    "code": "RL-286",
+    "code": "RL-285",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "S-06",
@@ -2574,7 +2565,7 @@
     "note": "Iconclass 的宗教仪式分类"
   },
   {
-    "code": "RL-287",
+    "code": "RL-286",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "S-07",
@@ -2583,7 +2574,7 @@
     "note": "Iconclass 的战争与历史分类"
   },
   {
-    "code": "RL-288",
+    "code": "RL-287",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "S-17",
@@ -2592,7 +2583,7 @@
     "note": "Iconclass 的劳动场景分类"
   },
   {
-    "code": "RL-289",
+    "code": "RL-288",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "P-IT07",
@@ -2601,7 +2592,7 @@
     "note": "ULAN 的达·芬奇条目"
   },
   {
-    "code": "RL-290",
+    "code": "RL-289",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "P-IT10",
@@ -2610,7 +2601,7 @@
     "note": "ULAN 的提香条目"
   },
   {
-    "code": "RL-291",
+    "code": "RL-290",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "P-NE12",
@@ -2619,7 +2610,7 @@
     "note": "ULAN 的伦勃朗条目"
   },
   {
-    "code": "RL-292",
+    "code": "RL-291",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "P-FX01",
@@ -2628,7 +2619,7 @@
     "note": "ULAN 的梵高条目"
   },
   {
-    "code": "RL-293",
+    "code": "RL-292",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "P-ES04",
@@ -2637,7 +2628,7 @@
     "note": "ULAN 的毕加索条目"
   },
   {
-    "code": "RL-294",
+    "code": "RL-293",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "P-JP05",
@@ -2646,7 +2637,7 @@
     "note": "ULAN 的葛饰北斋条目"
   },
   {
-    "code": "RL-295",
+    "code": "RL-294",
     "kind": "aligned_with",
     "kindZh": "对齐任务",
     "from": "P-CN28",
@@ -2655,7 +2646,7 @@
     "note": "ULAN 的徐渭条目"
   },
   {
-    "code": "RL-296",
+    "code": "RL-295",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-01",
@@ -2664,7 +2655,7 @@
     "note": "默认范式卡片"
   },
   {
-    "code": "RL-297",
+    "code": "RL-296",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-01",
@@ -2673,7 +2664,7 @@
     "note": "东方默认范式"
   },
   {
-    "code": "RL-298",
+    "code": "RL-297",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-02",
@@ -2682,7 +2673,7 @@
     "note": "风格借用的起点"
   },
   {
-    "code": "RL-299",
+    "code": "RL-298",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-02",
@@ -2691,7 +2682,7 @@
     "note": "表现主义借用"
   },
   {
-    "code": "RL-300",
+    "code": "RL-299",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-03",
@@ -2700,7 +2691,7 @@
     "note": "媒介迁移"
   },
   {
-    "code": "RL-301",
+    "code": "RL-300",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-04",
@@ -2709,7 +2700,7 @@
     "note": "只取单面"
   },
   {
-    "code": "RL-302",
+    "code": "RL-301",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-05",
@@ -2718,7 +2709,7 @@
     "note": "多源融合"
   },
   {
-    "code": "RL-303",
+    "code": "RL-302",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-06",
@@ -2727,7 +2718,7 @@
     "note": "系列延展"
   },
   {
-    "code": "RL-304",
+    "code": "RL-303",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-07",
@@ -2736,7 +2727,7 @@
     "note": "对照实验"
   },
   {
-    "code": "RL-305",
+    "code": "RL-304",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-08",
@@ -2745,7 +2736,7 @@
     "note": "交付适配"
   },
   {
-    "code": "RL-306",
+    "code": "RL-305",
     "kind": "serves",
     "kindZh": "服务于任务",
     "from": "T-09",

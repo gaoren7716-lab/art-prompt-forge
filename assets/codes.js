@@ -68,14 +68,14 @@ var CODES = (function () {
     /* 二 参考实体与关系 */
     { code: "MD", layer: "entry",  zh: "媒介",     desc: "28 种材料与技法" },
     { code: "SJ", layer: "entry",  zh: "题材",     desc: "26 类画面内容" },
-    { code: "RL", layer: "edge",   zh: "关系",     desc: "306 条边：师承/影响/收藏/使用" },
+    { code: "RL", layer: "edge",   zh: "关系",     desc: "305 条边：师承/影响/收藏/使用" },
     /* 三 原子视觉模块 */
     { code: "AT", layer: "node",   zh: "原子模块", desc: "126 条，12 类，类别见条目详情" },
     { code: "OP", layer: "node",   zh: "光学词条", desc: "84 词，10 组，所属组见条目详情" },
     { code: "OG", layer: "node",   zh: "光学分组", desc: "10 组，分组本身不进提示词" },
     /* 四 任务与成品模板 */
     { code: "TK", layer: "task",   zh: "任务模板", desc: "13 类创作诉求与验收标准" },
-    { code: "SG", layer: "entry",  zh: "签名卡",   desc: "25 张调好的完整配方" },
+    { code: "SG", layer: "entry",  zh: "签名卡",   desc: "24 张调好的完整配方" },
     /* 五 组合与变形规则 */
     { code: "OR", layer: "op",     zh: "变形算子", desc: "38 个受控变形规则，类别见条目详情" },
     { code: "CF", layer: "rule",   zh: "冲突规则", desc: "21 条四级裁决规则" },

@@ -116,11 +116,6 @@ SIGNATURES.push(
   desc:"未来被画成一个可用的产品：透视干净，结构清楚，天气很真实。",
   note:"不要用脏乱的笔触掩盖结构，不清楚的设计就是失败。" },
 
-{ id:"G-22", status:"tested",  zh:"生物机械惊悚", en:"Biomechanical Horror", cat:"现代与想象",
-  spec:{ subjects:["S-04"], painters:[{ id:"P-MD08", w:1.2 }], operators:["OP-D-04"], strength:1.2, platform:"sd" },
-  desc:"金属与骨头长在一起：喷枪的细腻把这个噩梦做得可信。",
-  note:"必须要那种冷的金属高光，笔触一粗就不再像吉格尔。" },
-
 { id:"G-23", status:"tested",  zh:"双画家融合示范", en:"Two Painter Fusion Demo", cat:"变形示范",
   spec:{ subjects:["S-13"], painters:[{ id:"P-FX01", w:0.7 },{ id:"P-JP05", w:0.3 }], operators:["OP-F-01"], strength:1.0, platform:"sd" },
   desc:"梵高的旋笔占七成，北斋的木版结构占三成：主次清楚才不会打架。",

@@ -788,14 +788,17 @@ dom.window.addEventListener("load", () => {
        withImg.length === Math.min(picN, cardCount),
        withImg.length + " / " + cardCount + " 张有图" + (allPictured ? "（全卡已配图）" : ""));
   }
+  /* 画廊条目数随清单动态取，不写死 40：G-22 的配图与卡片已整体删除，
+     清单现为 39 条，写死 40 会让回归误报红。 */
+  const galCount = Object.keys(require("../assets/gallery-imgs.js").GALLERY_IMGS).length;
   ok("看图档每张卡面有一句话画面（desc 上卡面）",
-     $("#galSigs").querySelectorAll(".gcard .gs").length === 40,
+     $("#galSigs").querySelectorAll(".gcard .gs").length === galCount,
      $("#galSigs").querySelectorAll(".gcard .gs").length + " 张");
   ok("卡面画面是具体场景文案（首卡含维米尔的画面句）",
      /一个人、一扇窗/.test($("#galSigs").textContent));
   const galSigs = $("#galSigs").querySelectorAll("[data-gal-sig]");
-  ok("画廊 40 张全铺出来（25 签名卡 + 15 组合变奏）", galSigs.length === 40, galSigs.length + " 张");
-  ok("页签计数与全库一致", $("#nGallery").textContent === "40", "nGallery=" + $("#nGallery").textContent);
+  ok("画廊 " + galCount + " 张全铺出来（签名卡 + 组合变奏）", galSigs.length === galCount, galSigs.length + " 张");
+  ok("页签计数与全库一致", $("#nGallery").textContent === String(galCount), "nGallery=" + $("#nGallery").textContent);
   const varCards = $("#galSigs").querySelectorAll('[data-gal-sig^="VAR-"]');
   ok("组合变奏卡 15 张且卡面显示自己的 id（VAR-xx）",
      varCards.length === 15 &&
@@ -807,13 +810,14 @@ dom.window.addEventListener("load", () => {
   const galIds = Array.from($("#galSigs").querySelectorAll("[data-gfname]"))
     .map(e => e.getAttribute("data-gfname"));
   ok("卡面编号 = 配图文件名（G-xx / VAR-xx），不是数组序号",
-     galIds.length === 40 && galIds.every(t => /^(G-\d{2}|VAR-\d{2})$/.test(t)),
+     galIds.length === galCount && galIds.every(t => /^(G-\d{2}|VAR-\d{2})$/.test(t)),
      galIds.slice(0, 3).join(",") + " … " + galIds.slice(-2).join(","));
-  ok("第 26 张卡面编号是 VAR-01（不拿数组序号 026 冒充）", galIds[25] === "VAR-01", galIds[25]);
+  ok("第 26 张卡面编号是真实编码（不拿数组序号 026 冒充）",
+     /^(G-\d{2}|VAR-\d{2})$/.test(galIds[25]) && galIds[25] === galSigs[25].getAttribute("data-gal-sig"), galIds[25]);
   ok("卡面编号提示了配图文件名（title 里带 .png）",
      /\.png/.test($("#galSigs").querySelector(".gid").getAttribute("title") || ""));
   ok("卡面编号可点：点一下复制文件名",
-     $("#galSigs").querySelectorAll("[data-gfname]").length === 40);
+     $("#galSigs").querySelectorAll("[data-gfname]").length === galCount);
   /* ── 闭环：页面叫用户用的文件名，同步器必须认 ────────────────
      这两处一旦再次分叉，就是当年那个坑（卡面说一套、清单认另一套），
      而分叉当时**不报任何错**：图片放进去毫无反应，页面上也看不出为什么。
@@ -857,10 +861,10 @@ dom.window.addEventListener("load", () => {
   }
   /* beauty-album 式卡片：色卡头 + 编号 + chips + 独立复制行 */
   ok("每张卡都有醒目的「复制提示词」主按钮",
-     $("#galSigs").querySelectorAll("[data-gcopy]").length === 40);
-  ok("每张卡都有负面词按钮", $("#galSigs").querySelectorAll("[data-gneg]").length === 40);
+     $("#galSigs").querySelectorAll("[data-gcopy]").length === galCount);
+  ok("每张卡都有负面词按钮", $("#galSigs").querySelectorAll("[data-gneg]").length === galCount);
   ok("每张卡都有「合成器改用」按钮（左复制 · 右改用）",
-     $("#galSigs").querySelectorAll("[data-gload]").length === 40);
+     $("#galSigs").querySelectorAll("[data-gload]").length === galCount);
   /* 点「合成器改用」→ 铺配方并跳合成器 */
   const trayBeforeGl = $("#tray").querySelectorAll(".tr").length;
   click($("#galSigs").querySelector("[data-gload]"));
@@ -868,8 +872,8 @@ dom.window.addEventListener("load", () => {
      vis("#v-synth") && $("#tray").querySelectorAll(".tr").length >= 1,
      trayBeforeGl + " → " + $("#tray").querySelectorAll(".tr").length);
   click($("#modeTabs").querySelector('[data-mode="gallery"]'));
-  ok("每张卡有色卡头与编号浮层", $("#galSigs").querySelectorAll(".gsw .gid").length === 40);
-  ok("关键词 chips 铺出来", $("#galSigs").querySelectorAll(".gkw span").length >= 40,
+  ok("每张卡有色卡头与编号浮层", $("#galSigs").querySelectorAll(".gsw .gid").length === galCount);
+  ok("关键词 chips 铺出来", $("#galSigs").querySelectorAll(".gkw span").length >= galCount,
      $("#galSigs").querySelectorAll(".gkw span").length + " 枚");
   /* 点卡上的复制按钮：不该把详情浮层带出来；jsdom 无剪贴板，
      走降级路径（手动浮层），只要不抛错即可 */

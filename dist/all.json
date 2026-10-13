@@ -13,15 +13,15 @@
       "WORKS": 104,
       "OPERATORS": 38,
       "CONFLICTS": 21,
-      "SIGNATURES": 25,
+      "SIGNATURES": 24,
       "PROVENANCE": 23,
       "TASKS": 13,
       "ATOMS": 126,
       "TESTS": 12
     },
-    "codeTotal": 779,
+    "codeTotal": 778,
     "codeSegments": 15,
-    "codeRelations": 306,
+    "codeRelations": 305,
     "statusScale": [
       {
         "k": "collected",
@@ -156,7 +156,7 @@
       "signatures": {
         "collected": 0,
         "written": 0,
-        "tested": 25,
+        "tested": 24,
         "reviewed": 0
       },
       "operators": {
@@ -520,8 +520,8 @@
       "code": "RL",
       "layer": "edge",
       "zh": "关系",
-      "desc": "306 条边：师承/影响/收藏/使用",
-      "count": 306,
+      "desc": "305 条边：师承/影响/收藏/使用",
+      "count": 305,
       "composable": 0
     },
     {
@@ -560,8 +560,8 @@
       "code": "SG",
       "layer": "entry",
       "zh": "签名卡",
-      "desc": "25 张调好的完整配方",
-      "count": 25,
+      "desc": "24 张调好的完整配方",
+      "count": 24,
       "composable": 0
     },
     {
@@ -24299,6 +24299,7 @@
       },
       "desc": "一束光从高处劈下来：暗部吃掉一半以上画面，剩下的才是重点。",
       "note": "就算做了博物馆射灯，也别把暗部提亮，提亮就等于取消这张画。",
+      "imgNote": "本卡配图为提香《哀悼基督》，与卡内配方**不是同一件作品**：配方写的是卡拉瓦乔（P-IT14）的明暗戏剧法，图是提香（P-IT10）的宗教哀悼。两者共享「暗背景强明暗 + 宗教群像」的画法，差别在提香偏暖色与丝绸质感、卡拉瓦乔偏强烈直射光。如实标注，不假装一致。",
       "code": "SG-002"
     },
     {
@@ -24725,6 +24726,7 @@
       },
       "desc": "没有形象，只有两块悬着的颜色：看久了会有压力。",
       "note": "边界必须虚得像呼吸，切成硬边方块就不再是罗斯科。",
+      "imgNote": "配图在色域色块前放了一个人形剪影——本卡配方写的是「没有形象，只有两块悬着的颜色」，画面里多了一个具象的人。色调（橙红压深褐）与「看久了会有压力」的调子对得上，色块边缘也比配方的要求硬一些。题材有出入，如实标注。",
       "code": "SG-019"
     },
     {
@@ -24779,32 +24781,6 @@
       "desc": "未来被画成一个可用的产品：透视干净，结构清楚，天气很真实。",
       "note": "不要用脏乱的笔触掩盖结构，不清楚的设计就是失败。",
       "code": "SG-021"
-    },
-    {
-      "id": "G-22",
-      "status": "tested",
-      "zh": "生物机械惊悚",
-      "en": "Biomechanical Horror",
-      "cat": "现代与想象",
-      "spec": {
-        "subjects": [
-          "S-04"
-        ],
-        "painters": [
-          {
-            "id": "P-MD08",
-            "w": 1.2
-          }
-        ],
-        "operators": [
-          "OP-D-04"
-        ],
-        "strength": 1.2,
-        "platform": "sd"
-      },
-      "desc": "金属与骨头长在一起：喷枪的细腻把这个噩梦做得可信。",
-      "note": "必须要那种冷的金属高光，笔触一粗就不再像吉格尔。",
-      "code": "SG-022"
     },
     {
       "id": "G-23",
@@ -25029,8 +25005,7 @@
       "why": "媒介迁移必须同时做减法与加法：只加新媒介词不够，旧媒介词还在就会互相污染。",
       "how": "算子的 neg 字段已经写好了要去掉的旧痕迹，别手动再补一遍负面词，重复堆负面词反而会拉低画面。",
       "sigs": [
-        "G-16",
-        "G-22"
+        "G-16"
       ],
       "code": "TK-004"
     },
@@ -28742,20 +28717,11 @@
     },
     {
       "kind": "realizes",
-      "from": "G-22",
-      "to": "AM-801",
-      "status": "written",
-      "note": "生物机械形体需要轮廓线的介入",
-      "code": "RL-274",
-      "kindZh": "构成模块"
-    },
-    {
-      "kind": "realizes",
       "from": "G-25",
       "to": "AM-110",
       "status": "written",
       "note": "摄影迁移要的是低景深与写实镜头",
-      "code": "RL-275",
+      "code": "RL-274",
       "kindZh": "构成模块"
     },
     {
@@ -28764,7 +28730,7 @@
       "to": "PV-01",
       "status": "written",
       "note": "AAT 中的壁画类概念",
-      "code": "RL-276",
+      "code": "RL-275",
       "kindZh": "对齐任务"
     },
     {
@@ -28773,7 +28739,7 @@
       "to": "PV-01",
       "status": "written",
       "note": "AAT 中的蛋彩画概念",
-      "code": "RL-277",
+      "code": "RL-276",
       "kindZh": "对齐任务"
     },
     {
@@ -28782,7 +28748,7 @@
       "to": "PV-01",
       "status": "written",
       "note": "AAT 中的水墨画概念",
-      "code": "RL-278",
+      "code": "RL-277",
       "kindZh": "对齐任务"
     },
     {
@@ -28791,7 +28757,7 @@
       "to": "PV-01",
       "status": "written",
       "note": "AAT 中的工笔重彩概念",
-      "code": "RL-279",
+      "code": "RL-278",
       "kindZh": "对齐任务"
     },
     {
@@ -28800,7 +28766,7 @@
       "to": "PV-01",
       "status": "written",
       "note": "AAT 中的矿物颜料概念",
-      "code": "RL-280",
+      "code": "RL-279",
       "kindZh": "对齐任务"
     },
     {
@@ -28809,7 +28775,7 @@
       "to": "PV-01",
       "status": "written",
       "note": "AAT 中的丝网版画概念",
-      "code": "RL-281",
+      "code": "RL-280",
       "kindZh": "对齐任务"
     },
     {
@@ -28818,7 +28784,7 @@
       "to": "PV-05",
       "status": "written",
       "note": "Wikidata 条目已核对（见 W-01 的 src 字段）",
-      "code": "RL-282",
+      "code": "RL-281",
       "kindZh": "对齐任务"
     },
     {
@@ -28827,7 +28793,7 @@
       "to": "PV-05",
       "status": "written",
       "note": "Wikidata 条目已核对",
-      "code": "RL-283",
+      "code": "RL-282",
       "kindZh": "对齐任务"
     },
     {
@@ -28836,7 +28802,7 @@
       "to": "PV-05",
       "status": "written",
       "note": "Wikidata 条目已核对",
-      "code": "RL-284",
+      "code": "RL-283",
       "kindZh": "对齐任务"
     },
     {
@@ -28845,7 +28811,7 @@
       "to": "PV-04",
       "status": "written",
       "note": "Iconclass 的神话母题分类",
-      "code": "RL-285",
+      "code": "RL-284",
       "kindZh": "对齐任务"
     },
     {
@@ -28854,7 +28820,7 @@
       "to": "PV-04",
       "status": "written",
       "note": "Iconclass 的宗教仪式分类",
-      "code": "RL-286",
+      "code": "RL-285",
       "kindZh": "对齐任务"
     },
     {
@@ -28863,7 +28829,7 @@
       "to": "PV-04",
       "status": "written",
       "note": "Iconclass 的战争与历史分类",
-      "code": "RL-287",
+      "code": "RL-286",
       "kindZh": "对齐任务"
     },
     {
@@ -28872,7 +28838,7 @@
       "to": "PV-04",
       "status": "written",
       "note": "Iconclass 的劳动场景分类",
-      "code": "RL-288",
+      "code": "RL-287",
       "kindZh": "对齐任务"
     },
     {
@@ -28881,7 +28847,7 @@
       "to": "PV-02",
       "status": "written",
       "note": "ULAN 的达·芬奇条目",
-      "code": "RL-289",
+      "code": "RL-288",
       "kindZh": "对齐任务"
     },
     {
@@ -28890,7 +28856,7 @@
       "to": "PV-02",
       "status": "written",
       "note": "ULAN 的提香条目",
-      "code": "RL-290",
+      "code": "RL-289",
       "kindZh": "对齐任务"
     },
     {
@@ -28899,7 +28865,7 @@
       "to": "PV-02",
       "status": "written",
       "note": "ULAN 的伦勃朗条目",
-      "code": "RL-291",
+      "code": "RL-290",
       "kindZh": "对齐任务"
     },
     {
@@ -28908,7 +28874,7 @@
       "to": "PV-02",
       "status": "written",
       "note": "ULAN 的梵高条目",
-      "code": "RL-292",
+      "code": "RL-291",
       "kindZh": "对齐任务"
     },
     {
@@ -28917,7 +28883,7 @@
       "to": "PV-02",
       "status": "written",
       "note": "ULAN 的毕加索条目",
-      "code": "RL-293",
+      "code": "RL-292",
       "kindZh": "对齐任务"
     },
     {
@@ -28926,7 +28892,7 @@
       "to": "PV-02",
       "status": "written",
       "note": "ULAN 的葛饰北斋条目",
-      "code": "RL-294",
+      "code": "RL-293",
       "kindZh": "对齐任务"
     },
     {
@@ -28935,7 +28901,7 @@
       "to": "PV-02",
       "status": "written",
       "note": "ULAN 的徐渭条目",
-      "code": "RL-295",
+      "code": "RL-294",
       "kindZh": "对齐任务"
     },
     {
@@ -28944,7 +28910,7 @@
       "to": "G-01",
       "status": "written",
       "note": "默认范式卡片",
-      "code": "RL-296",
+      "code": "RL-295",
       "kindZh": "服务于任务"
     },
     {
@@ -28953,7 +28919,7 @@
       "to": "G-07",
       "status": "written",
       "note": "东方默认范式",
-      "code": "RL-297",
+      "code": "RL-296",
       "kindZh": "服务于任务"
     },
     {
@@ -28962,7 +28928,7 @@
       "to": "G-02",
       "status": "written",
       "note": "风格借用的起点",
-      "code": "RL-298",
+      "code": "RL-297",
       "kindZh": "服务于任务"
     },
     {
@@ -28971,7 +28937,7 @@
       "to": "G-18",
       "status": "written",
       "note": "表现主义借用",
-      "code": "RL-299",
+      "code": "RL-298",
       "kindZh": "服务于任务"
     },
     {
@@ -28980,7 +28946,7 @@
       "to": "G-25",
       "status": "written",
       "note": "媒介迁移",
-      "code": "RL-300",
+      "code": "RL-299",
       "kindZh": "服务于任务"
     },
     {
@@ -28989,7 +28955,7 @@
       "to": "G-24",
       "status": "written",
       "note": "只取单面",
-      "code": "RL-301",
+      "code": "RL-300",
       "kindZh": "服务于任务"
     },
     {
@@ -28998,7 +28964,7 @@
       "to": "G-23",
       "status": "written",
       "note": "多源融合",
-      "code": "RL-302",
+      "code": "RL-301",
       "kindZh": "服务于任务"
     },
     {
@@ -29007,7 +28973,7 @@
       "to": "G-12",
       "status": "written",
       "note": "系列延展",
-      "code": "RL-303",
+      "code": "RL-302",
       "kindZh": "服务于任务"
     },
     {
@@ -29016,7 +28982,7 @@
       "to": "G-19",
       "status": "written",
       "note": "对照实验",
-      "code": "RL-304",
+      "code": "RL-303",
       "kindZh": "服务于任务"
     },
     {
@@ -29025,7 +28991,7 @@
       "to": "G-21",
       "status": "written",
       "note": "交付适配",
-      "code": "RL-305",
+      "code": "RL-304",
       "kindZh": "服务于任务"
     },
     {
@@ -29034,7 +29000,7 @@
       "to": "G-14",
       "status": "written",
       "note": "教学拆解",
-      "code": "RL-306",
+      "code": "RL-305",
       "kindZh": "服务于任务"
     }
   ]

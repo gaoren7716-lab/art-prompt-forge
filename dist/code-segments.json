@@ -43,8 +43,8 @@
     "code": "RL",
     "layer": "edge",
     "zh": "关系",
-    "desc": "306 条边：师承/影响/收藏/使用",
-    "count": 306,
+    "desc": "305 条边：师承/影响/收藏/使用",
+    "count": 305,
     "composable": 0
   },
   {
@@ -83,8 +83,8 @@
     "code": "SG",
     "layer": "entry",
     "zh": "签名卡",
-    "desc": "25 张调好的完整配方",
-    "count": 25,
+    "desc": "24 张调好的完整配方",
+    "count": 24,
     "composable": 0
   },
   {
