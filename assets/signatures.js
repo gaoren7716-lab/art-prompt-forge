@@ -119,8 +119,7 @@ SIGNATURES.push(
 { id:"G-22", status:"tested",  zh:"生物机械惊悚", en:"Biomechanical Horror", cat:"现代与想象",
   spec:{ subjects:["S-04"], painters:[{ id:"P-MD08", w:1.2 }], operators:["OP-D-04"], strength:1.2, platform:"sd" },
   desc:"金属与骨头长在一起：喷枪的细腻把这个噩梦做得可信。",
-  note:"必须要那种冷的金属高光，笔触一粗就不再像吉格尔。",
-  imgNote:"配图与配方不是一回事：本卡配方是吉格尔（P-MD08）的生物机械——金属与骨骼长在一起、冷的金属高光；配图里没有任何生物机械结构，是一位躺在暗织物上的人体，明暗调子对得上，题材完全不对。另外这是裸露人体，与本库其他配图（画法、构图、风格）不是一类内容，放在画廊卡面上不合适 —— 建议用本卡配方自己生成一张替换掉 G-22.png。" },
+  note:"必须要那种冷的金属高光，笔触一粗就不再像吉格尔。" },
 
 { id:"G-23", status:"tested",  zh:"双画家融合示范", en:"Two Painter Fusion Demo", cat:"变形示范",
   spec:{ subjects:["S-13"], painters:[{ id:"P-FX01", w:0.7 },{ id:"P-JP05", w:0.3 }], operators:["OP-F-01"], strength:1.0, platform:"sd" },

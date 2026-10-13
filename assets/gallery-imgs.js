@@ -50,7 +50,6 @@ var GALLERY_IMGS = {
   "G-19": "gallery/G-19.jpg",
   "G-20": "gallery/G-20.jpg",
   "G-21": "gallery/G-21.jpg",
-  "G-22": "gallery/G-22.jpg",
   "G-23": "gallery/G-23.jpg",
   "G-24": "gallery/G-24.jpg",
   "G-25": "gallery/G-25.jpg",
